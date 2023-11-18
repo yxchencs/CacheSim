@@ -1,0 +1,28 @@
+// {
+//     "configurations": [
+//         {
+//             "name": "Linux",
+//             "includePath": [
+//                 "${workspaceFolder}/**"
+//             ],
+//             "defines": [],
+//             "compilerPath": "D:/Program Files/TDM-GCC/bin/gcc.exe",
+//             "cStandard": "c11",
+//             "cppStandard": "gnu++14",
+//             "intelliSenseMode": "linux-gcc-x64"
+//         }
+//     ],
+//     "version": 4
+// }
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [],
+            "defines": ["_DEBUG","_UNICODE"],
+            "compilerPath": "/usr/bin/g++",
+            "intelliSenseMode": "${default}"
+        }
+    ],
+    "version": 4
+}

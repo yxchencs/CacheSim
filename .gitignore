@@ -1,0 +1,10 @@
+storage
+results
+trace
+*.o
+*.exe
+*.bin
+*.log
+*.rar
+*.zip
+*.txt
