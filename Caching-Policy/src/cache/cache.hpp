@@ -45,6 +45,7 @@ class fixed_sized_cache
         Callback OnErase = [](const Key &, const Value &) {})
         : cache_policy{policy}, max_cache_size{max_size}, OnEraseCallback{OnErase}
     {
+        victim = -1;
         if (max_cache_size == 0)
         {
             throw std::invalid_argument{"Size of the cache should be non-zero"};

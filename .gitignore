@@ -1,6 +1,8 @@
 storage
 results
 trace
+lib
+output
 *.o
 *.exe
 *.bin

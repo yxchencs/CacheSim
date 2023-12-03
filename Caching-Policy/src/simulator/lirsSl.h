@@ -17,7 +17,7 @@ private:
     ll getVictim();
 };
 
-LirsSl::LirsSl : Sl()
+LirsSl::LirsSl() : Sl()
 {
     st.caching_policy = "lirs";
 }
@@ -42,7 +42,7 @@ void LirsSl::accessKey(const ll &key, const bool &isGet)
 
 ll LirsSl::getVictim()
 {
-    return cache_map.getCurVictim();
+    return cache_map.getVictim();
 }
 
 #endif /*_LIRS_SIMULATOR_H_INCLUDED_*/

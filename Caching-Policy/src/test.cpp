@@ -11,11 +11,11 @@ using namespace std;
 
 int main(){
     // RandomSl simulator;
-    FifoSl simulator; 
+    // FifoSl simulator; 
     // LfuSl simulator;
     // LruSl simulator;
     // LirsSl simulator; 
-    // ArcSl simulator;
+    ArcSl simulator;
     // ClockproSl simulator; 
 
 
