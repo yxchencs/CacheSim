@@ -7,6 +7,8 @@ using namespace std;
 
 class RandomSl : public Sl
 {
+public:
+    RandomSl();
 private:
     RANDOM cache_map;
     bool isCached(const ll &key);
@@ -14,15 +16,10 @@ private:
     ll getVictim();
 };
 
-// RandomSl::RandomSl(){
-//     Sl::Sl();
-//     st.caching_policy = "random";
-// }
+RandomSl::RandomSl():Sl(){
+    st.caching_policy = "random";
+}
 
-// void RandomSl::init(){
-//     Sl::init();
-//     st.caching_policy = "fifo";
-// }
 
 bool RandomSl::isCached(const ll &key)
 {
@@ -31,7 +28,7 @@ bool RandomSl::isCached(const ll &key)
 
 void RandomSl::accessKey(const ll &key, const bool &isGet)
 {
-    return cache_map.Touch(key);
+    cache_map.Touch(key);
 }
 
 ll RandomSl::getVictim(){

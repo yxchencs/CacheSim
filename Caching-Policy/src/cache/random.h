@@ -38,16 +38,18 @@ public:
         if(cache_map.size() >= cache_size){
             curVictim = ReplCandidate();
             Erase(curVictim);
+            victim = curVictim;
         }
 
         Put(key);
-        victim = curVictim;
         // return victim; 
     }
 
     void Erase(const long long &key) 
     {
-        cache_map.erase(key);
+        auto it = cache_map.find(key);
+        if (it != cache_map.end())
+            cache_map.erase(it); // map.erase(e->key);
     }
 
 

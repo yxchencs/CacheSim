@@ -18,7 +18,6 @@ private:
     void accessKey(const ll &key, const bool &isGet);
     ll getVictim();
     vector<ll> getVictimList();
-    bool cacheFull();
     void writeCache(const ll &key);
 };
 
@@ -45,11 +44,6 @@ ll ClockproSl::getVictim()
 vector<ll> ClockproSl::getVictimList()
 {
     return cache_map.getVictimList();
-}
-
-bool ClockproSl::cacheFull()
-{
-    return cache_map.cacheFull();
 }
 
 void ClockproSl::writeCache(const ll &key)

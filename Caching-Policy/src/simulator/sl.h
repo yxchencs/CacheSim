@@ -84,7 +84,6 @@ protected:
     virtual bool isCached(const ll &key) = 0;
     virtual void accessKey(const ll &key, const bool &isGet) = 0;
     virtual ll getVictim() = 0;
-    virtual bool cacheFull() = 0;
 };
 
 bool Sl::readItem(vector<ll> &keys)

@@ -10,13 +10,13 @@
 using namespace std;
 
 int main(){
-    // RandomSl simulator;
+    RandomSl simulator;
     // FifoSl simulator; 
     // LfuSl simulator;
     // LruSl simulator;
     // LirsSl simulator; 
     // ArcSl simulator;
-    ClockproSl simulator; 
+    // ClockproSl simulator; 
 
 
     simulator.test();
