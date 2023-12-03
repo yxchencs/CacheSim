@@ -113,7 +113,7 @@ Finally return victim key.
 */
 long long ARC::Replace(const long long i, const float p)
 {
-    cout<<"Replace"<<endl;
+    cout << "Replace" << endl;
     long long victim = -1;
     if ((mru.size() >= 1) && ((mru.size() > p) || (check(mfug, i)) && (p == mru.size())))
     {
@@ -138,9 +138,9 @@ long long ARC::Replace(const long long i, const float p)
 // if have to replace, return victim key.
 long long ARC::arc_lookup(long long i)
 {
-    cout<<"===access "<<i<<"==="<<endl;
+    cout << "===access " << i << "===" << endl;
     long long victim = -1;
-    if (chunk_map[i])
+    if (chunk_map.count(i)!=0)
     {
         // Case 1: Part A: Page found in MRU
         if (check(mru, i))
@@ -264,7 +264,7 @@ long long ARC::arc_lookup(long long i)
         chunk_map[i]++;
     }
 
-    cout<<"victim="<<victim<<endl;
+    cout << "victim=" << victim << endl;
     printV();
 
     return victim;
@@ -273,7 +273,7 @@ long long ARC::arc_lookup(long long i)
 // A function to check whether key i is cached
 bool ARC::Cached(long long i)
 {
-    if (chunk_map[i])
+    if (chunk_map.count(i)!=0)
     {
         // Page found in MRU & MFU
         if (check(mru, i) || check(mfu, i))
@@ -285,42 +285,41 @@ bool ARC::Cached(long long i)
     return false;
 }
 
-void ARC::printV(){
+void ARC::printV()
+{
     unsigned int l, i;
 
-    cout<<"mrug: ";
+    cout << "mrug: ";
     l = mrug.size();
     for (i = 0; i < l; i++)
     {
-        cout<<mrug[i]<<' ';
+        cout << mrug[i] << ' ';
     }
-    cout<<endl;
+    cout << endl;
 
-    cout<<"mru: ";
+    cout << "mru: ";
     l = mru.size();
     for (i = 0; i < l; i++)
     {
-        cout<<mru[i]<<' ';
+        cout << mru[i] << ' ';
     }
-    cout<<endl;
+    cout << endl;
 
-    cout<<"mfu: ";
+    cout << "mfu: ";
     l = mfu.size();
     for (i = 0; i < l; i++)
     {
-        cout<<mfu[i]<<' ';
+        cout << mfu[i] << ' ';
     }
-    cout<<endl;
+    cout << endl;
 
-
-    cout<<"mfug: ";
+    cout << "mfug: ";
     l = mfug.size();
     for (i = 0; i < l; i++)
     {
-        cout<<mfug[i]<<' ';
+        cout << mfug[i] << ' ';
     }
-    cout<<endl;
+    cout << endl;
 }
-
 
 #endif // __ARC_H__

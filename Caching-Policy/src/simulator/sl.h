@@ -36,6 +36,7 @@ using namespace std;
 class Sl{
 public:
 
+    void test();
     void statistic();
     void closeFile();
     
@@ -52,6 +53,10 @@ protected:
     void init();
     void initFreeCache();
     void initFile();
+
+    virtual bool readItem(vector<ll>& keys) = 0;
+    virtual bool writeItem(vector<ll>& keys) = 0;
+    virtual void writeCache(const ll& key) = 0;
 
     void writeBack(chunk* arg);
 
@@ -77,6 +82,61 @@ protected:
 
     void checkFile(fstream &file);
 };
+
+void Sl::test() {
+    cout << "-----------------------------------------------------------------" << endl;
+    cout << "test start" << endl;
+    st.getStartTime();
+    
+    fstream fin(TRACE_PATH);
+    checkFile(fin);
+    
+    ll curSize; int type; char c; string s;
+    getline(fin, s);
+    
+    struct timeval t0, t3, t1, t2;
+    gettimeofday(&t0,NULL);
+    while (fin >> curKey >> c >> curSize >> c >> type)
+    {
+        if(type==1) continue;
+        cout<<"----------"<<curKey<<' '<<curSize<<' '<<type<<"----------"<<endl;
+
+        st.total_trace_nums++;
+        bool isTraceHit;
+        
+        ll begin = curKey / CHUNK_SIZE;
+        ll end = (curKey + curSize - 1) / CHUNK_SIZE;
+        st.request_size_v.push_back(end - begin + 1);
+        st.total_request_size += end - begin + 1;
+        
+        vector<ll> keys;
+        for (ll i = begin; i <= end; i++) {
+            keys.push_back(i * CHUNK_SIZE);
+        }
+        
+        gettimeofday(&t1,NULL);
+        
+        switch (type){
+        case 0:
+            isTraceHit = readItem(keys);
+            break;
+        case 1:
+            isTraceHit = writeItem(keys);
+            break;
+        }
+
+        gettimeofday(&t2,NULL);
+        long long deltaT = (t2.tv_sec-t1.tv_sec)*1000000+(t2.tv_usec-t1.tv_usec);
+        st.latency_v.push_back(deltaT);
+        st.total_latency += deltaT;
+        printf("trace: %llu time: %lld us total: %lld us\n", st.total_trace_nums, deltaT, st.total_latency);//printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
+        if (isTraceHit) st.hit_trace_nums++;
+        printChunkMap();
+    }
+    gettimeofday(&t3,NULL);
+    st.total_time = (t3.tv_sec-t0.tv_sec)*1000000+(t3.tv_usec-t0.tv_usec);
+    st.getEndTime();
+}
 
 void Sl::checkFile(fstream &file){
     if (!file.is_open()) {

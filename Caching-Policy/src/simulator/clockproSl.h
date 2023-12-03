@@ -7,15 +7,19 @@
 using namespace std;
 
 class ClockproSl : public Sl{
-public:
-    void test(); // 1,4097 ==> 0,4096 + 4096,4096  
 private:
     clockpro::Cache<long long,bool> cache_map{CACHE_SIZE};
 
+    void init();
     bool readItem(vector<ll>& keys);
     bool writeItem(vector<ll>& keys);
     void writeCache(const ll &key);
 };
+
+void ClockproSl::init(){
+    Sl::init();
+    st.caching_policy = "clockpro";
+}
 
 bool ClockproSl::readItem(vector<ll>& keys){
     bool isTraceHit = true;
@@ -104,61 +108,5 @@ void ClockproSl::writeCache(const ll &key){
         writeChunk(true, offset_cache, CHUNK_SIZE);
         writeBack(&chunk_map[victim]);
     }
-}
-
-void ClockproSl::test() {
-    st.caching_policy="lirs";
-    cout << "-----------------------------------------------------------------" << endl;
-    cout << "test start" << endl;
-    st.getStartTime();
-    
-    fstream fin(TRACE_PATH);
-    checkFile(fin);
-    
-    ll curSize; int type; char c; string s;
-    getline(fin, s);
-    
-    struct timeval t0, t3, t1, t2;
-    gettimeofday(&t0,NULL);
-    while (fin >> curKey >> c >> curSize >> c >> type)
-    {
-        if(type==1) continue;
-        cout<<"----------"<<curKey<<' '<<curSize<<' '<<type<<"----------"<<endl;
-
-        st.total_trace_nums++;
-        bool isTraceHit;
-        
-        ll begin = curKey / CHUNK_SIZE;
-        ll end = (curKey + curSize - 1) / CHUNK_SIZE;
-        st.request_size_v.push_back(end - begin + 1);
-        st.total_request_size += end - begin + 1;
-        
-        vector<ll> keys;
-        for (ll i = begin; i <= end; i++) {
-            keys.push_back(i * CHUNK_SIZE);
-        }
-        
-        gettimeofday(&t1,NULL);
-        
-        switch (type){
-        case 0:
-            isTraceHit = readItem(keys);
-            break;
-        case 1:
-            isTraceHit = writeItem(keys);
-            break;
-        }
-
-        gettimeofday(&t2,NULL);
-        long long deltaT = (t2.tv_sec-t1.tv_sec)*1000000+(t2.tv_usec-t1.tv_usec);
-        st.latency_v.push_back(deltaT);
-        st.total_latency += deltaT;
-        printf("trace: %llu time: %lld us total: %lld us\n", st.total_trace_nums, deltaT, st.total_latency);//printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
-        if (isTraceHit) st.hit_trace_nums++;
-        printChunkMap();
-    }
-    gettimeofday(&t3,NULL);
-    st.total_time = (t3.tv_sec-t0.tv_sec)*1000000+(t3.tv_usec-t0.tv_usec);
-    st.getEndTime();
 }
 #endif /*_CLOCKPRO_SIMULATOR_HPP_INCLUDED_*/

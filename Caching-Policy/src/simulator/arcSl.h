@@ -1,183 +1,117 @@
 #ifndef _ARC_SIMULATOR_H_INCLUDED_
-#define	_ARC_SIMULATOR_H_INCLUDED_
+#define _ARC_SIMULATOR_H_INCLUDED_
 #include "../cache/arc.h"
 #include "sl.h"
 using namespace std;
 
-class ArcSl : public Sl{
-public:
-    void test(); // 1,4097 ==> 0,4096 + 4096,4096  
+class ArcSl : public Sl
+{
 private:
     ARC cache_map;
 
-    void readItem();
-    void writeItem();
-    void writeCache(const long long& key);
-
+    void init();
+    bool readItem(vector<ll> &keys);
+    bool writeItem(vector<ll> &keys);
+    void writeCache(const ll &key);
 };
 
-void ArcSl::readItem() {
-    st.read_nums+=1;
-    long long key = curKey;
-    // cache hit
-    if (cache_map.Cached(key)) {
-        st.read_hit_nums+=1;
-        // cout << key << " hit" << endl;
-        cache_map.arc_lookup(key);
-        //printChunk(cache_map.arc_lookup(key));       
-        readCache(chunk_map[key].offset_cache); // cache->buffer  
-    }
-    // cache miss
-    else {
-        // cout << key << " miss" << endl;
-        //readDisk(key); // disk->buffer
-        writeCache(key); // buffer->cache 
-    }
-    // cout <<"[read]" << "key=" << key << ", size=" << CHUNK_SIZE << endl;
+void ArcSl::init()
+{
+    Sl::init();
+    st.caching_policy = "arc";
 }
 
-void ArcSl::writeItem() {   
-    st.write_nums+=1;
-    long long key = curKey;
+bool ArcSl::readItem(vector<ll> &keys)
+{
+    bool isTraceHit = true;
+    st.read_nums += keys.size();
     // cache hit
-    if (cache_map.Cached(key)) {
-        st.write_hit_nums+=1;
-        // cout << key << " hit" << endl;
-        cache_map.arc_lookup(key);
-        coverageCache(&chunk_map[key]);
+    for (int i = 0; i < keys.size(); i++)
+    {
+        if (cache_map.Cached(keys[i]))
+        {
+            st.read_hit_nums += 1;
+            // cache_map.Get(keys[i]);
+            cache_map.arc_lookup(keys[i]);
+            readCache(chunk_map[keys[i]].offset_cache);
+            keys[i] = -1;
+        }
     }
     // cache miss
-    else {
-        // cout << key << " miss" << endl;
-        writeDisk(key);
-        writeCache(key);
+    for (int i = 0; i < keys.size(); i++)
+    {
+        if (keys[i] != -1)
+        {
+            isTraceHit = false;
+            readDisk(keys[i]);
+            writeCache(keys[i]);
+        }
     }
-    // cout << "[write]" << "key=" << key << ", size=" << CHUNK_SIZE << endl;
+    return isTraceHit;
 }
 
-void ArcSl::writeCache(const long long& key) {
-    if(!isWriteCache()) return;
-    // cout << "write cache" << endl;
-    // write cache_map
-    if (!free_cache.empty()) {
-        // cout << "cache not full" << endl;
-        long long offset_cache = free_cache.back();
-        chunk item = {key,offset_cache};
-        chunk_map[key]=item;
-        //cout << "arg->offset_cache " << arg->offset_cache << endl;
+bool ArcSl::writeItem(vector<ll> &keys)
+{
+    bool isTraceHit = true;
+    st.write_nums += keys.size();
+    // cache hit
+    for (int i = 0; i < keys.size(); i++)
+    {
+        if (cache_map.Cached(keys[i]))
+        {
+            st.write_hit_nums += 1;
+            cache_map.arc_lookup(keys[i]);
+            coverageCache(&chunk_map[keys[i]]);
+            keys[i] = -1;
+        }
+    }
+    // cache miss
+    for (int i = 0; i < keys.size(); i++)
+    {
+        if (keys[i] != -1)
+        {
+            isTraceHit = false;
+            cache_map.arc_lookup(keys[i]);
+            writeCache(keys[i]);
+        }
+    }
+    return isTraceHit;
+}
+
+void ArcSl::writeCache(const ll &key)
+{
+    if (!isWriteCache())
+        return;
+
+    // cache not full
+    if (!free_cache.empty())
+    {
+        ll offset_cache = free_cache.back();
+        chunk item = {key, offset_cache};
+        chunk_map[key] = item;
         free_cache.pop_back();
         cache_map.arc_lookup(key);
-        //chunk_map[arg->key] = *arg;
         writeChunk(true, offset_cache, CHUNK_SIZE);
     }
-    else { // cache full
+    // cache full
+    else
+    {
         // cout << "cache full" << endl;
-        long long key_erased = -1;
-        key_erased = cache_map.arc_lookup(key);
-        // cout<<"victim: "<<key_erased<<endl;
-        long long offset_cache = chunk_map[key_erased].offset_cache;
-        chunk_map[key_erased].offset_cache = -1;
-        chunk item = {key,offset_cache};
-        chunk_map[key]=item;
-        //chunk_map[arg->key] = arg;
-        writeChunk(true, offset_cache,CHUNK_SIZE);
-        writeBack(&chunk_map[key_erased]);
+        ll victim = cache_map.arc_lookup(key);
+        assert(victim != -1);
+        ll offset_cache = chunk_map[victim].offset_cache;
+        chunk_map[victim].offset_cache = -1;
+        if (chunk_map.count(key) == 0)
+        {
+            chunk item = {key, offset_cache};
+            chunk_map[key] = item;
+        }
+        else
+        {
+            chunk_map[key].offset_cache = offset_cache;
+        }
+        writeChunk(true, offset_cache, CHUNK_SIZE);
+        writeBack(&chunk_map[victim]);
     }
-    // delete arg;
 }
-
-void ArcSl::test() {
-    st.caching_policy="arc";
-    cout<<"-----------------------------------------------------------------"<<endl;
-    cout<<"test start"<<endl;
-    ifstream fin(TRACE_PATH);
-    long long curSize;
-    int type;
-    char c;
-    string s;
-    if (!fin.is_open()) {
-        cout << "Error: opening trace file fail" << endl;
-        exit(1);
-    }
-    getline(fin, s);
-    // getline(fin, s);
-    // getline(fin, s);
-    timespec t0, t3, t1, t2;
-
-    st.getStartTime();
-    clock_gettime(CLOCK_MONOTONIC, &t0);
-    while (fin >> curKey >> c >> curSize >> c >> type) {
-        if(st.total_trace_nums>3) break;
-        st.total_trace_nums++;
-        // cout << curKey << " " << curSize << " " << type << endl;
-        // long long times=(curSize-1)/CHUNK_SIZE+1;
-        long long begin = curKey/CHUNK_SIZE;
-        long long end = (curKey+curSize-1)/CHUNK_SIZE;
-        vector<long long> keys;
-        for(long long i=begin; i<=end; i++){
-            keys.push_back(i*CHUNK_SIZE);
-        }
-        st.request_size_v.push_back(end-begin+1);
-        st.total_request_size+=end-begin+1;
-        // cout<<"keys.size="<<keys.size()<<endl;
-        bool isTraceHit=true;
-        clock_gettime(CLOCK_MONOTONIC, &t1);
-        // double t1 = clock();
-        switch (type) {
-        case 0:
-            for(int i=0; i<keys.size(); i++){
-                if(cache_map.Cached(keys[i])){
-                    curKey=keys[i];
-                    // cout<<"curKey="<<curKey<<endl;
-                    readItem();
-                    keys[i]=-1;
-                } 
-            }
-            for(int i=0; i<keys.size(); i++){
-                if(keys[i]!=-1){
-                    isTraceHit=false;
-                    curKey=keys[i];
-                    // cout<<"curKey="<<curKey<<endl;
-                    readItem();
-                } 
-            }
-            break;
-        case 1:
-            for(int i=0; i<keys.size(); i++){
-                if(cache_map.Cached(keys[i])){
-                    curKey=keys[i];
-                    // cout<<"curKey="<<curKey<<endl;
-                    writeItem();
-                    keys[i]=-1;
-                } 
-            }
-            for(int i=0; i<keys.size(); i++){
-                if(keys[i]!=-1){
-                    isTraceHit=false;
-                    curKey=keys[i];
-                    // cout<<"curKey="<<curKey<<endl;
-                    writeItem();
-                } 
-            }
-            break;
-        }
-        // double t2 = clock();
-        clock_gettime(CLOCK_MONOTONIC, &t2);
-        unsigned long long deltaT = ((t2.tv_sec - t1.tv_sec) * powl(10, 9) + t2.tv_nsec - t1.tv_nsec); //ns
-        // double deltaT = t2 - t1;
-        st.latency_v.push_back(deltaT);
-        st.total_latency+=deltaT;
-        // cout<<"********** total_time: "<<st.total_time<<"**********"<<endl;
-        // cout<<"trace "<<st.total_trace_nums<<" time: "<<deltaT<<"ns"<<endl;
-        printf("trace: %llu time: %llu ns\n",st.total_trace_nums,deltaT);
-        if(isTraceHit){
-            st.hit_trace_nums++;
-        }
-        // printChunkMap();
-    }
-    clock_gettime(CLOCK_MONOTONIC, &t3);
-    st.getEndTime();
-    st.total_time = ((t3.tv_sec - t0.tv_sec) * powl(10, 9) + t3.tv_nsec - t0.tv_nsec);
-}
-
 #endif /*_ARC_SIMULATOR_H_INCLUDED_*/
