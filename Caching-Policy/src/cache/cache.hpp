@@ -56,12 +56,17 @@ class fixed_sized_cache
         Clear();
     }
 
+    Key getVictim()
+    {
+        return victim;
+    }
+
     /**
      * \brief Put element into the cache
      * \param[in] key Key value to use
      * \param[in] value Value to assign to the given key
      */
-    Key Put(const Key &key, const Value &value) noexcept
+    void Put(const Key &key, const Value &value) noexcept
     {
         operation_guard lock{safe_op};
         auto elem_it = FindElem(key);
@@ -85,7 +90,8 @@ class fixed_sized_cache
             // update previous value
             Update(key, value);
         }
-        return disp_candidate_key;
+        // return disp_candidate_key;
+        victim = disp_candidate_key;
     }
 
     /**
@@ -241,6 +247,7 @@ class fixed_sized_cache
     mutable std::mutex safe_op;
     size_t max_cache_size;
     Callback OnEraseCallback;
+    Key victim;
 };
 } // namespace caches
 

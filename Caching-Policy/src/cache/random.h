@@ -28,17 +28,21 @@ public:
         cache_map[key]=0;
     }
 
-    long long Touch(const long long &key)
+    ll getVictim(){
+        return victim;
+    }
+
+    void Touch(const long long &key)
     {
-        long long victim = -1;
+        long long curVictim = -1;
         if(cache_map.size() >= cache_size){
-            victim = ReplCandidate();
-            Erase(victim);
+            curVictim = ReplCandidate();
+            Erase(curVictim);
         }
 
         Put(key);
-
-        return victim; 
+        victim = curVictim;
+        // return victim; 
     }
 
     void Erase(const long long &key) 
@@ -62,6 +66,7 @@ public:
 private:
     long long cache_size; 
     map<long long, bool> cache_map;
+    ll victim;
 };
 
 #endif // RANDOM_H

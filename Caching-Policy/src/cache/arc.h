@@ -44,8 +44,8 @@ public:
 
 private:
     // creating a hash file through array
-    //  long long Hash[HASHSIZE];
-    map<long long, long long> chunk_map;
+     long long Hash[HASHSIZE];
+    // map<long long, long long> chunk_map;
 
     // we use vector(dynamic array) data structures to represent queues.
     /*
@@ -140,7 +140,8 @@ long long ARC::arc_lookup(long long i)
 {
     cout << "===access " << i << "===" << endl;
     long long victim = -1;
-    if (chunk_map.count(i)!=0)
+    // if (chunk_map.count(i)!=0)
+    if(Hash[i % HASHSIZE])
     {
         // Case 1: Part A: Page found in MRU
         if (check(mru, i))
@@ -180,8 +181,8 @@ long long ARC::arc_lookup(long long i)
                 // Case 4: Part A: Part a: mrug not empty ==> delete mrug
                 if (mru.size() < c)
                 {
-                    // Hash[ mrug[0]% HASHSIZE]--;
-                    chunk_map[mrug[0]]--;
+                    Hash[ mrug[0]% HASHSIZE]--;
+                    // chunk_map[mrug[0]]--;
 
                     queue_delete(mrug);
                     victim = Replace(i, p);
@@ -189,8 +190,8 @@ long long ARC::arc_lookup(long long i)
                 // Case 4: Part A: Part a: mrug empty     ===> delete mru
                 else
                 {
-                    // Hash[ mru[0]% HASHSIZE]--;
-                    chunk_map[mru[0]]--;
+                    Hash[ mru[0]% HASHSIZE]--;
+                    // chunk_map[mru[0]]--;
 
                     queue_delete(mru);
                 }
@@ -202,8 +203,8 @@ long long ARC::arc_lookup(long long i)
                 {
                     if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) == (2 * c))
                     {
-                        // Hash[ mfug[0] % HASHSIZE]--;
-                        chunk_map[mrug[0]]--;
+                        Hash[ mfug[0] % HASHSIZE]--;
+                        // chunk_map[mrug[0]]--;
 
                         queue_delete(mfug);
                     }
@@ -212,8 +213,8 @@ long long ARC::arc_lookup(long long i)
             }
             // Move the page to the most recently used position
             queue_insert(mru, i);
-            // Hash[i % HASHSIZE]++;
-            chunk_map[i]++;
+            Hash[i % HASHSIZE]++;
+            // chunk_map[i]++;
         }
     }
 
@@ -227,8 +228,8 @@ long long ARC::arc_lookup(long long i)
         {
             if (mru.size() < c)
             {
-                // Hash[mrug[0]%HASHSIZE]--;
-                chunk_map[mrug[0]]--;
+                Hash[mrug[0]%HASHSIZE]--;
+                // chunk_map[mrug[0]]--;
 
                 queue_delete(mrug);
                 victim = Replace(i, p);
@@ -236,8 +237,8 @@ long long ARC::arc_lookup(long long i)
 
             else
             {
-                // Hash[mru[0]%HASHSIZE]--;
-                chunk_map[mru[0]]--;
+                Hash[mru[0]%HASHSIZE]--;
+                // chunk_map[mru[0]]--;
                 queue_delete(mru);
             }
         }
@@ -249,8 +250,8 @@ long long ARC::arc_lookup(long long i)
             {
                 if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) == 2 * c)
                 {
-                    // Hash[mfug[0]%HASHSIZE]--;
-                    chunk_map[mfug[0]]--;
+                    Hash[mfug[0]%HASHSIZE]--;
+                    // chunk_map[mfug[0]]--;
 
                     queue_delete(mfug);
                 }
@@ -260,8 +261,8 @@ long long ARC::arc_lookup(long long i)
 
         // Move the page to the most recently used position
         queue_insert(mru, i);
-        // Hash[i % HASHSIZE]++;
-        chunk_map[i]++;
+        Hash[i % HASHSIZE]++;
+        // chunk_map[i]++;
     }
 
     cout << "victim=" << victim << endl;
@@ -273,7 +274,8 @@ long long ARC::arc_lookup(long long i)
 // A function to check whether key i is cached
 bool ARC::Cached(long long i)
 {
-    if (chunk_map.count(i)!=0)
+    // if (chunk_map.count(i)!=0)
+    if(Hash[i % HASHSIZE])
     {
         // Page found in MRU & MFU
         if (check(mru, i) || check(mfu, i))

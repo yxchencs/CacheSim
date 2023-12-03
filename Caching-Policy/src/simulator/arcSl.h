@@ -31,7 +31,6 @@ bool ArcSl::readItem(vector<ll> &keys)
         if (cache_map.Cached(keys[i]))
         {
             st.read_hit_nums += 1;
-            // cache_map.Get(keys[i]);
             cache_map.arc_lookup(keys[i]);
             readCache(chunk_map[keys[i]].offset_cache);
             keys[i] = -1;
@@ -71,7 +70,6 @@ bool ArcSl::writeItem(vector<ll> &keys)
         if (keys[i] != -1)
         {
             isTraceHit = false;
-            cache_map.arc_lookup(keys[i]);
             writeCache(keys[i]);
         }
     }

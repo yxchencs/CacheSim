@@ -10,18 +10,17 @@
 using namespace std;
 
 int main(){
-    //RandomSl simulator;
-    // FifoSl simulator; 
+    // RandomSl simulator;
+    FifoSl simulator; 
     // LfuSl simulator;
     // LruSl simulator;
     // LirsSl simulator; 
-    ArcSl simulator;
+    // ArcSl simulator;
     // ClockproSl simulator; 
 
 
     simulator.test();
     simulator.statistic();
-    simulator.closeFile();
 
     return 0;
 }
