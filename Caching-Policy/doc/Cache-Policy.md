@@ -39,6 +39,11 @@ sample: log106_Messaging.txt
 - 列6: 向硬件提交请求的时间(驱动程序向硬件发出请求的时间)
 - 列7: 请求完成时间(请求完成后调用回调函数的时间)
 
+ref: Revisiting Temporal Storage I/O Behaviors of Smartphone Applications: Analysis and Synthesis
+https://ieeexplore.ieee.org/document/9975405
+ref: I/O Characteristics of Smartphone Applications and Their Implications for eMMC Design
+https://ieeexplore.ieee.org/abstract/document/7314143
+
 ### [Traces – Smartphone](http://visa.lab.asu.edu/web/resources/traces/)
 http://visa.lab.asu.edu/web/resources/traces/traces-smartphone/
 
@@ -52,7 +57,8 @@ The trace file-names are indicating different mobile applications and some file-
 sample:
 7.430000743 	R	     1548752	        24	       744	       Binder_5	fb0ece031db8f58df6849c2211df8c5a-35598db6787678b2acf4d0fc056f3b1d-9fc4e51c5541ecaeefc9da9e7cc55587
 
-ref: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware Trace Collection and I/O Deduplication for Smartphones. In Proceedings of the 33rd International Conference on Massive Storage Systems and Technology (MSST'17), Santa Clara, CA, USA, May 15-19, 2017.
+ref: Improving Flash Memory Performance and Reliability for Smartphones With I/O Deduplication
+cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware Trace Collection and I/O Deduplication for Smartphones. In Proceedings of the 33rd International Conference on Massive Storage Systems and Technology (MSST'17), Santa Clara, CA, USA, May 15-19, 2017.
 ### config
 > 本小节目录结构如下
 > - Caching-Policy
@@ -90,7 +96,9 @@ sudo chmod 777 /mnt/eMMC/*
 10. ls -lht document size
 ## Test
 
-1. bash cp.sh 测试CPU使用率
+测试CPU使用率、内存占用和磁盘读写带宽
+
+bash cpu_mem_disk.sh 
 
 ## trace
 
