@@ -72,7 +72,7 @@ void ArcSl::writeCache(const long long& key) {
     }
     else { // cache full
         // cout << "cache full" << endl;
-        int key_erased = -1;
+        long long key_erased = -1;
         key_erased = cache_map.arc_lookup(key);
         // cout<<"victim: "<<key_erased<<endl;
         long long offset_cache = chunk_map[key_erased].offset_cache;
@@ -107,7 +107,7 @@ void ArcSl::test() {
     st.getStartTime();
     clock_gettime(CLOCK_MONOTONIC, &t0);
     while (fin >> curKey >> c >> curSize >> c >> type) {
-        
+        if(st.total_trace_nums>3) break;
         st.total_trace_nums++;
         // cout << curKey << " " << curSize << " " << type << endl;
         // long long times=(curSize-1)/CHUNK_SIZE+1;

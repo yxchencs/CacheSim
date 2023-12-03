@@ -197,7 +197,7 @@ void Sl::odirectWrite(bool isCache, const long long& offset, const long long& si
 
     strcpy(buffer, "Ram15978");
     res = pwrite64(fd, buffer, size, offset);
-    cout<<"odirectWrite: "<<res<<' '<<fd<<' '<<buffer<<' '<<size<<' '<<offset<<endl;
+    // cout<<"odirectWrite: "<<res<<' '<<fd<<' '<<buffer<<' '<<size<<' '<<offset<<endl;
     // printf("odirectWrite: %d\n",res);
     assert(res == size);
 
@@ -231,13 +231,13 @@ void Sl::initFreeCache() {
 }
 
 void Sl::readCache(const ll& offset_cache) {
-    printf("readCache\n");
+    // printf("readCache\n");
     assert(offset_cache!=-1);
     readChunk(true, offset_cache,CHUNK_SIZE);
 }
 
 void Sl::readDisk(const long long& key) {
-    printf("readDisk\n");
+    // printf("readDisk\n");
     assert(key!=-1);
     readChunk(false, key, CHUNK_SIZE);
 }
@@ -250,13 +250,13 @@ void Sl::printChunkMap() {
 }
 
 void Sl::coverageCache(chunk* arg) {
-    cout<<"coverageCache"<<endl;
+    // cout<<"coverageCache"<<endl;
     arg->dirty = 1;
     writeChunk(true, arg->offset_cache, CHUNK_SIZE);
 }
 
 void Sl::writeDisk(const long long& key) {
-    cout<<"writeDisk"<<endl;
+    // cout<<"writeDisk"<<endl;
     writeChunk(false, key, CHUNK_SIZE);
 }
 

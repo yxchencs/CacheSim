@@ -1,3 +1,7 @@
+#### 如何删除git所有提交历史，如何在不删除本地仓库文件的情况下删除远程仓库文件
+
+https://www.cnblogs.com/raiuny/p/15856085.html
+
 #### 版本回退
 
 > https://zhuanlan.zhihu.com/p/56843134

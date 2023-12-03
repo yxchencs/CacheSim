@@ -17,7 +17,8 @@ const long long DISK_SIZE=500 ; //disk_capacity=DISK_SIZE*CHUNK_SIZE
 // const long long DISK_SIZE=1024;
 // const double p=0.02;
 const long long CHUNK_NUM=500 ;
-const long long CACHE_SIZE=CHUNK_NUM*0.1;
+// const long long CACHE_SIZE=CHUNK_NUM*0.1;
+const long long CACHE_SIZE = 3;
 // const char* TRACE_PATH="/home/odroid/R/Caching-Policy/Caching-Policy/trace/zipfian/1.15_1000000_150000_1_false/trace.txt";
 // const char* TRACE_PATH = "/mnt/d/Projects/Caching-Policy/Caching-Policy/trace/latest/1000000_150000_1_false/trace.txt";
 // const char* TRACE_PATH = "/home/odroid/R/Caching-Policy/Caching-Policy/trace/real/MobileAPPTraces/mojitianqi/mojitianqi.txt";

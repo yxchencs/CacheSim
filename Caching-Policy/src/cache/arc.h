@@ -1,29 +1,29 @@
 #ifndef __ARC_H__
 #define __ARC_H__
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<map>
-#include"../utils/config.h"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include "../utils/config.h"
 #define HASHSIZE 100000
 using namespace std;
 
-class ARC{
+class ARC
+{
 public:
+    ARC(long long cache_size = CACHE_SIZE) : c(cache_size), cacheSize(cache_size) {}
 
-    ARC(long long cache_size=CACHE_SIZE):c(cache_size),cacheSize(cache_size){}
-
-    //A function to check whether Page x is available in 'v' queue
+    // A function to check whether Page x is available in 'v' queue
     int check(vector<long long> v, long long x);
-    
-    //A function to insert page 'i' in 'v' queue.
-    void queue_insert(vector<long long>& v, long long i);
 
-    //function to pop LRU element from queue 'v'
-    void queue_delete(vector<long long>& v);
+    // A function to insert page 'i' in 'v' queue.
+    void queue_insert(vector<long long> &v, long long i);
 
-    //function to move a particular page from one queue to another, 'x' from queue 'v' to queue 'w'
-    void movefrom(vector<long long>& v, vector<long long>& w, long long x);
+    // function to pop LRU element from queue 'v'
+    void queue_delete(vector<long long> &v);
+
+    // function to move a particular page from one queue to another, 'x' from queue 'v' to queue 'w'
+    void movefrom(vector<long long> &v, vector<long long> &w, long long x);
 
     /*
     Replace subroutine as specified in the reference paper
@@ -34,18 +34,20 @@ public:
     */
     long long Replace(const long long i, const float p);
 
-    //function to look object through given key.
-    //if have to replace, return victim key.
+    // function to look object through given key.
+    // if have to replace, return victim key.
     long long arc_lookup(long long i);
 
     bool Cached(long long i);
 
-private:
-    //creating a hash file through array
-    // long long Hash[HASHSIZE];
-    map<long long,long long> chunk_map;
+    void printV();
 
-    //we use vector(dynamic array) data structures to represent queues.
+private:
+    // creating a hash file through array
+    //  long long Hash[HASHSIZE];
+    map<long long, long long> chunk_map;
+
+    // we use vector(dynamic array) data structures to represent queues.
     /*
     A ARC Cache consisting of 4 Queues
         mrug (B1)- Most Recently Used Ghost
@@ -54,51 +56,50 @@ private:
         mfug (B2) - Most Frequently Used Ghost
     */
     vector<long long> mrug, mru, mfu, mfug;
-    float p=0.0;
+    float p = 0.0;
     long long cacheSize;
     long long c;
-
 };
 
-//A function to check whether Page x is available in 'v' queue
+// A function to check whether Page x is available in 'v' queue
 int ARC::check(vector<long long> v, long long x)
 {
-    unsigned int l=v.size(),i;
-    for(i=0;i<l;i++)
+    unsigned int l = v.size(), i;
+    for (i = 0; i < l; i++)
     {
-        if(v[i]==x)
+        if (v[i] == x)
             return 1;
     }
     return 0;
 }
 
-//A function to insert page 'i' in 'v' queue.
-void ARC::queue_insert(vector<long long>& v, long long i)
+// A function to insert page 'i' in 'v' queue.
+void ARC::queue_insert(vector<long long> &v, long long i)
 {
-    if(v.size()==cacheSize)
+    if (v.size() == cacheSize)
         v.erase(v.begin());
     v.push_back(i);
 }
 
-//function to pop LRU element from queue 'v'
-void ARC::queue_delete(vector<long long>& v)
+// function to pop LRU element from queue 'v'
+void ARC::queue_delete(vector<long long> &v)
 {
-    if(v.size()>0)
+    if (v.size() > 0)
         v.erase(v.begin());
 }
 
-//function to move a particular page from one queue to another, 'x' from queue 'v' to queue 'w'
-void ARC::movefrom(vector<long long>& v, vector<long long>& w, long long x)
+// function to move a particular page from one queue to another, 'x' from queue 'v' to queue 'w'
+void ARC::movefrom(vector<long long> &v, vector<long long> &w, long long x)
 {
-    int i,j,l=v.size();
-    for(i=0;i<l;i++)
-        if(v[i]==x)
+    int i, j, l = v.size();
+    for (i = 0; i < l; i++)
+        if (v[i] == x)
         {
-            v.erase(v.begin()+i);
+            v.erase(v.begin() + i);
             break;
         }
 
-    if(w.size()==cacheSize)
+    if (w.size() == cacheSize)
         w.erase(w.begin());
     w.push_back(x);
 }
@@ -112,114 +113,120 @@ Finally return victim key.
 */
 long long ARC::Replace(const long long i, const float p)
 {
-	long long victim=-1;
-    if (( mru.size() >= 1) && (( mru.size() >  p) || (check( mfug,i)) && ( p ==  mru.size())))
-	{
-		if ( mru.size()>0)
-		{
-			movefrom( mru,  mrug,  mru[0]);
+    cout<<"Replace"<<endl;
+    long long victim = -1;
+    if ((mru.size() >= 1) && ((mru.size() > p) || (check(mfug, i)) && (p == mru.size())))
+    {
+        if (mru.size() > 0)
+        {
             victim = mru[0];
-		}
-	}
-	else
-	{
-		if ( mfu.size()>0)
-		{
-			movefrom( mfu,  mfug,  mfu[0]);
+            movefrom(mru, mrug, mru[0]);
+        }
+    }
+    else
+    {
+        if (mfu.size() > 0)
+        {
             victim = mfu[0];
-		}
-	}
+            movefrom(mfu, mfug, mfu[0]);
+        }
+    }
     return victim;
 }
 
-//function to look object through given key.
-//if have to replace, return victim key.
+// function to look object through given key.
+// if have to replace, return victim key.
 long long ARC::arc_lookup(long long i)
 {
-    long long victim=-1;
+    cout<<"===access "<<i<<"==="<<endl;
+    long long victim = -1;
     if (chunk_map[i])
     {
-        //Case 1: Part A: Page found in MRU
-        if(check( mru,i))
+        // Case 1: Part A: Page found in MRU
+        if (check(mru, i))
         {
             // HitCount++;
-            movefrom( mru, mfu,i);
+            movefrom(mru, mfu, i);
         }
-        //Case 1: Part B: Page found in MFU
-        else if(check( mfu,i))
+        // Case 1: Part B: Page found in MFU
+        else if (check(mfu, i))
         {
             // HitCount++;
-            movefrom( mfu, mfu,i);
+            movefrom(mfu, mfu, i);
         }
-        //Case 2: Page found in MRUG
-        else if(check( mrug,i))
+        // Case 2: Page found in MRUG
+        else if (check(mrug, i))
         {
             // MissCount++;
-            p=(float)min((float)c, (float)(p + max((mfug.size()*1.0) / mrug.size(), 1.0)));
+            p = (float)min((float)c, (float)(p + max((mfug.size() * 1.0) / mrug.size(), 1.0)));
             victim = Replace(i, p);
-            movefrom( mrug, mfu,i);
+            movefrom(mrug, mfu, i);
         }
-        //Case 3: Page found in MFUG
-        else if(check( mfug,i))
+        // Case 3: Page found in MFUG
+        else if (check(mfug, i))
         {
             // MissCount++;
-            p=(float)max((float)0.0, (float)(p - max((mrug.size()*1.0) / mfug.size(), 1.0)));
+            p = (float)max((float)0.0, (float)(p - max((mrug.size() * 1.0) / mfug.size(), 1.0)));
             victim = Replace(i, p);
-            movefrom( mfug, mfu,i);
+            movefrom(mfug, mfu, i);
         }
-        //Case 4: Page not found in any of the queues.
-        else{
+        // Case 4: Page not found in any of the queues.
+        else
+        {
             // MissCount++;
-            //Case 4: Part A: When L1 has c pages
-    		if (( mru.size() +  mrug.size()) ==  c)
-    		{
-    			if ( mru.size() <  c)
-    			{
-    				// Hash[ mrug[0]% HASHSIZE]--;
+            // Case 4: Part A: When L1 has c pages / L1 full
+            if ((mru.size() + mrug.size()) == c)
+            {
+                // Case 4: Part A: Part a: mrug not empty ==> delete mrug
+                if (mru.size() < c)
+                {
+                    // Hash[ mrug[0]% HASHSIZE]--;
                     chunk_map[mrug[0]]--;
 
-
-    				queue_delete( mrug);
-    				victim = Replace(i, p);
-    			}
-    			else
-    			{
-    				// Hash[ mru[0]% HASHSIZE]--;
+                    queue_delete(mrug);
+                    victim = Replace(i, p);
+                }
+                // Case 4: Part A: Part a: mrug empty     ===> delete mru
+                else
+                {
+                    // Hash[ mru[0]% HASHSIZE]--;
                     chunk_map[mru[0]]--;
 
-    				queue_delete( mru);
-    			}
-    		}
-    		// Case 4: Part B: L1 has less than c pages
-    		else if (( mru.size() +  mrug.size()) <  c)
-    		{
-    			if (( mru.size() +  mfu.size() +  mrug.size() +  mfug.size()) >=  c)
-    			{
-    				if (( mru.size() +  mfu.size() +  mrug.size() +  mfug.size()) == (2 *  c))
-    				{
-    					// Hash[ mfug[0] % HASHSIZE]--;
+                    queue_delete(mru);
+                }
+            }
+            // Case 4: Part B: L1 has less than c pages
+            else if ((mru.size() + mrug.size()) < c)
+            {
+                if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) >= c)
+                {
+                    if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) == (2 * c))
+                    {
+                        // Hash[ mfug[0] % HASHSIZE]--;
                         chunk_map[mrug[0]]--;
 
-    					queue_delete( mfug);
-    				}
-    				victim = Replace(i,  p);
-    			}
-
-		    }
-            //Move the page to the most recently used position
-            queue_insert( mru, i);
+                        queue_delete(mfug);
+                    }
+                    victim = Replace(i, p);
+                }
+            }
+            // Move the page to the most recently used position
+            queue_insert(mru, i);
             // Hash[i % HASHSIZE]++;
-            chunk_map[i]--;
+            chunk_map[i]++;
         }
     }
 
-    else{
-        //Page not found, increase miss count
-        // MissCount++;
+    else
+    {
+        // Page not found, increase miss count
+        //  MissCount++;
 
-        //Case 4: Part A: L1 has c pages
-        if((mru.size()+mrug.size())==c){
-            if(mru.size()<c){
+        // Case 4: Part A: L1 has c pages
+        if ((mru.size() + mrug.size()) == c)
+        {
+            if (mru.size() < c)
+            {
                 // Hash[mrug[0]%HASHSIZE]--;
                 chunk_map[mrug[0]]--;
 
@@ -227,47 +234,93 @@ long long ARC::arc_lookup(long long i)
                 victim = Replace(i, p);
             }
 
-            else{
+            else
+            {
                 // Hash[mru[0]%HASHSIZE]--;
                 chunk_map[mru[0]]--;
                 queue_delete(mru);
             }
         }
 
-        //Case 4: Part B: L1 less than c pages
-        else if((mru.size()+mrug.size())<c){
-            if((mru.size()+mfu.size()+mrug.size()+mfug.size())>=c){
-                if((mru.size()+mfu.size()+mrug.size()+mfug.size())==2*c){
+        // Case 4: Part B: L1 less than c pages
+        else if ((mru.size() + mrug.size()) < c)
+        {
+            if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) >= c)
+            {
+                if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) == 2 * c)
+                {
                     // Hash[mfug[0]%HASHSIZE]--;
                     chunk_map[mfug[0]]--;
 
                     queue_delete(mfug);
                 }
-                victim = Replace(i,p);
+                victim = Replace(i, p);
             }
         }
 
-        //Move the page to the most recently used position
-        queue_insert( mru, i);
+        // Move the page to the most recently used position
+        queue_insert(mru, i);
         // Hash[i % HASHSIZE]++;
         chunk_map[i]++;
     }
 
+    cout<<"victim="<<victim<<endl;
+    printV();
+
     return victim;
 }
 
-//A function to check whether key i is cached
-bool ARC::Cached(long long i){
+// A function to check whether key i is cached
+bool ARC::Cached(long long i)
+{
     if (chunk_map[i])
     {
-        //Case 1: Part A: Page found in MRU
-        if(check( mru,i)||check( mfu,i)){
+        // Page found in MRU & MFU
+        if (check(mru, i) || check(mfu, i))
+        {
             return true;
         }
-
     }
 
     return false;
 }
+
+void ARC::printV(){
+    unsigned int l, i;
+
+    cout<<"mrug: ";
+    l = mrug.size();
+    for (i = 0; i < l; i++)
+    {
+        cout<<mrug[i]<<' ';
+    }
+    cout<<endl;
+
+    cout<<"mru: ";
+    l = mru.size();
+    for (i = 0; i < l; i++)
+    {
+        cout<<mru[i]<<' ';
+    }
+    cout<<endl;
+
+    cout<<"mfu: ";
+    l = mfu.size();
+    for (i = 0; i < l; i++)
+    {
+        cout<<mfu[i]<<' ';
+    }
+    cout<<endl;
+
+
+    cout<<"mfug: ";
+    l = mfug.size();
+    for (i = 0; i < l; i++)
+    {
+        cout<<mfug[i]<<' ';
+    }
+    cout<<endl;
+}
+
 
 #endif // __ARC_H__
