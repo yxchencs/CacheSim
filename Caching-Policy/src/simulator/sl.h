@@ -55,7 +55,7 @@ protected:
 
     bool readItem(vector<ll> &keys);
     bool writeItem(vector<ll> &keys);
-    void writeCache(const ll &key);
+    virtual void writeCache(const ll &key);
 
     void writeBack(chunk *arg);
 
@@ -84,6 +84,7 @@ protected:
     virtual bool isCached(const ll &key) = 0;
     virtual void accessKey(const ll &key, const bool &isGet) = 0;
     virtual ll getVictim() = 0;
+    virtual bool cacheFull() = 0;
 };
 
 bool Sl::readItem(vector<ll> &keys)
@@ -307,7 +308,7 @@ void Sl::closeFile()
 
 void Sl::printFreeCache()
 {
-    cout << "free cache: " << endl;
+    cout << "free cache: ";
     for (int i = 0; i < free_cache.size(); i++)
     {
         cout << free_cache[i] << ' ';

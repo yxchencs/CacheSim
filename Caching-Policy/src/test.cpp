@@ -15,8 +15,8 @@ int main(){
     // LfuSl simulator;
     // LruSl simulator;
     // LirsSl simulator; 
-    ArcSl simulator;
-    // ClockproSl simulator; 
+    // ArcSl simulator;
+    ClockproSl simulator; 
 
 
     simulator.test();
