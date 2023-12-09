@@ -32,7 +32,7 @@ bool FifoSl::isCached(const ll &key)
 
 void FifoSl::accessKey(const ll &key, const bool &isGet)
 {
-    return cache_map.Put(key, 0);
+    cache_map.Put(key, 0);
 }
 
 ll FifoSl::getVictim()

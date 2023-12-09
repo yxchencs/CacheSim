@@ -17,7 +17,7 @@ private:
     bool isCached(const ll &key);
     void accessKey(const ll &key, const bool &isGet);
     ll getVictim();
-    vector<ll> getVictimList();
+    vector<ll> getVictimList(); // special for clockpro: may multi-victims at one access because of test period
     void writeCache(const ll &key);
 };
 

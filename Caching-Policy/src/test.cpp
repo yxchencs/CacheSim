@@ -5,18 +5,20 @@
 #include "simulator/lirsSl.h"
 #include "simulator/arcSl.h"
 #include "simulator/clockproSl.h"
+#include "simulator/2qSl.h"
 
 
 using namespace std;
 
 int main(){
-    RandomSl simulator;
+    // RandomSl simulator;
     // FifoSl simulator; 
     // LfuSl simulator;
     // LruSl simulator;
     // LirsSl simulator; 
     // ArcSl simulator;
     // ClockproSl simulator; 
+    TqSl simulator;
 
 
     simulator.test();

@@ -26,6 +26,10 @@ https://github.com/anuj-rai-23/Adaptive-Replacement-Cache-ARC-Algorithm
 Clock-Pro
 https://github.com/maximecaron/ClockProCPP
 
+2Q
+https://github.com/Mirageinvo/2Q-cache
+https://blog.csdn.net/Sableye/article/details/118703319
+
 ## Trace
 ### [Nexus5_Kernel_BIOTracer_traces - Nexus 5 Smartphone Traces](http://iotta.snia.org/traces/block-io)
 sample: log106_Messaging.txt
