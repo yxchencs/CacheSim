@@ -11,7 +11,7 @@
 using namespace std;
 
 int main(){
-    // RandomSl simulator;
+    RandomSl simulator;
     // FifoSl simulator; 
     // LfuSl simulator;
     // LruSl simulator;
@@ -19,12 +19,11 @@ int main(){
     // ArcSl simulator;
     // ClockproSl simulator; 
     // TqSl simulator;
-    TinylfuSl simulator;
+    // TinylfuSl simulator;
 
 
     simulator.test();
     simulator.statistic();
-
     return 0;
 }
 /*

@@ -60,7 +60,7 @@ public:
         assert(q_size_);
         // isReplaced = false;
         victim = (ll)-1;
-        PrintTxt();
+        // PrintTxt();
     }
 
     // LIRS(ll size, ll s, ll q)
@@ -121,7 +121,7 @@ public:
 
     bool Add(ll key, ll value)
     {
-        Print();
+        // Print();
         // 访问存在LIR和HIR的数据块
         if (map_.find(key) != map_.end())
         { // find it
@@ -131,7 +131,7 @@ public:
                 ++used_size_;
             }
             Get(key, value);
-            PrintTxt();
+            // PrintTxt();
             return true;
         }
         // 访问不存在LIR和HIR的数据块
@@ -157,7 +157,7 @@ public:
             p->type = HIR;
             Push(p, false);
         }
-        PrintTxt();
+        // PrintTxt();
         return true;
     }
 

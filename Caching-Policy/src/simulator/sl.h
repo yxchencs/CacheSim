@@ -145,14 +145,14 @@ bool Sl::writeItem(vector<ll> &keys)
 
 void Sl::writeCache(const ll &key)
 {
-    cout << "writeCache: ";
+    // cout << "writeCache: ";
     if (!isWriteCache())
         return;
 
     // cache not full
     if (!free_cache.empty())
     {
-        cout << "cache not full" << endl;
+        // cout << "cache not full" << endl;
         ll offset_cache = free_cache.back();
         chunk item = {key, offset_cache};
         chunk_map[key] = item;
@@ -162,7 +162,7 @@ void Sl::writeCache(const ll &key)
     // cache full
     else
     {
-        cout << "cache full" << endl;
+        // cout << "cache full" << endl;
         ll victim = getVictim(); // [lirs] ll victim = cache_map.getCurVictim();
         assert(victim != -1);
         ll offset_cache = chunk_map[victim].offset_cache;
@@ -202,7 +202,7 @@ void Sl::test()
     {
         // if (st.total_trace_nums > 10) break;
 
-        cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
+        // cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
 
         st.total_trace_nums++;
         bool isTraceHit;
@@ -393,7 +393,7 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
 
     strcpy(buffer, "Ram15978");
     res = pwrite64(fd, buffer, size, offset);
-    cout<<"odirectWrite: res: "<<res<<", fd: "<<fd<<", buffer: "<<buffer<<", size: "<<size<<", offset: "<<offset<<endl;
+    // cout<<"odirectWrite: res: "<<res<<", fd: "<<fd<<", buffer: "<<buffer<<", size: "<<size<<", offset: "<<offset<<endl;
     // printf("odirectWrite: %d\n",res);
     assert(res == size);
 
@@ -459,14 +459,14 @@ void Sl::printChunkMap()
 
 void Sl::coverageCache(chunk *arg)
 {
-    cout << "coverageCache" << endl;
+    // cout << "coverageCache" << endl;
     arg->dirty = 1;
     writeChunk(true, arg->offset_cache, CHUNK_SIZE);
 }
 
 void Sl::writeDisk(const long long &key)
 {
-    cout << "writeDisk" << endl;
+    // cout << "writeDisk" << endl;
     writeChunk(false, key, CHUNK_SIZE);
 }
 

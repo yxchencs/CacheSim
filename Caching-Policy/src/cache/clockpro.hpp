@@ -236,13 +236,13 @@ namespace clockpro
 
 		bool Set(k key, v value)
 		{
-			cout << "===access " << key << "===" << endl;
-			cout<<"cacheFull: "<<cacheFull()<<endl;
+			// cout << "===access " << key << "===" << endl;
+			// cout<<"cacheFull: "<<cacheFull()<<endl;
 			victimList.clear();
 			int cnt = cache_map.count(key); // Entryref mentry; bool found = map.find(key, mentry);
 			if (!cnt)						// miss
 			{
-				cout<<"Case 1: miss"<<endl;
+				// cout<<"Case 1: miss"<<endl;
 				// Allocate memory outside of holding cache the lock
 				auto e = new Entry<k, v>(false, key, value, ptCold);
 				// no cache entry?  add it
@@ -250,13 +250,13 @@ namespace clockpro
 				std::unique_lock<std::mutex> lockx(cacheMutex);
 				meta_add(e);
 				count_cold++;
-				printCacheMap();
+				// printCacheMap();
 				return true;
 			}
 			Entryref mentry = cache_map.at(key);
 			if (mentry->ptype == ptTest) // miss (NonResidentHit)
 			{
-				cout<<"Case 2: miss (NonResidentHit)"<<endl;
+				// cout<<"Case 2: miss (NonResidentHit)"<<endl;
 				std::unique_lock<std::mutex> lockx(cacheMutex);
 				// cache entry was a test page
 				if (_cold_capacity < _capacity)
@@ -270,16 +270,16 @@ namespace clockpro
 				cache_map[key] = mentry;
 				meta_add(mentry);
 				count_hot++;
-				printCacheMap();
+				// printCacheMap();
 				return true;
 			}
 			else
 			{ // Hit
-				cout<<"Case 3: hit"<<endl;
+				// cout<<"Case 3: hit"<<endl;
 				// cache entry was a hot or cold page
 				mentry->val = value;
 				mentry->ref = true;
-				printCacheMap();
+				// printCacheMap();
 				return false;
 			}
 		}
@@ -297,7 +297,7 @@ namespace clockpro
 
 		void meta_add(Entryref r)
 		{
-			cout<<"meta_add: "<<r->key<<endl;
+			// cout<<"meta_add: "<<r->key<<endl;
 			evict();
 			if (hand_hot == nullptr)
 			{
@@ -310,7 +310,7 @@ namespace clockpro
 			{
 				// Add meta data after hand hot
 				hand_hot->Link(r);
-				cout<<"hand_hot->Next(): "<<hand_hot->Next()->key<<endl;
+				// cout<<"hand_hot->Next(): "<<hand_hot->Next()->key<<endl;
 			}
 
 			if (hand_cold == hand_hot)
@@ -326,7 +326,7 @@ namespace clockpro
 
 		void meta_del(Entryref e, bool deleteNode = true)
 		{
-			cout<<"meta_del: "<<e->key<<endl;
+			// cout<<"meta_del: "<<e->key<<endl;
 			e->ptype = ptEmpty;
 			e->ref = false;
 			e->val = {};
@@ -358,7 +358,7 @@ namespace clockpro
 
 		void evict()
 		{
-			printf("evict\n");
+			// printf("evict\n");
 			while (_capacity <= count_hot + count_cold)
 			{
 				run_hand_cold();
@@ -367,8 +367,8 @@ namespace clockpro
 
 		void run_hand_cold()
 		{
-			printf("run_hand_cold: ");
-			cout << hand_cold->key << endl;
+			// printf("run_hand_cold: ");
+			// cout << hand_cold->key << endl;
 			auto mentry = hand_cold;
 			if (mentry->ptype == ptCold)
 			{
@@ -389,7 +389,7 @@ namespace clockpro
 
 					victim = mentry->key;
 					victimList.push_back(victim);
-					cout << "curVictim: " << victim << ", ptype: " << pageTypeToString(mentry->ptype) << endl;
+					// cout << "curVictim: " << victim << ", ptype: " << pageTypeToString(mentry->ptype) << endl;
 
 					while (_capacity < count_test)
 					{
@@ -401,15 +401,15 @@ namespace clockpro
 			hand_cold = hand_cold->Next();
 			while (_capacity - _cold_capacity < count_hot)
 			{
-				cout<<_capacity<<'-'<<_cold_capacity<<'?'<<count_hot<<endl;
+				// cout<<_capacity<<'-'<<_cold_capacity<<'?'<<count_hot<<endl;
 				run_hand_hot();
 			}
 		}
 
 		void run_hand_hot()
 		{
-			printf("run_hand_hot: ");
-			cout << hand_hot->key << endl;
+			// printf("run_hand_hot: ");
+			// cout << hand_hot->key << endl;
 			if (hand_hot == hand_test)
 			{
 				run_hand_test();
@@ -434,8 +434,8 @@ namespace clockpro
 
 		void run_hand_test()
 		{
-			printf("run_hand_test: ");
-			cout << hand_test->key << endl;
+			// printf("run_hand_test: ");
+			// cout << hand_test->key << endl;
 			if (hand_test == hand_cold)
 			{
 				run_hand_cold();

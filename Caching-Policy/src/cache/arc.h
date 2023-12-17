@@ -116,7 +116,7 @@ Finally return victim key.
 */
 void ARC::Replace(const long long i, const float p)
 {
-    cout << "Replace" << endl;
+    // cout << "Replace" << endl;
     long long curVictim = -1;
     if ((mru.size() >= 1) && ((mru.size() > p) || (check(mfug, i)) && (p == mru.size())))
     {
@@ -142,28 +142,28 @@ void ARC::Replace(const long long i, const float p)
 // if have to replace, return victim key.
 void ARC::arc_lookup(long long i)
 {
-    cout << "===access " << i << "===" << endl;
+    // cout << "===access " << i << "===" << endl;
     // if (chunk_map.count(i)!=0)
     if(Hash[i % HASHSIZE])
     {
         // Case 1: Part A: Page found in MRU
         if (check(mru, i))
         {
-            cout<<"Case 1: Part A"<<endl;
+            // cout<<"Case 1: Part A"<<endl;
             // HitCount++;
             movefrom(mru, mfu, i);
         }
         // Case 1: Part B: Page found in MFU
         else if (check(mfu, i))
         {
-            cout<<"Case 1: Part B"<<endl;
+            // cout<<"Case 1: Part B"<<endl;
             // HitCount++;
             movefrom(mfu, mfu, i);
         }
         // Case 2: Page found in MRUG
         else if (check(mrug, i))
         {
-            cout<<"Case 2"<<endl;
+            // cout<<"Case 2"<<endl;
             // MissCount++;
             p = (float)min((float)c, (float)(p + max((mfug.size() * 1.0) / mrug.size(), 1.0)));
             Replace(i, p);
@@ -172,7 +172,7 @@ void ARC::arc_lookup(long long i)
         // Case 3: Page found in MFUG
         else if (check(mfug, i))
         {
-            cout<<"Case 3"<<endl;
+            // cout<<"Case 3"<<endl;
             // MissCount++;
             p = (float)max((float)0.0, (float)(p - max((mrug.size() * 1.0) / mfug.size(), 1.0)));
             Replace(i, p);
@@ -188,7 +188,7 @@ void ARC::arc_lookup(long long i)
                 // Case 4: Part A: Part a: mrug not empty ==> delete mrug
                 if (mru.size() < c)
                 {
-                    cout<<"Case 4: Part A: Part a"<<endl;
+                    // cout<<"Case 4: Part A: Part a"<<endl;
                     Hash[ mrug[0]% HASHSIZE]--;
                     // chunk_map[mrug[0]]--;
 
@@ -198,7 +198,7 @@ void ARC::arc_lookup(long long i)
                 // Case 4: Part A: Part b: mrug empty     ===> delete mru
                 else
                 {
-                    cout<<"Case 4: Part A: Part b"<<endl;
+                    // cout<<"Case 4: Part A: Part b"<<endl;
                     Hash[ mru[0]% HASHSIZE]--;
                     // chunk_map[mru[0]]--;
                     victim = mru[0];
@@ -208,7 +208,7 @@ void ARC::arc_lookup(long long i)
             // Case 4: Part B: L1 has less than c pages
             else if ((mru.size() + mrug.size()) < c)
             {
-                cout<<"Case 4: Part B"<<endl;
+                // cout<<"Case 4: Part B"<<endl;
                 if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) >= c)
                 {
                     if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) == (2 * c))
@@ -236,7 +236,7 @@ void ARC::arc_lookup(long long i)
         // Case 4: Part A: L1 has c pages / L1 full
         if ((mru.size() + mrug.size()) == c)
         {
-            cout<<"Case 5: Part A"<<endl;
+            // cout<<"Case 5: Part A"<<endl;
             if (mru.size() < c)
             {
                 Hash[mrug[0]%HASHSIZE]--;
@@ -258,7 +258,7 @@ void ARC::arc_lookup(long long i)
         // Case 4: Part B: L1 less than c pages
         else if ((mru.size() + mrug.size()) < c)
         {
-            cout<<"Case 5: Part B"<<endl;
+            // cout<<"Case 5: Part B"<<endl;
             if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) >= c)
             {
                 if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) == 2 * c)
@@ -278,8 +278,8 @@ void ARC::arc_lookup(long long i)
         // chunk_map[i]++;
     }
 
-    cout << "victim=" << victim << endl;
-    printV();
+    // cout << "victim=" << victim << endl;
+    // printV();
 
 }
 

@@ -48,7 +48,7 @@ cache_2q<Key>::cache_2q(size_t cache_size)
       victim_(-1)
 {
     assert(cache_size >= 3);
-    printSize();
+    // printSize();
 }
 
 // change key with A_m.head()
@@ -64,7 +64,7 @@ void cache_2q<Key>::move_to_A_m_head(Key key)
 template <typename Key>
 void cache_2q<Key>::add_to_A_m(Key key)
 {
-    cout<<"add_to_A_m: "<<key<<endl;
+    // cout<<"add_to_A_m: "<<key<<endl;
     A_m_.push_front(key);
     A_m_hash_[key] = A_m_.begin();
 }
@@ -72,7 +72,7 @@ void cache_2q<Key>::add_to_A_m(Key key)
 template <typename Key>
 void cache_2q<Key>::add_to_A_in(Key key)
 {
-    cout<<"add_to_A_in: "<<key<<endl;
+    // cout<<"add_to_A_in: "<<key<<endl;
     A_in_.push_front(key);
     A_in_hash_[key] = A_in_.begin();
 }
@@ -84,7 +84,7 @@ void cache_2q<Key>::eject_from_A_in()
     A_in_hash_.erase(*(--it));
     victim_ = *it;
     A_in_.pop_back(); 
-    cout<<"eject_from_A_in: "<<victim_<<endl;
+    // cout<<"eject_from_A_in: "<<victim_<<endl;
 }
 
 template <typename Key>
@@ -94,13 +94,13 @@ void cache_2q<Key>::eject_from_A_m()
     A_m_hash_.erase(*(--it));
     victim_ = *it;
     A_m_.pop_back(); 
-    cout<<"eject_from_A_m: "<<victim_<<endl;
+    // cout<<"eject_from_A_m: "<<victim_<<endl;
 }
 
 template <typename Key>
 void cache_2q<Key>::eject_to_A_out()
 {
-    cout<<"eject_to_A_out: "<<victim_<<endl;
+    // cout<<"eject_to_A_out: "<<victim_<<endl;
     assert(A_out_.size() <= A_out_size_);
     if (A_out_.size() >= A_out_size_)
     {
@@ -122,7 +122,7 @@ void cache_2q<Key>::eject_to_A_out()
 template <typename Key>
 void cache_2q<Key>::reclaimfor(Key key)
 {
-    cout<<"reclaimfor: "<<key<<endl;
+    // cout<<"reclaimfor: "<<key<<endl;
     if (A_in_.size() >= A_in_size_)
     {
         eject_from_A_in();
@@ -139,35 +139,35 @@ template <typename Key>
 void cache_2q<Key>::touch(Key key)
 {
     victim_  = -1; /// reset victim;
-    cout << "===access " << key << "===" << endl;
+    // cout << "===access " << key << "===" << endl;
     // [hit] key in A_m
     if (A_m_hash_.find(key) != A_m_hash_.end())
     {
-        cout<<"[hit] key in A_m"<<endl;
+        // cout<<"[hit] key in A_m"<<endl;
         move_to_A_m_head(key);
     }
     // [miss] key in A_out
     else if (A_out_hash_.find(key) != A_out_hash_.end())
     {
-        cout<<"[miss] key in A_out"<<endl;
+        // cout<<"[miss] key in A_out"<<endl;
         reclaimfor(key);
-        // eject_from_A_out(key);
+        // eject_from_A_out(key); // useless for now
         add_to_A_m(key);
     }
     // [hit] key in A_in
     else if (A_in_hash_.find(key) != A_in_hash_.end())
     {
-        cout<<"[hit] key in A_in"<<endl;
+        // cout<<"[hit] key in A_in"<<endl;
         // do nothing
     }
     // [miss] key in no queue
     else
     {
-        cout<<"[miss] key in no queue"<<endl;
+        // cout<<"[miss] key in no queue"<<endl;
         reclaimfor(key);
         add_to_A_in(key);
     }
-    print();
+    // print();
 }
 
 template <typename Key>
@@ -187,7 +187,7 @@ bool cache_2q<Key>::cached(Key key)
 template <typename Key>
 Key cache_2q<Key>::getVictim()
 {
-    cout << "2q->victim: " << victim_ << endl;
+    // cout << "2q->victim: " << victim_ << endl;
     return victim_;
 }
 

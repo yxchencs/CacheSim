@@ -48,15 +48,15 @@ vector<ll> ClockproSl::getVictimList()
 
 void ClockproSl::writeCache(const ll &key)
 {
-    cout << "writeCache: ";
+    // cout << "writeCache: ";
     if (!isWriteCache())
         return;
 
-    printFreeCache();
+    // printFreeCache();
     // cache not full
     if (!free_cache.empty())
     {
-        cout << "cache not full" << endl;
+        // cout << "cache not full" << endl;
         ll offset_cache = free_cache.back();
         chunk item = {key, offset_cache};
         chunk_map[key] = item;
@@ -66,7 +66,7 @@ void ClockproSl::writeCache(const ll &key)
     // cache full
     else
     {
-        cout << "cache full" << endl;
+        // cout << "cache full" << endl;
         vector<ll> victimList = getVictimList(); // [lirs] ll victim = cache_map.getCurVictim();
         for (int i = 0; i < victimList.size(); i++)
         {
