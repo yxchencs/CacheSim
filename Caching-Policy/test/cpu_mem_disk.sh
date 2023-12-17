@@ -1,9 +1,14 @@
 #!/bin/sh
 
-rm cpu_usage.log
-rm mem_used.log
-rm top_output.txt
-rm disk_read_wrtn.log
+save_directory="../results/"
+cpu_usage_addr="${save_directory}cpu_usage.log"
+mem_used_addr="${save_directory}mem_used.log"
+disk_read_wrtn_addr="${save_directory}disk_read_wrtn.log"
+top_output_addr="top_output.txt"
+rm "$cpu_usage_addr"
+rm "$mem_used_addr"
+rm "$disk_read_wrtn_addr"
+rm "$top_output_addr"
 
 eMMC_name="mmcblk0"
 sd_name="mmcblk1"
@@ -16,7 +21,7 @@ while true; do
     mem_used=$(free -m | grep "Mem:" | awk '{print $3}')
 
     # 运行top命令以批处理模式，输出到临时文件
-    top -b -n 1 > top_output.txt
+    top -b -n 1 > "$top_output_addr"
 
     # 运行 iostat 命令并保存输出
     iostat_output=$(iostat -d)
@@ -44,9 +49,9 @@ while true; do
     # echo "${sd_name}: kB_read = $read_data2, kB_wrtn = $write_data2"
 
     # 保存结果
-    echo "${mem_used} $time" >> mem_used.log
-    echo "${cpu_usage}% $time" >> cpu_usage.log
-    echo "${eMMC_name}: kB_read = $read_data1, kB_wrtn = $write_data1; ${sd_name}: kB_read = ${read_data2}, kB_wrtn = ${write_data2}; $time" >> disk_read_wrtn.log
+    echo "${cpu_usage}% $time" >> "$cpu_usage_addr"
+    echo "${mem_used} $time" >> "$mem_used_addr"
+    echo "${eMMC_name}: kB_read = $read_data1, kB_wrtn = $write_data1; ${sd_name}: kB_read = ${read_data2}, kB_wrtn = ${write_data2}; $time" >> "$disk_read_wrtn_addr"
 
     # 清理临时文件
     rm top_output.txt
