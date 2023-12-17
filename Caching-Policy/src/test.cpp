@@ -11,19 +11,29 @@
 using namespace std;
 
 int main(){
-    RandomSl simulator;
-    // FifoSl simulator; 
-    // LfuSl simulator;
-    // LruSl simulator;
-    // LirsSl simulator; 
-    // ArcSl simulator;
-    // ClockproSl simulator; 
-    // TqSl simulator;
-    // TinylfuSl simulator;
+    Sl *sim = nullptr;
+    switch(POLICY){
+        case PolicyType::RANDOM: 
+            sim = new RandomSl();
+            break;
+        case PolicyType::FIFO:
+            sim = new FifoSl();
+        case PolicyType::LFU:
+            sim = new LfuSl();
+        case PolicyType::LRU:
+            sim = new LruSl();
+        case PolicyType::LIRS:
+            sim = new LirsSl();
+        case PolicyType::ARC:
+            sim = new ArcSl();
+        case PolicyType::CLOCKPRO:
+            sim = new ClockproSl();
+        case PolicyType::TINYLFU:
+            sim = new TinylfuSl();
+    }
 
-
-    simulator.test();
-    simulator.statistic();
+    sim->test();
+    sim->statistic();
     return 0;
 }
 /*
