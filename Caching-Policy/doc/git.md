@@ -38,9 +38,13 @@ git push -f
 ```
 
 #### 撤销commit
-撤销上一个commit
+##### 不改动工作区间的代码
 ```shell
 git reset --soft HEAD^
+```
+##### 改动工作区间的代码
+```shell
+git reset --hard HEAD^
 ```
 
 #### 查看commit信息

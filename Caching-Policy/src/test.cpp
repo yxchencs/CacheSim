@@ -6,7 +6,7 @@
 #include "simulator/arcSl.h"
 #include "simulator/clockproSl.h"
 #include "simulator/2qSl.h"
-
+#include "simulator/tinylfuSl.h"
 
 using namespace std;
 
@@ -18,7 +18,8 @@ int main(){
     // LirsSl simulator; 
     // ArcSl simulator;
     // ClockproSl simulator; 
-    TqSl simulator;
+    // TqSl simulator;
+    TinylfuSl simulator;
 
 
     simulator.test();
