@@ -28,7 +28,7 @@ private:
 
 TinylfuSl::TinylfuSl() : Sl()
 {
-    st.caching_policy = "2q";
+    st.caching_policy = "tinylfu";
 }
 
 bool TinylfuSl::isCached(const ll &key)

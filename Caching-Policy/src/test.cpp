@@ -18,18 +18,28 @@ int main(){
             break;
         case PolicyType::FIFO:
             sim = new FifoSl();
+            break;
         case PolicyType::LFU:
             sim = new LfuSl();
+            break;
         case PolicyType::LRU:
             sim = new LruSl();
+            break;
         case PolicyType::LIRS:
             sim = new LirsSl();
+            break;
         case PolicyType::ARC:
             sim = new ArcSl();
+            break;
         case PolicyType::CLOCKPRO:
             sim = new ClockproSl();
+            break;
+        case PolicyType::TQ:
+            sim = new TqSl();
+            break;
         case PolicyType::TINYLFU:
             sim = new TinylfuSl();
+            break;
     }
 
     sim->test();

@@ -8,6 +8,7 @@ enum class PolicyType {
     LIRS,
     ARC,
     CLOCKPRO,
+    TQ,
     TINYLFU
 };
 
@@ -19,6 +20,7 @@ PolicyType policyTypes[] = {
     PolicyType::LIRS,
     PolicyType::ARC,
     PolicyType::CLOCKPRO,
+    PolicyType::TQ,
     PolicyType::TINYLFU
 };
 #endif /*_POLICY_INCLUDED_*/
