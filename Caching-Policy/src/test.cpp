@@ -10,9 +10,12 @@
 
 using namespace std;
 
-int main(){
+int main(int argc,char *argv[]){
+    if(argc!=2){
+        return -1;
+    }
     Sl *sim = nullptr;
-    switch(POLICY){
+    switch(policyTypes[*argv[1]-'0']){
         case PolicyType::RANDOM: 
             sim = new RandomSl();
             break;

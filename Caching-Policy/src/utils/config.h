@@ -2,7 +2,8 @@
 #define _CONFIG_HPP_INCLUDED_
 #include "policy.h"
 
-const PolicyType POLICY = policyTypes[0]; // 0~8
+// const PolicyType POLICY = policyTypes[0]; // 0~8
+// const double CACHE_SIZE_LIST[5]={0.02,0.04,0.06,0.08,0.1};
 
 const long long DISK_SIZE = 33668; // disk_capacity=DISK_SIZE*CHUNK_SIZE
 const long long CHUNK_NUM = 33668;

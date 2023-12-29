@@ -40,6 +40,8 @@ public:
 
 protected:
     int fd_cache, fd_disk;
+    char * buffer_read = nullptr;
+    char * buffer_write = nullptr;
 
     long long curKey;
     vector<long long> free_cache;
@@ -106,12 +108,17 @@ bool Sl::readItem(vector<ll> &keys)
     {
         if (keys[i] != -1)
         {
+            cout<<"cache miss"<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
             readDisk(keys[i]);
             writeCache(keys[i]);
         }
     }
+    for (int i = 0; i < keys.size(); i++){
+        cout<<keys[i]<<' ';
+    }
+    cout<<endl;
     return isTraceHit;
 }
 
@@ -140,6 +147,10 @@ bool Sl::writeItem(vector<ll> &keys)
             writeCache(keys[i]);
         }
     }
+    for (int i = 0; i < keys.size(); i++){
+        cout<<keys[i]<<' ';
+    }
+    cout<<endl;
     return isTraceHit;
 }
 
@@ -234,7 +245,7 @@ void Sl::test()
         long long deltaT = (t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec);
         st.latency_v.push_back(deltaT);
         st.total_latency += deltaT;
-        printf("trace: %llu time: %lld us total: %lld us\n", st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
+        // printf("trace: %llu time: %lld us total: %lld us\n", st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
         if (isTraceHit)
             st.hit_trace_nums++;
         // printChunkMap();
@@ -297,12 +308,22 @@ void Sl::initFile()
     assert(fd_cache >= 0);
     fd_disk = open(DISK_PATH, O_RDWR | O_DIRECT, 0664);
     assert(fd_disk >= 0);
+
+    int res = posix_memalign((void **)&buffer_read, CHUNK_SIZE, CHUNK_SIZE);
+    assert(res == 0);
+
+    res = posix_memalign((void **)&buffer_write, CHUNK_SIZE, CHUNK_SIZE);
+    assert(res == 0);
+    memset(buffer_write, 0, CHUNK_SIZE);
+
 }
 
 void Sl::closeFile()
 {
     close(fd_cache);
     close(fd_disk);
+    free(buffer_read);
+    free(buffer_write);
 }
 
 void Sl::printFreeCache()
@@ -359,22 +380,17 @@ void Sl::normWrite(bool isCache, const long long &offset, const long long &size)
 
 void Sl::odirectRead(bool isCache, const long long &offset, const long long &size)
 {
+    cout<<"odirectRead"<<endl;
     int fd = -1;
     if (isCache)
         fd = fd_cache;
     else
         fd = fd_disk;
     assert(fd >= 0);
-    char *buffer = nullptr;
-    int res = posix_memalign((void **)&buffer, CHUNK_SIZE, size);
-    assert(res == 0);
 
-    res = pread64(fd, buffer, size, offset);
+    int res = pread64(fd, buffer_read, size, offset);
     // printf("odirectRead: %d\n",res);
     assert(res == size);
-
-    free(buffer);
-    // close(fd);
 }
 
 void Sl::odirectWrite(bool isCache, const long long &offset, const long long &size)
@@ -387,22 +403,16 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
         fd = fd_disk;
     // cout<<filePath<<endl;
     assert(fd >= 0);
-    char *buffer = nullptr;
-    int res = posix_memalign((void **)&buffer, CHUNK_SIZE, size);
-    assert(res == 0);
 
-    strcpy(buffer, "Ram15978");
-    res = pwrite64(fd, buffer, size, offset);
+    int res = pwrite64(fd, buffer_write, size, offset);
     // cout<<"odirectWrite: res: "<<res<<", fd: "<<fd<<", buffer: "<<buffer<<", size: "<<size<<", offset: "<<offset<<endl;
     // printf("odirectWrite: %d\n",res);
     assert(res == size);
-
-    free(buffer);
-    // close(fd);
 }
 
 void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 {
+    cout<<"readChunk"<<endl;
     assert(offset != -1);
     if (O_DIRECT_ON)
         odirectRead(isCache, offset, size);
@@ -444,7 +454,7 @@ void Sl::readCache(const ll &offset_cache)
 
 void Sl::readDisk(const long long &key)
 {
-    // printf("readDisk\n");
+    printf("readDisk\n");
     assert(key != -1);
     readChunk(false, key, CHUNK_SIZE);
 }
