@@ -155,12 +155,12 @@ Zipfian 分布是一种用于描述数据中某些项目被访问频率远高于
 1. load
 
 ```shell
-bin/ycsb.bat load kvtracer -P workloads/workload_example -p "kvtracer.tracefile=trace_load.txt" -p "kvtracer.keymapfile=trace_keys.txt"
+bin/ycsb.bat load kvtracer -P workloads/workload -p "kvtracer.tracefile=trace_load.txt" -p "kvtracer.keymapfile=trace_keys.txt"
 
 ```
 
 2. run
 
 ```shell
-bin/ycsb.bat run kvtracer -P workloads/workload_example -p "kvtracer.tracefile=trace_run.txt" -p "kvtracer.keymapfile=trace_keys.txt"
+bin/ycsb.bat run kvtracer -P workloads/workload -p "kvtracer.tracefile=trace_run.txt" -p "kvtracer.keymapfile=trace_keys.txt"
 ```

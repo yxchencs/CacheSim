@@ -1,8 +1,9 @@
 storage
 results
-trace
+storage
 lib
 output
+.vscode
 *.o
 *.exe
 *.bin
@@ -10,3 +11,4 @@ output
 *.rar
 *.zip
 *.txt
+*.tar.gz

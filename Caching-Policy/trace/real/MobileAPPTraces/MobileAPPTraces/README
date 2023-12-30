@@ -1,0 +1,13 @@
+The 15 traces are collected from 15 mobile applications with different time periods. All the 15 mobile applications are running on the Google Nexus 5 smartphone with Android 5.0.1 and Linux Kernel 3.4. The trace file-names are indicating different mobile applications and some file-names also include the running hours. 
+
+Each record in the trace files is as follows:
+
+[Time in s] [R or W] [LBA] [size in 512 Bytes blocks] [pid] [process] [MD5 per 4096 Bytes]
+
+
+More details about the mobile applications and how the traces are collected can be found in our published paper, as follows:
+
+Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware Trace Collection and I/O Deduplication for Smartphones. In Proceedings of the 33rd International Conference on Massive Storage Systems and Technology (MSST'17), Santa Clara, CA, USA, May 15-19, 2017.
+
+
+We also provide some other information about the project, please see http://astl.xmu.edu.cn/appdedupe.html for details. 
