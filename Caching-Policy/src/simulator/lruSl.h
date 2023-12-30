@@ -12,7 +12,7 @@ public:
 private:
     template <typename Key, typename Value>
     using lru_cache_t = typename caches::fixed_sized_cache<Key, Value, caches::LRU>;
-    lru_cache_t<long long, bool> cache_map{CACHE_SIZE};
+    lru_cache_t<long long, bool> cache_map{cache_size};
 
     bool isCached(const ll &key);
     void accessKey(const ll &key, const bool &isGet);

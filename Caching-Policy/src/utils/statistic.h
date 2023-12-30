@@ -6,7 +6,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
-#include "config.h"
+#include "globals.h"
 
 using namespace std;
 
@@ -153,11 +153,11 @@ void Statistic::printStatistic(){
     cout<<"statistic:"<<endl;
     cout<<"caching policy: "<<caching_policy<<endl;
     cout<<"trace: "<<TRACE_PATH<<endl;
-    cout<<"cache: "<<CACHE_PATH<<endl;
+    cout<<"cache: "<<cache_path<<endl;
     cout<<"O_DIRECT: "<<O_DIRECT_ON<<endl;
     cout<<"chunk size: "<<CHUNK_SIZE<<" B"<<endl;
     cout<<"disk size: "<<DISK_SIZE<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    cout<<"cache size: "<<CACHE_SIZE<<" x "<< CHUNK_SIZE <<" B"<<endl;
+    cout<<"cache size: "<<cache_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
     cout<<"chunk number: "<<CHUNK_NUM<<" x "<< CHUNK_SIZE <<" B"<<endl;
     if(read_nums!=0){
         cout<<"read hit/total number: "<<read_hit_nums<<'/'<<read_nums<<endl;
@@ -224,11 +224,11 @@ void Statistic::writeStatistic(){
 
     fout<<"caching policy: "<<caching_policy<<endl;
     fout<<"trace: "<<TRACE_PATH<<endl;
-    fout<<"cache: "<<CACHE_PATH<<endl;
+    fout<<"cache: "<<cache_path<<endl;
     fout<<"O_DIRECT: "<<O_DIRECT_ON<<endl;
     fout<<"chunk size: "<<CHUNK_SIZE<<" B"<<endl;
     fout<<"disk size: "<<DISK_SIZE<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    fout<<"cache size: "<<CACHE_SIZE<<" x "<< CHUNK_SIZE <<" B"<<endl;
+    fout<<"cache size: "<<cache_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
     fout<<"chunk number: "<<CHUNK_NUM<<" x "<< CHUNK_SIZE <<" B"<<endl;
     if(read_nums!=0){
         fout<<"read hit/total number: "<<read_hit_nums<<'/'<<read_nums<<endl;
@@ -274,6 +274,7 @@ void Statistic::writeStatistic(){
     }
     fout<<"power: ";
     fout.close();
+    printf("save stat");
 }
 
 
@@ -287,7 +288,7 @@ void Statistic::saveLatency(){
             fout<<i+1<<' '<<latency_v[i]<<endl;
         }
         fout.close();
-        cout<<"save trace latency success"<<endl;
+        // cout<<"save trace latency success"<<endl;
     } else {
         cerr<<"error: can not open result file"<<endl;
     }

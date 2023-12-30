@@ -27,7 +27,7 @@
 
 #include "../utils/bitmap.h"
 #include "../utils/chunk.h"
-#include "../utils/config.h"
+#include "../utils/globals.h"
 #include "../utils/statistic.h"
 
 using namespace std;
@@ -108,17 +108,17 @@ bool Sl::readItem(vector<ll> &keys)
     {
         if (keys[i] != -1)
         {
-            cout<<"cache miss"<<endl;
+            // cout<<"cache miss"<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
             readDisk(keys[i]);
             writeCache(keys[i]);
         }
     }
-    for (int i = 0; i < keys.size(); i++){
-        cout<<keys[i]<<' ';
-    }
-    cout<<endl;
+    // for (int i = 0; i < keys.size(); i++){
+    //     cout<<keys[i]<<' ';
+    // }
+    // cout<<endl;
     return isTraceHit;
 }
 
@@ -147,10 +147,10 @@ bool Sl::writeItem(vector<ll> &keys)
             writeCache(keys[i]);
         }
     }
-    for (int i = 0; i < keys.size(); i++){
-        cout<<keys[i]<<' ';
-    }
-    cout<<endl;
+    // for (int i = 0; i < keys.size(); i++){
+    //     cout<<keys[i]<<' ';
+    // }
+    // cout<<endl;
     return isTraceHit;
 }
 
@@ -194,8 +194,8 @@ void Sl::writeCache(const ll &key)
 
 void Sl::test()
 {
-    cout << "-----------------------------------------------------------------" << endl;
-    cout << "test start" << endl;
+    // cout << "-----------------------------------------------------------------" << endl;
+    printf("test start\n");
     st.getStartTime();
 
     fstream fin(TRACE_PATH);
@@ -245,7 +245,7 @@ void Sl::test()
         long long deltaT = (t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec);
         st.latency_v.push_back(deltaT);
         st.total_latency += deltaT;
-        // printf("trace: %llu time: %lld us total: %lld us\n", st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
+        printf("trace: %llu time: %lld us total: %lld us\n", st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
         if (isTraceHit)
             st.hit_trace_nums++;
         // printChunkMap();
@@ -253,6 +253,7 @@ void Sl::test()
     gettimeofday(&t3, NULL);
     st.total_time = (t3.tv_sec - t0.tv_sec) * 1000000 + (t3.tv_usec - t0.tv_usec);
     st.getEndTime();
+    printf("test end\n");
 }
 
 void Sl::checkFile(fstream &file)
@@ -287,7 +288,7 @@ bool Sl::isWriteCache()
 Sl::Sl()
 {
     init();
-    cout << "CachePolicy Construct success" << endl;
+    // cout << "CachePolicy Construct success" << endl;
 }
 
 Sl::~Sl()
@@ -299,12 +300,12 @@ void Sl::init()
 {
     initFreeCache();
     initFile();
-    cout << "init success" << endl;
+    // cout << "init success" << endl;
 }
 
 void Sl::initFile()
 {
-    fd_cache = open(CACHE_PATH, O_RDWR | O_DIRECT, 0664);
+    fd_cache = open(cache_path.c_str(), O_RDWR | O_DIRECT, 0664);
     assert(fd_cache >= 0);
     fd_disk = open(DISK_PATH, O_RDWR | O_DIRECT, 0664);
     assert(fd_disk >= 0);
@@ -380,7 +381,7 @@ void Sl::normWrite(bool isCache, const long long &offset, const long long &size)
 
 void Sl::odirectRead(bool isCache, const long long &offset, const long long &size)
 {
-    cout<<"odirectRead"<<endl;
+    // cout<<"odirectRead"<<endl;
     int fd = -1;
     if (isCache)
         fd = fd_cache;
@@ -412,7 +413,7 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
 
 void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 {
-    cout<<"readChunk"<<endl;
+    // cout<<"readChunk"<<endl;
     assert(offset != -1);
     if (O_DIRECT_ON)
         odirectRead(isCache, offset, size);
@@ -438,7 +439,7 @@ void Sl::printChunk(chunk *arg)
 
 void Sl::initFreeCache()
 {
-    for (long long i = 0; i < CACHE_SIZE; i++)
+    for (long long i = 0; i < cache_size; i++)
     {
         free_cache.push_back(i * CHUNK_SIZE);
         // cout<<i * CHUNK_SIZE<<" has pushed in to free cache"<<endl;

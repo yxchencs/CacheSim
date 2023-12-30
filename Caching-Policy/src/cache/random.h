@@ -5,14 +5,14 @@
 #include <list>
 #include <map>
 #include <random>
-#include "../utils/config.h"
+#include "../utils/globals.h"
 
 using namespace std;
 
 class RANDOM {
 public:
     
-    RANDOM(long long size=CACHE_SIZE):cache_size(size){}
+    RANDOM(long long size=cache_size):cache_size_(size){}
 
     bool Cached(const long long &key)
     {
@@ -35,7 +35,7 @@ public:
     void Touch(const long long &key)
     {
         long long curVictim = -1;
-        if(cache_map.size() >= cache_size){
+        if(cache_map.size() >= cache_size_){
             curVictim = ReplCandidate();
             Erase(curVictim);
             victim = curVictim;
@@ -66,7 +66,7 @@ public:
     }
 
 private:
-    long long cache_size; 
+    long long cache_size_; 
     map<long long, bool> cache_map;
     ll victim;
 };

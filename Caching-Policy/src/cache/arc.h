@@ -4,14 +4,14 @@
 #include <vector>
 #include <algorithm>
 #include <map>
-#include "../utils/config.h"
+#include "../utils/globals.h"
 #define HASHSIZE 100000
 using namespace std;
 
 class ARC
 {
 public:
-    ARC(long long cache_size = CACHE_SIZE) : c(cache_size), cacheSize(cache_size) {}
+    ARC(long long cache_size = cache_size) : c(cache_size), cacheSize(cache_size) {}
 
     // A function to check whether Page x is available in 'v' queue
     int check(vector<long long> v, long long x);

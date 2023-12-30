@@ -2,7 +2,7 @@
 #define _CLOCKPRO_SIMULATOR_HPP_INCLUDED_
 #include "../cache/clockpro.hpp"
 #include "sl.h"
-#include "../utils/config.h"
+#include "../utils/globals.h"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ public:
     ClockproSl();
 
 private:
-    clockpro::Cache<long long, bool> cache_map{CACHE_SIZE};
+    clockpro::Cache<long long, bool> cache_map{cache_size};
 
     bool isCached(const ll &key);
     void accessKey(const ll &key, const bool &isGet);

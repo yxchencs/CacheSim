@@ -1,7 +1,6 @@
 #ifndef _CHUNK_HPP_INCLUDED_
 #define	_CHUNK_HPP_INCLUDED_
 
-//const long long CHUNK_SIZE = 4*1024;
 struct chunk {
     long long key;
     long long offset_cache;
@@ -18,4 +17,6 @@ ostream& operator<<(ostream& os, const chunk& arg) {
     os << "dirty: " << arg.dirty << endl;
     return os;
 }
+
+const long long CHUNK_SIZE = 4 * 1024;
 #endif /*_CHUNK_INCLUDED_*/

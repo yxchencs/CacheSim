@@ -11,7 +11,7 @@ public:
     TqSl();
 
 private:
-    cache_2q<ll> cache_map{CACHE_SIZE};
+    cache_2q<ll> cache_map{cache_size};
 
     bool isCached(const ll &key);
     void accessKey(const ll &key, const bool &isGet);

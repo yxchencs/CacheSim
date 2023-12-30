@@ -29,11 +29,11 @@
 │   │   │   ├── randomSl.h
 │   │   │   ├── sl.h
 │   │   │   └── tinylfuSl.h
-│   │   ├── test.cpp
+│   │   ├── main.cpp
 │   │   └── utils
 │   │       ├── bitmap.h
 │   │       ├── chunk.h
-│   │       ├── config.h
+│   │       ├── globals.h
 │   │       ├── policy.h
 │   │       └── statistic.h
 │   └── test
@@ -145,17 +145,17 @@ sudo chmod 777 trace/zipfian/zipfian_r100w_o15w_0.99/storage/disk.bin
 
 ###### 修改地址，并确定缓存占比
 
-1. 打开 `src/utils/config.h`，修改 `CACHE_PATH`和 `DISK_PATH`
+1. 打开 `src/utils/globals.h`，修改 `cache_path`和 `DISK_PATH`
 
 ```c++
-const char *CACHE_PATH = "/mnt/eMMC/cache_0.1.bin";
+const char *cache_path = "/mnt/eMMC/cache_0.1.bin";
 const char *DISK_PATH = "../trace/zipfian/zipfian_r100w_o15w_0.99/storage/disk.bin";
 ```
 
-2. 其中 `CACHE_PATH`中cache文件的选择请根据需要手动修改，并且同时修改求得 `CACHE_SIZE`的系数
+2. 其中 `cache_path`中cache文件的选择请根据需要手动修改，并且同时修改求得 `cache_size`的系数
 
 ```C++
-const long long CACHE_SIZE = CHUNK_NUM * 0.1;
+const long long cache_size = CHUNK_NUM * 0.1;
 ```
 
 ##### 项目运行
@@ -185,10 +185,10 @@ sh cpu_mem_disk.sh
 cd src
 ```
 
-2. 编译test.cpp
+2. 编译main.cpp
 
 ```shell
-g++ -std=c++17 -o test test.cpp # -std=c++17  for clock-pro
+g++ -std=c++17 -o test main.cpp # -std=c++17  for clock-pro
 ```
 
 3. 执行
@@ -230,7 +230,7 @@ g++ -std=c++17 -o test test.cpp # -std=c++17  for clock-pro
   https://github.com/Mirageinvo/2Q-cache
   https://blog.csdn.net/Sableye/article/details/118703319
 - TinyLFU
-  https://github.com/vimpunk/w-tinylfu
+  https://github.com/vimpunk/tinylfu
 
 ###### Trace
 
@@ -276,7 +276,7 @@ cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware 
 
 本项目主要测试的数据如下
 
-1. `test.cpp`
+1. `main.cpp`
    - hit ratio
      - block hit ratio
      - trace hit ratio

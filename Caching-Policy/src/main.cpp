@@ -1,3 +1,7 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <cstdlib>
 #include "simulator/randomSl.h"
 #include "simulator/fifoSl.h"
 #include "simulator/lruSl.h"
@@ -7,15 +11,21 @@
 #include "simulator/clockproSl.h"
 #include "simulator/2qSl.h"
 #include "simulator/tinylfuSl.h"
-
+#include "utils/globals.h"
+#include "utils/policy.h"
+#include "utils/cache_size.h"
 using namespace std;
 
 int main(int argc,char *argv[]){
-    if(argc!=2){
+    if(argc!=3){
         return -1;
     }
     Sl *sim = nullptr;
-    switch(policyTypes[*argv[1]-'0']){
+    int cache_size_index = *argv[1]-'0';
+    cache_size_factor = cacheSizeType[cache_size_index];
+    cache_size = CHUNK_NUM*cache_size_factor;
+    cache_path = CACHE_PATH_HEAD+cachePath[cache_size_index];
+    switch(policyTypes[*argv[2]-'0']){
         case PolicyType::RANDOM: 
             sim = new RandomSl();
             break;

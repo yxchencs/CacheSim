@@ -7,7 +7,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <map>
-#include "../utils/config.h"
+#include "../utils/globals.h"
 #include <fstream>
 
 /*  ¶¨Òåºêº¯ÊýNEED_PRUNING
@@ -53,7 +53,7 @@ struct lirs_node
 class LIRS
 {
 public:
-    LIRS(ll size = CACHE_SIZE)
+    LIRS(ll size = cache_size)
         : cache_size_(size), used_size_(0), s_size_(0.99 * size), q_size_(0.1 * size)
     {
         assert(s_size_);

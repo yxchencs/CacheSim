@@ -1,7 +1,7 @@
 #ifndef _TINYLFU_SIMULATOR_HPP_INCLUDED_
 #define _TINYLFU_SIMULATOR_HPP_INCLUDED_
-#include "../cache/w-tinylfu/wtinylfu.hpp"
-#include "../cache/w-tinylfu/bloom_filter.hpp"
+#include "../cache/tinylfu/tinylfu.hpp"
+#include "../cache/tinylfu/bloom_filter.hpp"
 #include "sl.h"
 using namespace std;
 
@@ -18,7 +18,7 @@ public:
     TinylfuSl();
 
 private:
-    wtinylfu_cache<ll,bool> cache_map{CACHE_SIZE};
+    wtinylfu_cache<ll,bool> cache_map{cache_size};
 
     bool isCached(const ll &key);
     void accessKey(const ll &key, const bool &isGet);
