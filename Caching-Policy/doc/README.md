@@ -101,15 +101,22 @@ sudo mount /dev/mmcblk0p1 /mnt/eMMC
 lsblk
 ```
 
-###### 配置trace
+###### 配置 `globals.h`
 
-1. 修改 `TRACE_PATH`
+1. 打开 `src/utils/globals.h`，修改 `cache_path`和 `DISK_PATH`
 
-```C++
-const char *TRACE_PATH = "../trace/zipfian/zipfian_r100w_o15w_0.99/trace.txt";
+```c++
+const char *cache_path = "/mnt/eMMC/cache_0.1.bin";
+const char *DISK_PATH = "../trace/zipfian/r100w_o15w_0.99/read_0/storage/disk.bin";
 ```
 
-2. 修改 `DISK_SIZE`和 `CHUNK_NUM`
+2. 修改 `TRACE_PATH`
+
+```C++
+const char *TRACE_PATH = "../trace/zipfian/r100w_o15w_0.99/read_0/trace.txt";
+```
+
+3. 修改 `DISK_SIZE`和 `CHUNK_NUM`
 
 ```C++
 const long long DISK_SIZE = 33668;
@@ -122,40 +129,25 @@ const long long CHUNK_NUM = 33668;
 
 > 在生成的trace.txt文件第一行按顺序记录了统计的 `DISK_SIZE`、`CHUNK_NUM`和 `TRACE_SIZE`信息，我使用YCSB生成的trace控制了单次访问一个chunk，因此前两者数值一致，只记录了一个数字。
 
-###### 配置cache和disk
+###### 配置cache和disk文件
 
 1. 进入项目根目录
 
-```shell'
+```shell
 cd Caching-Policy/Caching-Policy
 ```
 
 2. 将用作缓存地址空间的文件复制进 `/mnt/eMMC`
 
 ```shell
-sudo cp trace/zipfian/zipfian_r100w_o15w_0.99/storage/* /mnt/eMMC/
+sudo cp trace/zipfian/r100w_o15w_0.99/read_0/storage/* /mnt/eMMC/
 ```
 
 3. 为cache和disk文件赋予可写可读可执行权限
 
 ```shell
 sudo chmod 777 /mnt/eMMC/cache*
-sudo chmod 777 trace/zipfian/zipfian_r100w_o15w_0.99/storage/disk.bin
-```
-
-###### 修改地址，并确定缓存占比
-
-1. 打开 `src/utils/globals.h`，修改 `cache_path`和 `DISK_PATH`
-
-```c++
-const char *cache_path = "/mnt/eMMC/cache_0.1.bin";
-const char *DISK_PATH = "../trace/zipfian/zipfian_r100w_o15w_0.99/storage/disk.bin";
-```
-
-2. 其中 `cache_path`中cache文件的选择请根据需要手动修改，并且同时修改求得 `cache_size`的系数
-
-```C++
-const long long cache_size = CHUNK_NUM * 0.1;
+sudo chmod 777 trace/zipfian/r100w_o15w_0.99/read_0/storage/disk.bin
 ```
 
 ##### 项目运行
@@ -194,10 +186,20 @@ g++ -std=c++17 -o test main.cpp # -std=c++17  for clock-pro
 3. 执行
 
 ```shell
-./test 3
+./test 0 3
 ```
 
-这里的参数3用于指定缓存策略为LRU，其余对应关系如下表
+其中，第一个参数 `0`用于指定cache容量占disk容量的比例为0.02，其余对应关系如下表：
+
+| Number | Cache size |
+| :----: | :--------: |
+|   0    |    0.02    |
+|   1    |    0.04    |
+|   2    |    0.06    |
+|   3    |    0.08    |
+|   4    |    0.1     |
+
+除此之外，第二个参数 `3`用于指定缓存策略为LRU，其余对应关系如下表：
 
 | Number | Caching policy |
 | :----: | :------------: |
@@ -272,6 +274,7 @@ cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware 
 
 4. [uniform/latest/zipfian trace](ycsb-kvtracer.md)
 5. random trace
+
 ###### Statistic
 
 本项目主要测试的数据如下
