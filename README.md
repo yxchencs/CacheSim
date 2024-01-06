@@ -3,42 +3,51 @@
 本项目用于测试部署在多级混合存储机制的缓存策略的系统性能数据，项目结构如下：
 
 ```shell
-├── Caching-Policy
-│   ├── scripts
-│   │   └── ycsb_kvtracer_process.py
-│   ├── src
-│   │   ├── cache
-│   │   │   ├── 2q.hpp
-│   │   │   ├── arc.h
-│   │   │   ├── cache.hpp
-│   │   │   ├── cache_policy.hpp
-│   │   │   ├── clockpro.hpp
-│   │   │   ├── fifo.hpp
-│   │   │   ├── lfu.hpp
-│   │   │   ├── lirs.h
-│   │   │   ├── lru.hpp
-│   │   │   └── random.h
-│   │   ├── simulator
-│   │   │   ├── 2qSl.h
-│   │   │   ├── arcSl.h
-│   │   │   ├── clockproSl.h
-│   │   │   ├── fifoSl.h
-│   │   │   ├── lfuSl.h
-│   │   │   ├── lirsSl.h
-│   │   │   ├── lruSl.h
-│   │   │   ├── randomSl.h
-│   │   │   ├── sl.h
-│   │   │   └── tinylfuSl.h
-│   │   ├── main.cpp
-│   │   └── utils
-│   │       ├── bitmap.h
-│   │       ├── chunk.h
-│   │       ├── globals.h
-│   │       ├── policy.h
-│   │       └── statistic.h
-│   └── test
-│       └── cpu_mem_disk.sh
-└── README.md
+Caching-Policy/
+├── doc
+│   ├── git.md
+│   └── ycsb-kvtracer.md
+├── scripts
+│   ├── cpu_mem_disk.sh
+│   ├── join_files.py
+│   └── ycsb_kvtracer_process.py
+├── src
+│   ├── cache
+│   │   ├── 2q.hpp
+│   │   ├── arc.h
+│   │   ├── cache.hpp
+│   │   ├── cache_policy.hpp
+│   │   ├── clockpro.hpp
+│   │   ├── fifo.hpp
+│   │   ├── lfu.hpp
+│   │   ├── lirs.h
+│   │   ├── lru.hpp
+│   │   ├── random.h
+│   │   └── tinylfu
+│   │       ├── bloom_filter.hpp
+│   │       ├── detail.hpp
+│   │       ├── frequency_sketch.hpp
+│   │       └── tinylfu.hpp
+│   ├── main.cpp
+│   ├── simulator
+│   │   ├── 2qSl.h
+│   │   ├── arcSl.h
+│   │   ├── clockproSl.h
+│   │   ├── fifoSl.h
+│   │   ├── lfuSl.h
+│   │   ├── lirsSl.h
+│   │   ├── lruSl.h
+│   │   ├── randomSl.h
+│   │   ├── sl.h
+│   │   └── tinylfuSl.h
+│   └── utils
+│       ├── bitmap.h
+│       ├── cache_size.h
+│       ├── chunk.h
+│       ├── globals.h
+│       ├── policy.h
+│       └── statistic.h
+└── trace
 ```
 
 ##### 项目配置
@@ -163,7 +172,7 @@ mkdir results
 ###### Terminal 1
 
 ```shell
-cd test
+cd scripts
 sh cpu_mem_disk.sh
 ```
 
@@ -180,13 +189,13 @@ cd src
 2. 编译main.cpp
 
 ```shell
-g++ -std=c++17 -o test main.cpp # -std=c++17  for clock-pro
+g++ -std=c++17 -o main main.cpp # -std=c++17  for clock-pro
 ```
 
 3. 执行
 
 ```shell
-./test 0 3
+./main 0 3
 ```
 
 其中，第一个参数 `0`用于指定cache容量占disk容量的比例为0.02，其余对应关系如下表：
