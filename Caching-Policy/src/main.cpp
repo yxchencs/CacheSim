@@ -62,6 +62,6 @@ int main(int argc,char *argv[]){
 /*
 sudo mount /dev/mmcblk0p1 /mnt/eMMC
 lsblk
-g++ -std=c++17 -o test test.cpp
-./test
+g++ -std=c++17 -o main main.cpp
+./main
 */

@@ -305,10 +305,17 @@ void Sl::init()
 
 void Sl::initFile()
 {
-    fd_cache = open(cache_path.c_str(), O_RDWR | O_DIRECT, 0664);
-    assert(fd_cache >= 0);
-    fd_disk = open(DISK_PATH, O_RDWR | O_DIRECT, 0664);
-    assert(fd_disk >= 0);
+    if(O_DIRECT_ON){
+        fd_cache = open(cache_path.c_str(), O_RDWR | O_DIRECT, 0664);
+        assert(fd_cache >= 0);
+        fd_disk = open(DISK_PATH, O_RDWR | O_DIRECT, 0664);
+        assert(fd_disk >= 0);
+    } else {
+        fd_cache = open(cache_path.c_str(), O_RDWR, 0664);
+        assert(fd_cache >= 0);
+        fd_disk = open(DISK_PATH, O_RDWR, 0664);
+        assert(fd_disk >= 0);
+    }
 
     int res = posix_memalign((void **)&buffer_read, CHUNK_SIZE, CHUNK_SIZE);
     assert(res == 0);
@@ -414,6 +421,7 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
 void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 {
     // cout<<"readChunk"<<endl;
+    if(!IO_ON) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
         odirectRead(isCache, offset, size);
@@ -423,6 +431,7 @@ void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 
 void Sl::writeChunk(bool isCache, const long long &offset, const long long &size)
 {
+    if(!IO_ON) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
         odirectWrite(isCache, offset, size);
