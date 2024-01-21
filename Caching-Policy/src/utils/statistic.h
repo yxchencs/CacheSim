@@ -6,6 +6,9 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <cassert>
+#include <sstream> // for stringstream
+#include <iomanip> // for setprecision()
 #include "globals.h"
 
 using namespace std;
@@ -30,6 +33,8 @@ public:
         total_request_size=0;
         
         total_latency = 0;
+
+        save_path = "null";
     }
 
     //unsigned long long choose_nth(vector<unsigned long long> &a,int startIndex, int endIndex, int n);
@@ -40,6 +45,7 @@ public:
     void getStartTime();
     void getEndTime();
     void saveLatency();
+    void mkdir(string path);
 
     string caching_policy;
 
@@ -70,6 +76,7 @@ public:
     vector<long long> request_size_v;
     long long total_request_size;
 
+    string save_path;
 };
 
 
@@ -213,9 +220,20 @@ void Statistic::printStatistic(){
 }
 
 void Statistic::writeStatistic(){
+    stringstream ss;
+    ss << setprecision(2) << cache_size_factor;
+    string str_cache_size_factor = ss.str();
+    if(io_on){
+        save_path = "../results/io_on/"+str_cache_size_factor+'/'+caching_policy+'/';
+    }else{
+        save_path = "../results/io_off/"+str_cache_size_factor+'/'+caching_policy+'/';
+    }
+
+    mkdir(save_path);
+    
     saveLatency();
 
-    ofstream fout("../results/statistic.txt");
+    ofstream fout(save_path+"statistic.txt");
     
     if(!fout.is_open()){
         cerr<<"error: can not open result file"<<endl;
@@ -279,7 +297,7 @@ void Statistic::writeStatistic(){
 
 
 void Statistic::saveLatency(){
-    ofstream fout("../results/trace_latency.txt");
+    ofstream fout(save_path+"trace_latency.txt");
     
     if(fout.is_open()){
         fout<<"traceNo latency(us)"<<endl;
@@ -293,5 +311,13 @@ void Statistic::saveLatency(){
         cerr<<"error: can not open result file"<<endl;
     }
 }
+
+// 若目录不存在，则创建目录
+void Statistic::mkdir(string path){
+	string cmd("mkdir -p " + path);
+	int ret = system(cmd.c_str());
+	assert(ret!=-1);
+}
+
 
 #endif /*STATISTIC_HPP_INCLUDED_*/

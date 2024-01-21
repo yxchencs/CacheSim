@@ -23,4 +23,6 @@ PolicyType policyTypes[] = {
     PolicyType::TQ,
     PolicyType::TINYLFU
 };
+
+int policy_types_size = sizeof(policyTypes) / sizeof(policyTypes[0]);
 #endif /*_POLICY_INCLUDED_*/

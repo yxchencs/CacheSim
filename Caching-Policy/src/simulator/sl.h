@@ -29,6 +29,8 @@
 #include "../utils/chunk.h"
 #include "../utils/globals.h"
 #include "../utils/statistic.h"
+#include "../utils/cache_conf.h"
+#include "../utils/policy.h"
 
 using namespace std;
 
@@ -142,6 +144,7 @@ bool Sl::writeItem(vector<ll> &keys)
     {
         if (keys[i] != -1)
         {
+            // cout<<"miss "<<keys[i]<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
             writeCache(keys[i]);
@@ -245,10 +248,12 @@ void Sl::test()
         long long deltaT = (t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec);
         st.latency_v.push_back(deltaT);
         st.total_latency += deltaT;
-        printf("trace: %llu time: %lld us total: %lld us\n", st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
+        printf("io[%d/2]: %s | cache_size[%d/%d]: %.2f | caching_policy[%d/%d]: %s || trace: %llu, time: %lldus, total_time: %lld\n", 
+        io_on? 2:1, io_on? "on":"off", cache_size_index+1, cache_size_types_size, cache_size_factor, caching_policy_index+1, policy_types_size, st.caching_policy.c_str(), st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
         if (isTraceHit)
             st.hit_trace_nums++;
         // printChunkMap();
+        // cout<<"isTraceHit: "<<isTraceHit<<' '<<"st.hit_trace_nums: "<<st.hit_trace_nums<<endl;
     }
     gettimeofday(&t3, NULL);
     st.total_time = (t3.tv_sec - t0.tv_sec) * 1000000 + (t3.tv_usec - t0.tv_usec);
@@ -323,7 +328,6 @@ void Sl::initFile()
     res = posix_memalign((void **)&buffer_write, CHUNK_SIZE, CHUNK_SIZE);
     assert(res == 0);
     memset(buffer_write, 0, CHUNK_SIZE);
-
 }
 
 void Sl::closeFile()
@@ -421,7 +425,7 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
 void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 {
     // cout<<"readChunk"<<endl;
-    if(!IO_ON) return;
+    if(!io_on) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
         odirectRead(isCache, offset, size);
@@ -431,7 +435,7 @@ void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 
 void Sl::writeChunk(bool isCache, const long long &offset, const long long &size)
 {
-    if(!IO_ON) return;
+    if(!io_on) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
         odirectWrite(isCache, offset, size);

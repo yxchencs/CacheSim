@@ -42,7 +42,7 @@ Caching-Policy/
 │   │   └── tinylfuSl.h
 │   └── utils
 │       ├── bitmap.h
-│       ├── cache_size.h
+│       ├── cache_conf.h
 │       ├── chunk.h
 │       ├── globals.h
 │       ├── policy.h

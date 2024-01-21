@@ -11,21 +11,16 @@
 #include "simulator/clockproSl.h"
 #include "simulator/2qSl.h"
 #include "simulator/tinylfuSl.h"
-#include "utils/globals.h"
-#include "utils/policy.h"
-#include "utils/cache_size.h"
+
 using namespace std;
 
-int main(int argc,char *argv[]){
-    if(argc!=3){
-        return -1;
-    }
+void run(int i, int j){
     Sl *sim = nullptr;
-    int cache_size_index = *argv[1]-'0';
-    cache_size_factor = cacheSizeType[cache_size_index];
+    cache_size_index = i, caching_policy_index = j;
+    cache_size_factor = cacheSizeTypes[cache_size_index];
     cache_size = CHUNK_NUM*cache_size_factor;
     cache_path = CACHE_PATH_HEAD+cachePath[cache_size_index];
-    switch(policyTypes[*argv[2]-'0']){
+    switch(policyTypes[caching_policy_index]){
         case PolicyType::RANDOM: 
             sim = new RandomSl();
             break;
@@ -57,6 +52,22 @@ int main(int argc,char *argv[]){
 
     sim->test();
     sim->statistic();
+}
+
+int main(){
+    cout<<"cache_size_types_size: "<<cache_size_types_size<<", policy_types_size: "<<policy_types_size<<endl;
+    io_on = false;
+    for(int i=0;i<cache_size_types_size;i++){
+        for(int j=0;j<policy_types_size;j++){
+            run(i,j);
+        }
+    }
+    io_on = true;
+    for(int i=0;i<cache_size_types_size;i++){
+        for(int j=0;j<policy_types_size;j++){
+            run(i,j);
+        }
+    }
     return 0;
 }
 /*
