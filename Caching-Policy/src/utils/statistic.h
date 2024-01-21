@@ -10,15 +10,16 @@
 #include <sstream> // for stringstream
 #include <iomanip> // for setprecision()
 #include "globals.h"
+#include "run.h"
 
 using namespace std;
 
+void mkdir(std::string path);
+std::string getSubstringAfter(const std::string& original, const std::string& to_find);
 class Statistic{
 public:
 
     Statistic(){
-        caching_policy="null";
-
         read_hit_nums=0;
         read_nums=0;
 
@@ -33,8 +34,6 @@ public:
         total_request_size=0;
         
         total_latency = 0;
-
-        save_path = "null";
     }
 
     //unsigned long long choose_nth(vector<unsigned long long> &a,int startIndex, int endIndex, int n);
@@ -45,7 +44,7 @@ public:
     void getStartTime();
     void getEndTime();
     void saveLatency();
-    void mkdir(string path);
+    void make_save_dir();
 
     string caching_policy;
 
@@ -76,9 +75,24 @@ public:
     vector<long long> request_size_v;
     long long total_request_size;
 
-    string save_path;
+    string save_dir;
 };
 
+void Statistic::make_save_dir(){
+    save_dir = save_root + getSubstringAfter(trace_dir,"trace/");
+
+    stringstream ss;
+    ss << setprecision(2) << cache_size_factor;
+    string str_cache_size_factor = ss.str();
+    if(io_on){
+        save_dir = save_dir + "/io_on/"+str_cache_size_factor+'/' + caching_policy + '/';
+    }else{
+        save_dir = save_dir + "/io_off/"+str_cache_size_factor+'/' + caching_policy + '/';
+    }
+
+    mkdir(save_dir);
+    cout<<"save_dir: "<<save_dir<<endl;
+}
 
 void Statistic::getCurrentTimeFormatted(char *formattedTime) {
     time_t timep;
@@ -159,13 +173,13 @@ void Statistic::printStatistic(){
     cout<<"-----------------------------------------------------------------"<<endl;
     cout<<"statistic:"<<endl;
     cout<<"caching policy: "<<caching_policy<<endl;
-    cout<<"trace: "<<TRACE_PATH<<endl;
+    cout<<"trace: "<<trace_dir<<endl;
     cout<<"cache: "<<cache_path<<endl;
     cout<<"O_DIRECT: "<<O_DIRECT_ON<<endl;
     cout<<"chunk size: "<<CHUNK_SIZE<<" B"<<endl;
-    cout<<"disk size: "<<DISK_SIZE<<" x "<< CHUNK_SIZE <<" B"<<endl;
+    cout<<"disk size: "<<disk_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
     cout<<"cache size: "<<cache_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    cout<<"chunk number: "<<CHUNK_NUM<<" x "<< CHUNK_SIZE <<" B"<<endl;
+    cout<<"chunk number: "<<chunk_num<<" x "<< CHUNK_SIZE <<" B"<<endl;
     if(read_nums!=0){
         cout<<"read hit/total number: "<<read_hit_nums<<'/'<<read_nums<<endl;
         cout<<"read hit ratio: "<<read_hit_nums*1.0/read_nums<<endl;
@@ -220,20 +234,10 @@ void Statistic::printStatistic(){
 }
 
 void Statistic::writeStatistic(){
-    stringstream ss;
-    ss << setprecision(2) << cache_size_factor;
-    string str_cache_size_factor = ss.str();
-    if(io_on){
-        save_path = "../results/io_on/"+str_cache_size_factor+'/'+caching_policy+'/';
-    }else{
-        save_path = "../results/io_off/"+str_cache_size_factor+'/'+caching_policy+'/';
-    }
-
-    mkdir(save_path);
-    
+    make_save_dir();
     saveLatency();
 
-    ofstream fout(save_path+"statistic.txt");
+    ofstream fout(save_dir+"statistic.txt");
     
     if(!fout.is_open()){
         cerr<<"error: can not open result file"<<endl;
@@ -241,13 +245,13 @@ void Statistic::writeStatistic(){
     }
 
     fout<<"caching policy: "<<caching_policy<<endl;
-    fout<<"trace: "<<TRACE_PATH<<endl;
+    fout<<"trace: "<<trace_path<<endl;
     fout<<"cache: "<<cache_path<<endl;
     fout<<"O_DIRECT: "<<O_DIRECT_ON<<endl;
     fout<<"chunk size: "<<CHUNK_SIZE<<" B"<<endl;
-    fout<<"disk size: "<<DISK_SIZE<<" x "<< CHUNK_SIZE <<" B"<<endl;
+    fout<<"disk size: "<<disk_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
     fout<<"cache size: "<<cache_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    fout<<"chunk number: "<<CHUNK_NUM<<" x "<< CHUNK_SIZE <<" B"<<endl;
+    fout<<"chunk number: "<<chunk_num<<" x "<< CHUNK_SIZE <<" B"<<endl;
     if(read_nums!=0){
         fout<<"read hit/total number: "<<read_hit_nums<<'/'<<read_nums<<endl;
         fout<<"read hit ratio: "<<read_hit_nums*1.0/read_nums<<endl;
@@ -290,14 +294,14 @@ void Statistic::writeStatistic(){
     if(total_time!=0){
         fout<<"bandwidth: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e6)<<" MB/s"<<endl;//fout<<"bandwidth: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
     }
-    fout<<"power: ";
+    fout<<"io_on: "<<io_on;
     fout.close();
-    printf("save stat");
+    printf("statistic saved\n");
 }
 
 
 void Statistic::saveLatency(){
-    ofstream fout(save_path+"trace_latency.txt");
+    ofstream fout(save_dir+"trace_latency.txt");
     
     if(fout.is_open()){
         fout<<"traceNo latency(us)"<<endl;
@@ -311,13 +315,5 @@ void Statistic::saveLatency(){
         cerr<<"error: can not open result file"<<endl;
     }
 }
-
-// 若目录不存在，则创建目录
-void Statistic::mkdir(string path){
-	string cmd("mkdir -p " + path);
-	int ret = system(cmd.c_str());
-	assert(ret!=-1);
-}
-
 
 #endif /*STATISTIC_HPP_INCLUDED_*/

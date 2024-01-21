@@ -11,7 +11,7 @@ using namespace std;
 class ARC
 {
 public:
-    ARC(long long cache_size = cache_size) : c(cache_size), cacheSize(cache_size) {}
+    ARC(long long cache_size_ = cache_size) : c(cache_size), cacheSize(cache_size) {}
 
     // A function to check whether Page x is available in 'v' queue
     int check(vector<long long> v, long long x);

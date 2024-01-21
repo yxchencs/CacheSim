@@ -3,6 +3,7 @@ storage
 lib
 output
 .vscode
+records
 *.o
 *.exe
 *.bin

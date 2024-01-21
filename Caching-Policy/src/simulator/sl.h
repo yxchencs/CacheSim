@@ -1,5 +1,5 @@
-#ifndef _LRU_SIMULATORHPP_INCLUDED_
-#define _LRU_SIMULATORHPP_INCLUDED_
+#ifndef _SIMULATOR_HPP_INCLUDED_
+#define _SIMULATOR_HPP_INCLUDED_
 
 #include <iostream>
 #include <fstream>
@@ -31,9 +31,11 @@
 #include "../utils/statistic.h"
 #include "../utils/cache_conf.h"
 #include "../utils/policy.h"
+#include "../utils/run.h"
 
 using namespace std;
 
+void checkFile(fstream &file);
 class Sl
 {
 public:
@@ -41,7 +43,10 @@ public:
     void statistic();
 
 protected:
+    string disk_path;
+
     int fd_cache, fd_disk;
+    fstream fin_trace;
     char * buffer_read = nullptr;
     char * buffer_write = nullptr;
 
@@ -82,8 +87,6 @@ protected:
     void printFreeCache();
 
     bool isWriteCache(); // 使用随机策略，根据概率决定是否写入cache
-
-    void checkFile(fstream &file);
 
     virtual bool isCached(const ll &key) = 0;
     virtual void accessKey(const ll &key, const bool &isGet) = 0;
@@ -201,21 +204,20 @@ void Sl::test()
     printf("test start\n");
     st.getStartTime();
 
-    fstream fin(TRACE_PATH);
-    checkFile(fin);
+    fstream fin_trace(trace_path);
+    checkFile(fin_trace);
 
     ll curSize;
     int type;
     char c;
     string s;
-    getline(fin, s);
+    getline(fin_trace,s);
 
     struct timeval t0, t3, t1, t2;
     gettimeofday(&t0, NULL);
-    while (fin >> curKey >> c >> curSize >> c >> type)
+    while (fin_trace >> curKey >> c >> curSize >> c >> type)
     {
         // if (st.total_trace_nums > 10) break;
-
         // cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
 
         st.total_trace_nums++;
@@ -248,8 +250,8 @@ void Sl::test()
         long long deltaT = (t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec);
         st.latency_v.push_back(deltaT);
         st.total_latency += deltaT;
-        printf("io[%d/2]: %s | cache_size[%d/%d]: %.2f | caching_policy[%d/%d]: %s || trace: %llu, time: %lldus, total_time: %lld\n", 
-        io_on? 2:1, io_on? "on":"off", cache_size_index+1, cache_size_types_size, cache_size_factor, caching_policy_index+1, policy_types_size, st.caching_policy.c_str(), st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
+        // printf("io[%d/2]: %s | cache_size[%d/%d]: %.2f | caching_policy[%d/%d]: %s || trace: %llu, time: %lldus, total_time: %lld\n", 
+        // io_on? 2:1, io_on? "on":"off", cache_size_index+1, cache_size_types_size, cache_size_factor, caching_policy_index+1, policy_types_size, st.caching_policy.c_str(), st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
         if (isTraceHit)
             st.hit_trace_nums++;
         // printChunkMap();
@@ -259,15 +261,6 @@ void Sl::test()
     st.total_time = (t3.tv_sec - t0.tv_sec) * 1000000 + (t3.tv_usec - t0.tv_usec);
     st.getEndTime();
     printf("test end\n");
-}
-
-void Sl::checkFile(fstream &file)
-{
-    if (!file.is_open())
-    {
-        cout << "Error: opening trace file fail" << endl;
-        exit(1);
-    }
 }
 
 bool Sl::isWriteCache()
@@ -303,22 +296,24 @@ Sl::~Sl()
 
 void Sl::init()
 {
-    initFreeCache();
     initFile();
+    initFreeCache();
     // cout << "init success" << endl;
 }
 
 void Sl::initFile()
 {
+    disk_path = storage_dir + "disk.bin";
+    cout<<"disk_path: "<<disk_path<<endl;
     if(O_DIRECT_ON){
         fd_cache = open(cache_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd_cache >= 0);
-        fd_disk = open(DISK_PATH, O_RDWR | O_DIRECT, 0664);
+        fd_disk = open(disk_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd_disk >= 0);
     } else {
         fd_cache = open(cache_path.c_str(), O_RDWR, 0664);
         assert(fd_cache >= 0);
-        fd_disk = open(DISK_PATH, O_RDWR, 0664);
+        fd_disk = open(disk_path.c_str(), O_RDWR, 0664);
         assert(fd_disk >= 0);
     }
 
@@ -468,7 +463,7 @@ void Sl::readCache(const ll &offset_cache)
 
 void Sl::readDisk(const long long &key)
 {
-    printf("readDisk\n");
+    // printf("readDisk\n");
     assert(key != -1);
     readChunk(false, key, CHUNK_SIZE);
 }
@@ -500,4 +495,4 @@ void Sl::statistic()
     st.writeStatistic();
 }
 
-#endif /*_LRU_SIMULATORHPP_INCLUDED_*/
+#endif /*_SIMULATOR_HPP_INCLUDED_*/
