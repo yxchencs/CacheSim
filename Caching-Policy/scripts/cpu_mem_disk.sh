@@ -14,46 +14,48 @@ eMMC_name="mmcblk0"
 sd_name="mmcblk1"
 
 while true; do
-    # ¼ÇÂ¼µ±Ç°Ê±¿Ì
+    # è®°å½•å½“å‰æ—¶åˆ»
     time=$(date "+%Y-%m-%d %H:%M:%S")
 
-    # ¼ÇÂ¼memory used
+    # è®°å½•memory used
     mem_used=$(free -m | grep "Mem:" | awk '{print $3}')
 
-    # ÔËĞĞtopÃüÁîÒÔÅú´¦ÀíÄ£Ê½£¬Êä³öµ½ÁÙÊ±ÎÄ¼ş
+    # è¿è¡Œtopå‘½ä»¤ä»¥æ‰¹å¤„ç†æ¨¡å¼ï¼Œè¾“å‡ºåˆ°ä¸´æ—¶æ–‡ä»¶
     top -b -n 1 > "$top_output_addr"
 
-    # ÔËĞĞ iostat ÃüÁî²¢±£´æÊä³ö
-    iostat_output=$(iostat -d)
+    # è¿è¡Œ iostat å‘½ä»¤å¹¶ä¿å­˜è¾“å‡º
+    iostat_output=$(iostat -d -k)
 
-    # Ê¹ÓÃgrepÃüÁîÌáÈ¡°üº¬"us"ºÍ"sy"µÄĞĞ£¬²¢½«½á¹û±£´æµ½±äÁ¿ÖĞ
+    # ä½¿ç”¨grepå‘½ä»¤æå–åŒ…å«"us"å’Œ"sy"çš„è¡Œï¼Œå¹¶å°†ç»“æœä¿å­˜åˆ°å˜é‡ä¸­
     us_sy_lines=$(grep -E "^\s*%Cpu\(s\):.*us|sy" top_output.txt)
 
-    # Ê¹ÓÃawkÃüÁîÌáÈ¡ÓÃ»§Ê±¼äºÍÏµÍ³Ê±¼ä£¬²¢±£´æµ½±äÁ¿ÖĞ
+    # ä½¿ç”¨awkå‘½ä»¤æå–ç”¨æˆ·æ—¶é—´å’Œç³»ç»Ÿæ—¶é—´ï¼Œå¹¶ä¿å­˜åˆ°å˜é‡ä¸­
     user_usage=$(echo "$us_sy_lines" | awk '{print $2}' | tr -d 'us,')
     sys_usage=$(echo "$us_sy_lines" | awk '{print $4}' | tr -d 'sy,')
 
-    # cpuÊ¹ÓÃÊ±¼ä = ÓÃ»§Ê±¼ä + ÏµÍ³Ê±¼ä
+    # cpuä½¿ç”¨æ—¶é—´ = ç”¨æˆ·æ—¶é—´ + ç³»ç»Ÿæ—¶é—´
     cpu_usage=`echo ${user_usage} ${sys_usage} | awk '{print $1+$2}'`
 
-    # ´ÓÊä³öÖĞÌáÈ¡ kB_read ºÍ kB_wrtn Êı¾İ
+    # ä»è¾“å‡ºä¸­æå– kB_read å’Œ kB_wrtn æ•°æ®
+    # kB_read: å–æ ·æ—¶é—´é—´éš”å†…è¯»å–çš„æ€»æ•°æ®é‡,  kB_write: å–æ ·æ—¶é—´é—´éš”å†…å†™å…¥çš„æ€»æ•°æ®é‡
+    # æ­¤å¤„æœªæŒ‡å®šå–æ ·é—´éš”ï¼Œå› æ­¤æµ‹é‡çš„æ˜¯ç´¯ç§¯è¯»å†™é‡ï¼Œå³è¡¨ç¤ºè‡ªç³»ç»Ÿå¯åŠ¨ä»¥æ¥æ€»å…±è¯»å–å’Œå†™å…¥ç£ç›˜çš„æ•°æ®é‡(kB)
     read_data1=$(echo "$iostat_output" | grep -E "$eMMC_name" | awk 'NR==1 {print $6}')
     write_data1=$(echo "$iostat_output" | grep -E "$eMMC_name" | awk 'NR==1 {print $7}')
     read_data2=$(echo "$iostat_output" | grep -E "$sd_name" | awk 'NR==1 {print $6}')
     write_data2=$(echo "$iostat_output" | grep -E "$sd_name" | awk 'NR==1 {print $7}')
 
-    # ´òÓ¡Í³¼Æ½á¹û
+    # æ‰“å°ç»Ÿè®¡ç»“æœ
     # echo "User Usage: $user_usage%; System Usage: $sys_usage%"
     # echo "Cpu Usage: $cpu_usage%"
     # echo "${eMMC_name}: kB_read = $read_data1, kB_wrtn = $write_data1"
     # echo "${sd_name}: kB_read = $read_data2, kB_wrtn = $write_data2"
 
-    # ±£´æ½á¹û
+    # ä¿å­˜ç»“æœ
     echo "${cpu_usage}% $time" >> "$cpu_usage_addr"
     echo "${mem_used} $time" >> "$mem_used_addr"
     echo "${eMMC_name}: kB_read = $read_data1, kB_wrtn = $write_data1; ${sd_name}: kB_read = ${read_data2}, kB_wrtn = ${write_data2}; $time" >> "$disk_read_wrtn_addr"
 
-    # ÇåÀíÁÙÊ±ÎÄ¼ş
+    # æ¸…ç†ä¸´æ—¶æ–‡ä»¶
     rm top_output.txt
 
     sleep 1

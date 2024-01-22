@@ -20,6 +20,7 @@
 #include "../simulator/clockproSl.h"
 #include "../simulator/2qSl.h"
 #include "../simulator/tinylfuSl.h"
+#include "../simulator/noCacheSl.h"
 
 namespace fs = std::filesystem;
 
@@ -73,7 +74,7 @@ bool copy_file_to_directory(const fs::path& source_file, const fs::path& target_
         fs::permissions(target_file, fs::perms::owner_read | fs::perms::owner_write |
                         fs::perms::group_read | fs::perms::group_write |
                         fs::perms::others_read | fs::perms::others_write);
-
+        std::cout<<"copy "<<source_file<<" to "<<target_directory<<std::endl;
         return true; // 复制并设置权限成功
     } catch (const fs::filesystem_error& e) {
         std::cerr << "复制文件或设置权限时出错: " << e.what() << std::endl;
@@ -207,4 +208,55 @@ void run(){
     }
 }
 
+// @brief 测试无缓存直接读写设备(sd/eMMC)的性能
+// @param trace_path
+// @param device_id
+// @param device_path
+// @param trace_dir
+void run_no_cache_once(std::string device_id, std::string device_path){
+    std::cout<<"device_id: "<<device_id<<", device_path: "<<device_path<<std::endl;
+    NoCacheSl sl(device_id, device_path);
+    sl.test();
+    sl.statistic();
+}
+
+void run_no_cache_example(){
+    save_root = "../../records/" + getCurrentDateTime() + '/';
+    trace_dir = "../trace/uniform/r100w_o15w_0.99/read_0/";
+    trace_path = trace_dir + "trace.txt";
+    std::string device_id = "disk";
+    std::string device_path = trace_dir + "storage/disk.bin";
+    run_no_cache_once(device_id, device_path);
+}
+
+void run_no_cache(){
+    std::string device_id;
+    std::string device_path;
+
+    save_root = "../../records/" + getCurrentDateTime() + '/';
+    mkdir(save_root);
+    std::string emmc_dir = "/mnt/eMMC/";
+    mkdir(emmc_dir);
+    std::string sd_dir = "../storage/";
+    mkdir(sd_dir);
+
+    auto trace_dirs = find_trace_paths("../trace/");
+    for (const auto& dir : trace_dirs) {
+        trace_dir = dir;
+        trace_path = trace_dir+"/trace.txt";
+        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        std::string disk_dir = trace_dir + "/storage/disk.bin";
+
+        copy_file_to_directory(disk_dir, sd_dir);
+        device_id = "sd";
+        device_path = sd_dir + "disk.bin";
+        run_no_cache_once(device_id, device_path);
+
+        copy_file_to_directory(disk_dir, emmc_dir);
+        device_id = "emmc";
+        device_path = emmc_dir + "disk.bin";
+        run_no_cache_once(device_id, device_path);
+        
+    }
+}
 #endif /*_RUN_HPP_INCLUDED_*/

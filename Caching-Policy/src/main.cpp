@@ -3,7 +3,8 @@ using namespace std;
 
 
 int main(){
-    run();
+    // run();
+    run_no_cache();
     return 0;
 }
 /*

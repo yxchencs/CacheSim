@@ -492,7 +492,7 @@ void Sl::writeDisk(const long long &key)
 void Sl::statistic()
 {
     // st.printStatistic();
-    st.writeStatistic();
+    st.record();
 }
 
 #endif /*_SIMULATOR_HPP_INCLUDED_*/

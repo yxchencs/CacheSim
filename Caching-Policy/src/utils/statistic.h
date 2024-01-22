@@ -38,6 +38,8 @@ public:
 
     //unsigned long long choose_nth(vector<unsigned long long> &a,int startIndex, int endIndex, int n);
     //unsigned long long percentile(const double& p);
+    void record();
+    void record_in_dir(std::string dir);
     void printStatistic();
     void writeStatistic();
     void getCurrentTimeFormatted(char *formattedTime);
@@ -234,9 +236,6 @@ void Statistic::printStatistic(){
 }
 
 void Statistic::writeStatistic(){
-    make_save_dir();
-    saveLatency();
-
     ofstream fout(save_dir+"statistic.txt");
     
     if(!fout.is_open()){
@@ -299,7 +298,6 @@ void Statistic::writeStatistic(){
     printf("statistic saved\n");
 }
 
-
 void Statistic::saveLatency(){
     ofstream fout(save_dir+"trace_latency.txt");
     
@@ -314,6 +312,20 @@ void Statistic::saveLatency(){
     } else {
         cerr<<"error: can not open result file"<<endl;
     }
+}
+
+void Statistic::record(){
+    make_save_dir();
+    saveLatency();
+    writeStatistic();
+}
+
+void Statistic::record_in_dir(std::string dir){
+    save_dir = dir;
+    mkdir(save_dir);
+    cout<<"save_dir: "<<save_dir<<endl;
+    saveLatency();
+    writeStatistic();
 }
 
 #endif /*STATISTIC_HPP_INCLUDED_*/
