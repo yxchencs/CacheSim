@@ -1,5 +1,5 @@
 #!/bin/bash
-# 此脚本在YSCB/目录下运行
+# 此脚本在YSCB/目录下,Linux环境运行
 
 # 定义 genarate_trace 目录的路径
 GENERATE_TRACE_DIR="/mnt/d/Projects/DatabaseLearn/genarate_trace"

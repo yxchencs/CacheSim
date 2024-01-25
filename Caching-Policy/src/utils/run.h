@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <chrono>
 #include <iomanip>
+#include <cstdlib>
 
 #include "../simulator/randomSl.h"
 #include "../simulator/fifoSl.h"
@@ -136,6 +137,29 @@ void initCacheSize(){
     fin_trace>>s>>chunk_num>>disk_size;
     cache_size = chunk_num*cache_size_factor;
     // cout<<s<<", "<<chunk_num<<", "<<disk_size<<", "<<cache_size<<endl;
+}
+
+bool executeAndCheckMount(const std::string& device, const std::string& mountPoint) {
+    // Construct the mount command using the provided device and mount point
+    std::string mountCommand = "sudo mount " + device + " " + mountPoint;
+    
+    // Execute the mount command
+    int status = system(mountCommand.c_str());
+    
+    // Check if the mount command was successful
+    if (status != 0) {
+        // The mount command failed
+        return false;
+    }
+    
+    // Construct the command to check the mount
+    std::string checkMountCommand = "mount | grep " + mountPoint;
+    
+    // Execute the command to check the mount
+    status = system(checkMountCommand.c_str());
+    
+    // If the grep command found the mount point in the mount table, the mount was successful
+    return status == 0;
 }
 
 void run_once(){

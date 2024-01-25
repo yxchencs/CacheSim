@@ -94,7 +94,7 @@ void NoCacheSl::test(){
         long long deltaT = (t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec);
         st.latency_v.push_back(deltaT);
         st.total_latency += deltaT;
-        printf("trace: %llu, time: %lldus, total_time: %lld\n", st.total_trace_nums, deltaT, st.total_latency);
+        // printf("trace: %llu, time: %lldus, total_time: %lld\n", st.total_trace_nums, deltaT, st.total_latency);
         if (isTraceHit)
             st.hit_trace_nums++;
         // printChunkMap();
