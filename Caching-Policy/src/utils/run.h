@@ -232,6 +232,78 @@ void run(){
     }
 }
 
+// 测试memory使用，选择uniform分布，数据集设置大一点，比如20gb，然后cache size设置8% 16% 32%
+void run2(){
+    save_root = "../../records/" + getCurrentDateTime() + '/';
+    cout<<"save_root: "<<save_root<<endl;
+    mkdir(save_root);
+    cache_dir = "/mnt/eMMC/";
+    // cout<<"cache_dir: "<<cache_dir<<endl;
+    mkdir(cache_dir);
+    auto trace_root_dir = "../trace/";
+    auto trace_dirs = find_trace_paths(trace_root_dir);
+    for (const auto& dir : trace_dirs) {
+        trace_dir = dir;
+        trace_path = trace_dir+"/trace.txt";
+        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        storage_dir = trace_dir + "/storage/";
+
+        copy_files_containing_cache(storage_dir, cache_dir);
+        for(int k=0; k<2; k++){
+            io_on = k;
+            for(int i=0;i<cache_size_types_size2;i++){
+                cache_size_index = i;
+                for(int j=0;j<policy_types_size;j++){
+                    caching_policy_index = j;
+                    run_once2();
+                }
+            }
+        }
+    }
+}
+
+// for run2()
+void run_once2(){
+    printf("--------------------------------------------------------------------------------\n");
+    Sl *sim = nullptr;
+    cache_size_factor = cacheSizeTypes2[cache_size_index];
+    initCacheSize();
+    cache_path = cache_dir+cachePath2[cache_size_index];
+    cout<<"cache_path: "<<cache_path<<endl;
+    switch(policyTypes[caching_policy_index]){
+        case PolicyType::RANDOM: 
+            sim = new RandomSl();
+            break;
+        case PolicyType::FIFO:
+            sim = new FifoSl();
+            break;
+        case PolicyType::LFU:
+            sim = new LfuSl();
+            break;
+        case PolicyType::LRU:
+            sim = new LruSl();
+            break;
+        case PolicyType::LIRS:
+            sim = new LirsSl();
+            break;
+        case PolicyType::ARC:
+            sim = new ArcSl();
+            break;
+        case PolicyType::CLOCKPRO:
+            sim = new ClockproSl();
+            break;
+        case PolicyType::TQ:
+            sim = new TqSl();
+            break;
+        case PolicyType::TINYLFU:
+            sim = new TinylfuSl();
+            break;
+    }
+
+    sim->test();
+    sim->statistic();
+}
+
 // @brief 测试无缓存直接读写设备(sd/eMMC)的性能
 // @param trace_path
 // @param device_id

@@ -1,4 +1,4 @@
-#ifndef _NO_CACHE_SIMULATOR_HPP_INCLUDED_
+32#ifndef _NO_CACHE_SIMULATOR_HPP_INCLUDED_
 #define _NO_CACHE_SIMULATOR_HPP_INCLUDED_
 
 #include "../utils/statistic.h"

@@ -18,4 +18,18 @@ const char *cachePath[] = {
     "cache_0.08.bin",
     "cache_0.1.bin",
 };
+
+double cacheSizeTypes2[] = {
+    0.08,
+    0.16,
+    0.32
+};
+
+int cache_size_types_size2 = sizeof(cacheSizeTypes2) / sizeof(cacheSizeTypes2[0]);
+
+const char *cachePath2[] = {
+    "cache_0.08.bin",
+    "cache_0.16.bin",
+    "cache_0.32.bin"
+};
 #endif /*_CACHE_CONF_INCLUDED_*/
