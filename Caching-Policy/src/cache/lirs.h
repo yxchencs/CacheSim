@@ -54,7 +54,7 @@ class LIRS
 {
 public:
     LIRS(ll size = cache_size)
-        : cache_size_(size), used_size_(0), s_size_(0.99 * size), q_size_(0.1 * size)
+        : cache_size_(size), used_size_(0), s_size_(0.99 * size), q_size_(0.1 * size) // Lhirs = 1%
     {
         assert(s_size_);
         assert(q_size_);

@@ -263,7 +263,7 @@ https://ieeexplore.ieee.org/document/9975405
 ref: I/O Characteristics of Smartphone Applications and Their Implications for eMMC Design
 https://ieeexplore.ieee.org/abstract/document/7314143
 
-2. [Traces – Smartphone](http://visa.lab.asu.edu/web/resources/traces/)
+2. [Smartphone Traces](http://visa.lab.asu.edu/web/resources/traces/)
 
 http://visa.lab.asu.edu/web/resources/traces/traces-smartphone/
 

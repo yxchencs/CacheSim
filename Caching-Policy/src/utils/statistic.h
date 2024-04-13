@@ -61,12 +61,6 @@ public:
     long long hit_trace_nums;
     long long total_trace_nums;
 
-    //记录处理每个trace使用的时间(ns)
-    // vector<double> latency_v;
-    // double total_time;
-    // double average_latency;
-
-
     long long total_time;//float total_time;//unsigned long long total_time;//整体的运行时间
 
     vector<long long> latency_v;

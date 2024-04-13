@@ -42,9 +42,9 @@ private:
 template <typename Key>
 cache_2q<Key>::cache_2q(size_t cache_size)
     : cache_size_(cache_size),
-      A_out_size_(static_cast<size_t>(cache_size / 2)),                         // 50% of cache_size
-      A_in_size_(static_cast<size_t>(static_cast<size_t>(cache_size / 2)) / 2), // 25% of cache_size
-      A_m_size_(cache_size - A_in_size_),                                                    // cache_size
+      A_out_size_(static_cast<size_t>(cache_size / 2)),                         // 50% of cache_size ==> Kout = 50%
+      A_in_size_(static_cast<size_t>(static_cast<size_t>(cache_size / 2)) / 2), // 25% of cache_size ==> Kin = 25%
+      A_m_size_(cache_size - A_in_size_),                                       // cache_size
       victim_(-1)
 {
     assert(cache_size >= 3);

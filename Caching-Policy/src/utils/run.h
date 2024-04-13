@@ -11,6 +11,8 @@
 #include <chrono>
 #include <iomanip>
 #include <cstdlib>
+#include <sys/mount.h>
+#include <sys/statfs.h>
 
 #include "../simulator/randomSl.h"
 #include "../simulator/fifoSl.h"
@@ -24,6 +26,30 @@
 #include "../simulator/noCacheSl.h"
 
 namespace fs = std::filesystem;
+
+// 检查是否已挂载
+bool isMounted(const char *target) {
+    struct statfs fsinfo;
+    if (statfs(target, &fsinfo) != -1) {
+        return true; // Already mounted
+    } else {
+        return false; // Not mounted
+    }
+}
+
+// 检查是否挂载成功
+bool executeAndCheckMount(const char *source, const char *target) {
+    if (isMounted(target)) {
+        std::cout << "Already mounted." << std::endl;
+        return true;
+    }
+
+    if (mount(source, target, NULL, MS_MGC_VAL, NULL) == 0) {
+        return true; // Mount was successful
+    } else {
+        return false; // Mount failed
+    }
+}
 
 // 获取当前时间点的日期时间格式化字符串，形如 2023-03-15_15:30:45
 std::string getCurrentDateTime() {
@@ -232,36 +258,6 @@ void run(){
     }
 }
 
-// 测试memory使用，选择uniform分布，数据集设置大一点，比如20gb，然后cache size设置8% 16% 32%
-void run2(){
-    save_root = "../../records/" + getCurrentDateTime() + '/';
-    cout<<"save_root: "<<save_root<<endl;
-    mkdir(save_root);
-    cache_dir = "/mnt/eMMC/";
-    // cout<<"cache_dir: "<<cache_dir<<endl;
-    mkdir(cache_dir);
-    auto trace_root_dir = "../trace/";
-    auto trace_dirs = find_trace_paths(trace_root_dir);
-    for (const auto& dir : trace_dirs) {
-        trace_dir = dir;
-        trace_path = trace_dir+"/trace.txt";
-        std::cout<<"trace_path: "<<trace_path<<std::endl;
-        storage_dir = trace_dir + "/storage/";
-
-        copy_files_containing_cache(storage_dir, cache_dir);
-        for(int k=0; k<2; k++){
-            io_on = k;
-            for(int i=0;i<cache_size_types_size2;i++){
-                cache_size_index = i;
-                for(int j=0;j<policy_types_size;j++){
-                    caching_policy_index = j;
-                    run_once2();
-                }
-            }
-        }
-    }
-}
-
 // for run2()
 void run_once2(){
     printf("--------------------------------------------------------------------------------\n");
@@ -302,6 +298,36 @@ void run_once2(){
 
     sim->test();
     sim->statistic();
+}
+
+// 测试memory使用，选择uniform分布，数据集设置大一点，比如20gb，然后cache size设置8% 16% 32%
+void run2(){
+    save_root = "../../records/" + getCurrentDateTime() + '/';
+    cout<<"save_root: "<<save_root<<endl;
+    mkdir(save_root);
+    cache_dir = "/mnt/eMMC/";
+    // cout<<"cache_dir: "<<cache_dir<<endl;
+    mkdir(cache_dir);
+    auto trace_root_dir = "../trace/";
+    auto trace_dirs = find_trace_paths(trace_root_dir);
+    for (const auto& dir : trace_dirs) {
+        trace_dir = dir;
+        trace_path = trace_dir+"/trace.txt";
+        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        storage_dir = trace_dir + "/storage/";
+
+        copy_files_containing_cache(storage_dir, cache_dir);
+        for(int k=0; k<2; k++){
+            io_on = k;
+            for(int i=0;i<cache_size_types_size2;i++){
+                cache_size_index = i;
+                for(int j=0;j<policy_types_size;j++){
+                    caching_policy_index = j;
+                    run_once2();
+                }
+            }
+        }
+    }
 }
 
 // @brief 测试无缓存直接读写设备(sd/eMMC)的性能
