@@ -1,5 +1,5 @@
 #ifndef STATISTIC_HPP_INCLUDED_
-#define	STATISTIC_HPP_INCLUDED_
+#define STATISTIC_HPP_INCLUDED_
 
 #include <iostream>
 #include <chrono>
@@ -15,311 +15,286 @@
 using namespace std;
 
 void mkdir(std::string path);
-std::string getSubstringAfter(const std::string& original, const std::string& to_find);
-class Statistic{
-public:
+std::string getSubstringAfter(const std::string &original, const std::string &to_find);
 
-    Statistic(){
-        read_hit_nums=0;
-        read_nums=0;
+struct Latency
+{
+    vector<ll> latency_v;  // us
+    ll total_latency;      // us
+    float average_latency; // ms
+    float p95_latency;     // ms
+    float p99_latency;     // ms
 
-        write_hit_nums=0;
-        write_nums=0;
+    Latency() : total_latency(0), average_latency(0), p95_latency(0), p99_latency(0) {}
+    void addDeltaT(ll deltaT)
+    {
+        latency_v.push_back(deltaT);
+        total_latency += deltaT;
+    }
+    bool checkLatencySize() {
+        if(!latency_v.size()) {
+            return false;
+        }
+        return true;
+    }
+    void compute()
+    {
+        if(!checkLatencySize()){
+            return;
+        }
 
-        hit_trace_nums=0;
-        total_trace_nums=0;
+        ll latency_v_size = latency_v.size();
+        sort(latency_v.begin(), latency_v.end());
+        p95_latency = latency_v[ceil(0.95 * latency_v_size)] * 1.0 / 1e3;
+        p99_latency = latency_v[ceil(0.99 * latency_v_size)] * 1.0 / 1e3;
 
-        total_time=0;
-        average_latency=0;
-        total_request_size=0;
-        
-        total_latency = 0;
+        if (latency_v_size != 0)
+        {
+            average_latency = total_latency * 0.1 / latency_v_size / 1e3;
+        }
+    }
+    void save(string save_path)
+    {
+        if(!checkLatencySize()){
+            return;
+        }
+
+        ofstream fout(save_path);
+
+        if (fout.is_open())
+        {
+            fout << "traceNo latency(us)" << endl;
+            for (int i = 0; i < latency_v.size(); i++)
+            {
+                // cout<<i+1<<' '<<latency_v[i]<<endl;
+                fout << i + 1 << ' ' << latency_v[i] << endl;
+            }
+            fout.close();
+            // cout<<"save trace latency success"<<endl;
+        }
+        else
+        {
+            cerr << "error: can not open result file: " << save_path << endl;
+        }
     }
 
-    //unsigned long long choose_nth(vector<unsigned long long> &a,int startIndex, int endIndex, int n);
-    //unsigned long long percentile(const double& p);
+    void print_latency_v()
+    {
+        cout << "latency(ns): " << endl;
+        for (auto t : latency_v)
+        {
+            cout << t << ' ';
+        }
+        cout << endl;
+    }
+};
+
+class Statistic
+{
+public:
+    Statistic();
+
+    ll computeDeltaT(struct timeval begin, struct timeval end);
     void record();
-    void record_in_dir(std::string dir);
     void printStatistic();
     void writeStatistic();
     void getCurrentTimeFormatted(char *formattedTime);
     void getStartTime();
     void getEndTime();
+    void computeLatency();
     void saveLatency();
-    void make_save_dir();
+    void resetSaveDir(const string &dir);
+    void makeDefaultSaveDir();
 
     string caching_policy;
 
-    char startTime[20],endTime[20];
+    char startTime[20], endTime[20];
 
-    long long read_hit_nums;
-    long long read_nums;
+    ll read_hit_nums;
+    ll read_nums;
 
-    long long write_hit_nums;
-    long long write_nums;
+    ll write_hit_nums;
+    ll write_nums;
 
-    long long hit_trace_nums;
-    long long total_trace_nums;
+    ll hit_trace_nums;
+    ll total_trace_nums;
 
-    long long total_time;//float total_time;//unsigned long long total_time;//整体的运行时间
+    ll total_time;
 
-    vector<long long> latency_v;
-    long long total_latency;//float total_latency;//unsigned long long total_latency;//所有trace的时间之和
-    float average_latency;//unsigned long long average_latency;//所有trace的平均时间
+    struct Latency total_latency;
+    struct Latency emmc_read_latency;
+    struct Latency emmc_write_latency;
+    struct Latency sd_read_latency;
+    struct Latency sd_write_latency;
 
-    //记录每个trace实际访问的块的个数
-    vector<long long> request_size_v;
-    long long total_request_size;
+    vector<ll> request_size_v;
+    ll total_request_size;
 
     string save_dir;
 };
 
-void Statistic::make_save_dir(){
-    save_dir = save_root + getSubstringAfter(trace_dir,"trace/");
+Statistic::Statistic()
+{
+    read_hit_nums = 0;
+    read_nums = 0;
+
+    write_hit_nums = 0;
+    write_nums = 0;
+
+    hit_trace_nums = 0;
+    total_trace_nums = 0;
+
+    total_time = 0;
+    total_request_size = 0;
+
+    makeDefaultSaveDir();
+}
+
+ll Statistic::computeDeltaT(struct timeval begin, struct timeval end)
+{
+    return (end.tv_sec - begin.tv_sec) * 1000000 + (end.tv_usec - begin.tv_usec);
+}
+
+void Statistic::makeDefaultSaveDir()
+{
+    save_dir = save_root + getSubstringAfter(trace_dir, "trace/");
 
     stringstream ss;
     ss << setprecision(2) << cache_size_factor;
     string str_cache_size_factor = ss.str();
-    if(io_on){
-        save_dir = save_dir + "/io_on/"+str_cache_size_factor+'/' + caching_policy + '/';
-    }else{
-        save_dir = save_dir + "/io_off/"+str_cache_size_factor+'/' + caching_policy + '/';
+    if (io_on)
+    {
+        save_dir = save_dir + "/io_on/" + str_cache_size_factor + '/' + caching_policy + '/';
+    }
+    else
+    {
+        save_dir = save_dir + "/io_off/" + str_cache_size_factor + '/' + caching_policy + '/';
     }
 
     mkdir(save_dir);
-    cout<<"save_dir: "<<save_dir<<endl;
+    cout << "save_dir: " << save_dir << endl;
 }
 
-void Statistic::getCurrentTimeFormatted(char *formattedTime) {
+void Statistic::getCurrentTimeFormatted(char *formattedTime)
+{
     time_t timep;
     struct tm *p;
 
-    // 获取当前时间
     time(&timep);
     p = localtime(&timep);
 
-    // 格式化时间为字符串
     snprintf(formattedTime, 20, "%d/%02d/%02d %02d:%02d:%02d",
-            1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday,
-            p->tm_hour, p->tm_min, p->tm_sec);
+             1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday,
+             p->tm_hour, p->tm_min, p->tm_sec);
 }
 
-void Statistic::getStartTime(){
+void Statistic::getStartTime()
+{
     getCurrentTimeFormatted(startTime);
 }
 
-void Statistic::getEndTime(){
+void Statistic::getEndTime()
+{
     getCurrentTimeFormatted(endTime);
 }
-/*
-unsigned long long Statistic::choose_nth(vector<unsigned long long> &a,int startIndex, int endIndex, int n){
-    unsigned long long midOne = a[startIndex];
-    int i = startIndex, j = endIndex;
-    if(i == j) //递归出口之一
-        return a[i];
 
-    if(i < j)
+void Statistic::writeStatistic()
+{
+    ofstream fout(save_dir + "statistic.txt");
+
+    if (!fout.is_open())
     {
-        while(i < j)
-        {
-            for(; i < j; j--)
-            if(a[j] < midOne)
-            {
-                a[i++] = a[j];
-                break;
-            }
-            for(; i < j; i++)
-            if(a[i] > midOne)
-            {
-                a[j--] = a[i];
-                break;
-            }
-        }
-        a[i] = midOne;//支点归位
-
-        int th = endIndex - i + 1;//计算下标为i的数第几大
-
-        if(th == n)//正好找到
-        {
-            return a[i];
-        }
-        else
-        {
-            if(th > n )//在支点右边找
-                return choose_nth(a, i + 1, endIndex, n);
-            else//在支点左边找第(n-th)大,因为右边th个数都比支点大
-                return choose_nth(a, startIndex, i - 1, n - th);
-        }
-    }
-    return 0; //debug: warning: control reaches end of non-void function [-Wreturn-type]
-}
-
-unsigned long long Statistic::percentile(const double& p){
-    double position = 1+(latency_v.size()-1)*p;
-    if(ceil(position) == floor(position)){
-        return choose_nth(latency_v,0,latency_v.size()-1,position);
-    }else{
-        unsigned long long pre=choose_nth(latency_v,0,latency_v.size()-1,floor(position));
-        unsigned long long cur=choose_nth(latency_v,0,latency_v.size()-1,ceil(position));
-        return pre+(cur-pre)*p;
-    }
-}
-*/
-void Statistic::printStatistic(){
-    cout<<"-----------------------------------------------------------------"<<endl;
-    cout<<"statistic:"<<endl;
-    cout<<"caching policy: "<<caching_policy<<endl;
-    cout<<"trace: "<<trace_dir<<endl;
-    cout<<"cache: "<<cache_path<<endl;
-    cout<<"O_DIRECT: "<<O_DIRECT_ON<<endl;
-    cout<<"chunk size: "<<CHUNK_SIZE<<" B"<<endl;
-    cout<<"disk size: "<<disk_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    cout<<"cache size: "<<cache_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    cout<<"chunk number: "<<chunk_num<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    if(read_nums!=0){
-        cout<<"read hit/total number: "<<read_hit_nums<<'/'<<read_nums<<endl;
-        cout<<"read hit ratio: "<<read_hit_nums*1.0/read_nums<<endl;
-    }
-    if(write_nums!=0){
-        cout<<"write hit/total number: "<<write_hit_nums<<'/'<<write_nums<<endl;
-        cout<<"write hit ratio: "<<write_hit_nums*1.0/write_nums<<endl;
-    }
-    if((read_nums+write_nums)!=0){
-        cout<<"hit/total number: "<<read_hit_nums+write_hit_nums<<'/'<<read_nums+write_nums<<endl;
-        cout<<"hit ratio: "<<(read_hit_nums+write_hit_nums)*1.0/(read_nums+write_nums)<<endl;
-    }
-    if(total_trace_nums!=0){
-        cout<<"hit/total trace: "<<hit_trace_nums<<'/'<<total_trace_nums<<endl;
-        cout<<"trace hit ratio: "<<hit_trace_nums*1.0/total_trace_nums<<endl;
-    }
-
-    
-    // cout<<"time(ns): "<<endl;
-    // for(auto t:latency_v){
-    //      cout<<t<<' ';
-    // }
-    // cout<<endl; 
-
-    cout<<"From "<<startTime<<" to "<<endTime<<endl;
-    cout<<"total time: "<<total_time*1.0/1e6<<" s"<<endl;//cout<<"total time: "<<total_time*1.0/1e9<<" s"<<endl;
-    if(total_trace_nums != 0){
-        average_latency=total_latency/total_trace_nums;
-        cout<<"average latency: "<<average_latency*1.0/1e3<<" ms"<<endl;//cout<<"average latency: "<<average_latency*1.0/1e6<<" ms"<<endl;
-        
-    }
-    sort(latency_v.begin(),latency_v.end());
-    cout<<"tail latency: P95="<<latency_v[ceil(0.95*total_trace_nums)]*1.0/1e6<<" ms, P99="<<latency_v[ceil(0.99*total_trace_nums)]*1.0/1e6<<" ms"<<endl;
-
-    // cout<<"total request size: "<<total_request_size<<" x "<<CHUNK_SIZE<<"B"<<endl;  // number of chunks
-    cout<<"total request size: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024<<" MB"<<endl;
-    if(total_trace_nums != 0){
-        cout<<"average size: "<<total_request_size*1.0*CHUNK_SIZE/1024 / total_trace_nums<<" KB"<<endl;
-    }
-    if(total_time!=0){
-        cout<<"bandwidth: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e6)<<" MB/s"<<endl;//cout<<"bandwidth: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
-    // puts("power: ");
-    // puts("energy: ");
-        
-        // cout<<"long latency: P95="<<choose_nth(latency_v,0,latency_v.size()-1,ceil(0.95*total_trace_nums))/1e6<<" ms, P99="<<choose_nth(latency_v,0,latency_v.size()-1,ceil(0.99*total_trace_nums))/1e6<<" ms"<<endl;
-        // cout<<"tail latency: P95="<<percentile(0.95)/1e6<<" ms, P99="<<percentile(0.99)/1e6<<" ms"<<endl;
-    }
-
-    // p分位数位置的值 = 位于p分位数取整后位置的值 + （位于p分位数取整下一位位置的值 - 位于p分位数取整后位置的值）*（p分位数位置 - p分位数位置取整）
-    
-
-}
-
-void Statistic::writeStatistic(){
-    ofstream fout(save_dir+"statistic.txt");
-    
-    if(!fout.is_open()){
-        cerr<<"error: can not open result file"<<endl;
+        cerr << "error: can not open result file" << endl;
         return;
     }
 
-    fout<<"caching policy: "<<caching_policy<<endl;
-    fout<<"trace: "<<trace_path<<endl;
-    fout<<"cache: "<<cache_path<<endl;
-    fout<<"O_DIRECT: "<<O_DIRECT_ON<<endl;
-    fout<<"chunk size: "<<CHUNK_SIZE<<" B"<<endl;
-    fout<<"disk size: "<<disk_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    fout<<"cache size: "<<cache_size<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    fout<<"chunk number: "<<chunk_num<<" x "<< CHUNK_SIZE <<" B"<<endl;
-    if(read_nums!=0){
-        fout<<"read hit/total number: "<<read_hit_nums<<'/'<<read_nums<<endl;
-        fout<<"read hit ratio: "<<read_hit_nums*1.0/read_nums<<endl;
+    fout << "caching policy: " << caching_policy << endl;
+    fout << "trace: " << trace_path << endl;
+    fout << "cache: " << cache_path << endl;
+    fout << "O_DIRECT: " << O_DIRECT_ON << endl;
+    fout << "chunk size: " << CHUNK_SIZE << " B" << endl;
+    fout << "disk size: " << disk_size << " x " << CHUNK_SIZE << " B" << endl;
+    fout << "cache size: " << cache_size << " x " << CHUNK_SIZE << " B" << endl;
+    fout << "chunk number: " << chunk_num << " x " << CHUNK_SIZE << " B" << endl;
+    if (read_nums != 0)
+    {
+        fout << "read hit/total number: " << read_hit_nums << '/' << read_nums << endl;
+        fout << "read hit ratio: " << read_hit_nums * 1.0 / read_nums << endl;
     }
-    if(write_nums!=0){
-        fout<<"write hit/total number: "<<write_hit_nums<<'/'<<write_nums<<endl;
-        fout<<"write hit ratio: "<<write_hit_nums*1.0/write_nums<<endl;
+    if (write_nums != 0)
+    {
+        fout << "write hit/total number: " << write_hit_nums << '/' << write_nums << endl;
+        fout << "write hit ratio: " << write_hit_nums * 1.0 / write_nums << endl;
     }
-    if((read_nums+write_nums)!=0){
-        fout<<"hit/total number: "<<read_hit_nums+write_hit_nums<<'/'<<read_nums+write_nums<<endl;
-        fout<<"hit ratio: "<<(read_hit_nums+write_hit_nums)*1.0/(read_nums+write_nums)<<endl;
+    if ((read_nums + write_nums) != 0)
+    {
+        fout << "hit/total number: " << read_hit_nums + write_hit_nums << '/' << read_nums + write_nums << endl;
+        fout << "hit ratio: " << (read_hit_nums + write_hit_nums) * 1.0 / (read_nums + write_nums) << endl;
     }
-    if(total_trace_nums!=0){
-        fout<<"hit/total trace: "<<hit_trace_nums<<'/'<<total_trace_nums<<endl;
-        fout<<"trace hit ratio: "<<hit_trace_nums*1.0/total_trace_nums<<endl;
+    if (total_trace_nums != 0)
+    {
+        fout << "hit/total trace: " << hit_trace_nums << '/' << total_trace_nums << endl;
+        fout << "trace hit ratio: " << hit_trace_nums * 1.0 / total_trace_nums << endl;
     }
 
-    
-    // fout<<"time(ns): "<<endl;
-    // for(auto t:latency_v){
-    //      fout<<t<<' ';
-    // }
-    // fout<<endl; 
-
-    fout<<"From "<<startTime<<" to "<<endTime<<endl;
-    fout<<"total time: "<<total_time*1.0/1e6<<" s"<<endl;//fout<<"total time: "<<total_time*1.0/1e9<<" s"<<endl;
-    if(total_trace_nums != 0){
-        average_latency=total_latency*1.0/total_trace_nums;        
-        fout<<"average latency: "<<average_latency*1.0/1e3<<" ms"<<endl;//fout<<"average latency: "<<average_latency*1.0/1e6<<" ms"<<endl;
-        
+    fout << "From " << startTime << " to " << endTime << endl;
+    fout << "total time: " << total_time * 1.0 / 1e6 << " s" << endl;
+    if (total_trace_nums != 0)
+    {
+        fout << "average latency: " << total_latency.average_latency << " ms" << endl;
     }
-    sort(latency_v.begin(),latency_v.end());
-    fout<<"tail latency: P95 = "<<latency_v[ceil(0.95*total_trace_nums)]*1.0/1e3<<" ms, P99 = "<<latency_v[ceil(0.99*total_trace_nums)]*1.0/1e3<<" ms"<<endl;//fout<<"tail latency: P95 ="<<latency_v[ceil(0.95*total_trace_nums)]*1.0/1e6<<" ms, P99 ="<<latency_v[ceil(0.99*total_trace_nums)]*1.0/1e6<<" ms"<<endl;
+
+    fout << "tail latency: P95 = " << total_latency.p95_latency << " ms, P99 = " << total_latency.p99_latency << " ms" << endl;
 
     // fout<<"total request size: "<<total_request_size<<" x "<<CHUNK_SIZE<<"B"<<endl;  // number of chunks
-    fout<<"total request size: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024<<" MB"<<endl;
-    if(total_trace_nums != 0){
-        fout<<"average size: "<<total_request_size*1.0*CHUNK_SIZE/1024 / total_trace_nums<<" KB"<<endl;
+    fout << "total request size: " << total_request_size * 1.0 * CHUNK_SIZE / 1024 / 1024 << " MB" << endl;
+    if (total_trace_nums != 0)
+    {
+        fout << "average size: " << total_request_size * 1.0 * CHUNK_SIZE / 1024 / total_trace_nums << " KB" << endl;
     }
-    if(total_time!=0){
-        fout<<"bandwidth: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e6)<<" MB/s"<<endl;//fout<<"bandwidth: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
+    if (total_time != 0)
+    {
+        fout << "bandwidth: " << total_request_size * 1.0 * CHUNK_SIZE / 1024 / 1024 / (total_time * 1.0 / 1e6) << " MB/s" << endl; // fout<<"bandwidth: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
     }
-    fout<<"io_on: "<<io_on;
+    fout << "io_on: " << io_on << endl;;
+
+    fout << "emmc_read: average latency: " << emmc_read_latency.average_latency << " ms; tail latency: P95 = " << emmc_read_latency.p95_latency << " ms, P99 = " << emmc_read_latency.p99_latency << " ms" << endl;
+    fout << "emmc_write: average latency: " << emmc_write_latency.average_latency << " ms; tail latency: P95 = " << emmc_write_latency.p95_latency << " ms, P99 = " << emmc_write_latency.p99_latency << " ms" << endl;
+    fout << "sd_read: average latency: " << sd_read_latency.average_latency << " ms; tail latency: P95 = " << sd_read_latency.p95_latency << " ms, P99 = " << sd_read_latency.p99_latency << " ms" << endl;
+    fout << "sd_write: average latency: " << sd_write_latency.average_latency << " ms; tail latency: P95 = " << sd_write_latency.p95_latency << " ms, P99 = " << sd_write_latency.p99_latency << " ms" << endl;
+
     fout.close();
     printf("statistic saved\n");
 }
 
-void Statistic::saveLatency(){
-    ofstream fout(save_dir+"trace_latency.txt");
-    
-    if(fout.is_open()){
-        fout<<"traceNo latency(us)"<<endl;
-        for(int i=0;i<latency_v.size();i++){
-            // cout<<i+1<<' '<<latency_v[i]<<endl;
-            fout<<i+1<<' '<<latency_v[i]<<endl;
-        }
-        fout.close();
-        // cout<<"save trace latency success"<<endl;
-    } else {
-        cerr<<"error: can not open result file"<<endl;
-    }
-}
-
-void Statistic::record(){
-    make_save_dir();
+void Statistic::record()
+{
     saveLatency();
+    computeLatency();
     writeStatistic();
 }
 
-void Statistic::record_in_dir(std::string dir){
+void Statistic::computeLatency()
+{
+    total_latency.compute();
+    emmc_read_latency.compute();
+    emmc_write_latency.compute();
+    sd_read_latency.compute();
+    sd_write_latency.compute();
+}
+
+void Statistic::saveLatency()
+{
+    total_latency.save(save_dir + "trace_latency.txt");
+    emmc_read_latency.save(save_dir + "emmc_read_latency.txt");
+    emmc_write_latency.save(save_dir + "emmc_write_latency.txt");
+    sd_read_latency.save(save_dir + "sd_read_latency.txt");
+    sd_write_latency.save(save_dir + "sd_write_latency.txt");
+    printf("latency_v saved\n");
+}
+
+void Statistic::resetSaveDir(const string &dir) {
     save_dir = dir;
-    mkdir(save_dir);
-    cout<<"save_dir: "<<save_dir<<endl;
-    saveLatency();
-    writeStatistic();
 }
 
 #endif /*STATISTIC_HPP_INCLUDED_*/

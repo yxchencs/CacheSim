@@ -155,8 +155,7 @@ void checkFile(fstream &file)
     }
 }
 
-// 运行需要的函数
-void initCacheSize(){
+void initCacheAndDiskSize(){
     fstream fin_trace(trace_path);
     checkFile(fin_trace);
     string s;
@@ -192,7 +191,7 @@ void run_once(){
     printf("--------------------------------------------------------------------------------\n");
     Sl *sim = nullptr;
     cache_size_factor = cacheSizeTypes[cache_size_index];
-    initCacheSize();
+    initCacheAndDiskSize();
     cache_path = cache_dir+cachePath[cache_size_index];
     cout<<"cache_path: "<<cache_path<<endl;
     switch(policyTypes[caching_policy_index]){
@@ -263,7 +262,7 @@ void run_once2(){
     printf("--------------------------------------------------------------------------------\n");
     Sl *sim = nullptr;
     cache_size_factor = cacheSizeTypes2[cache_size_index];
-    initCacheSize();
+    initCacheAndDiskSize();
     cache_path = cache_dir+cachePath2[cache_size_index];
     cout<<"cache_path: "<<cache_path<<endl;
     switch(policyTypes[caching_policy_index]){

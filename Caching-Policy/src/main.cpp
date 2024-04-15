@@ -9,8 +9,8 @@ int main(){
         std::cout << "Mount failed." << std::endl;
         return 1;
     } 
-    // run2();
-    run();
+    run2();
+    // run();
     // run_no_cache();
     return 0;
 }

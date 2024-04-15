@@ -7,15 +7,17 @@
 using namespace std;
 
 void checkFile(fstream &file);
-std::string getSubstringAfter(const std::string& original, const std::string& to_find);
+std::string getSubstringAfter(const std::string &original, const std::string &to_find);
 
-class NoCacheSl{
+class NoCacheSl
+{
 public:
     void test();
     void statistic();
 
-    NoCacheSl(std::string device_id, std::string device_path):device_id(device_id){
-        fd= open(device_path.c_str(), O_RDWR | O_DIRECT, 0664);
+    NoCacheSl(std::string device_id, std::string device_path) : device_id(device_id)
+    {
+        fd = open(device_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd >= 0);
 
         int res = posix_memalign((void **)&buffer_read, CHUNK_SIZE, CHUNK_SIZE);
@@ -25,16 +27,18 @@ public:
         assert(res == 0);
         memset(buffer_write, 0, CHUNK_SIZE);
     };
-    ~NoCacheSl(){
+    ~NoCacheSl()
+    {
         close(fd);
         free(buffer_read);
         free(buffer_write);
     };
+
 private:
     int fd;
 
-    char * buffer_read = nullptr;
-    char * buffer_write = nullptr;
+    char *buffer_read = nullptr;
+    char *buffer_write = nullptr;
 
     Statistic st;
     std::string device_id;
@@ -45,7 +49,8 @@ private:
     void writeChunk(const long long &offset, const long long &size);
 };
 
-void NoCacheSl::test(){
+void NoCacheSl::test()
+{
     // cout << "-----------------------------------------------------------------" << endl;
     printf("test start\n");
     st.getStartTime();
@@ -53,11 +58,11 @@ void NoCacheSl::test(){
     fstream fin_trace(trace_path);
     checkFile(fin_trace);
 
-    ll curKey,curSize;
+    ll curKey, curSize;
     int type;
     char c;
     string s;
-    getline(fin_trace,s);
+    getline(fin_trace, s);
 
     struct timeval t0, t3, t1, t2;
     gettimeofday(&t0, NULL);
@@ -91,17 +96,14 @@ void NoCacheSl::test(){
         }
 
         gettimeofday(&t2, NULL);
-        long long deltaT = (t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec);
-        st.latency_v.push_back(deltaT);
-        st.total_latency += deltaT;
+        st.total_latency.addDeltaT(st.computeDeltaT(t1,t2));
         // printf("trace: %llu, time: %lldus, total_time: %lld\n", st.total_trace_nums, deltaT, st.total_latency);
-        if (isTraceHit)
-            st.hit_trace_nums++;
+        if (isTraceHit) st.hit_trace_nums++;
         // printChunkMap();
         // cout<<"isTraceHit: "<<isTraceHit<<' '<<"st.hit_trace_nums: "<<st.hit_trace_nums<<endl;
     }
     gettimeofday(&t3, NULL);
-    st.total_time = (t3.tv_sec - t0.tv_sec) * 1000000 + (t3.tv_usec - t0.tv_usec);
+    st.total_time = st.computeDeltaT(t0,t3);
     st.getEndTime();
     printf("test end\n");
 }
@@ -121,7 +123,7 @@ bool NoCacheSl::writeItem(vector<ll> &keys)
     st.write_nums += keys.size();
     for (int i = 0; i < keys.size(); i++)
     {
-        writeChunk(keys[i],CHUNK_SIZE);
+        writeChunk(keys[i], CHUNK_SIZE);
     }
     return false;
 }
@@ -144,8 +146,9 @@ void NoCacheSl::writeChunk(const long long &offset, const long long &size)
 
 void NoCacheSl::statistic()
 {
-    std::string dir = save_root + getSubstringAfter(trace_dir,"trace/") + '/' + device_id + '/';
-    st.record_in_dir(dir);
+    std::string dir = save_root + getSubstringAfter(trace_dir, "trace/") + '/' + device_id + '/';
+    st.resetSaveDir(dir);
+    st.record();
 }
 
 #endif /*_NO_CACHE_SIMULATOR_HPP_INCLUDED_*/

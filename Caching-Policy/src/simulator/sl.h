@@ -247,18 +247,15 @@ void Sl::test()
         }
 
         gettimeofday(&t2, NULL);
-        long long deltaT = (t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec);
-        st.latency_v.push_back(deltaT);
-        st.total_latency += deltaT;
+        st.total_latency.addDeltaT(st.computeDeltaT(t1,t2));
         // printf("io[%d/2]: %s | cache_size[%d/%d]: %.2f | caching_policy[%d/%d]: %s || trace: %llu, time: %lldus, total_time: %lld\n", 
         // io_on? 2:1, io_on? "on":"off", cache_size_index+1, cache_size_types_size, cache_size_factor, caching_policy_index+1, policy_types_size, st.caching_policy.c_str(), st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
-        if (isTraceHit)
-            st.hit_trace_nums++;
+        if (isTraceHit) st.hit_trace_nums++;
         // printChunkMap();
         // cout<<"isTraceHit: "<<isTraceHit<<' '<<"st.hit_trace_nums: "<<st.hit_trace_nums<<endl;
     }
     gettimeofday(&t3, NULL);
-    st.total_time = (t3.tv_sec - t0.tv_sec) * 1000000 + (t3.tv_usec - t0.tv_usec);
+    st.total_time = st.computeDeltaT(t0,t3);
     st.getEndTime();
     printf("test end\n");
 }
