@@ -122,10 +122,10 @@ public:
     ll total_time;
 
     struct Latency total_latency;
-    struct Latency emmc_read_latency;
-    struct Latency emmc_write_latency;
-    struct Latency sd_read_latency;
-    struct Latency sd_write_latency;
+    struct Latency cache_read_latency;
+    struct Latency cache_write_latency;
+    struct Latency disk_read_latency;
+    struct Latency disk_write_latency;
 
     vector<ll> request_size_v;
     ll total_request_size;
@@ -258,10 +258,10 @@ void Statistic::writeStatistic()
     }
     fout << "io_on: " << io_on << endl;;
 
-    fout << "emmc_read: average latency: " << emmc_read_latency.average_latency << " ms; tail latency: P95 = " << emmc_read_latency.p95_latency << " ms, P99 = " << emmc_read_latency.p99_latency << " ms" << endl;
-    fout << "emmc_write: average latency: " << emmc_write_latency.average_latency << " ms; tail latency: P95 = " << emmc_write_latency.p95_latency << " ms, P99 = " << emmc_write_latency.p99_latency << " ms" << endl;
-    fout << "sd_read: average latency: " << sd_read_latency.average_latency << " ms; tail latency: P95 = " << sd_read_latency.p95_latency << " ms, P99 = " << sd_read_latency.p99_latency << " ms" << endl;
-    fout << "sd_write: average latency: " << sd_write_latency.average_latency << " ms; tail latency: P95 = " << sd_write_latency.p95_latency << " ms, P99 = " << sd_write_latency.p99_latency << " ms" << endl;
+    fout << "emmc_read: average latency: " << cache_read_latency.average_latency << " ms; tail latency: P95 = " << cache_read_latency.p95_latency << " ms, P99 = " << cache_read_latency.p99_latency << " ms" << endl;
+    fout << "emmc_write: average latency: " << cache_write_latency.average_latency << " ms; tail latency: P95 = " << cache_write_latency.p95_latency << " ms, P99 = " << cache_write_latency.p99_latency << " ms" << endl;
+    fout << "sd_read: average latency: " << disk_read_latency.average_latency << " ms; tail latency: P95 = " << disk_read_latency.p95_latency << " ms, P99 = " << disk_read_latency.p99_latency << " ms" << endl;
+    fout << "sd_write: average latency: " << disk_write_latency.average_latency << " ms; tail latency: P95 = " << disk_write_latency.p95_latency << " ms, P99 = " << disk_write_latency.p99_latency << " ms" << endl;
 
     fout.close();
     printf("statistic saved\n");
@@ -277,19 +277,19 @@ void Statistic::record()
 void Statistic::computeLatency()
 {
     total_latency.compute();
-    emmc_read_latency.compute();
-    emmc_write_latency.compute();
-    sd_read_latency.compute();
-    sd_write_latency.compute();
+    cache_read_latency.compute();
+    cache_write_latency.compute();
+    disk_read_latency.compute();
+    disk_write_latency.compute();
 }
 
 void Statistic::saveLatency()
 {
     total_latency.save(save_dir + "trace_latency.txt");
-    emmc_read_latency.save(save_dir + "emmc_read_latency.txt");
-    emmc_write_latency.save(save_dir + "emmc_write_latency.txt");
-    sd_read_latency.save(save_dir + "sd_read_latency.txt");
-    sd_write_latency.save(save_dir + "sd_write_latency.txt");
+    cache_read_latency.save(save_dir + "cache_read_latency.txt");
+    cache_write_latency.save(save_dir + "cache_write_latency.txt");
+    disk_read_latency.save(save_dir + "disk_read_latency.txt");
+    disk_write_latency.save(save_dir + "disk_write_latency.txt");
     printf("latency_v saved\n");
 }
 

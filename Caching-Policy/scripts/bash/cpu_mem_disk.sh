@@ -1,7 +1,7 @@
 #!/bin/sh
 
-save_directory="../results/"
-mkdir $(save_directory)
+save_directory="../../../scrips_results/"
+mkdir "$save_directory"
 cpu_usage_addr="${save_directory}cpu_usage.log"
 mem_used_addr="${save_directory}mem_used.log"
 disk_read_wrtn_addr="${save_directory}disk_read_wrtn.log"
@@ -57,7 +57,7 @@ while true; do
     echo "${eMMC_name}: kB_read = $read_data1, kB_wrtn = $write_data1; ${sd_name}: kB_read = ${read_data2}, kB_wrtn = ${write_data2}; $time" >> "$disk_read_wrtn_addr"
 
     # 清理临时文件
-    rm top_output.txt
+    rm "$top_output_addr"
 
     sleep 1
 done

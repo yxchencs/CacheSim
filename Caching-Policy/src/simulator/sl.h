@@ -454,15 +454,23 @@ void Sl::initFreeCache()
 void Sl::readCache(const ll &offset_cache)
 {
     // printf("readCache\n");
+    struct timeval begin, end;
+    gettimeofday(&begin, NULL);
     assert(offset_cache != -1);
     readChunk(true, offset_cache, CHUNK_SIZE);
+    gettimeofday(&end, NULL);
+    st.cache_read_latency.addDeltaT(st.computeDeltaT(begin,end));
 }
 
 void Sl::readDisk(const long long &key)
 {
     // printf("readDisk\n");
+    struct timeval begin, end;
+    gettimeofday(&begin, NULL);
     assert(key != -1);
     readChunk(false, key, CHUNK_SIZE);
+    gettimeofday(&end, NULL);
+    st.disk_read_latency.addDeltaT(st.computeDeltaT(begin,end));
 }
 
 void Sl::printChunkMap()
@@ -476,14 +484,22 @@ void Sl::printChunkMap()
 void Sl::coverageCache(chunk *arg)
 {
     // cout << "coverageCache" << endl;
+    struct timeval begin, end;
+    gettimeofday(&begin, NULL);
     arg->dirty = 1;
     writeChunk(true, arg->offset_cache, CHUNK_SIZE);
+    gettimeofday(&end, NULL);
+    st.cache_write_latency.addDeltaT(st.computeDeltaT(begin,end));
 }
 
 void Sl::writeDisk(const long long &key)
 {
     // cout << "writeDisk" << endl;
+    struct timeval begin, end;
+    gettimeofday(&begin, NULL);
     writeChunk(false, key, CHUNK_SIZE);
+    gettimeofday(&end, NULL);
+    st.disk_read_latency.addDeltaT(st.computeDeltaT(begin,end));
 }
 
 void Sl::statistic()
