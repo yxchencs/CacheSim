@@ -3,17 +3,17 @@ using namespace std;
 
 
 int main(){
-    if (executeAndCheckMount("/dev/mmcblk0p1", "/mnt/eMMC")) {
-        std::cout << "Mount successful." << std::endl;
-    } else {
-        std::cout << "Mount failed." << std::endl;
+    if (!mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC"))
+    {
         return 1;
-    } 
+    }
+
     // run2();
-    run();
+    //run();
     // run_no_cache();
     return 0;
 }
+
 /*
 sudo date -s "YYYY-YY-DD HH:mm:ss"
 g++ -std=c++17 -o main main.cpp

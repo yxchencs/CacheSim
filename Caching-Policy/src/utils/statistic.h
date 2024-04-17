@@ -146,8 +146,6 @@ Statistic::Statistic()
 
     total_time = 0;
     total_request_size = 0;
-
-    makeDefaultSaveDir();
 }
 
 ll Statistic::computeDeltaT(struct timeval begin, struct timeval end)

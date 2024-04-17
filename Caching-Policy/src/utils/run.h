@@ -13,6 +13,9 @@
 #include <cstdlib>
 #include <sys/mount.h>
 #include <sys/statfs.h>
+#include <unistd.h>
+
+#include "mount.h"
 
 #include "../simulator/randomSl.h"
 #include "../simulator/fifoSl.h"
@@ -26,30 +29,6 @@
 #include "../simulator/noCacheSl.h"
 
 namespace fs = std::filesystem;
-
-// 检查是否已挂载
-bool isMounted(const char *target) {
-    struct statfs fsinfo;
-    if (statfs(target, &fsinfo) != -1) {
-        return true; // Already mounted
-    } else {
-        return false; // Not mounted
-    }
-}
-
-// 检查是否挂载成功
-bool executeAndCheckMount(const char *source, const char *target) {
-    if (isMounted(target)) {
-        std::cout << "Already mounted." << std::endl;
-        return true;
-    }
-
-    if (mount(source, target, NULL, MS_MGC_VAL, NULL) == 0) {
-        return true; // Mount was successful
-    } else {
-        return false; // Mount failed
-    }
-}
 
 // 获取当前时间点的日期时间格式化字符串，形如 2023-03-15_15:30:45
 std::string getCurrentDateTime() {
@@ -163,29 +142,6 @@ void initCacheAndDiskSize(){
     cache_size = chunk_num*cache_size_factor;
     // cout<<s<<", "<<chunk_num<<", "<<disk_size<<", "<<cache_size<<endl;
 }
-
-// bool executeAndCheckMount(const std::string& device, const std::string& mountPoint) {
-//     // Construct the mount command using the provided device and mount point
-//     std::string mountCommand = "sudo mount " + device + " " + mountPoint;
-    
-//     // Execute the mount command
-//     int status = system(mountCommand.c_str());
-    
-//     // Check if the mount command was successful
-//     if (status != 0) {
-//         // The mount command failed
-//         return false;
-//     }
-    
-//     // Construct the command to check the mount
-//     std::string checkMountCommand = "mount | grep " + mountPoint;
-    
-//     // Execute the command to check the mount
-//     status = system(checkMountCommand.c_str());
-    
-//     // If the grep command found the mount point in the mount table, the mount was successful
-//     return status == 0;
-// }
 
 void run_once(){
     printf("--------------------------------------------------------------------------------\n");

@@ -86,7 +86,7 @@ protected:
     void printChunkMap();
     void printFreeCache();
 
-    bool isWriteCache(); // Ê¹ÓÃËæ»ú²ßÂÔ£¬¸ù¾İ¸ÅÂÊ¾ö¶¨ÊÇ·ñĞ´Èëcache
+    bool isWriteCache(); // ä½¿ç”¨éšæœºç­–ç•¥ï¼Œæ ¹æ®æ¦‚ç‡å†³å®šæ˜¯å¦å†™å…¥cache
 
     virtual bool isCached(const ll &key) = 0;
     virtual void accessKey(const ll &key, const bool &isGet) = 0;
@@ -266,10 +266,10 @@ bool Sl::isWriteCache()
         return true;
 
     int min = 1, max = 100;
-    random_device seed;                           // Ó²¼şÉú³ÉËæ»úÊıÖÖ×Ó
-    ranlux48 engine(seed());                      // ÀûÓÃÖÖ×ÓÉú³ÉËæ»úÊıÒıÇæ
-    uniform_int_distribution<> distrib(min, max); // ÉèÖÃËæ»úÊı·¶Î§£¬²¢Îª¾ùÔÈ·Ö²¼
-    int random = distrib(engine);                 // Ëæ»úÊı
+    random_device seed;                           // ç¡¬ä»¶ç”Ÿæˆéšæœºæ•°ç§å­
+    ranlux48 engine(seed());                      // åˆ©ç”¨ç§å­ç”Ÿæˆéšæœºæ•°å¼•æ“
+    uniform_int_distribution<> distrib(min, max); // è®¾ç½®éšæœºæ•°èŒƒå›´ï¼Œå¹¶ä¸ºå‡åŒ€åˆ†å¸ƒ
+    int random = distrib(engine);                 // éšæœºæ•°
     // cout<<"random: "<<random<<endl;
     // printf("random: %d\n",random);
     if (random <= RANDOM_THRESHOLD)
@@ -505,6 +505,7 @@ void Sl::writeDisk(const long long &key)
 void Sl::statistic()
 {
     // st.printStatistic();
+    st.makeDefaultSaveDir();
     st.record();
 }
 

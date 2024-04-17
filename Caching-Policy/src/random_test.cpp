@@ -6,10 +6,11 @@ int main(){
     cache_size_index = 4; // 0.1
     caching_policy_index = 0; // random
     // trace_dir = "../trace_20240124_2/latest/read_0/";
-    trace_dir = "/mnt/e/projects/Caching-Policy/Caching-Policy/trace_20240124_2/latest/read_0/";
+    trace_dir = "../trace/latest/read_0/";
     trace_path = trace_dir + "/trace.txt";
     storage_dir = trace_dir + "/storage/";
-    cache_dir = trace_dir + "/storage/";
+    cache_dir = "/mnt/eMMC/";
+    copy_files_containing_cache(storage_dir, cache_dir);
     save_root = "../../records/" + getCurrentDateTime() + '/';
     run_once();
 }
