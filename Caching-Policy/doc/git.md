@@ -75,6 +75,26 @@ git show commitId
 git show commitId --stat 查看详细文件列表
 ```
 
+#### `git diff`
+
+1. 查看已暂存文件与上次提交的差异
+
+```shell
+git diff --cached
+```
+
+2. 查看还未暂存（未执行git add）的文件的差异
+
+```shell
+git diff
+```
+
+3. 比较上一次提交（HEAD^表示上一次提交的引用）和当前HEAD的状态（也就是最近一次提交的状态）
+
+```shell
+git diff HEAD^ HEAD
+```
+
 #### `git push`报错
 
 ##### fatal: unable to access 'https://github.com/Ram15978/Caching-Policy.git/': Failed to connect to github.com port 443: Connection refused
