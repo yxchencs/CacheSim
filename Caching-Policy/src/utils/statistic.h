@@ -87,6 +87,11 @@ struct Latency
         }
         cout << endl;
     }
+
+    int size()
+    {
+        return latency_v.size();
+    }
 };
 
 class Statistic
@@ -256,10 +261,10 @@ void Statistic::writeStatistic()
     }
     fout << "io_on: " << io_on << endl;;
 
-    fout << "emmc_read: average latency: " << cache_read_latency.average_latency << " ms; tail latency: P95 = " << cache_read_latency.p95_latency << " ms, P99 = " << cache_read_latency.p99_latency << " ms" << endl;
-    fout << "emmc_write: average latency: " << cache_write_latency.average_latency << " ms; tail latency: P95 = " << cache_write_latency.p95_latency << " ms, P99 = " << cache_write_latency.p99_latency << " ms" << endl;
-    fout << "sd_read: average latency: " << disk_read_latency.average_latency << " ms; tail latency: P95 = " << disk_read_latency.p95_latency << " ms, P99 = " << disk_read_latency.p99_latency << " ms" << endl;
-    fout << "sd_write: average latency: " << disk_write_latency.average_latency << " ms; tail latency: P95 = " << disk_write_latency.p95_latency << " ms, P99 = " << disk_write_latency.p99_latency << " ms" << endl;
+    fout << "emmc_read: nums: " << cache_read_latency.size() << "; average latency: " << cache_read_latency.average_latency << " ms; tail latency: P95 = " << cache_read_latency.p95_latency << " ms, P99 = " << cache_read_latency.p99_latency << " ms" << endl;
+    fout << "emmc_write: nums: " << cache_write_latency.size() << "; average latency: " << cache_write_latency.average_latency << " ms; tail latency: P95 = " << cache_write_latency.p95_latency << " ms, P99 = " << cache_write_latency.p99_latency << " ms" << endl;
+    fout << "sd_read: nums: " << disk_read_latency.size() << "; average latency: " << disk_read_latency.average_latency << " ms; tail latency: P95 = " << disk_read_latency.p95_latency << " ms, P99 = " << disk_read_latency.p99_latency << " ms" << endl;
+    fout << "sd_write: nums: " << disk_write_latency.size() << "; average latency: " << disk_write_latency.average_latency << " ms; tail latency: P95 = " << disk_write_latency.p95_latency << " ms, P99 = " << disk_write_latency.p99_latency << " ms" << endl;
 
     fout.close();
     printf("statistic saved\n");

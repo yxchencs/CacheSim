@@ -63,6 +63,15 @@ def extract_statistic(filename, rdwr_only):
     p99 = float(lines[17 + bias].split('=')[2].split()[0])
     avg_latency = float(lines[16 + bias].split()[2])
     bandwidth = float(lines[20 + bias].split()[1])
+    emmc_read_avg_latency = float(lines[22 + bias].split(';')[0].strip().split()[3])
+    emmc_read_p99 = float(lines[22 + bias].split(';')[1].strip().split()[8])
+    emmc_write_avg_latency = float(lines[23 + bias].split(';')[0].strip().split()[3])
+    emmc_write_p99 = float(lines[23 + bias].split(';')[1].strip().split()[8])
+    sd_read_avg_latency = float(lines[24 + bias].split(';')[0].strip().split()[3])
+    sd_read_p99 = float(lines[24 + bias].split(';')[1].strip().split()[8])
+    sd_write_avg_latency = float(lines[25 + bias].split(';')[0].strip().split()[3])
+    sd_write_p99 = float(lines[25 + bias].split(';')[1].strip().split()[8])
+
 
     time_format = "%Y/%m/%d %H:%M:%S"
 
@@ -74,7 +83,12 @@ def extract_statistic(filename, rdwr_only):
 
     # print(time_begin, time_end)
 
-    return policy, trace_hit_ratio, total_time, p99, avg_latency, time_begin, time_end, bandwidth
+    return policy, trace_hit_ratio, total_time,\
+            p99, avg_latency, time_begin, time_end, bandwidth, \
+            emmc_read_avg_latency, emmc_read_p99, \
+            emmc_write_avg_latency, emmc_write_p99, \
+            sd_read_avg_latency, sd_read_p99, \
+            sd_write_avg_latency, sd_write_p99 \
 
 
 def extract_statistic_no_cache(filename, rdwr_only):
@@ -348,6 +362,10 @@ def process_results():
     list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn, list_avg_power = [], [], [], [], [], [], []
     list_time_begin, list_time_end = [], []
     list_bandwidth = []
+    list_emmc_read_avg_latency, list_emmc_read_p99 = [], []
+    list_emmc_write_avg_latency, list_emmc_write_p99 = [], []
+    list_sd_read_avg_latency, list_sd_read_p99 = [], []
+    list_sd_write_avg_latency, list_sd_write_p99 = [], []
 
     for type in trace_type_list:
         for ratio in operation_read_ratio_list:
@@ -366,12 +384,19 @@ def process_results():
                         print('data process:', file_path_begin)
                         file_statistic_path = os.path.join(file_path_begin, file_statistic_name)
 
-                        policy_sta, hit_ratio, total, p99, avg_latency, time_begin, time_end, bandwidth = extract_statistic(
+                        policy_sta, hit_ratio, total, p99, avg_latency,\
+                        time_begin, time_end, bandwidth, \
+                        emmc_read_avg_latency, emmc_read_p99, \
+                        emmc_write_avg_latency, emmc_write_p99, \
+                        sd_read_avg_latency, sd_read_p99, \
+                        sd_write_avg_latency, sd_write_p99 = \
+                        extract_statistic(
                             file_statistic_path,
                             rdwr_only)
                         if policy_sta != policy:
                             print("Error! policy_sta != policy")
                             exit(1)
+
                         list_cpu_usage.append(
                             calculate_avg_cpu_usage(file_cpu_usage_path, time_begin,
                                                     time_end - timedelta(seconds=1)))
@@ -412,11 +437,16 @@ def process_results():
     data = {'Trace Pattern': list_trace_list, 'Operation Read Ratio': list_operation_read_ratio,
             'IO': list_io, 'Cache Size': list_cache_size, 'Cache Policy': list_policy,
             'Hit Ratio':list_trace_hit_ratio,
-            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99, 'Average Power(W)': list_avg_power,
-            'Energy(J)': list_energy, 'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
+            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99, 
+            'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
             'eMMC Read Mount(MB)': list_emmc_kb_read, 'eMMC Write Mount(MB)': list_emmc_kb_wrtn,
-            'SD Read Mount(MB)': list_sd_kb_read, 'SD Write Mount(MB)': list_sd_kb_wrtn}
+            'SD Read Mount(MB)': list_sd_kb_read, 'SD Write Mount(MB)': list_sd_kb_wrtn,
+            'eMMC Read Avarage Latency': list_emmc_read_avg_latency, 'eMMC Read P99 Latency':list_emmc_read_p99,
+            'eMMC Write Avarage Latency': list_emmc_write_avg_latency, 'eMMC Write P99 Latency':list_emmc_write_p99,
+            'SD Read Avarage Latency': list_sd_read_avg_latency, 'SD Read P99 Latency':list_sd_read_p99,
+            'SD Write Avarage Latency': list_sd_write_avg_latency, 'SD Write P99 Latency':list_sd_write_p99,
+            'Average Power(W)': list_avg_power, 'Energy(J)': list_energy, }
 
     # print(data)
 
@@ -432,6 +462,116 @@ def process_results():
 
     print(f"data save in {excel_file}")
 
+def process_results_except_power():
+    list_io, list_cache_size, list_policy = [], [], []
+    list_trace_list, list_operation_read_ratio, list_trace_hit_ratio, list_total, list_p99, list_avg_latency =  [], [], [], [], [], []
+    list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn = [], [], [], [], [], []
+    list_time_begin, list_time_end = [], []
+    list_bandwidth = []
+    list_emmc_read_avg_latency, list_emmc_read_p99 = [], []
+    list_emmc_write_avg_latency, list_emmc_write_p99 = [], []
+    list_sd_read_avg_latency, list_sd_read_p99 = [], []
+    list_sd_write_avg_latency, list_sd_write_p99 = [], []
+
+    for type in trace_type_list:
+        for ratio in operation_read_ratio_list:
+            rdwr_only = False
+            if ratio == 'read_1' or ratio == 'read_0':
+                rdwr_only = True
+            for io in io_list:
+                for size in cache_size_list:
+                    for policy in policy_list:
+                        list_trace_list.append(type)
+                        list_operation_read_ratio.append(ratio)
+                        list_io.append(io)
+                        list_cache_size.append(size)
+                        list_policy.append(policy)
+                        file_path_begin = os.path.join(path_head, type, ratio, io, size, policy)
+                        print('data process:', file_path_begin)
+                        file_statistic_path = os.path.join(file_path_begin, file_statistic_name)
+
+                        policy_sta, hit_ratio, total, p99, avg_latency, \
+                        time_begin, time_end, bandwidth, \
+                        emmc_read_avg_latency, emmc_read_p99, \
+                        emmc_write_avg_latency, emmc_write_p99, \
+                        sd_read_avg_latency, sd_read_p99, \
+                        sd_write_avg_latency, sd_write_p99 = \
+                        extract_statistic(
+                            file_statistic_path,
+                            rdwr_only)
+                        
+                        if policy_sta != policy:
+                            print("Error! policy_sta != policy")
+                            exit(1)
+
+                        list_cpu_usage.append(
+                            calculate_avg_cpu_usage(file_cpu_usage_path, time_begin,
+                                                    time_end - timedelta(seconds=1)))
+                        list_mem_used.append(calculate_avg_mem_used(file_mem_used_path, time_begin, time_end))
+                        emmc_kb_read, emmc_kb_wrtn, sd_kb_read, sd_kb_wrtn \
+                            = calculate_disk_read_wrtn(file_disk_path, time_begin, time_end)
+
+                        list_emmc_kb_read.append(emmc_kb_read)
+                        list_emmc_kb_wrtn.append(emmc_kb_wrtn)
+                        list_sd_kb_read.append(sd_kb_read)
+                        list_sd_kb_wrtn.append(sd_kb_wrtn)
+
+                        list_trace_hit_ratio.append(hit_ratio)
+                        list_total.append(total)
+                        list_p99.append(p99)
+                        list_avg_latency.append(avg_latency)
+
+                        list_time_begin.append(time_begin)
+                        list_time_end.append(time_end)
+
+                        list_bandwidth.append(bandwidth)
+
+                        list_emmc_read_avg_latency.append(emmc_read_avg_latency)
+                        list_emmc_read_p99.append(emmc_read_p99)
+                        list_emmc_write_avg_latency.append(emmc_write_avg_latency)
+                        list_emmc_write_p99.append(emmc_write_p99)
+                        list_sd_read_avg_latency.append(sd_read_avg_latency)
+                        list_sd_read_p99.append(sd_read_p99)
+                        list_sd_write_avg_latency.append(sd_write_avg_latency)
+                        list_sd_write_p99.append(sd_write_p99)
+
+    
+    list_emmc_kb_read = [x / 1024 for x in list_emmc_kb_read]
+    list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_read]
+    list_sd_kb_read = [x / 1024 for x in list_emmc_kb_read]
+    list_sd_kb_wrtn = [x / 1024 for x in list_emmc_kb_read]
+    dict_cache_policy={'fifo':'FIFO','lfu':"LFU",'lru':'LRU',
+                        'lirs':'LIRS','arc':'ARC','clockpro':'CLOCK-Pro',
+                        'random':'Random','2q':'2Q','tinylfu':'TinyLFU'}
+    list_policy = [dict_cache_policy[x] for x in list_policy]
+
+    # 将多个列表放入一个字典
+    data = {'Trace Pattern': list_trace_list, 'Operation Read Ratio': list_operation_read_ratio,
+            'IO': list_io, 'Cache Size': list_cache_size, 'Cache Policy': list_policy,
+            'Hit Ratio':list_trace_hit_ratio,
+            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99,
+            'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
+            'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
+            'eMMC Read Mount(MB)': list_emmc_kb_read, 'eMMC Write Mount(MB)': list_emmc_kb_wrtn,
+            'SD Read Mount(MB)': list_sd_kb_read, 'SD Write Mount(MB)': list_sd_kb_wrtn,
+            'eMMC Read Avarage Latency': list_emmc_read_avg_latency, 'eMMC Read P99 Latency':list_emmc_read_p99,
+            'eMMC Write Avarage Latency': list_emmc_write_avg_latency, 'eMMC Write P99 Latency':list_emmc_write_p99,
+            'SD Read Avarage Latency': list_sd_read_avg_latency, 'SD Read P99 Latency':list_sd_read_p99,
+            'SD Write Avarage Latency': list_sd_write_avg_latency, 'SD Write P99 Latency':list_sd_write_p99}
+
+    # print(data)
+
+    # 将字典转换为DataFrame
+    df = pd.DataFrame(data)
+
+    # 指定要保存的Excel文件名
+    excel_file = path_head + 'statistic.xlsx'
+
+    # save_dataframe_to_excel_with_format(df,excel_file)
+    # 将DataFrame保存为Excel文件
+    df.to_excel(excel_file, index=False)
+
+    print(f"data save in {excel_file}")
 
 # 合并所有statistic.xlsx，存放到path_head目录下
 # 输入文件头 path_head 和 存放各个statistic.xlsx的文件list folder_list
@@ -529,6 +669,22 @@ def resetPath():
     os.chmod(file_disk_path, 0o666)
     os.chmod(file_power_path, 0o666)
 
+def resetPath_except_power():
+    global log_dir
+    global file_cpu_usage_path
+    global file_mem_used_path
+    global file_disk_path
+
+    log_dir = path_head + 'log/'
+
+    file_cpu_usage_path = log_dir + file_cpu_usage_name
+    file_mem_used_path = log_dir + file_mem_used_name
+    file_disk_path = log_dir + file_disk_name
+
+    os.chmod(file_cpu_usage_path, 0o666)
+    os.chmod(file_mem_used_path, 0o666)
+    os.chmod(file_disk_path, 0o666)
+
 def run(test_files_path):
     global  path_head
     path_head_folders = get_folders(test_files_path)
@@ -538,6 +694,17 @@ def run(test_files_path):
         resetPath()
         get_trace_type_and_read_ratio_folder()
         process_results()
+
+def run_except_power(test_files_path):
+    global  path_head
+    path_head_folders = get_folders(test_files_path)
+    # print(path_head_folders)
+    for folder in path_head_folders:
+        path_head = test_files_path + folder + '/'
+        resetPath_except_power()
+        get_trace_type_and_read_ratio_folder()
+        process_results_except_power()
+
 file_cpu_usage_name = 'cpu_usage.log'
 file_mem_used_name = 'mem_used.log'
 file_disk_name = 'disk_read_wrtn.log'
@@ -559,10 +726,11 @@ file_disk_path = ''
 file_power_path = ''
 
 if __name__ == '__main__':
-    path_dir = 'E:/merge/'
-    folder_list = ['zipfian','latest','uniform', ]
+    path_dir = 'E:/projects/Caching-Policy/records/'
+    folder_list = ['latest']
+    # folder_list = ['zipfian','latest','uniform', ]
     for folder in folder_list:
-        run(path_dir+folder+'/')
+        run_except_power(path_dir+folder+'/')
 
     for folder in folder_list:
         sub_folder_head = path_dir+folder+'/'
