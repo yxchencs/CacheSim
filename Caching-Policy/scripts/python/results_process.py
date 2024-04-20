@@ -218,7 +218,7 @@ def calculate_avg_mem_used(file_path, time_begin, time_end):
     else:
         return None
 
-
+# IO Read/Write Mount
 def calculate_disk_read_wrtn(file_path, time_begin, time_end):
     emmc_kb_read_begin, emmc_kb_wrtn_begin, sd_kb_read_begin, sd_kb_wrtn_begin = 0, 0, 0, 0
     emmc_kb_read_end, emmc_kb_wrtn_end, sd_kb_read_end, sd_kb_wrtn_end = 0, 0, 0, 0
@@ -442,10 +442,10 @@ def process_results():
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
             'eMMC Read Mount(MB)': list_emmc_kb_read, 'eMMC Write Mount(MB)': list_emmc_kb_wrtn,
             'SD Read Mount(MB)': list_sd_kb_read, 'SD Write Mount(MB)': list_sd_kb_wrtn,
-            'eMMC Read Avarage Latency': list_emmc_read_avg_latency, 'eMMC Read P99 Latency':list_emmc_read_p99,
-            'eMMC Write Avarage Latency': list_emmc_write_avg_latency, 'eMMC Write P99 Latency':list_emmc_write_p99,
-            'SD Read Avarage Latency': list_sd_read_avg_latency, 'SD Read P99 Latency':list_sd_read_p99,
-            'SD Write Avarage Latency': list_sd_write_avg_latency, 'SD Write P99 Latency':list_sd_write_p99,
+            'eMMC Read Avarage Latency(ms)': list_emmc_read_avg_latency, 'eMMC Read P99 Latency(ms)':list_emmc_read_p99,
+            'eMMC Write Avarage Latency(ms)': list_emmc_write_avg_latency, 'eMMC Write P99 Latency(ms)':list_emmc_write_p99,
+            'SD Read Avarage Latency(ms)': list_sd_read_avg_latency, 'SD Read P99 Latency(ms)':list_sd_read_p99,
+            'SD Write Avarage Latency(ms)': list_sd_write_avg_latency, 'SD Write P99 Latency(ms)':list_sd_write_p99,
             'Average Power(W)': list_avg_power, 'Energy(J)': list_energy, }
 
     # print(data)
@@ -554,10 +554,10 @@ def process_results_except_power():
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
             'eMMC Read Mount(MB)': list_emmc_kb_read, 'eMMC Write Mount(MB)': list_emmc_kb_wrtn,
             'SD Read Mount(MB)': list_sd_kb_read, 'SD Write Mount(MB)': list_sd_kb_wrtn,
-            'eMMC Read Avarage Latency': list_emmc_read_avg_latency, 'eMMC Read P99 Latency':list_emmc_read_p99,
-            'eMMC Write Avarage Latency': list_emmc_write_avg_latency, 'eMMC Write P99 Latency':list_emmc_write_p99,
-            'SD Read Avarage Latency': list_sd_read_avg_latency, 'SD Read P99 Latency':list_sd_read_p99,
-            'SD Write Avarage Latency': list_sd_write_avg_latency, 'SD Write P99 Latency':list_sd_write_p99}
+            'eMMC Read Avarage Latency(ms)': list_emmc_read_avg_latency, 'eMMC Read P99 Latency(ms)':list_emmc_read_p99,
+            'eMMC Write Avarage Latency(ms)': list_emmc_write_avg_latency, 'eMMC Write P99 Latency(ms)':list_emmc_write_p99,
+            'SD Read Avarage Latency(ms)': list_sd_read_avg_latency, 'SD Read P99 Latency(ms)':list_sd_read_p99,
+            'SD Write Avarage Latency(ms)': list_sd_write_avg_latency, 'SD Write P99 Latency(ms)':list_sd_write_p99}
 
     # print(data)
 

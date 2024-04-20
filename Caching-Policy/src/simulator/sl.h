@@ -417,22 +417,36 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
 void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 {
     // cout<<"readChunk"<<endl;
+    struct timeval begin, end;
+    gettimeofday(&begin, NULL);
     if(!io_on) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
         odirectRead(isCache, offset, size);
     else
         normRead(isCache, offset, size);
+    gettimeofday(&end, NULL);
+    if (isCache)
+        st.cache_read_latency.addDeltaT(st.computeDeltaT(begin, end));
+    else
+        st.disk_read_latency.addDeltaT(st.computeDeltaT(begin, end));
 }
 
 void Sl::writeChunk(bool isCache, const long long &offset, const long long &size)
 {
+    struct timeval begin, end;
+    gettimeofday(&begin, NULL);
     if(!io_on) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
         odirectWrite(isCache, offset, size);
     else
         normWrite(isCache, offset, size);
+    gettimeofday(&end, NULL);
+    if (isCache)
+        st.cache_write_latency.addDeltaT(st.computeDeltaT(begin, end));
+    else
+        st.disk_write_latency.addDeltaT(st.computeDeltaT(begin, end));
 }
 
 void Sl::printChunk(chunk *arg)
@@ -454,23 +468,15 @@ void Sl::initFreeCache()
 void Sl::readCache(const ll &offset_cache)
 {
     // printf("readCache\n");
-    struct timeval begin, end;
-    gettimeofday(&begin, NULL);
     assert(offset_cache != -1);
     readChunk(true, offset_cache, CHUNK_SIZE);
-    gettimeofday(&end, NULL);
-    st.cache_read_latency.addDeltaT(st.computeDeltaT(begin,end));
 }
 
 void Sl::readDisk(const long long &key)
 {
     // printf("readDisk\n");
-    struct timeval begin, end;
-    gettimeofday(&begin, NULL);
     assert(key != -1);
     readChunk(false, key, CHUNK_SIZE);
-    gettimeofday(&end, NULL);
-    st.disk_read_latency.addDeltaT(st.computeDeltaT(begin,end));
 }
 
 void Sl::printChunkMap()
@@ -484,22 +490,14 @@ void Sl::printChunkMap()
 void Sl::coverageCache(chunk *arg)
 {
     // cout << "coverageCache" << endl;
-    struct timeval begin, end;
-    gettimeofday(&begin, NULL);
     arg->dirty = 1;
     writeChunk(true, arg->offset_cache, CHUNK_SIZE);
-    gettimeofday(&end, NULL);
-    st.cache_write_latency.addDeltaT(st.computeDeltaT(begin,end));
 }
 
 void Sl::writeDisk(const long long &key)
 {
     // cout << "writeDisk" << endl;
-    struct timeval begin, end;
-    gettimeofday(&begin, NULL);
     writeChunk(false, key, CHUNK_SIZE);
-    gettimeofday(&end, NULL);
-    st.disk_read_latency.addDeltaT(st.computeDeltaT(begin,end));
 }
 
 void Sl::statistic()
