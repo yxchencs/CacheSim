@@ -3,10 +3,7 @@ using namespace std;
 
 
 int main(){
-    if (!mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC"))
-    {
-        return 1;
-    }
+    mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC")
 
     // run2();
     run();

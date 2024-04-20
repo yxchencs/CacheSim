@@ -63,14 +63,22 @@ def extract_statistic(filename, rdwr_only):
     p99 = float(lines[17 + bias].split('=')[2].split()[0])
     avg_latency = float(lines[16 + bias].split()[2])
     bandwidth = float(lines[20 + bias].split()[1])
-    emmc_read_avg_latency = float(lines[22 + bias].split(';')[0].strip().split()[3])
-    emmc_read_p99 = float(lines[22 + bias].split(';')[1].strip().split()[8])
-    emmc_write_avg_latency = float(lines[23 + bias].split(';')[0].strip().split()[3])
-    emmc_write_p99 = float(lines[23 + bias].split(';')[1].strip().split()[8])
-    sd_read_avg_latency = float(lines[24 + bias].split(';')[0].strip().split()[3])
-    sd_read_p99 = float(lines[24 + bias].split(';')[1].strip().split()[8])
-    sd_write_avg_latency = float(lines[25 + bias].split(';')[0].strip().split()[3])
-    sd_write_p99 = float(lines[25 + bias].split(';')[1].strip().split()[8])
+
+    emmc_read_nums = int(lines[22 + bias].split(';')[0].strip().split()[2])
+    emmc_read_avg_latency = float(lines[22 + bias].split(';')[1].strip().split()[2])
+    emmc_read_p99 = float(lines[22 + bias].split(';')[2].strip().split()[8])
+
+    emmc_write_nums = int(lines[23 + bias].split(';')[0].strip().split()[2])
+    emmc_write_avg_latency = float(lines[23 + bias].split(';')[1].strip().split()[2])
+    emmc_write_p99 = float(lines[23 + bias].split(';')[2].strip().split()[8])
+    
+    sd_read_nums = int(lines[24 + bias].split(';')[0].strip().split()[2])
+    sd_read_avg_latency = float(lines[24 + bias].split(';')[1].strip().split()[2])
+    sd_read_p99 = float(lines[24 + bias].split(';')[2].strip().split()[8])
+
+    sd_write_nums = int(lines[25 + bias].split(';')[0].strip().split()[2])
+    sd_write_avg_latency = float(lines[25 + bias].split(';')[1].strip().split()[2])
+    sd_write_p99 = float(lines[25 + bias].split(';')[2].strip().split()[8])
 
 
     time_format = "%Y/%m/%d %H:%M:%S"
@@ -85,10 +93,10 @@ def extract_statistic(filename, rdwr_only):
 
     return policy, trace_hit_ratio, total_time,\
             p99, avg_latency, time_begin, time_end, bandwidth, \
-            emmc_read_avg_latency, emmc_read_p99, \
-            emmc_write_avg_latency, emmc_write_p99, \
-            sd_read_avg_latency, sd_read_p99, \
-            sd_write_avg_latency, sd_write_p99 \
+            emmc_read_nums, emmc_read_avg_latency, emmc_read_p99, \
+            emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \
+            sd_read_nums, sd_read_avg_latency, sd_read_p99, \
+            sd_write_nums, sd_write_avg_latency, sd_write_p99 \
 
 
 def extract_statistic_no_cache(filename, rdwr_only):
@@ -362,10 +370,10 @@ def process_results():
     list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn, list_avg_power = [], [], [], [], [], [], []
     list_time_begin, list_time_end = [], []
     list_bandwidth = []
-    list_emmc_read_avg_latency, list_emmc_read_p99 = [], []
-    list_emmc_write_avg_latency, list_emmc_write_p99 = [], []
-    list_sd_read_avg_latency, list_sd_read_p99 = [], []
-    list_sd_write_avg_latency, list_sd_write_p99 = [], []
+    list_emmc_read_nums, list_emmc_read_avg_latency, list_emmc_read_p99 = [], [], []
+    list_emmc_write_nums, list_emmc_write_avg_latency, list_emmc_write_p99 = [], [], []
+    list_sd_read_nums, list_sd_read_avg_latency, list_sd_read_p99 = [], [], []
+    list_sd_write_nums, list_sd_write_avg_latency, list_sd_write_p99 = [], [], []
 
     for type in trace_type_list:
         for ratio in operation_read_ratio_list:
@@ -386,10 +394,10 @@ def process_results():
 
                         policy_sta, hit_ratio, total, p99, avg_latency,\
                         time_begin, time_end, bandwidth, \
-                        emmc_read_avg_latency, emmc_read_p99, \
-                        emmc_write_avg_latency, emmc_write_p99, \
-                        sd_read_avg_latency, sd_read_p99, \
-                        sd_write_avg_latency, sd_write_p99 = \
+                        emmc_read_nums, emmc_read_avg_latency, emmc_read_p99, \
+                        emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \
+                        sd_read_nums, sd_read_avg_latency, sd_read_p99, \
+                        sd_write_nums, sd_write_avg_latency, sd_write_p99 = \
                         extract_statistic(
                             file_statistic_path,
                             rdwr_only)
@@ -422,12 +430,25 @@ def process_results():
 
                         list_bandwidth.append(bandwidth)
 
+                        list_emmc_read_nums.append(emmc_read_nums)
+                        list_emmc_read_avg_latency.append(emmc_read_avg_latency)
+                        list_emmc_read_p99.append(emmc_read_p99)
+                        list_emmc_write_nums.append(emmc_write_nums)
+                        list_emmc_write_avg_latency.append(emmc_write_avg_latency)
+                        list_emmc_write_p99.append(emmc_write_p99)
+                        list_sd_read_nums.append(sd_read_nums)
+                        list_sd_read_avg_latency.append(sd_read_avg_latency)
+                        list_sd_read_p99.append(sd_read_p99)
+                        list_sd_write_nums.append(sd_write_nums)
+                        list_sd_write_avg_latency.append(sd_write_avg_latency)
+                        list_sd_write_p99.append(sd_write_p99)
+
     list_energy = [a * b if a is not None and b is not None else None for a, b in zip(list_avg_power, list_total)]
     
     list_emmc_kb_read = [x / 1024 for x in list_emmc_kb_read]
-    list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_read]
-    list_sd_kb_read = [x / 1024 for x in list_emmc_kb_read]
-    list_sd_kb_wrtn = [x / 1024 for x in list_emmc_kb_read]
+    list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_wrtn]
+    list_sd_kb_read = [x / 1024 for x in list_sd_kb_read]
+    list_sd_kb_wrtn = [x / 1024 for x in list_sd_kb_wrtn]
     dict_cache_policy={'fifo':'FIFO','lfu':"LFU",'lru':'LRU',
                         'lirs':'LIRS','arc':'ARC','clockpro':'CLOCK-Pro',
                         'random':'Random','2q':'2Q','tinylfu':'TinyLFU'}
@@ -442,10 +463,10 @@ def process_results():
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
             'eMMC Read Mount(MB)': list_emmc_kb_read, 'eMMC Write Mount(MB)': list_emmc_kb_wrtn,
             'SD Read Mount(MB)': list_sd_kb_read, 'SD Write Mount(MB)': list_sd_kb_wrtn,
-            'eMMC Read Avarage Latency(ms)': list_emmc_read_avg_latency, 'eMMC Read P99 Latency(ms)':list_emmc_read_p99,
-            'eMMC Write Avarage Latency(ms)': list_emmc_write_avg_latency, 'eMMC Write P99 Latency(ms)':list_emmc_write_p99,
-            'SD Read Avarage Latency(ms)': list_sd_read_avg_latency, 'SD Read P99 Latency(ms)':list_sd_read_p99,
-            'SD Write Avarage Latency(ms)': list_sd_write_avg_latency, 'SD Write P99 Latency(ms)':list_sd_write_p99,
+            'eMMC Read Numbers': list_emmc_read_nums, 'eMMC Read Avarage Latency(ms)': list_emmc_read_avg_latency, 'eMMC Read P99 Latency(ms)':list_emmc_read_p99,
+            'eMMC Write Numbers': list_emmc_write_nums, 'eMMC Write Avarage Latency(ms)': list_emmc_write_avg_latency, 'eMMC Write P99 Latency(ms)':list_emmc_write_p99,
+            'SD Read Numbers': list_sd_read_nums, 'SD Read Avarage Latency(ms)': list_sd_read_avg_latency, 'SD Read P99 Latency(ms)':list_sd_read_p99,
+            'SD Write Numbers': list_sd_write_nums, 'SD Write Avarage Latency(ms)': list_sd_write_avg_latency, 'SD Write P99 Latency(ms)':list_sd_write_p99,
             'Average Power(W)': list_avg_power, 'Energy(J)': list_energy, }
 
     # print(data)
@@ -468,10 +489,10 @@ def process_results_except_power():
     list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn = [], [], [], [], [], []
     list_time_begin, list_time_end = [], []
     list_bandwidth = []
-    list_emmc_read_avg_latency, list_emmc_read_p99 = [], []
-    list_emmc_write_avg_latency, list_emmc_write_p99 = [], []
-    list_sd_read_avg_latency, list_sd_read_p99 = [], []
-    list_sd_write_avg_latency, list_sd_write_p99 = [], []
+    list_emmc_read_nums, list_emmc_read_avg_latency, list_emmc_read_p99 = [], [], []
+    list_emmc_write_nums, list_emmc_write_avg_latency, list_emmc_write_p99 = [], [], []
+    list_sd_read_nums, list_sd_read_avg_latency, list_sd_read_p99 = [], [], []
+    list_sd_write_nums, list_sd_write_avg_latency, list_sd_write_p99 = [], [], []
 
     for type in trace_type_list:
         for ratio in operation_read_ratio_list:
@@ -492,10 +513,10 @@ def process_results_except_power():
 
                         policy_sta, hit_ratio, total, p99, avg_latency, \
                         time_begin, time_end, bandwidth, \
-                        emmc_read_avg_latency, emmc_read_p99, \
-                        emmc_write_avg_latency, emmc_write_p99, \
-                        sd_read_avg_latency, sd_read_p99, \
-                        sd_write_avg_latency, sd_write_p99 = \
+                        emmc_read_nums, emmc_read_avg_latency, emmc_read_p99, \
+                        emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \
+                        sd_read_nums, sd_read_avg_latency, sd_read_p99, \
+                        sd_write_nums, sd_write_avg_latency, sd_write_p99 = \
                         extract_statistic(
                             file_statistic_path,
                             rdwr_only)
@@ -526,20 +547,24 @@ def process_results_except_power():
 
                         list_bandwidth.append(bandwidth)
 
+                        list_emmc_read_nums.append(emmc_read_nums)
                         list_emmc_read_avg_latency.append(emmc_read_avg_latency)
                         list_emmc_read_p99.append(emmc_read_p99)
+                        list_emmc_write_nums.append(emmc_write_nums)
                         list_emmc_write_avg_latency.append(emmc_write_avg_latency)
                         list_emmc_write_p99.append(emmc_write_p99)
+                        list_sd_read_nums.append(sd_read_nums)
                         list_sd_read_avg_latency.append(sd_read_avg_latency)
                         list_sd_read_p99.append(sd_read_p99)
+                        list_sd_write_nums.append(sd_write_nums)
                         list_sd_write_avg_latency.append(sd_write_avg_latency)
                         list_sd_write_p99.append(sd_write_p99)
 
     
     list_emmc_kb_read = [x / 1024 for x in list_emmc_kb_read]
-    list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_read]
-    list_sd_kb_read = [x / 1024 for x in list_emmc_kb_read]
-    list_sd_kb_wrtn = [x / 1024 for x in list_emmc_kb_read]
+    list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_wrtn]
+    list_sd_kb_read = [x / 1024 for x in list_sd_kb_read]
+    list_sd_kb_wrtn = [x / 1024 for x in list_sd_kb_wrtn]
     dict_cache_policy={'fifo':'FIFO','lfu':"LFU",'lru':'LRU',
                         'lirs':'LIRS','arc':'ARC','clockpro':'CLOCK-Pro',
                         'random':'Random','2q':'2Q','tinylfu':'TinyLFU'}
@@ -549,15 +574,15 @@ def process_results_except_power():
     data = {'Trace Pattern': list_trace_list, 'Operation Read Ratio': list_operation_read_ratio,
             'IO': list_io, 'Cache Size': list_cache_size, 'Cache Policy': list_policy,
             'Hit Ratio':list_trace_hit_ratio,
-            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99,
+            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99, 
             'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
             'eMMC Read Mount(MB)': list_emmc_kb_read, 'eMMC Write Mount(MB)': list_emmc_kb_wrtn,
             'SD Read Mount(MB)': list_sd_kb_read, 'SD Write Mount(MB)': list_sd_kb_wrtn,
-            'eMMC Read Avarage Latency(ms)': list_emmc_read_avg_latency, 'eMMC Read P99 Latency(ms)':list_emmc_read_p99,
-            'eMMC Write Avarage Latency(ms)': list_emmc_write_avg_latency, 'eMMC Write P99 Latency(ms)':list_emmc_write_p99,
-            'SD Read Avarage Latency(ms)': list_sd_read_avg_latency, 'SD Read P99 Latency(ms)':list_sd_read_p99,
-            'SD Write Avarage Latency(ms)': list_sd_write_avg_latency, 'SD Write P99 Latency(ms)':list_sd_write_p99}
+            'eMMC Read Numbers': list_emmc_read_nums, 'eMMC Read Avarage Latency(ms)': list_emmc_read_avg_latency, 'eMMC Read P99 Latency(ms)':list_emmc_read_p99,
+            'eMMC Write Numbers': list_emmc_write_nums, 'eMMC Write Avarage Latency(ms)': list_emmc_write_avg_latency, 'eMMC Write P99 Latency(ms)':list_emmc_write_p99,
+            'SD Read Numbers': list_sd_read_nums, 'SD Read Avarage Latency(ms)': list_sd_read_avg_latency, 'SD Read P99 Latency(ms)':list_sd_read_p99,
+            'SD Write Numbers': list_sd_write_nums, 'SD Write Avarage Latency(ms)': list_sd_write_avg_latency, 'SD Write P99 Latency(ms)':list_sd_write_p99}
 
     # print(data)
 
@@ -732,8 +757,8 @@ if __name__ == '__main__':
     for folder in folder_list:
         run_except_power(path_dir+folder+'/')
 
-    for folder in folder_list:
-        sub_folder_head = path_dir+folder+'/'
-        sub_folder_list = get_folders(sub_folder_head)
-        merge_excel_files(sub_folder_head, sub_folder_list)
-    merge_excel_files(path_dir,folder_list)
+    # for folder in folder_list:
+    #     sub_folder_head = path_dir+folder+'/'
+    #     sub_folder_list = get_folders(sub_folder_head)
+    #     merge_excel_files(sub_folder_head, sub_folder_list)
+    # merge_excel_files(path_dir,folder_list)
