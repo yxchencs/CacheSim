@@ -7,7 +7,7 @@
 using namespace std;
 
 void checkFile(fstream &file);
-std::string getSubstringAfter(const std::string &original, const std::string &to_find);
+string getSubstringAfter(const string &original, const string &to_find);
 
 class NoCacheSl
 {
@@ -15,17 +15,18 @@ public:
     void test();
     void statistic();
 
-    NoCacheSl(std::string device_id, std::string device_path) : device_id(device_id)
+    NoCacheSl(ll chunk_size_KB, string device_id, string device_path)
+        : chunk_size_KB(chunk_size_KB), device_id(device_id), chunk_size(chunk_size_KB * 1024)
     {
         fd = open(device_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd >= 0);
 
-        int res = posix_memalign((void **)&buffer_read, CHUNK_SIZE, CHUNK_SIZE);
+        int res = posix_memalign((void **)&buffer_read, chunk_size, chunk_size);
         assert(res == 0);
 
-        res = posix_memalign((void **)&buffer_write, CHUNK_SIZE, CHUNK_SIZE);
+        res = posix_memalign((void **)&buffer_write, chunk_size, chunk_size);
         assert(res == 0);
-        memset(buffer_write, 0, CHUNK_SIZE);
+        memset(buffer_write, 0, chunk_size);
     };
     ~NoCacheSl()
     {
@@ -41,10 +42,12 @@ private:
     char *buffer_write = nullptr;
 
     Statistic st;
-    std::string device_id;
+    string device_id;
+    ll chunk_size_KB;
+    ll chunk_size;
 
-    bool readItem(vector<ll> &keys);
-    bool writeItem(vector<ll> &keys);
+    void readItem(vector<ll> &keys);
+    void writeItem(vector<ll> &keys);
     void readChunk(const long long &offset, const long long &size);
     void writeChunk(const long long &offset, const long long &size);
 };
@@ -68,19 +71,17 @@ void NoCacheSl::test()
     gettimeofday(&t0, NULL);
     while (fin_trace >> curKey >> c >> curSize >> c >> type)
     {
-        // if(st.total_trace_nums>3) break;
         st.total_trace_nums++;
-        bool isTraceHit;
 
-        ll begin = curKey / CHUNK_SIZE;
-        ll end = (curKey + curSize - 1) / CHUNK_SIZE;
+        ll begin = curKey / chunk_size;
+        ll end = (curKey + curSize - 1) / chunk_size;
         st.request_size_v.push_back(end - begin + 1);
         st.total_request_size += end - begin + 1;
 
         vector<ll> keys;
         for (ll i = begin; i <= end; i++)
         {
-            keys.push_back(i * CHUNK_SIZE);
+            keys.push_back(i * chunk_size);
         }
 
         gettimeofday(&t1, NULL);
@@ -88,17 +89,16 @@ void NoCacheSl::test()
         switch (type)
         {
         case 0:
-            isTraceHit = readItem(keys);
+            readItem(keys);
             break;
         case 1:
-            isTraceHit = writeItem(keys);
+            writeItem(keys);
             break;
         }
 
         gettimeofday(&t2, NULL);
         st.total_latency.addDeltaT(st.computeDeltaT(t1,t2));
         // printf("trace: %llu, time: %lldus, total_time: %lld\n", st.total_trace_nums, deltaT, st.total_latency);
-        if (isTraceHit) st.hit_trace_nums++;
         // printChunkMap();
         // cout<<"isTraceHit: "<<isTraceHit<<' '<<"st.hit_trace_nums: "<<st.hit_trace_nums<<endl;
     }
@@ -108,45 +108,57 @@ void NoCacheSl::test()
     printf("test end\n");
 }
 
-bool NoCacheSl::readItem(vector<ll> &keys)
+void NoCacheSl::readItem(vector<ll> &keys)
 {
     st.read_nums += keys.size();
     for (int i = 0; i < keys.size(); i++)
     {
-        readChunk(keys[i], CHUNK_SIZE);
+        readChunk(keys[i], chunk_size);
     }
-    return false;
 }
 
-bool NoCacheSl::writeItem(vector<ll> &keys)
+void NoCacheSl::writeItem(vector<ll> &keys)
 {
     st.write_nums += keys.size();
     for (int i = 0; i < keys.size(); i++)
     {
-        writeChunk(keys[i], CHUNK_SIZE);
+        writeChunk(keys[i], chunk_size);
     }
-    return false;
 }
 
 void NoCacheSl::readChunk(const long long &offset, const long long &size)
 {
+    struct timeval begin, end;
+    gettimeofday(&begin, NULL);
     assert(offset != -1);
     assert(fd >= 0);
     int res = pread64(fd, buffer_read, size, offset);
     assert(res == size);
+    gettimeofday(&end, NULL);
+    if (device_id == "emmc")
+        st.cache_read_latency.addDeltaT(st.computeDeltaT(begin, end));
+    else if (device_id == "sd")
+        st.disk_read_latency.addDeltaT(st.computeDeltaT(begin, end));
 }
 
 void NoCacheSl::writeChunk(const long long &offset, const long long &size)
 {
+    struct timeval begin, end;
+    gettimeofday(&begin, NULL);
     assert(offset != -1);
     assert(fd >= 0);
     int res = pwrite64(fd, buffer_write, size, offset);
     assert(res == size);
+    gettimeofday(&end, NULL);
+    if (device_id == "emmc")
+        st.cache_write_latency.addDeltaT(st.computeDeltaT(begin, end));
+    else if (device_id == "sd")
+        st.disk_write_latency.addDeltaT(st.computeDeltaT(begin, end));
 }
 
 void NoCacheSl::statistic()
 {
-    std::string dir = save_root + getSubstringAfter(trace_dir, "trace/") + '/' + device_id + '/';
+    string dir = save_root + getSubstringAfter(trace_dir, "trace/") + '/' + device_id + '/' + std::to_string(chunk_size_KB) + "KB/";
     st.resetSaveDir(dir);
     st.record();
 }

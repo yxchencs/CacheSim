@@ -3,11 +3,11 @@ using namespace std;
 
 
 int main(){
-    mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC")
+    mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC");
 
     // run2();
-    run();
-    // run_no_cache();
+    // run();
+    run_no_cache();
     return 0;
 }
 

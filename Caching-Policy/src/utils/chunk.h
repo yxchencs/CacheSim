@@ -1,13 +1,14 @@
 #ifndef _CHUNK_HPP_INCLUDED_
 #define	_CHUNK_HPP_INCLUDED_
 
+#include "globals.h"
+
 struct chunk {
-    long long key;
-    long long offset_cache;
+    ll key;
+    ll offset_cache;
     int  dirty;
     chunk(){}
-    chunk(const long long& key, const long long& oc, const int& d = 0) :
-        key(key), offset_cache(oc), dirty(d) {}
+    chunk(const ll &key, const ll &oc, const int &d = 0) : key(key), offset_cache(oc), dirty(d) {}
     friend ostream&  operator<<(ostream& os, const chunk& arg);
 };
 ostream& operator<<(ostream& os, const chunk& arg) {
@@ -18,5 +19,5 @@ ostream& operator<<(ostream& os, const chunk& arg) {
     return os;
 }
 
-const long long CHUNK_SIZE = 4 * 1024;
+const ll CHUNK_SIZE = 4 * 1024;
 #endif /*_CHUNK_INCLUDED_*/

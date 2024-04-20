@@ -289,10 +289,11 @@ void run2(){
 // @param trace_path
 // @param device_id
 // @param device_path
-// @param trace_dir
-void run_no_cache_once(std::string device_id, std::string device_path){
-    std::cout<<"device_id: "<<device_id<<", device_path: "<<device_path<<std::endl;
-    NoCacheSl sl(device_id, device_path);
+// @param chunk_size
+void run_no_cache_once(ll chunk_size_KB, std::string device_id, std::string device_path)
+{
+    std::cout << "chunk_size_KB: " << chunk_size_KB << ", device_id: " << device_id << ", device_path: " << device_path << std::endl;
+    NoCacheSl sl(chunk_size_KB, device_id, device_path);
     sl.test();
     sl.statistic();
 }
@@ -301,9 +302,10 @@ void run_no_cache_example(){
     save_root = "../../records/" + getCurrentDateTime() + '/';
     trace_dir = "../trace/uniform/r100w_o15w_0.99/read_0/";
     trace_path = trace_dir + "trace.txt";
+    ll chunk_size_KB = 4;
     std::string device_id = "disk";
     std::string device_path = trace_dir + "storage/disk.bin";
-    run_no_cache_once(device_id, device_path);
+    run_no_cache_once(chunk_size_KB, device_id, device_path);
 }
 
 void run_no_cache(){
@@ -317,23 +319,28 @@ void run_no_cache(){
     std::string sd_dir = "../storage/";
     mkdir(sd_dir);
 
+    ll list_chunk_size_KB[] = {1, 4, 16, 64, 256, 1024};
+
     auto trace_dirs = find_trace_paths("../trace/");
-    for (const auto& dir : trace_dirs) {
+    for (const auto &dir : trace_dirs)
+    {
         trace_dir = dir;
-        trace_path = trace_dir+"/trace.txt";
-        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        trace_path = trace_dir + "/trace.txt";
+        std::cout << "trace_path: " << trace_path << std::endl;
         std::string disk_dir = trace_dir + "/storage/disk.bin";
 
         copy_file_to_directory(disk_dir, sd_dir);
         device_id = "sd";
         device_path = sd_dir + "disk.bin";
-        run_no_cache_once(device_id, device_path);
+        for (auto chunk_size_KB : list_chunk_size_KB)
+            run_no_cache_once(chunk_size_KB, device_id, device_path);
 
         copy_file_to_directory(disk_dir, emmc_dir);
         device_id = "emmc";
         device_path = emmc_dir + "disk.bin";
-        run_no_cache_once(device_id, device_path);
-        
+
+        for (auto chunk_size_KB : list_chunk_size_KB)
+            run_no_cache_once(chunk_size_KB, device_id, device_path);
     }
 }
 #endif /*_RUN_HPP_INCLUDED_*/
