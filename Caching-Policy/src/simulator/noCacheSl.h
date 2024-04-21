@@ -4,6 +4,8 @@
 #include "../utils/statistic.h"
 #include "../utils/globals.h"
 #include "../utils/run.h"
+#include "../utils/progress_bar.h"
+
 using namespace std;
 
 void checkFile(fstream &file);
@@ -114,6 +116,7 @@ void NoCacheSl::readItem(vector<ll> &keys)
     for (int i = 0; i < keys.size(); i++)
     {
         readChunk(keys[i], chunk_size);
+        show_progress_bar(i, keys.size());
     }
 }
 
@@ -123,6 +126,7 @@ void NoCacheSl::writeItem(vector<ll> &keys)
     for (int i = 0; i < keys.size(); i++)
     {
         writeChunk(keys[i], chunk_size);
+        show_progress_bar(i, keys.size());
     }
 }
 

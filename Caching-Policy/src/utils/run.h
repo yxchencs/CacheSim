@@ -329,13 +329,11 @@ void run_no_cache(){
         std::cout << "trace_path: " << trace_path << std::endl;
         std::string disk_dir = trace_dir + "/storage/disk.bin";
 
-        copy_file_to_directory(disk_dir, sd_dir);
         device_id = "sd";
-        device_path = sd_dir + "disk.bin";
+        device_path = disk_dir;
         for (auto chunk_size_KB : list_chunk_size_KB)
             run_no_cache_once(chunk_size_KB, device_id, device_path);
 
-        copy_file_to_directory(disk_dir, emmc_dir);
         device_id = "emmc";
         device_path = emmc_dir + "disk.bin";
 
