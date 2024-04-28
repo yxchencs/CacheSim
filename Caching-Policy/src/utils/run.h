@@ -14,8 +14,8 @@
 #include <sys/mount.h>
 #include <sys/statfs.h>
 #include <unistd.h>
-
 #include "mount.h"
+#include <regex>
 
 #include "../simulator/randomSl.h"
 #include "../simulator/fifoSl.h"
@@ -330,15 +330,61 @@ void run_no_cache(){
         std::string disk_dir = trace_dir + "/storage/disk.bin";
 
         device_id = "sd";
-        device_path = disk_dir;
+        device_path = sd_dir + "disk.bin";
+        // copy_files_containing_cache(storage_dir, sd_dir);
         for (auto chunk_size_KB : list_chunk_size_KB)
             run_no_cache_once(chunk_size_KB, device_id, device_path);
 
         device_id = "emmc";
         device_path = emmc_dir + "disk.bin";
-
+        // copy_files_containing_cache(storage_dir, emmc_dir);
         for (auto chunk_size_KB : list_chunk_size_KB)
             run_no_cache_once(chunk_size_KB, device_id, device_path);
+    }
+}
+
+void run_no_cache_fixed_disk_size(){
+    std::string device_id;
+    std::string device_path;
+
+    save_root = "../../records/" + getCurrentDateTime() + '/';
+    mkdir(save_root);
+    std::string emmc_dir = "/mnt/eMMC/";
+    mkdir(emmc_dir);
+    std::string sd_dir = "../storage/";
+    mkdir(sd_dir);
+    std::string disk_name = "disk.bin";
+
+    std::regex re("(\\d+)KB");
+    std::smatch matches;
+    int chunk_size_KB;
+    // auto trace_dirs = find_trace_paths("../trace/");
+    auto trace_dirs = find_trace_paths("../../trace_backup/trace_uniform_5GB/");
+    for (const auto &dir : trace_dirs)
+    {
+        trace_dir = dir.string();
+
+        if (std::regex_search(trace_dir, matches, re)) {
+            // std::cout << "Number extracted: " << matches[1] << std::endl;
+            chunk_size_KB = std::stoi(matches[1]);
+        } else {
+            std::cout << "No number found." << std::endl;
+            continue;
+        }
+
+        trace_path = trace_dir + "/trace.txt";
+        std::cout << "trace_path: " << trace_path << std::endl;
+        std::string disk_dir = trace_dir + "/storage/" + disk_name;
+
+        device_id = "sd";
+        device_path = sd_dir + disk_name;
+        copy_files_containing_cache(storage_dir, sd_dir);
+        run_no_cache_once(chunk_size_KB, device_id, device_path);
+
+        device_id = "emmc";
+        device_path = emmc_dir + disk_name;
+        copy_files_containing_cache(storage_dir, emmc_dir);
+        run_no_cache_once(chunk_size_KB, device_id, device_path);
     }
 }
 #endif /*_RUN_HPP_INCLUDED_*/

@@ -1,6 +1,18 @@
-from collections import Counter
-from generate_trace import *
 import os
+import re
+import csv
+import random
+from collections import Counter
+
+# size(B)
+def create_file(file_path, size):
+    # 首先以路径path新建一个文件，并设置模式为写
+    lfile = open(file_path, 'w')
+    # 根据文件大小，偏移文件写入位置；位置要减掉一个字节，因为后面要写入一个字节的数据
+    lfile.seek(size - 1)
+    # 然后在当前位置写入任何内容，必须要写入，不然文件不会那么大
+    lfile.write('\x00')     # lfile.write('')不会写入任何内容
+    lfile.close()
 
 
 def read_trace_from_file(file_path):
@@ -102,7 +114,7 @@ def process_trace(input_path, output_path):
     print("done generate storage")
 
 # 测试memory使用，选择uniform分布，数据集设置大一点，比如20gb，然后cache size设置8% 16% 32%
-def process_trace2(input_path, output_path):
+def process_trace_fixed_disk(input_path, output_path, block_size_KB):
     # process trace
     os.makedirs(output_path, exist_ok=True)
     output_name = "trace.txt"
@@ -117,9 +129,13 @@ def process_trace2(input_path, output_path):
     # generate storage
     storage_path = os.path.join(output_path,"storage")
     os.makedirs(storage_path, exist_ok=True)
-    disk_size = disk_size * 4 * 1024
-    chunk_num = disk_size
+    chunk_num = disk_size = disk_size * block_size_KB * 1024 # Because trace_length = 1 block
     create_file(os.path.join(storage_path,"disk.bin"), disk_size)
+    create_file(os.path.join(storage_path,"cache_0.02.bin"), chunk_num * 0.02)
+    create_file(os.path.join(storage_path,"cache_0.04.bin"), chunk_num * 0.04)
+    create_file(os.path.join(storage_path,"cache_0.06.bin"), chunk_num * 0.06)
+    create_file(os.path.join(storage_path,"cache_0.08.bin"), chunk_num * 0.08)
+    create_file(os.path.join(storage_path,"cache_0.1.bin"), chunk_num * 0.1)
     # create_file(os.path.join(storage_path,"cache_0.08.bin"), chunk_num * 0.08)
     # create_file(os.path.join(storage_path,"cache_0.16.bin"), chunk_num * 0.16)
     # create_file(os.path.join(storage_path,"cache_0.32.bin"), chunk_num * 0.32)
@@ -129,9 +145,12 @@ file_name = "trace_run.txt" # 用于转换成格式化trace的文件名
 
 # 为root_directory目录下的trace_run.txt文件生成storage和trace.txt
 if __name__ == '__main__':
-    root_directory = "E:/projects/Caching-Policy/trace_backup/trace_5GB/"
-    matching_directories = find_directories_with_file(root_directory, file_name)
-    print(matching_directories)
-    for directory in matching_directories:
-        print("process", directory)
-        process_trace2(directory,directory)
+    root_directory = "E:/projects/Caching-Policy/trace_backup/trace_uniform_5GB/"
+    match_dirs = find_directories_with_file(root_directory, file_name)
+    match_dirs.pop(0) # pop root dir
+    print(match_dirs)
+    list_block_size_KB = [int(re.search(r'(\d+)KB', dir).group(1)) for dir in match_dirs]
+    print(list_block_size_KB)
+    for i in range(len(match_dirs)):
+        print("process:", match_dirs[i],", disk capacity:",list_block_size_KB[i],"KB")
+        process_trace_fixed_disk(match_dirs[i],match_dirs[i],list_block_size_KB[i])

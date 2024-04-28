@@ -7,7 +7,8 @@ int main(){
 
     // run2();
     // run();
-    run_no_cache();
+    // run_no_cache();
+    run_no_cache_fixed_disk_size();
     // run_no_cache_example();
     return 0;
 }
