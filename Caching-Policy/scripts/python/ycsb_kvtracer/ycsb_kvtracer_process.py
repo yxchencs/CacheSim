@@ -60,12 +60,12 @@ def frequency_counter(numbers):
     return indexes, len(frequency_counter)
 
 
-def output_file(file_path, indexes, types, chunk_size, disk_size, trace_size):
-    print('disk_size:', disk_size)
+def output_file(file_path, indexes, types, disk_size, trace_size):
+    print('disk_size:', disk_size, ',trace_size:',trace_size)
     with open(file_path, "w") as file:
-        file.write("offset,size,type " + str(disk_size) + " " + str(disk_size) + "\n")
+        file.write("offset,size,type " + str(disk_size) + " " + str(disk_size) + ' ' + str(trace_size) + "\n")
         for i in range(len(indexes)):
-            file.write(str(indexes[i] * chunk_size) + "," + str(chunk_size) + "," + str(types[i]) + "\n")
+            file.write(str(indexes[i]) + "," + str(types[i]) + "\n")
 
 
 def find_directories_with_file(root_dir, filename):
@@ -84,9 +84,8 @@ def process_trace(input_path, output_path):
     keys, types = read_trace_from_file(os.path.join(input_path,file_name))
 
     indexes, disk_size = frequency_counter(keys)
-    chunk_size = 4 * 1024
     trace_size = len(keys)
-    output_file(os.path.join(output_path,output_name), indexes, types, chunk_size, disk_size, trace_size)
+    output_file(os.path.join(output_path,output_name), indexes, types, disk_size, trace_size)
     print("done process trace")
 
     # generate storage
@@ -111,9 +110,8 @@ def process_trace2(input_path, output_path):
     keys, types = read_trace_from_file(os.path.join(input_path,file_name))
 
     indexes, disk_size = frequency_counter(keys)
-    chunk_size = 4 * 1024
     trace_size = len(keys)
-    output_file(os.path.join(output_path,output_name), indexes, types, chunk_size, disk_size, trace_size)
+    output_file(os.path.join(output_path,output_name), indexes, types, disk_size, trace_size)
     print("done process trace")
 
     # generate storage
@@ -131,9 +129,9 @@ file_name = "trace_run.txt" # 用于转换成格式化trace的文件名
 
 # 为root_directory目录下的trace_run.txt文件生成storage和trace.txt
 if __name__ == '__main__':
-    root_directory = "E:/projects/Caching-Policy/trace_backup/trace_20240421_uniform_10gb/"
+    root_directory = "E:/projects/Caching-Policy/trace_backup/trace_5GB/"
     matching_directories = find_directories_with_file(root_directory, file_name)
-    # print(matching_directories)
+    print(matching_directories)
     for directory in matching_directories:
+        print("process", directory)
         process_trace2(directory,directory)
-        print(directory)

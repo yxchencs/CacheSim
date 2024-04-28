@@ -71,12 +71,13 @@ void NoCacheSl::test()
 
     struct timeval t0, t3, t1, t2;
     gettimeofday(&t0, NULL);
-    while (fin_trace >> curKey >> c >> curSize >> c >> type)
+    while (fin_trace >> curKey >> c >> type)
     {
         st.total_trace_nums++;
+        show_progress_bar(st.total_trace_nums, 6000000);
 
-        ll begin = curKey / chunk_size;
-        ll end = (curKey + curSize - 1) / chunk_size;
+        ll begin = curKey;
+        ll end = (curKey - 1);
         st.request_size_v.push_back(end - begin + 1);
         st.total_request_size += end - begin + 1;
 
@@ -116,7 +117,6 @@ void NoCacheSl::readItem(vector<ll> &keys)
     for (int i = 0; i < keys.size(); i++)
     {
         readChunk(keys[i], chunk_size);
-        show_progress_bar(i, keys.size());
     }
 }
 
@@ -126,7 +126,6 @@ void NoCacheSl::writeItem(vector<ll> &keys)
     for (int i = 0; i < keys.size(); i++)
     {
         writeChunk(keys[i], chunk_size);
-        show_progress_bar(i, keys.size());
     }
 }
 
