@@ -1,6 +1,7 @@
 #ifndef _NO_CACHE_SIMULATOR_HPP_INCLUDED_
 #define _NO_CACHE_SIMULATOR_HPP_INCLUDED_
 
+#include <sstream>
 #include "../utils/statistic.h"
 #include "../utils/globals.h"
 #include "../utils/run.h"
@@ -69,12 +70,30 @@ void NoCacheSl::test()
     string s;
     getline(fin_trace, s);
 
+    std::istringstream iss(s);
+    std::string temp;
+    int number;
+    int trace_size = 0;
+    int count = 0;
+
+    // 循环读取每个词，并尝试将其转换为数字
+    while (iss >> temp) {
+        std::stringstream converter(temp);
+        if (converter >> number) {  // 如果转换成功，增加计数器
+            count++;
+            if (count == 3) {  // 当计数器为3时，保存这个数字
+                trace_size = number;
+                break;  // 找到第三个数字后立即退出循环
+            }
+        }
+    }
+
     struct timeval t0, t3, t1, t2;
     gettimeofday(&t0, NULL);
     while (fin_trace >> curKey >> c >> type)
     {
         st.total_trace_nums++;
-        show_progress_bar(st.total_trace_nums, 6000000);
+        show_progress_bar(st.total_trace_nums, trace_size);
 
         ll begin = curKey;
         ll end = (curKey - 1);
@@ -161,7 +180,9 @@ void NoCacheSl::writeChunk(const long long &offset, const long long &size)
 
 void NoCacheSl::statistic()
 {
-    string dir = save_root + getSubstringAfter(trace_dir, "trace/") + '/' + device_id + '/' + std::to_string(chunk_size_KB) + "KB/";
+    // string dir = save_root + getSubstringAfter(trace_dir, "trace/") + '/' + device_id + '/' + std::to_string(chunk_size_KB) + "KB/";
+    string dir = save_root + device_id + '/' + std::to_string(chunk_size_KB) + "KB/";
+
     st.resetSaveDir(dir);
     st.record();
 }

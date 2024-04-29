@@ -90,7 +90,7 @@ bool copy_file_to_directory(const fs::path& source_file, const fs::path& target_
 
 void copy_files_containing_cache(const fs::path& source_directory, const fs::path& target_directory) {
     if (!fs::exists(source_directory) || !fs::is_directory(source_directory)) {
-        std::cerr << "源目录不存在或不是一个有效目录。" << std::endl;
+        std::cerr << "source dir does not exist or not valid: "<<source_directory.string() << std::endl;
         return;
     }
 
@@ -322,6 +322,7 @@ void run_no_cache(){
     ll list_chunk_size_KB[] = {1, 4, 16, 64, 256, 1024};
 
     auto trace_dirs = find_trace_paths("../trace/");
+
     for (const auto &dir : trace_dirs)
     {
         trace_dir = dir;
@@ -377,14 +378,15 @@ void run_no_cache_fixed_disk_size(){
         std::string disk_dir = trace_dir + "/storage/" + disk_name;
 
         device_id = "sd";
-        device_path = sd_dir + disk_name;
-        copy_files_containing_cache(storage_dir, sd_dir);
+        device_path = sd_dir + "/" + disk_name;
+        copy_file_to_directory(disk_dir, sd_dir);
         run_no_cache_once(chunk_size_KB, device_id, device_path);
 
-        device_id = "emmc";
-        device_path = emmc_dir + disk_name;
-        copy_files_containing_cache(storage_dir, emmc_dir);
-        run_no_cache_once(chunk_size_KB, device_id, device_path);
+        // device_id = "emmc";
+        // device_path = emmc_dir + "/" + disk_name;
+        // copy_file_to_directory(disk_dir, emmc_dir);
+        // run_no_cache_once(chunk_size_KB, device_id, device_path);
+
     }
 }
 #endif /*_RUN_HPP_INCLUDED_*/

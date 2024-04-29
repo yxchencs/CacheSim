@@ -207,7 +207,7 @@ void Statistic::writeStatistic()
 
     if (!fout.is_open())
     {
-        cerr << "error: can not open result file" << endl;
+        cerr << "error: can not open result file:" << save_dir + "statistic.txt" << endl;
         return;
     }
 
@@ -298,6 +298,8 @@ void Statistic::saveLatency()
 
 void Statistic::resetSaveDir(const string &dir) {
     save_dir = dir;
+    mkdir(save_dir);
+    cout << "save_dir: " << save_dir << endl;
 }
 
 #endif /*STATISTIC_HPP_INCLUDED_*/
