@@ -131,11 +131,11 @@ def process_trace_fixed_disk(input_path, output_path, block_size_KB):
     os.makedirs(storage_path, exist_ok=True)
     chunk_num = disk_size = disk_size * block_size_KB * 1024 # Because trace_length = 1 block
     create_file(os.path.join(storage_path,"disk.bin"), disk_size)
-    create_file(os.path.join(storage_path,"cache_0.02.bin"), chunk_num * 0.02)
-    create_file(os.path.join(storage_path,"cache_0.04.bin"), chunk_num * 0.04)
-    create_file(os.path.join(storage_path,"cache_0.06.bin"), chunk_num * 0.06)
-    create_file(os.path.join(storage_path,"cache_0.08.bin"), chunk_num * 0.08)
-    create_file(os.path.join(storage_path,"cache_0.1.bin"), chunk_num * 0.1)
+    # create_file(os.path.join(storage_path,"cache_0.02.bin"), chunk_num * 0.02)
+    # create_file(os.path.join(storage_path,"cache_0.04.bin"), chunk_num * 0.04)
+    # create_file(os.path.join(storage_path,"cache_0.06.bin"), chunk_num * 0.06)
+    # create_file(os.path.join(storage_path,"cache_0.08.bin"), chunk_num * 0.08)
+    # create_file(os.path.join(storage_path,"cache_0.1.bin"), chunk_num * 0.1)
     # create_file(os.path.join(storage_path,"cache_0.08.bin"), chunk_num * 0.08)
     # create_file(os.path.join(storage_path,"cache_0.16.bin"), chunk_num * 0.16)
     # create_file(os.path.join(storage_path,"cache_0.32.bin"), chunk_num * 0.32)
@@ -145,7 +145,7 @@ file_name = "trace_run.txt" # 用于转换成格式化trace的文件名
 
 # 为root_directory目录下的trace_run.txt文件生成storage和trace.txt
 if __name__ == '__main__':
-    root_directory = "E:/projects/Caching-Policy/trace_backup/trace_uniform_5GB/"
+    root_directory = "E:/projects/Caching-Policy/trace_backup/trace_5GB_uniform_read_0/"
     match_dirs = find_directories_with_file(root_directory, file_name)
     match_dirs.pop(0) # pop root dir
     print(match_dirs)

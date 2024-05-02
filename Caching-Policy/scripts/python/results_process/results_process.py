@@ -147,6 +147,53 @@ def extract_statistic_except_power(filename):
     return trace_hit_ratio, total_time, p99, avg_latency, time_begin, time_end
 
 
+def extract_statistic_device_test(filename, rdwr_only):
+    with open(filename, 'r') as file:
+        data = file.read()
+    bias = 0
+    if not rdwr_only:
+        bias = 2
+    lines = data.strip().split('\n')
+    total_time = float(lines[11 + bias].split()[2])
+    p99 = float(lines[13 + bias].split('=')[2].split()[0])
+    avg_latency = float(lines[15 + bias].split()[2])
+    bandwidth = float(lines[16 + bias].split()[1])
+
+    emmc_read_nums = int(lines[18 + bias].split(';')[0].strip().split()[2])
+    emmc_read_avg_latency = float(lines[18 + bias].split(';')[1].strip().split()[2])
+    emmc_read_p99 = float(lines[18 + bias].split(';')[2].strip().split()[8])
+
+    emmc_write_nums = int(lines[19 + bias].split(';')[0].strip().split()[2])
+    emmc_write_avg_latency = float(lines[19 + bias].split(';')[1].strip().split()[2])
+    emmc_write_p99 = float(lines[19 + bias].split(';')[2].strip().split()[8])
+    
+    sd_read_nums = int(lines[20 + bias].split(';')[0].strip().split()[2])
+    sd_read_avg_latency = float(lines[20 + bias].split(';')[1].strip().split()[2])
+    sd_read_p99 = float(lines[20 + bias].split(';')[2].strip().split()[8])
+
+    sd_write_nums = int(lines[21 + bias].split(';')[0].strip().split()[2])
+    sd_write_avg_latency = float(lines[21 + bias].split(';')[1].strip().split()[2])
+    sd_write_p99 = float(lines[21 + bias].split(';')[2].strip().split()[8])
+
+
+    time_format = "%Y/%m/%d %H:%M:%S"
+
+    time_begin = lines[10 + bias].split('to')[0].split('From')[1].strip()
+    time_begin = str_to_datetime(time_begin, time_format)
+
+    time_end = lines[10 + bias].split('to')[1].strip()
+    time_end = str_to_datetime(time_end, time_format)
+
+    # print(time_begin, time_end)
+
+    return total_time,\
+            p99, avg_latency, time_begin, time_end, bandwidth, \
+            emmc_read_nums, emmc_read_avg_latency, emmc_read_p99, \
+            emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \
+            sd_read_nums, sd_read_avg_latency, sd_read_p99, \
+            sd_write_nums, sd_write_avg_latency, sd_write_p99 \
+
+
 def calculate_avg_cpu_usage(file_path, time_begin, time_end):
     cpu_cnt, cpu_sum = 0, 0
     time_format = "%Y-%m-%d %H:%M:%S"
@@ -659,17 +706,12 @@ def get_folders(directory_path):
     """
     folder_names = []
 
-    # 获取目录下的所有项
     items = os.listdir(directory_path)
 
-    # 遍历所有项
     for item in items:
-        # 构建完整路径
         item_path = os.path.join(directory_path, item)
 
-        # 检查是否为文件夹
         if os.path.isdir(item_path):
-            # 将文件夹名称添加到列表中
             folder_names.append(item)
 
     return folder_names
@@ -730,6 +772,157 @@ def run_except_power(test_files_path):
         get_trace_type_and_read_ratio_folder()
         process_results_except_power()
 
+# def get_device_id_and_chunk_size_list():
+#     global device_id_list
+#     global chunk_size_list
+
+#     device_id_list = []
+#     chunk_size_list = []
+
+#     for item in os.listdir(path_head):
+#         item_path = os.path.join(path_head, item)
+
+#         if os.path.isdir(item_path):
+#             if item != 'log':
+#                 device_id_list.append(item)
+
+#             sub_folders = [subfolder for subfolder in os.listdir(item_path) if
+#                           os.path.isdir(os.path.join(item_path, subfolder))]
+#             chunk_size_list.extend(sub_folders)
+
+#     print("device_id_list:",device_id_list)
+#     print("chunk_size_list:",chunk_size_list)
+
+def get_device_id_and_chunk_size_list():
+    global device_id_list
+    global chunk_size_list
+
+    device_id_list = []
+    chunk_size_set = set()  # Use a set to avoid duplicate entries
+
+    for item in os.listdir(path_head):
+        item_path = os.path.join(path_head, item)
+
+        if os.path.isdir(item_path) and item != 'log':
+            device_id_list.append(item)
+
+            sub_folders = [subfolder for subfolder in os.listdir(item_path)
+                           if os.path.isdir(os.path.join(item_path, subfolder))]
+            chunk_size_set.update(sub_folders)  # Add new items to the set
+
+    chunk_size_list = list(chunk_size_set)  # Convert set back to list if necessary
+    chunk_size_list.sort()  # Optional: sort the list if you need ordered output
+
+    print("device_id_list:", device_id_list)
+    print("chunk_size_list:", chunk_size_list)
+
+
+def process_results_for_device_test():
+    global device_id_list
+    global chunk_size_list
+
+    list_device_id, list_chunk_size = [], []
+    list_total, list_p99, list_avg_latency =  [], [], []
+    list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn = [], [], [], [], [], []
+    list_time_begin, list_time_end = [], []
+    list_bandwidth = []
+    list_emmc_read_nums, list_emmc_read_avg_latency, list_emmc_read_p99 = [], [], []
+    list_emmc_write_nums, list_emmc_write_avg_latency, list_emmc_write_p99 = [], [], []
+    list_sd_read_nums, list_sd_read_avg_latency, list_sd_read_p99 = [], [], []
+    list_sd_write_nums, list_sd_write_avg_latency, list_sd_write_p99 = [], [], []
+    
+    rdwr_only = True # ratio == 'read_1' or ratio == 'read_0'
+    
+    for device_id in device_id_list:
+        for chunk_size in chunk_size_list:
+            list_device_id.append(device_id)
+            list_chunk_size.append(chunk_size)
+            file_path_begin = os.path.join(path_head, device_id, chunk_size)
+            print('data process:', file_path_begin)
+            
+            file_statistic_path = os.path.join(file_path_begin, file_statistic_name)
+
+            total, p99, avg_latency, \
+            time_begin, time_end, bandwidth, \
+            emmc_read_nums, emmc_read_avg_latency, emmc_read_p99, \
+            emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \
+            sd_read_nums, sd_read_avg_latency, sd_read_p99, \
+            sd_write_nums, sd_write_avg_latency, sd_write_p99 = \
+            extract_statistic_device_test(
+                file_statistic_path,
+                rdwr_only)
+            
+            list_cpu_usage.append(
+                calculate_avg_cpu_usage(file_cpu_usage_path, time_begin,
+                                        time_end - timedelta(seconds=1)))
+            list_mem_used.append(calculate_avg_mem_used(file_mem_used_path, time_begin, time_end))
+            emmc_kb_read, emmc_kb_wrtn, sd_kb_read, sd_kb_wrtn \
+                = calculate_disk_read_wrtn(file_disk_path, time_begin, time_end)
+
+            list_emmc_kb_read.append(emmc_kb_read)
+            list_emmc_kb_wrtn.append(emmc_kb_wrtn)
+            list_sd_kb_read.append(sd_kb_read)
+            list_sd_kb_wrtn.append(sd_kb_wrtn)
+
+            list_total.append(total)
+            list_p99.append(p99)
+            list_avg_latency.append(avg_latency)
+
+            list_time_begin.append(time_begin)
+            list_time_end.append(time_end)
+
+            list_bandwidth.append(bandwidth)
+
+            list_emmc_read_nums.append(emmc_read_nums)
+            list_emmc_read_avg_latency.append(emmc_read_avg_latency)
+            list_emmc_read_p99.append(emmc_read_p99)
+            list_emmc_write_nums.append(emmc_write_nums)
+            list_emmc_write_avg_latency.append(emmc_write_avg_latency)
+            list_emmc_write_p99.append(emmc_write_p99)
+            list_sd_read_nums.append(sd_read_nums)
+            list_sd_read_avg_latency.append(sd_read_avg_latency)
+            list_sd_read_p99.append(sd_read_p99)
+            list_sd_write_nums.append(sd_write_nums)
+            list_sd_write_avg_latency.append(sd_write_avg_latency)
+            list_sd_write_p99.append(sd_write_p99)
+
+    
+    list_emmc_kb_read = [x / 1024 for x in list_emmc_kb_read]
+    list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_wrtn]
+    list_sd_kb_read = [x / 1024 for x in list_sd_kb_read]
+    list_sd_kb_wrtn = [x / 1024 for x in list_sd_kb_wrtn]
+    dict_device_id={'sd':'SD','emmc':"eMMC"}
+    list_device_id = [dict_device_id[x] for x in list_device_id]
+
+    data = {'Device ID': list_device_id, 'Chunk Size(KB)': list_chunk_size,
+            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99, 
+            'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
+            'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,}
+
+    # print(data)
+
+    # 将字典转换为DataFrame
+    df = pd.DataFrame(data)
+
+    # 指定要保存的Excel文件名
+    excel_file = path_head + 'statistic.xlsx'
+
+    # save_dataframe_to_excel_with_format(df,excel_file)
+    # 将DataFrame保存为Excel文件
+    df.to_excel(excel_file, index=False)
+
+    print(f"data save in {excel_file}")
+
+def run_device_test(test_files_path):
+    global  path_head
+    path_head_folders = get_folders(test_files_path)
+    for folder in path_head_folders:
+        path_head = test_files_path + folder + '/'
+        print("path_head:", path_head)
+        resetPath_except_power()
+        get_device_id_and_chunk_size_list()
+        process_results_for_device_test()
+
 file_cpu_usage_name = 'cpu_usage.log'
 file_mem_used_name = 'mem_used.log'
 file_disk_name = 'disk_read_wrtn.log'
@@ -743,6 +936,10 @@ policy_list = ['fifo', 'lru', 'lfu', 'lirs', 'arc', 'clockpro', 'random', '2q', 
 trace_type_list = []
 operation_read_ratio_list = []
 
+# for run_device
+device_id_list = []
+chunk_size_list = []
+
 path_head = ''
 log_dir = ''
 file_cpu_usage_path = ''
@@ -751,14 +948,17 @@ file_disk_path = ''
 file_power_path = ''
 
 if __name__ == '__main__':
-    path_dir = 'E:/projects/Caching-Policy/records/'
-    folder_list = ['latest']
-    # folder_list = ['zipfian','latest','uniform', ]
-    for folder in folder_list:
-        run_except_power(path_dir+folder+'/')
+    # path_dir = 'E:/projects/Caching-Policy/records/'
+    # folder_list = ['latest']
+    # # folder_list = ['zipfian','latest','uniform', ]
+    # for folder in folder_list:
+    #     run_except_power(path_dir+folder+'/')
 
     # for folder in folder_list:
     #     sub_folder_head = path_dir+folder+'/'
     #     sub_folder_list = get_folders(sub_folder_head)
     #     merge_excel_files(sub_folder_head, sub_folder_list)
     # merge_excel_files(path_dir,folder_list)
+    
+    path_dir = 'E:/projects/Caching-Policy/records/'
+    run_device_test(path_dir)

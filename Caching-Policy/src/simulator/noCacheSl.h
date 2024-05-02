@@ -76,14 +76,14 @@ void NoCacheSl::test()
     int trace_size = 0;
     int count = 0;
 
-    // 循环读取每个词，并尝试将其转换为数字
+    // Get trace_size.
     while (iss >> temp) {
         std::stringstream converter(temp);
-        if (converter >> number) {  // 如果转换成功，增加计数器
+        if (converter >> number) { 
             count++;
-            if (count == 3) {  // 当计数器为3时，保存这个数字
+            if (count == 3) {
                 trace_size = number;
-                break;  // 找到第三个数字后立即退出循环
+                break;
             }
         }
     }
@@ -95,19 +95,12 @@ void NoCacheSl::test()
         st.total_trace_nums++;
         show_progress_bar(st.total_trace_nums, trace_size);
 
-        ll begin = curKey;
-        ll end = (curKey - 1);
-        st.request_size_v.push_back(end - begin + 1);
-        st.total_request_size += end - begin + 1;
-
+        st.request_size_v.push_back(chunk_size);
+        st.total_request_size += chunk_size;
         vector<ll> keys;
-        for (ll i = begin; i <= end; i++)
-        {
-            keys.push_back(i * chunk_size);
-        }
+        keys.push_back(curKey * chunk_size);
 
         gettimeofday(&t1, NULL);
-
         switch (type)
         {
         case 0:
@@ -120,9 +113,6 @@ void NoCacheSl::test()
 
         gettimeofday(&t2, NULL);
         st.total_latency.addDeltaT(st.computeDeltaT(t1,t2));
-        // printf("trace: %llu, time: %lldus, total_time: %lld\n", st.total_trace_nums, deltaT, st.total_latency);
-        // printChunkMap();
-        // cout<<"isTraceHit: "<<isTraceHit<<' '<<"st.hit_trace_nums: "<<st.hit_trace_nums<<endl;
     }
     gettimeofday(&t3, NULL);
     st.total_time = st.computeDeltaT(t0,t3);

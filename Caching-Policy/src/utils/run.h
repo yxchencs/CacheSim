@@ -359,8 +359,8 @@ void run_no_cache_fixed_disk_size(){
     std::regex re("(\\d+)KB");
     std::smatch matches;
     int chunk_size_KB;
-    // auto trace_dirs = find_trace_paths("../trace/");
-    auto trace_dirs = find_trace_paths("../../trace_backup/trace_uniform_5GB/");
+    auto trace_dirs = find_trace_paths("../trace/");
+    // auto trace_dirs = find_trace_paths("../../trace_backup/trace_uniform_5GB/");
     for (const auto &dir : trace_dirs)
     {
         trace_dir = dir.string();
@@ -382,10 +382,10 @@ void run_no_cache_fixed_disk_size(){
         copy_file_to_directory(disk_dir, sd_dir);
         run_no_cache_once(chunk_size_KB, device_id, device_path);
 
-        // device_id = "emmc";
-        // device_path = emmc_dir + "/" + disk_name;
-        // copy_file_to_directory(disk_dir, emmc_dir);
-        // run_no_cache_once(chunk_size_KB, device_id, device_path);
+        device_id = "emmc";
+        device_path = emmc_dir + "/" + disk_name;
+        copy_file_to_directory(disk_dir, emmc_dir);
+        run_no_cache_once(chunk_size_KB, device_id, device_path);
 
     }
 }

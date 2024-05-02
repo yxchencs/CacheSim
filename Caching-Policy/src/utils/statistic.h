@@ -272,6 +272,7 @@ void Statistic::writeStatistic()
 
 void Statistic::record()
 {
+    cout << "From " << startTime << " to " << endTime << endl;
     saveLatency();
     computeLatency();
     writeStatistic();
