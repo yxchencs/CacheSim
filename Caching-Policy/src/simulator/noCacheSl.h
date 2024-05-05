@@ -96,7 +96,7 @@ void NoCacheSl::test()
         show_progress_bar(st.total_trace_nums, trace_size);
 
         st.request_size_v.push_back(chunk_size);
-        st.total_request_size += chunk_size;
+        st.total_request_number += 1;
         vector<ll> keys;
         keys.push_back(curKey * chunk_size);
 

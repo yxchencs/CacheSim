@@ -154,34 +154,34 @@ def extract_statistic_device_test(filename, rdwr_only):
     if not rdwr_only:
         bias = 2
     lines = data.strip().split('\n')
-    total_time = float(lines[11 + bias].split()[2])
-    p99 = float(lines[13 + bias].split('=')[2].split()[0])
-    avg_latency = float(lines[15 + bias].split()[2])
-    bandwidth = float(lines[16 + bias].split()[1])
+    total_time = float(lines[15 + bias].split()[2])
+    avg_latency = float(lines[16 + bias].split()[2])
+    p99 = float(lines[17 + bias].split('=')[2].split()[0])
+    bandwidth = float(lines[20 + bias].split()[1])
 
-    emmc_read_nums = int(lines[18 + bias].split(';')[0].strip().split()[2])
-    emmc_read_avg_latency = float(lines[18 + bias].split(';')[1].strip().split()[2])
-    emmc_read_p99 = float(lines[18 + bias].split(';')[2].strip().split()[8])
+    emmc_read_nums = int(lines[22 + bias].split(';')[0].strip().split()[2])
+    emmc_read_avg_latency = float(lines[22 + bias].split(';')[1].strip().split()[2])
+    emmc_read_p99 = float(lines[22 + bias].split(';')[2].strip().split()[8])
 
-    emmc_write_nums = int(lines[19 + bias].split(';')[0].strip().split()[2])
-    emmc_write_avg_latency = float(lines[19 + bias].split(';')[1].strip().split()[2])
-    emmc_write_p99 = float(lines[19 + bias].split(';')[2].strip().split()[8])
+    emmc_write_nums = int(lines[23 + bias].split(';')[0].strip().split()[2])
+    emmc_write_avg_latency = float(lines[23 + bias].split(';')[1].strip().split()[2])
+    emmc_write_p99 = float(lines[23 + bias].split(';')[2].strip().split()[8])
     
-    sd_read_nums = int(lines[20 + bias].split(';')[0].strip().split()[2])
-    sd_read_avg_latency = float(lines[20 + bias].split(';')[1].strip().split()[2])
-    sd_read_p99 = float(lines[20 + bias].split(';')[2].strip().split()[8])
+    sd_read_nums = int(lines[24 + bias].split(';')[0].strip().split()[2])
+    sd_read_avg_latency = float(lines[24 + bias].split(';')[1].strip().split()[2])
+    sd_read_p99 = float(lines[24 + bias].split(';')[2].strip().split()[8])
 
-    sd_write_nums = int(lines[21 + bias].split(';')[0].strip().split()[2])
-    sd_write_avg_latency = float(lines[21 + bias].split(';')[1].strip().split()[2])
-    sd_write_p99 = float(lines[21 + bias].split(';')[2].strip().split()[8])
+    sd_write_nums = int(lines[25 + bias].split(';')[0].strip().split()[2])
+    sd_write_avg_latency = float(lines[25 + bias].split(';')[1].strip().split()[2])
+    sd_write_p99 = float(lines[25 + bias].split(';')[2].strip().split()[8])
 
 
     time_format = "%Y/%m/%d %H:%M:%S"
 
-    time_begin = lines[10 + bias].split('to')[0].split('From')[1].strip()
+    time_begin = lines[14 + bias].split('to')[0].split('From')[1].strip()
     time_begin = str_to_datetime(time_begin, time_format)
 
-    time_end = lines[10 + bias].split('to')[1].strip()
+    time_end = lines[14 + bias].split('to')[1].strip()
     time_end = str_to_datetime(time_end, time_format)
 
     # print(time_begin, time_end)
@@ -913,15 +913,10 @@ def process_results_for_device_test():
 
     print(f"data save in {excel_file}")
 
-def run_device_test(test_files_path):
-    global  path_head
-    path_head_folders = get_folders(test_files_path)
-    for folder in path_head_folders:
-        path_head = test_files_path + folder + '/'
-        print("path_head:", path_head)
-        resetPath_except_power()
-        get_device_id_and_chunk_size_list()
-        process_results_for_device_test()
+def run_device_test():
+    resetPath_except_power()
+    get_device_id_and_chunk_size_list()
+    process_results_for_device_test()
 
 file_cpu_usage_name = 'cpu_usage.log'
 file_mem_used_name = 'mem_used.log'
@@ -959,6 +954,5 @@ if __name__ == '__main__':
     #     sub_folder_list = get_folders(sub_folder_head)
     #     merge_excel_files(sub_folder_head, sub_folder_list)
     # merge_excel_files(path_dir,folder_list)
-    
-    path_dir = 'E:/projects/Caching-Policy/records/'
-    run_device_test(path_dir)
+    path_head = 'E:/records/2024-05-03_11-38-30_uniform_read_1_5GB/'
+    run_device_test()

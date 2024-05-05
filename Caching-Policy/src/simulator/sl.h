@@ -226,7 +226,7 @@ void Sl::test()
         ll begin = curKey / CHUNK_SIZE;
         ll end = (curKey + curSize - 1) / CHUNK_SIZE;
         st.request_size_v.push_back(end - begin + 1);
-        st.total_request_size += end - begin + 1;
+        st.total_request_number += end - begin + 1;
 
         vector<ll> keys;
         for (ll i = begin; i <= end; i++)

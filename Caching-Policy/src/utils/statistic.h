@@ -103,6 +103,7 @@ public:
     void record();
     void printStatistic();
     void writeStatistic();
+    void writeStatisticNoCache();
     void getCurrentTimeFormatted(char *formattedTime);
     void getStartTime();
     void getEndTime();
@@ -133,7 +134,7 @@ public:
     struct Latency disk_write_latency;
 
     vector<ll> request_size_v;
-    ll total_request_size;
+    ll total_request_number;
 
     string save_dir;
 };
@@ -150,7 +151,7 @@ Statistic::Statistic()
     total_trace_nums = 0;
 
     total_time = 0;
-    total_request_size = 0;
+    total_request_number = 0;
 }
 
 ll Statistic::computeDeltaT(struct timeval begin, struct timeval end)
@@ -249,15 +250,15 @@ void Statistic::writeStatistic()
 
     fout << "tail latency: P95 = " << total_latency.p95_latency << " ms, P99 = " << total_latency.p99_latency << " ms" << endl;
 
-    // fout<<"total request size: "<<total_request_size<<" x "<<CHUNK_SIZE<<"B"<<endl;  // number of chunks
-    fout << "total request size: " << total_request_size * 1.0 * CHUNK_SIZE / 1024 / 1024 << " MB" << endl;
+    // fout<<"total request size: "<<total_request_number<<" x "<<CHUNK_SIZE<<"B"<<endl;  // number of chunks
+    fout << "total request size: " << total_request_number * 1.0 * CHUNK_SIZE / 1024 / 1024 << " MB" << endl;
     if (total_trace_nums != 0)
     {
-        fout << "average size: " << total_request_size * 1.0 * CHUNK_SIZE / 1024 / total_trace_nums << " KB" << endl;
+        fout << "average size: " << total_request_number * 1.0 * CHUNK_SIZE / 1024 / total_trace_nums << " KB" << endl;
     }
     if (total_time != 0)
     {
-        fout << "bandwidth: " << total_request_size * 1.0 * CHUNK_SIZE / 1024 / 1024 / (total_time * 1.0 / 1e6) << " MB/s" << endl; // fout<<"bandwidth: "<<total_request_size*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
+        fout << "bandwidth: " << total_request_number * 1.0 * CHUNK_SIZE / 1024 / 1024 / (total_time * 1.0 / 1e6) << " MB/s" << endl; // fout<<"bandwidth: "<<total_request_number*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
     }
     fout << "io_on: " << io_on << endl;;
 
@@ -269,6 +270,76 @@ void Statistic::writeStatistic()
     fout.close();
     printf("statistic saved\n");
 }
+
+void Statistic::writeStatisticNoCache()
+{
+    ofstream fout(save_dir + "statistic.txt");
+
+    if (!fout.is_open())
+    {
+        cerr << "error: can not open result file:" << save_dir + "statistic.txt" << endl;
+        return;
+    }
+
+    fout << "caching policy: " << caching_policy << endl;
+    fout << "trace: " << trace_path << endl;
+    fout << "cache: " << cache_path << endl;
+    fout << "O_DIRECT: " << O_DIRECT_ON << endl;
+    fout << "chunk size: " << chunk_size << " B" << endl;
+    fout << "disk size: " << disk_size << " x " << chunk_size << " B" << endl;
+    fout << "cache size: " << cache_size << " x " << chunk_size << " B" << endl;
+    fout << "chunk number: " << chunk_num << " x " << chunk_size << " B" << endl;
+    if (read_nums != 0)
+    {
+        fout << "read hit/total number: " << read_hit_nums << '/' << read_nums << endl;
+        fout << "read hit ratio: " << read_hit_nums * 1.0 / read_nums << endl;
+    }
+    if (write_nums != 0)
+    {
+        fout << "write hit/total number: " << write_hit_nums << '/' << write_nums << endl;
+        fout << "write hit ratio: " << write_hit_nums * 1.0 / write_nums << endl;
+    }
+    if ((read_nums + write_nums) != 0)
+    {
+        fout << "hit/total number: " << read_hit_nums + write_hit_nums << '/' << read_nums + write_nums << endl;
+        fout << "hit ratio: " << (read_hit_nums + write_hit_nums) * 1.0 / (read_nums + write_nums) << endl;
+    }
+    if (total_trace_nums != 0)
+    {
+        fout << "hit/total trace: " << hit_trace_nums << '/' << total_trace_nums << endl;
+        fout << "trace hit ratio: " << hit_trace_nums * 1.0 / total_trace_nums << endl;
+    }
+
+    fout << "From " << startTime << " to " << endTime << endl;
+    fout << "total time: " << total_time * 1.0 / 1e6 << " s" << endl;
+    if (total_trace_nums != 0)
+    {
+        fout << "average latency: " << total_latency.average_latency << " ms" << endl;
+    }
+
+    fout << "tail latency: P95 = " << total_latency.p95_latency << " ms, P99 = " << total_latency.p99_latency << " ms" << endl;
+
+    // fout<<"total request size: "<<total_request_number<<" x "<<chunk_size<<"B"<<endl;  // number of chunks
+    fout << "total request size: " << total_request_number * 1.0 * chunk_size / 1024 / 1024 << " MB" << endl;
+    if (total_trace_nums != 0)
+    {
+        fout << "average size: " << total_request_number * 1.0 * chunk_size / 1024 / total_trace_nums << " KB" << endl;
+    }
+    if (total_time != 0)
+    {
+        fout << "bandwidth: " << total_request_number * 1.0 * chunk_size / 1024 / 1024 / (total_time * 1.0 / 1e6) << " MB/s" << endl; // fout<<"bandwidth: "<<total_request_number*1.0*chunk_size/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
+    }
+    fout << "io_on: " << io_on << endl;;
+
+    fout << "emmc_read: nums: " << cache_read_latency.size() << "; average latency: " << cache_read_latency.average_latency << " ms; tail latency: P95 = " << cache_read_latency.p95_latency << " ms, P99 = " << cache_read_latency.p99_latency << " ms" << endl;
+    fout << "emmc_write: nums: " << cache_write_latency.size() << "; average latency: " << cache_write_latency.average_latency << " ms; tail latency: P95 = " << cache_write_latency.p95_latency << " ms, P99 = " << cache_write_latency.p99_latency << " ms" << endl;
+    fout << "sd_read: nums: " << disk_read_latency.size() << "; average latency: " << disk_read_latency.average_latency << " ms; tail latency: P95 = " << disk_read_latency.p95_latency << " ms, P99 = " << disk_read_latency.p99_latency << " ms" << endl;
+    fout << "sd_write: nums: " << disk_write_latency.size() << "; average latency: " << disk_write_latency.average_latency << " ms; tail latency: P95 = " << disk_write_latency.p95_latency << " ms, P99 = " << disk_write_latency.p99_latency << " ms" << endl;
+
+    fout.close();
+    printf("statistic saved\n");
+}
+
 
 void Statistic::record()
 {

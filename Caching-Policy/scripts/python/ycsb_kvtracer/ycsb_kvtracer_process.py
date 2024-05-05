@@ -145,12 +145,13 @@ file_name = "trace_run.txt" # 用于转换成格式化trace的文件名
 
 # 为root_directory目录下的trace_run.txt文件生成storage和trace.txt
 if __name__ == '__main__':
-    root_directory = "E:/projects/Caching-Policy/trace_backup/trace_5GB_uniform_read_0/"
+    root_directory = "E:/projects/Caching-Policy/trace_backup/trace_20240504_device_test/5GB_uniform_read_1/"
     match_dirs = find_directories_with_file(root_directory, file_name)
-    match_dirs.pop(0) # pop root dir
+    # match_dirs.remove(root_directory) # pop root dir
     print(match_dirs)
     list_block_size_KB = [int(re.search(r'(\d+)KB', dir).group(1)) for dir in match_dirs]
     print(list_block_size_KB)
     for i in range(len(match_dirs)):
         print("process:", match_dirs[i],", disk capacity:",list_block_size_KB[i],"KB")
         process_trace_fixed_disk(match_dirs[i],match_dirs[i],list_block_size_KB[i])
+        
