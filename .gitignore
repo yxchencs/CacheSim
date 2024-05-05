@@ -1,9 +1,11 @@
-storage
+.vscode
 storage
 lib
 output
-.vscode
 records
+trace
+data_analysis
+log
 *.o
 *.exe
 *.bin

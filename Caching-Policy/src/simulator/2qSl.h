@@ -62,7 +62,7 @@ void TqSl::writeCache(const ll &key)
         chunk item = {key, offset_cache};
         chunk_map[key] = item;
         free_cache.pop_back();
-        writeChunk(true, offset_cache, CHUNK_SIZE);
+        writeChunk(true, offset_cache, chunk_size);
     }
     // victim!=-1 ==> replace ==> victim provide a free one[no matter cache is full/not full]
     else
@@ -79,7 +79,7 @@ void TqSl::writeCache(const ll &key)
         {
             chunk_map[key].offset_cache = offset_cache;
         }
-        writeChunk(true, offset_cache, CHUNK_SIZE);
+        writeChunk(true, offset_cache, chunk_size);
         writeBack(&chunk_map[victim]);
     }
 }

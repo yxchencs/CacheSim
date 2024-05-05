@@ -189,6 +189,7 @@ void run(){
     cout<<"save_root: "<<save_root<<endl;
     mkdir(save_root);
     cache_dir = "/mnt/eMMC/";
+    chunk_size = 4 * 1024;
     // cout<<"cache_dir: "<<cache_dir<<endl;
     mkdir(cache_dir);
     auto trace_root_dir = "../trace/";
@@ -261,6 +262,7 @@ void run2(){
     cout<<"save_root: "<<save_root<<endl;
     mkdir(save_root);
     cache_dir = "/mnt/eMMC/";
+    chunk_size = 4 * 1024;
     // cout<<"cache_dir: "<<cache_dir<<endl;
     mkdir(cache_dir);
     auto trace_root_dir = "../trace/";
@@ -293,7 +295,8 @@ void run2(){
 void run_no_cache_once(ll chunk_size_KB, std::string device_id, std::string device_path)
 {
     std::cout << "chunk_size_KB: " << chunk_size_KB << ", device_id: " << device_id << ", device_path: " << device_path << std::endl;
-    NoCacheSl sl(chunk_size_KB, device_id, device_path);
+    chunk_size = chunk_size_KB * 1024;
+    NoCacheSl sl(device_id, device_path);
     sl.test();
     sl.statistic();
 }

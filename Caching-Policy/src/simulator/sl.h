@@ -174,7 +174,7 @@ void Sl::writeCache(const ll &key)
         chunk item = {key, offset_cache};
         chunk_map[key] = item;
         free_cache.pop_back();
-        writeChunk(true, offset_cache, CHUNK_SIZE);
+        writeChunk(true, offset_cache, chunk_size);
     }
     // cache full
     else
@@ -193,7 +193,7 @@ void Sl::writeCache(const ll &key)
         {
             chunk_map[key].offset_cache = offset_cache;
         }
-        writeChunk(true, offset_cache, CHUNK_SIZE);
+        writeChunk(true, offset_cache, chunk_size);
         writeBack(&chunk_map[victim]);
     }
 }
@@ -223,15 +223,15 @@ void Sl::test()
         st.total_trace_nums++;
         bool isTraceHit;
 
-        ll begin = curKey / CHUNK_SIZE;
-        ll end = (curKey + curSize - 1) / CHUNK_SIZE;
+        ll begin = curKey / chunk_size;
+        ll end = (curKey + curSize - 1) / chunk_size;
         st.request_size_v.push_back(end - begin + 1);
         st.total_request_number += end - begin + 1;
 
         vector<ll> keys;
         for (ll i = begin; i <= end; i++)
         {
-            keys.push_back(i * CHUNK_SIZE);
+            keys.push_back(i * chunk_size);
         }
 
         gettimeofday(&t1, NULL);
@@ -314,12 +314,12 @@ void Sl::initFile()
         assert(fd_disk >= 0);
     }
 
-    int res = posix_memalign((void **)&buffer_read, CHUNK_SIZE, CHUNK_SIZE);
+    int res = posix_memalign((void **)&buffer_read, chunk_size, chunk_size);
     assert(res == 0);
 
-    res = posix_memalign((void **)&buffer_write, CHUNK_SIZE, CHUNK_SIZE);
+    res = posix_memalign((void **)&buffer_write, chunk_size, chunk_size);
     assert(res == 0);
-    memset(buffer_write, 0, CHUNK_SIZE);
+    memset(buffer_write, 0, chunk_size);
 }
 
 void Sl::closeFile()
@@ -358,7 +358,7 @@ void Sl::normRead(bool isCache, const long long &offset, const long long &size)
     else
         fd = fd_disk;
     assert(fd >= 0);
-    char buffer[CHUNK_SIZE];
+    char buffer[chunk_size];
 
     int res = pread64(fd, buffer, size, offset);
     assert(res == size);
@@ -374,7 +374,7 @@ void Sl::normWrite(bool isCache, const long long &offset, const long long &size)
     else
         fd = fd_disk;
     assert(fd >= 0);
-    char buffer[CHUNK_SIZE] = "Ram15978";
+    char buffer[chunk_size] = "Ram15978";
 
     int res = pwrite64(fd, buffer, size, offset);
     assert(res == size);
@@ -460,8 +460,8 @@ void Sl::initFreeCache()
 {
     for (long long i = 0; i < cache_size; i++)
     {
-        free_cache.push_back(i * CHUNK_SIZE);
-        // cout<<i * CHUNK_SIZE<<" has pushed in to free cache"<<endl;
+        free_cache.push_back(i * chunk_size);
+        // cout<<i * chunk_size<<" has pushed in to free cache"<<endl;
     }
 }
 
@@ -469,14 +469,14 @@ void Sl::readCache(const ll &offset_cache)
 {
     // printf("readCache\n");
     assert(offset_cache != -1);
-    readChunk(true, offset_cache, CHUNK_SIZE);
+    readChunk(true, offset_cache, chunk_size);
 }
 
 void Sl::readDisk(const long long &key)
 {
     // printf("readDisk\n");
     assert(key != -1);
-    readChunk(false, key, CHUNK_SIZE);
+    readChunk(false, key, chunk_size);
 }
 
 void Sl::printChunkMap()
@@ -491,13 +491,13 @@ void Sl::coverageCache(chunk *arg)
 {
     // cout << "coverageCache" << endl;
     arg->dirty = 1;
-    writeChunk(true, arg->offset_cache, CHUNK_SIZE);
+    writeChunk(true, arg->offset_cache, chunk_size);
 }
 
 void Sl::writeDisk(const long long &key)
 {
     // cout << "writeDisk" << endl;
-    writeChunk(false, key, CHUNK_SIZE);
+    writeChunk(false, key, chunk_size);
 }
 
 void Sl::statistic()

@@ -216,10 +216,10 @@ void Statistic::writeStatistic()
     fout << "trace: " << trace_path << endl;
     fout << "cache: " << cache_path << endl;
     fout << "O_DIRECT: " << O_DIRECT_ON << endl;
-    fout << "chunk size: " << CHUNK_SIZE << " B" << endl;
-    fout << "disk size: " << disk_size << " x " << CHUNK_SIZE << " B" << endl;
-    fout << "cache size: " << cache_size << " x " << CHUNK_SIZE << " B" << endl;
-    fout << "chunk number: " << chunk_num << " x " << CHUNK_SIZE << " B" << endl;
+    fout << "chunk size: " << chunk_size << " B" << endl;
+    fout << "disk size: " << disk_size << " x " << chunk_size << " B" << endl;
+    fout << "cache size: " << cache_size << " x " << chunk_size << " B" << endl;
+    fout << "chunk number: " << chunk_num << " x " << chunk_size << " B" << endl;
     if (read_nums != 0)
     {
         fout << "read hit/total number: " << read_hit_nums << '/' << read_nums << endl;
@@ -250,15 +250,15 @@ void Statistic::writeStatistic()
 
     fout << "tail latency: P95 = " << total_latency.p95_latency << " ms, P99 = " << total_latency.p99_latency << " ms" << endl;
 
-    // fout<<"total request size: "<<total_request_number<<" x "<<CHUNK_SIZE<<"B"<<endl;  // number of chunks
-    fout << "total request size: " << total_request_number * 1.0 * CHUNK_SIZE / 1024 / 1024 << " MB" << endl;
+    // fout<<"total request size: "<<total_request_number<<" x "<<chunk_size<<"B"<<endl;  // number of chunks
+    fout << "total request size: " << total_request_number * 1.0 * chunk_size / 1024 / 1024 << " MB" << endl;
     if (total_trace_nums != 0)
     {
-        fout << "average size: " << total_request_number * 1.0 * CHUNK_SIZE / 1024 / total_trace_nums << " KB" << endl;
+        fout << "average size: " << total_request_number * 1.0 * chunk_size / 1024 / total_trace_nums << " KB" << endl;
     }
     if (total_time != 0)
     {
-        fout << "bandwidth: " << total_request_number * 1.0 * CHUNK_SIZE / 1024 / 1024 / (total_time * 1.0 / 1e6) << " MB/s" << endl; // fout<<"bandwidth: "<<total_request_number*1.0*CHUNK_SIZE/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
+        fout << "bandwidth: " << total_request_number * 1.0 * chunk_size / 1024 / 1024 / (total_time * 1.0 / 1e6) << " MB/s" << endl; // fout<<"bandwidth: "<<total_request_number*1.0*chunk_size/1024/1024 / (total_time*1.0/1e9)<<" MB/s"<<endl;
     }
     fout << "io_on: " << io_on << endl;;
 

@@ -61,7 +61,7 @@ void ClockproSl::writeCache(const ll &key)
         chunk item = {key, offset_cache};
         chunk_map[key] = item;
         free_cache.pop_back();
-        writeChunk(true, offset_cache, CHUNK_SIZE);
+        writeChunk(true, offset_cache, chunk_size);
     }
     // cache full
     else
@@ -89,7 +89,7 @@ void ClockproSl::writeCache(const ll &key)
                 {
                     chunk_map[key].offset_cache = offset_cache;
                 }
-                writeChunk(true, offset_cache, CHUNK_SIZE);
+                writeChunk(true, offset_cache, chunk_size);
                 writeBack(&chunk_map[victim]);
             }
         }

@@ -19,5 +19,4 @@ ostream& operator<<(ostream& os, const chunk& arg) {
     return os;
 }
 
-const ll CHUNK_SIZE = 4 * 1024;
 #endif /*_CHUNK_INCLUDED_*/

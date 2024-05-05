@@ -18,8 +18,8 @@ public:
     void test();
     void statistic();
 
-    NoCacheSl(ll chunk_size_KB, string device_id, string device_path)
-        : chunk_size_KB(chunk_size_KB), device_id(device_id), chunk_size(chunk_size_KB * 1024)
+    NoCacheSl(string device_id, string device_path)
+        : device_id(device_id)
     {
         fd = open(device_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd >= 0);
@@ -46,8 +46,6 @@ private:
 
     Statistic st;
     string device_id;
-    ll chunk_size_KB;
-    ll chunk_size;
 
     void readItem(vector<ll> &keys);
     void writeItem(vector<ll> &keys);
@@ -170,8 +168,7 @@ void NoCacheSl::writeChunk(const long long &offset, const long long &size)
 
 void NoCacheSl::statistic()
 {
-    // string dir = save_root + getSubstringAfter(trace_dir, "trace/") + '/' + device_id + '/' + std::to_string(chunk_size_KB) + "KB/";
-    string dir = save_root + device_id + '/' + std::to_string(chunk_size_KB) + "KB/";
+    string dir = save_root + device_id + '/' + std::to_string(int(chunk_size*1.0/1024)) + "KB/";
 
     st.resetSaveDir(dir);
     st.record();

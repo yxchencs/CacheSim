@@ -4,12 +4,13 @@
 typedef long long ll;
 
 size_t chunk_num;
-ll disk_size;
+ll disk_size; // Unit: chunk_size
 bool io_on; // 控制是否开启读写IO
 int cache_size_index;
 int caching_policy_index;
-double cache_size_factor;
-size_t cache_size;
+double cache_size_factor; // eg: 0.02
+size_t cache_size; // Unit: B
+ll chunk_size; // Unit: B
 std::string cache_dir;
 std::string cache_path;
 std::string trace_dir;
