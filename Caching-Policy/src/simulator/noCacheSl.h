@@ -18,8 +18,8 @@ public:
     void test();
     void statistic();
 
-    NoCacheSl(string device_id, string device_path)
-        : device_id(device_id)
+    NoCacheSl(string operation_read_ratio, string device_id, string device_path)
+        : operation_read_ratio(operation_read_ratio), device_id(device_id)
     {
         fd = open(device_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd >= 0);
@@ -46,6 +46,7 @@ private:
 
     Statistic st;
     string device_id;
+    string operation_read_ratio;
 
     void readItem(vector<ll> &keys);
     void writeItem(vector<ll> &keys);
@@ -168,7 +169,7 @@ void NoCacheSl::writeChunk(const long long &offset, const long long &size)
 
 void NoCacheSl::statistic()
 {
-    string dir = save_root + device_id + '/' + std::to_string(int(chunk_size*1.0/1024)) + "KB/";
+    string dir = save_root + operation_read_ratio + '/' + device_id + '/' + std::to_string(int(chunk_size*1.0/1024)) + "KB/";
 
     st.resetSaveDir(dir);
     st.record();

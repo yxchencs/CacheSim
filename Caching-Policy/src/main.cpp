@@ -6,10 +6,9 @@ int main(){
     // mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC");
 
     // run2();
-    run();
+    // run();
     // run_no_cache();
-    // run_no_cache_fixed_disk_size();
-    // run_no_cache_example();
+    run_no_cache_fixed_disk_size();
     return 0;
 }
 

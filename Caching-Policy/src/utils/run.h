@@ -65,6 +65,23 @@ std::vector<fs::path> find_trace_paths(const fs::path& root_dir) {
     return directories;
 }
 
+std::vector<fs::path> find_trace_paths_shard_storage(const fs::path& root_dir) {
+    std::vector<fs::path> directories;
+
+    if (!fs::exists(root_dir) || !fs::is_directory(root_dir)) {
+        std::cerr << "Provided path is not a valid directory." << std::endl;
+        return directories;
+    }
+
+    for (const auto& entry : fs::recursive_directory_iterator(root_dir)) {
+        if (entry.is_regular_file() && entry.path().filename() == "trace.txt") {
+            directories.push_back(entry.path().parent_path());
+        }
+    }
+
+    return directories;
+}
+
 bool copy_file_to_directory(const fs::path& source_file, const fs::path& target_directory) {
     fs::path target_file = target_directory / source_file.filename();
 
@@ -292,61 +309,63 @@ void run2(){
 // @param device_id
 // @param device_path
 // @param chunk_size
-void run_no_cache_once(ll chunk_size_KB, std::string device_id, std::string device_path)
+void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::string device_id, std::string device_path)
 {
-    std::cout << "chunk_size_KB: " << chunk_size_KB << ", device_id: " << device_id << ", device_path: " << device_path << std::endl;
+    std::cout << "operation_read_ratio: " << operation_read_ratio << ", chunk_size_KB: " << chunk_size_KB
+    <<", device_id: " << device_id << ", device_path: " << device_path << std::endl;
     chunk_size = chunk_size_KB * 1024;
-    NoCacheSl sl(device_id, device_path);
+    NoCacheSl sl(operation_read_ratio, device_id, device_path);
     sl.test();
     sl.statistic();
 }
 
-void run_no_cache_example(){
-    save_root = "../../records/" + getCurrentDateTime() + '/';
-    trace_dir = "../trace/uniform/r100w_o15w_0.99/read_0/";
-    trace_path = trace_dir + "trace.txt";
-    ll chunk_size_KB = 4;
-    std::string device_id = "disk";
-    std::string device_path = trace_dir + "storage/disk.bin";
-    run_no_cache_once(chunk_size_KB, device_id, device_path);
-}
+// void run_no_cache_example(){
+//     save_root = "../../records/" + getCurrentDateTime() + '/';
+//     trace_dir = "../trace/uniform/r100w_o15w_0.99/read_0/";
+//     trace_path = trace_dir + "trace.txt";
+//     ll chunk_size_KB = 4;
+//     std::string device_id = "disk";
+//     std::string device_path = trace_dir + "storage/disk.bin";
+//     run_no_cache_once(chunk_size_KB, device_id, device_path);
+// }
 
-void run_no_cache(){
-    std::string device_id;
-    std::string device_path;
+// void run_no_cache(){
+//     std::string device_id;
+//     std::string device_path;
 
-    save_root = "../../records/" + getCurrentDateTime() + '/';
-    mkdir(save_root);
-    std::string emmc_dir = "/mnt/eMMC/";
-    mkdir(emmc_dir);
-    std::string sd_dir = "../storage/";
-    mkdir(sd_dir);
+//     save_root = "../../records/" + getCurrentDateTime() + '/';
+//     mkdir(save_root);
+//     std::string emmc_dir = "/mnt/eMMC/";
+//     mkdir(emmc_dir);
+//     std::string sd_dir = "../storage/";
+//     mkdir(sd_dir);
 
-    ll list_chunk_size_KB[] = {1, 4, 16, 64, 256, 1024};
+//     ll list_chunk_size_KB[] = {1, 4, 16, 64, 256, 1024};
 
-    auto trace_dirs = find_trace_paths("../trace/");
+//     auto trace_dirs = find_trace_paths("../trace/");
 
-    for (const auto &dir : trace_dirs)
-    {
-        trace_dir = dir;
-        trace_path = trace_dir + "/trace.txt";
-        std::cout << "trace_path: " << trace_path << std::endl;
-        std::string disk_dir = trace_dir + "/storage/disk.bin";
+//     for (const auto &dir : trace_dirs)
+//     {
+//         trace_dir = dir;
+//         trace_path = trace_dir + "/trace.txt";
+//         std::cout << "trace_path: " << trace_path << std::endl;
+//         std::string disk_dir = trace_dir + "/storage/disk.bin";
 
-        device_id = "sd";
-        device_path = sd_dir + "disk.bin";
-        // copy_files_containing_cache(storage_dir, sd_dir);
-        for (auto chunk_size_KB : list_chunk_size_KB)
-            run_no_cache_once(chunk_size_KB, device_id, device_path);
+//         device_id = "sd";
+//         device_path = sd_dir + "disk.bin";
+//         // copy_files_containing_cache(storage_dir, sd_dir);
+//         for (auto chunk_size_KB : list_chunk_size_KB)
+//             run_no_cache_once(chunk_size_KB, device_id, device_path);
 
-        device_id = "emmc";
-        device_path = emmc_dir + "disk.bin";
-        // copy_files_containing_cache(storage_dir, emmc_dir);
-        for (auto chunk_size_KB : list_chunk_size_KB)
-            run_no_cache_once(chunk_size_KB, device_id, device_path);
-    }
-}
+//         device_id = "emmc";
+//         device_path = emmc_dir + "disk.bin";
+//         // copy_files_containing_cache(storage_dir, emmc_dir);
+//         for (auto chunk_size_KB : list_chunk_size_KB)
+//             run_no_cache_once(chunk_size_KB, device_id, device_path);
+//     }
+// }
 
+// Need copy disk.bin manually
 void run_no_cache_fixed_disk_size(){
     std::string device_id;
     std::string device_path;
@@ -362,34 +381,37 @@ void run_no_cache_fixed_disk_size(){
     std::regex re("(\\d+)KB");
     std::smatch matches;
     int chunk_size_KB;
-    auto trace_dirs = find_trace_paths("../trace/");
-    // auto trace_dirs = find_trace_paths("../../trace_backup/trace_uniform_5GB/");
-    for (const auto &dir : trace_dirs)
-    {
-        trace_dir = dir.string();
 
-        if (std::regex_search(trace_dir, matches, re)) {
-            // std::cout << "Number extracted: " << matches[1] << std::endl;
-            chunk_size_KB = std::stoi(matches[1]);
-        } else {
-            std::cout << "No number found." << std::endl;
-            continue;
+    std::string trace_root = "../trace/";
+    vector<std::string> operation_read_ratio_list = {"read_1", "read_0"};
+    for(auto operation_read_ratio: operation_read_ratio_list) {
+        auto trace_dirs = find_trace_paths_shard_storage(trace_root+"/"+operation_read_ratio+"/");
+        for (const auto &dir : trace_dirs)
+        {
+            trace_dir = dir.string();
+            std::cout << "trace_dir: " << trace_dir << std::endl;
+            if (std::regex_search(trace_dir, matches, re)) {
+                // std::cout << "Number extracted: " << matches[1] << std::endl;
+                chunk_size_KB = std::stoi(matches[1]);
+            } else {
+                std::cout << "No number found." << std::endl;
+                continue;
+            }
+
+            trace_path = trace_dir + "/trace.txt";
+            std::cout << "trace_path: " << trace_path << std::endl;
+            // std::string disk_dir = trace_dir + "/storage/" + disk_name; // Copying manually
+
+            device_id = "sd";
+            device_path = sd_dir + "/" + disk_name;
+            // copy_file_to_directory(disk_dir, sd_dir);
+            run_no_cache_once(operation_read_ratio, chunk_size_KB, device_id, device_path);
+
+            device_id = "emmc";
+            device_path = emmc_dir + "/" + disk_name;
+            // copy_file_to_directory(disk_dir, emmc_dir);
+            run_no_cache_once(operation_read_ratio, chunk_size_KB, device_id, device_path);
         }
-
-        trace_path = trace_dir + "/trace.txt";
-        std::cout << "trace_path: " << trace_path << std::endl;
-        std::string disk_dir = trace_dir + "/storage/" + disk_name;
-
-        device_id = "sd";
-        device_path = sd_dir + "/" + disk_name;
-        copy_file_to_directory(disk_dir, sd_dir);
-        run_no_cache_once(chunk_size_KB, device_id, device_path);
-
-        device_id = "emmc";
-        device_path = emmc_dir + "/" + disk_name;
-        copy_file_to_directory(disk_dir, emmc_dir);
-        run_no_cache_once(chunk_size_KB, device_id, device_path);
-
     }
 }
 #endif /*_RUN_HPP_INCLUDED_*/
