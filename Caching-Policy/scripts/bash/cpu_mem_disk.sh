@@ -1,6 +1,6 @@
 #!/bin/sh
 
-save_directory="../../log/"
+save_directory="../../../log/"
 mkdir "$save_directory"
 cpu_usage_addr="${save_directory}cpu_usage.log"
 mem_used_addr="${save_directory}mem_used.log"
