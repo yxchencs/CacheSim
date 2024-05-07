@@ -16,6 +16,8 @@
 #include <unistd.h>
 #include "mount.h"
 #include <regex>
+#include <chrono>
+#include <thread>
 
 #include "../simulator/randomSl.h"
 #include "../simulator/fifoSl.h"
@@ -161,6 +163,8 @@ void initCacheAndDiskSize(){
 }
 
 void run_once(){
+    std::this_thread::sleep_for(std::chrono::seconds(20));
+
     printf("--------------------------------------------------------------------------------\n");
     Sl *sim = nullptr;
     cache_size_factor = cacheSizeTypes[cache_size_index];
@@ -233,6 +237,8 @@ void run(){
 
 // for run2()
 void run_once2(){
+    std::this_thread::sleep_for(std::chrono::seconds(20));
+
     printf("--------------------------------------------------------------------------------\n");
     Sl *sim = nullptr;
     cache_size_factor = cacheSizeTypes2[cache_size_index];
@@ -311,6 +317,7 @@ void run2(){
 // @param chunk_size
 void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::string device_id, std::string device_path)
 {
+    std::this_thread::sleep_for(std::chrono::seconds(20));
     std::cout << "operation_read_ratio: " << operation_read_ratio << ", chunk_size_KB: " << chunk_size_KB
     <<", device_id: " << device_id << ", device_path: " << device_path << std::endl;
     chunk_size = chunk_size_KB * 1024;

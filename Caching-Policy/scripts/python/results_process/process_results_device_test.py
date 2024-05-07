@@ -118,7 +118,7 @@ def calculate_avg_mem_used(file_path, time_begin, time_end):
             parts = line.strip().split()
             time = str_to_datetime((parts[1] + ' ' + parts[2]), time_format)
 
-            if time_end >= time >= time_begin:
+            if time_end > time > time_begin: # 不取到等号以避免数据突变带来的数据异常 
                 mem_used = int(parts[0].split('MB')[0].strip())
                 if mem_begin == 0:
                     mem_begin = mem_used
