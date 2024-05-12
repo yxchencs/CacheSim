@@ -157,8 +157,10 @@ void initCacheAndDiskSize(){
     fstream fin_trace(trace_path);
     checkFile(fin_trace);
     string s;
-    fin_trace>>s>>chunk_num>>disk_size;
+    ll block_size_KB;
+    fin_trace>>s>>chunk_num>>disk_size>>trace_size>>block_size_KB;
     cache_size = chunk_num*cache_size_factor;
+    chunk_size = block_size_KB * 1024;
     // cout<<s<<", "<<chunk_num<<", "<<disk_size<<", "<<cache_size<<endl;
 }
 
@@ -222,11 +224,11 @@ void run(){
         storage_dir = trace_dir + "/storage/";
 
         copy_files_containing_cache(storage_dir, cache_dir);
-        for(int k=0; k<2; k++){
+        for(int k=0; k<2; k++){ // io
             io_on = k;
-            for(int i=0;i<cache_size_types_size;i++){
+            for(int i=0;i<cache_size_types_size;i++){ // cache_size
                 cache_size_index = i;
-                for(int j=0;j<policy_types_size;j++){
+                for(int j=0;j<policy_types_size;j++){ // cache_policy
                     caching_policy_index = j;
                     run_once();
                 }

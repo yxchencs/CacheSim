@@ -65,7 +65,7 @@ def find_directories_with_file(root_dir, filename):
     return directories
 
 
-def generate_trace(input_path, output_path, block_size_KB):
+def generate_trace_device_test(input_path, output_path, block_size_KB):
     global max_disk_size
 
     trace_file_path = os.path.join(output_path, trace_file_name)
@@ -82,7 +82,23 @@ def generate_trace(input_path, output_path, block_size_KB):
         print("trace exists")   
 
 
-def generate_storage(output_path, disk_size):
+def generate_trace(input_path, output_path, block_size_KB):
+    global max_disk_size
+
+    trace_file_path = os.path.join(output_path, trace_file_name)
+    print("trace_file_path:",trace_file_path)
+    if not os.path.exists(trace_file_path):
+        keys, types = read_trace_from_file(os.path.join(input_path, ycsb_trace_run_name))
+        indexes, block_num = frequency_counter(keys)
+        trace_size = len(keys)
+        output_file(trace_file_path, indexes, types, block_num, trace_size, block_size_KB)
+        disk_size = block_num * block_size_KB * 1024
+        print("done process trace")
+        generate_storage(output_path, disk_size)
+    else:
+        print("trace exists")  
+
+def generate_storage_device_test(output_path, disk_size):
     storage_path = os.path.join(output_path,storage_dir)
     print("storage_path:",storage_path)
     os.makedirs(storage_path, exist_ok=True)
@@ -93,22 +109,77 @@ def generate_storage(output_path, disk_size):
     else:
         print("storage exists")
 
-def process_workload_device_test(ycsb_dir, trace_name, save_root):
-    workload_dir = os.path.join(ycsb_dir, trace_name)
-    workload_dirs = find_directories_with_file(workload_dir, ycsb_trace_run_name)
+def generate_storage(output_path, disk_size):
+    storage_path = os.path.join(output_path,storage_dir)
+    print("storage_path:",storage_path)
+    os.makedirs(storage_path, exist_ok=True)
+    disk_file_path = os.path.join(storage_path, disk_name)
+    cache_size_list = [0.02, 0.04, 0.06, 0.08, 0.1]
+    if not os.path.exists(disk_file_path):
+        create_file(disk_file_path, disk_size)
+        for cache_size in cache_size_list:
+            cache_file_path = os.path.join(storage_path, f"cache_{cache_size}.bin")
+            create_file(cache_file_path, disk_size*cache_size)
+        print("done generate storage")
+    else:
+        print("storage exists")
 
-    save_root = os.path.join(save_root, trace_name)
-    # workload_dirs.remove(workload_dir) # pop root dir
+def process_workload_device_test(ycsb_dir, workload_name, save_dir):
+    workload_root = os.path.join(ycsb_dir, workload_name)
+    workload_dirs = find_directories_with_file(workload_root, ycsb_trace_run_name)
+
+    trace_save_root = os.path.join(save_dir, workload_name)
+    if workload_root in workload_dirs:
+        workload_dirs.remove(workload_root) # pop root dir
+    for dir in workload_dirs: print(dir)
+    list_block_size_KB = [int(re.search(r'(\d+)KB', dir).group(1)) for dir in workload_dirs]
+    # print(list_block_size_KB)
+    for i in range(len(workload_dirs)):
+        trace_save_dir = os.path.join(trace_save_root,f"{list_block_size_KB[i]}KB")
+        os.makedirs(trace_save_dir, exist_ok=True)
+        print("process:", workload_dirs[i])
+        generate_trace_device_test(workload_dirs[i], trace_save_dir, list_block_size_KB[i])
+        print("save_dir:", trace_save_dir)
+
+def process_workload(ycsb_dir, workload_name, save_dir):
+    workload_root = os.path.join(ycsb_dir, workload_name)
+    workload_dirs = find_directories_with_file(workload_root, ycsb_trace_run_name)
+
+    trace_save_root = os.path.join(save_dir, workload_name)
+    if workload_root in workload_dirs:
+        workload_dirs.remove(workload_root) # pop root dir
     # for dir in workload_dirs: print(dir)
     list_block_size_KB = [int(re.search(r'(\d+)KB', dir).group(1)) for dir in workload_dirs]
     # print(list_block_size_KB)
     for i in range(len(workload_dirs)):
-        save_dir = os.path.join(save_root,f"{list_block_size_KB[i]}KB")
-        os.makedirs(save_dir, exist_ok=True)
+        trace_save_dir = os.path.join(trace_save_root,f"{list_block_size_KB[i]}KB")
+        os.makedirs(trace_save_dir, exist_ok=True)
         print("process:", workload_dirs[i])
-        generate_trace(workload_dirs[i], save_dir, list_block_size_KB[i])
-        print("save_dir:", save_dir)
-    generate_storage(save_root, max_disk_size)
+        generate_trace(workload_dirs[i], trace_save_dir, list_block_size_KB[i])
+        print("save_dir:", trace_save_dir)
+    
+def device_test():
+    ycsb_root = "D:/Projects/YCSB/workloads"
+    trace_name = "5GB/uniform"
+    workload_name_list = ["read_0","read_0.2","read_0.4","read_0.6","read_0.8","read_1"]
+    save_root = "E:/projects/Caching-Policy/trace_backup"
+    
+    ycsb_dir = os.path.join(ycsb_root, trace_name)
+    save_dir = os.path.join(save_root, trace_name)
+    for workload_name in workload_name_list:
+        process_workload_device_test(ycsb_dir, workload_name, save_dir)
+    generate_storage_device_test(save_dir, max_disk_size)
+
+def caching_policy_test():
+    ycsb_root = "D:/Projects/YCSB/workloads"
+    trace_name = "5GB/uniform"
+    workload_name_list = ["read_0","read_0.2","read_0.4","read_0.6","read_0.8","read_1"]
+    save_root = "E:/projects/Caching-Policy/trace_backup"
+    
+    ycsb_dir = os.path.join(ycsb_root, trace_name)
+    save_dir = os.path.join(save_root, trace_name)
+    for workload_name in workload_name_list:
+        process_workload(ycsb_dir, workload_name, save_dir)
 
 
 ycsb_trace_run_name = "trace_run.txt"
@@ -118,8 +189,4 @@ disk_name = "disk.bin"
 max_disk_size = 0
 
 if __name__ == '__main__':
-    ycsb_dir = "D:/Projects/YCSB/workloads/device_test_5GB"
-    trace_name = "5GB_uniform_read_0"
-    save_root = "E:/projects/Caching-Policy/trace_backup"
-    process_workload_device_test(ycsb_dir, trace_name, save_root)
-        
+    caching_policy_test()

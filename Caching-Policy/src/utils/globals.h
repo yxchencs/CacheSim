@@ -15,6 +15,7 @@ std::string cache_dir;
 std::string cache_path;
 std::string trace_dir;
 std::string trace_path;
+ll trace_size;
 std::string storage_dir;
 std::string save_root;
 

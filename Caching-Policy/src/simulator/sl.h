@@ -32,6 +32,7 @@
 #include "../utils/cache_conf.h"
 #include "../utils/policy.h"
 #include "../utils/run.h"
+#include "../utils/progress_bar.h"
 
 using namespace std;
 
@@ -219,8 +220,9 @@ void Sl::test()
     {
         // if (st.total_trace_nums > 10) break;
         // cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
-
         st.total_trace_nums++;
+        show_progress_bar(st.total_trace_nums, trace_size);
+
         bool isTraceHit;
 
         ll begin = curKey / chunk_size;
