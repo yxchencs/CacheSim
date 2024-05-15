@@ -28,6 +28,7 @@ struct Latency
     Latency() : total_latency(0), average_latency(0), p95_latency(0), p99_latency(0) {}
     void addDeltaT(ll deltaT)
     {
+        // printf("addDeltaT\n");
         latency_v.push_back(deltaT);
         total_latency += deltaT;
     }
@@ -55,6 +56,7 @@ struct Latency
     }
     void save(string save_path)
     {
+        // printf("save %s\n", save_path.c_str());
         if(!checkLatencySize()){
             return;
         }
@@ -268,7 +270,7 @@ void Statistic::writeStatistic()
     fout << "sd_write: nums: " << disk_write_latency.size() << "; average latency: " << disk_write_latency.average_latency << " ms; tail latency: P95 = " << disk_write_latency.p95_latency << " ms, P99 = " << disk_write_latency.p99_latency << " ms" << endl;
 
     fout.close();
-    printf("statistic saved\n");
+    // printf("statistic saved\n");
 }
 
 void Statistic::writeStatisticNoCache()
@@ -337,7 +339,7 @@ void Statistic::writeStatisticNoCache()
     fout << "sd_write: nums: " << disk_write_latency.size() << "; average latency: " << disk_write_latency.average_latency << " ms; tail latency: P95 = " << disk_write_latency.p95_latency << " ms, P99 = " << disk_write_latency.p99_latency << " ms" << endl;
 
     fout.close();
-    printf("statistic saved\n");
+    // printf("statistic saved\n");
 }
 
 
@@ -347,6 +349,7 @@ void Statistic::record()
     saveLatency();
     computeLatency();
     writeStatistic();
+    printf("done statistic record\n");
 }
 
 void Statistic::computeLatency()
@@ -365,7 +368,7 @@ void Statistic::saveLatency()
     cache_write_latency.save(save_dir + "cache_write_latency.txt");
     disk_read_latency.save(save_dir + "disk_read_latency.txt");
     disk_write_latency.save(save_dir + "disk_write_latency.txt");
-    printf("latency_v saved\n");
+    // printf("latency_v saved\n");
 }
 
 void Statistic::resetSaveDir(const string &dir) {

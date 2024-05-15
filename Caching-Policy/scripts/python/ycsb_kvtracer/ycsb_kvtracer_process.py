@@ -50,11 +50,12 @@ def frequency_counter(numbers):
 
 def output_file(file_path, indexes, types, block_num, trace_size, block_size_KB):
     print('block_num:', block_num, 'trace_size:',trace_size, 'block_size_KB:', block_size_KB)
+    block_size = block_size_KB * 1024
     with open(file_path, "w") as file:
         # offset = index of the block
         file.write("offset,size,type " + str(block_num) + " " + str(block_num) + ' ' + str(trace_size) + ' ' + str(block_size_KB) +"\n")
         for i in range(len(indexes)):
-            file.write(str(indexes[i]) + "," + str(types[i]) + "\n")
+            file.write(str(indexes[i]*block_size) + "," + str(block_size) + "," + str(types[i]) + "\n")
 
 
 def find_directories_with_file(root_dir, filename):
@@ -171,10 +172,11 @@ def device_test():
     generate_storage_device_test(save_dir, max_disk_size)
 
 def caching_policy_test():
-    ycsb_root = "D:/Projects/YCSB/workloads"
-    trace_name = "5GB/uniform"
-    workload_name_list = ["read_0","read_0.2","read_0.4","read_0.6","read_0.8","read_1"]
-    save_root = "E:/projects/Caching-Policy/trace_backup"
+    ycsb_root = "../../../../workloads"
+    trace_name = "1GB/uniform"
+    # workload_name_list = ["read_0","read_0.2","read_0.4","read_0.6","read_0.8","read_1"]
+    workload_name_list = ["read_1"]
+    save_root = "E:/projects/Caching-Policy/trace"
     
     ycsb_dir = os.path.join(ycsb_root, trace_name)
     save_dir = os.path.join(save_root, trace_name)

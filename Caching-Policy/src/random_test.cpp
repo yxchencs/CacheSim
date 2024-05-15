@@ -11,7 +11,7 @@ int main(){
     storage_dir = trace_dir + "/storage/";
     cache_dir = "/mnt/eMMC/";
     copy_files_containing_cache(storage_dir, cache_dir);
-    save_root = "../../records/" + getCurrentDateTime() + '/';
+    save_root = "../records/" + getCurrentDateTime() + '/';
     run_once();
 }
 

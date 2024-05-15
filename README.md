@@ -1,16 +1,19 @@
-##### 项目概述
+#### 项目概述
 
 本项目用于测试部署在多级混合存储机制的缓存策略的系统性能数据，项目结构如下：
 
 ```shell
+
 Caching-Policy/
 ├── doc
 │   ├── git.md
 │   └── ycsb-kvtracer.md
 ├── scripts
-│   ├── cpu_mem_disk.sh
-│   ├── join_files.py
-│   └── ycsb_kvtracer_process.py
+│   ├── bash
+│   │   ├── cpu_mem_disk.sh
+│   ├── python
+│   │   ├── results_process
+│   │   ├── ycsb_kvtracer
 ├── src
 │   ├── cache
 │   │   ├── 2q.hpp
@@ -45,14 +48,17 @@ Caching-Policy/
 │       ├── cache_conf.h
 │       ├── chunk.h
 │       ├── globals.h
+│       ├── mount.h
 │       ├── policy.h
+│       ├── progress_bar.h
+│       ├── run.h
 │       └── statistic.h
 └── trace
 ```
 
-##### 项目配置
+#### 项目配置
 
-###### 运行环境
+##### 运行环境
 
 设备：Odroid-c4
 操作系统：Ubuntu 20.04.4 LTS
@@ -60,7 +66,7 @@ Caching-Policy/
 内存：3.6 GiB
 主存：SD、eMMC
 
-###### 设置系统时间
+##### 设置系统时间
 
 ```shell
 sudo date -s "YYYY-YY-DD HH:mm:ss"
@@ -68,18 +74,70 @@ sudo date -s "YYYY-YY-DD HH:mm:ss"
 
 其中，`YYYY-YY-DD HH:mm:ss`为现实时间
 
-##### 项目运行
+##### 挂载eMMC
 
-###### Terminal 1
+###### 对eMMC进行分区和格式化
+
+1. 列出系统上所有可用的磁盘分区
 
 ```shell
-cd scripts
+fdisk -l
+```
+
+2. 创建磁盘分区
+
+```shell
+fdisk /dev/mmcblk0
+```
+
+依次输入如下命令
+
+```shell
+n
+p
+1
+2048
+w
+```
+
+3. 将新创建的分区 `/dev/mmcblk0p1` 格式化为ext4文件系统
+
+```shell
+mkfs -t ext4 /dev/mmcblk0p1
+```
+
+###### 挂载eMMC
+
+1. 查看系统所有识别到的磁盘
+
+```shell
+fdisk -l
+```
+
+2. 将eMMC临时挂载到/mnt/eMMC
+
+```shell
+sudo mount /dev/mmcblk0p1 /mnt/eMMC
+```
+
+3. 检查磁盘挂载情况
+
+```shell
+lsblk
+```
+
+#### 项目运行
+
+##### Terminal 1
+
+```shell
+cd scripts/
 bash cpu_mem_disk.sh
 ```
 
 `Terminal 2`中代码运行结束后 `Ctrl+C`终止
 
-###### Terminal 2
+##### Terminal 2
 
 1. 进入源代码目录
 
@@ -90,7 +148,7 @@ cd src
 2. 编译main.cpp
 
 ```shell
-g++ -std=c++17 -o main main.cpp # -std=c++17  for clock-pro
+sudo g++ -std=c++17 -o main main.cpp # -std=c++17  for clock-pro
 ```
 
 3. 执行
@@ -99,9 +157,9 @@ g++ -std=c++17 -o main main.cpp # -std=c++17  for clock-pro
 sudo ./main
 ```
 
-##### 项目内容
+#### 项目内容
 
-###### Caching policy
+##### Caching policy
 
 下面列出缓存策略实现参考的代码仓库和博客
 
@@ -120,7 +178,7 @@ sudo ./main
 - TinyLFU
   https://github.com/vimpunk/tinylfu
 
-###### Trace
+##### Trace
 
 1. [Nexus5_Kernel_BIOTracer_traces - Nexus 5 Smartphone Traces](http://iotta.snia.org/traces/block-io)
    sample: log106_Messaging.txt
@@ -161,7 +219,7 @@ cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware 
 4. [uniform/latest/zipfian trace](ycsb-kvtracer.md)
 5. random trace
 
-###### Statistic
+##### Statistic
 
 本项目主要测试的数据如下
 

@@ -4,6 +4,7 @@ lib
 output
 records
 trace
+trace_backup
 data_analysis
 log
 *.o

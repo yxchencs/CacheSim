@@ -18,6 +18,7 @@ std::string trace_path;
 ll trace_size;
 std::string storage_dir;
 std::string save_root;
+bool isAccessSingleChunk;
 
 const bool RANDOM_ON = false; // 控制是否随机写入cache，即在所有Caching-Policy外面再加上一层cache写入过滤器，注意与RANDOM算法无关
 const int RANDOM_THRESHOLD = 0;  // 随机写入cache的概率[0-1]

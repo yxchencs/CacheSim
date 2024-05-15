@@ -30,6 +30,8 @@
 #include "../simulator/tinylfuSl.h"
 #include "../simulator/noCacheSl.h"
 
+#include "../utils/progress_bar.h"
+
 namespace fs = std::filesystem;
 
 // 获取当前时间点的日期时间格式化字符串，形如 2023-03-15_15:30:45
@@ -99,7 +101,7 @@ bool copy_file_to_directory(const fs::path& source_file, const fs::path& target_
         fs::permissions(target_file, fs::perms::owner_read | fs::perms::owner_write |
                         fs::perms::group_read | fs::perms::group_write |
                         fs::perms::others_read | fs::perms::others_write);
-        std::cout<<"copy "<<source_file<<" to "<<target_directory<<std::endl;
+        // std::cout<<"copy "<<source_file<<" to "<<target_directory<<std::endl;
         return true; // 复制并设置权限成功
     } catch (const fs::filesystem_error& e) {
         std::cerr << "复制文件或设置权限时出错: " << e.what() << std::endl;
@@ -117,13 +119,11 @@ void copy_files_containing_cache(const fs::path& source_directory, const fs::pat
         if (entry.is_regular_file()) {
             std::string filename = entry.path().filename().string();
             if (filename.find("cache") != std::string::npos) {
-                // if (copy_file_to_directory(entry.path(), target_directory)) {
-                    // std::cout << "已复制: " << filename << std::endl;
-                // }
                 assert(copy_file_to_directory(entry.path(), target_directory));
             }
         }
     }
+    printf("done copy files containing cache\n");
 }
 
 std::string getSubstringAfter(const std::string& original, const std::string& to_find) {
@@ -208,27 +208,34 @@ void run_once(){
 }
 
 void run(){
-    save_root = "../../records/" + getCurrentDateTime() + '/';
+    save_root = "../records/" + getCurrentDateTime() + '/';
     cout<<"save_root: "<<save_root<<endl;
     mkdir(save_root);
     cache_dir = "/mnt/eMMC/";
     chunk_size = 4 * 1024;
-    // cout<<"cache_dir: "<<cache_dir<<endl;
+    cout<<"cache_dir: "<<cache_dir<<endl;
     mkdir(cache_dir);
     auto trace_root_dir = "../trace/";
     auto trace_dirs = find_trace_paths(trace_root_dir);
     for (const auto& dir : trace_dirs) {
+    // int trace_num = trace_dirs.size();
+    // for (int m = 0; m < trace_num; m++){
+        // show_progress_bar(m, trace_num);
+        // auto dir = trace_dirs[m];
         trace_dir = dir;
         trace_path = trace_dir+"/trace.txt";
         std::cout<<"trace_path: "<<trace_path<<std::endl;
         storage_dir = trace_dir + "/storage/";
 
-        copy_files_containing_cache(storage_dir, cache_dir);
+        // copy_files_containing_cache(storage_dir, cache_dir);
         for(int k=0; k<2; k++){ // io
+            // show_progress_bar(k, 2);
             io_on = k;
             for(int i=0;i<cache_size_types_size;i++){ // cache_size
+                // show_progress_bar(i, cache_size_types_size);
                 cache_size_index = i;
                 for(int j=0;j<policy_types_size;j++){ // cache_policy
+                    // show_progress_bar(j, policy_types_size);
                     caching_policy_index = j;
                     run_once();
                 }
@@ -283,7 +290,7 @@ void run_once2(){
 
 // 测试memory使用，选择uniform分布，数据集设置大一点，比如20gb，然后cache size设置8% 16% 32%
 void run2(){
-    save_root = "../../records/" + getCurrentDateTime() + '/';
+    save_root = "../records/" + getCurrentDateTime() + '/';
     cout<<"save_root: "<<save_root<<endl;
     mkdir(save_root);
     cache_dir = "/mnt/eMMC/";
@@ -329,7 +336,7 @@ void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::
 }
 
 // void run_no_cache_example(){
-//     save_root = "../../records/" + getCurrentDateTime() + '/';
+//     save_root = "../records/" + getCurrentDateTime() + '/';
 //     trace_dir = "../trace/uniform/r100w_o15w_0.99/read_0/";
 //     trace_path = trace_dir + "trace.txt";
 //     ll chunk_size_KB = 4;
@@ -342,7 +349,7 @@ void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::
 //     std::string device_id;
 //     std::string device_path;
 
-//     save_root = "../../records/" + getCurrentDateTime() + '/';
+//     save_root = "../records/" + getCurrentDateTime() + '/';
 //     mkdir(save_root);
 //     std::string emmc_dir = "/mnt/eMMC/";
 //     mkdir(emmc_dir);
@@ -378,8 +385,8 @@ void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::
 void run_no_cache_fixed_disk_size(){
     std::string device_id;
     std::string device_path;
-
-    save_root = "../../records/" + getCurrentDateTime() + '/';
+    initCacheAndDiskSize();
+    save_root = "../records/" + getCurrentDateTime() + '/';
     mkdir(save_root);
     std::string emmc_dir = "/mnt/eMMC/";
     mkdir(emmc_dir);

@@ -69,35 +69,47 @@ void NoCacheSl::test()
     string s;
     getline(fin_trace, s);
 
-    std::istringstream iss(s);
-    std::string temp;
-    int number;
-    int trace_size = 0;
-    int count = 0;
+    // std::istringstream iss(s);
+    // std::string temp;
+    // int number;
+    // int trace_size = 0;
+    // int count = 0;
 
     // Get trace_size.
-    while (iss >> temp) {
-        std::stringstream converter(temp);
-        if (converter >> number) { 
-            count++;
-            if (count == 3) {
-                trace_size = number;
-                break;
-            }
-        }
-    }
+    // while (iss >> temp) {
+    //     std::stringstream converter(temp);
+    //     if (converter >> number) { 
+    //         count++;
+    //         if (count == 3) {
+    //             trace_size = number;
+    //             break;
+    //         }
+    //     }
+    // }
 
     struct timeval t0, t3, t1, t2;
     gettimeofday(&t0, NULL);
-    while (fin_trace >> curKey >> c >> type)
+    while (fin_trace >> curKey >> c >> curSize >> c >> type)
     {
+        // cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
         st.total_trace_nums++;
         show_progress_bar(st.total_trace_nums, trace_size);
 
-        st.request_size_v.push_back(chunk_size);
-        st.total_request_number += 1;
+
+        ll begin = curKey / chunk_size;
+        ll end = (curKey + curSize - 1) / chunk_size;
+        st.request_size_v.push_back(end - begin + 1);
+        st.total_request_number += end - begin + 1;
         vector<ll> keys;
-        keys.push_back(curKey * chunk_size);
+        for (ll i = begin; i <= end; i++)
+        {
+            keys.push_back(i * chunk_size);
+        }
+
+        // st.request_size_v.push_back(chunk_size);
+        // st.total_request_number += 1;
+        // vector<ll> keys;
+        // keys.push_back(curKey * chunk_size);
 
         gettimeofday(&t1, NULL);
         switch (type)

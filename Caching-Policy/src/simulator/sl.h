@@ -202,7 +202,7 @@ void Sl::writeCache(const ll &key)
 void Sl::test()
 {
     // cout << "-----------------------------------------------------------------" << endl;
-    printf("test start\n");
+    // printf("test start\n");
     st.getStartTime();
 
     fstream fin_trace(trace_path);
@@ -218,26 +218,29 @@ void Sl::test()
     gettimeofday(&t0, NULL);
     while (fin_trace >> curKey >> c >> curSize >> c >> type)
     {
-        // if (st.total_trace_nums > 10) break;
         // cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
         st.total_trace_nums++;
         show_progress_bar(st.total_trace_nums, trace_size);
 
-        bool isTraceHit;
 
         ll begin = curKey / chunk_size;
         ll end = (curKey + curSize - 1) / chunk_size;
         st.request_size_v.push_back(end - begin + 1);
         st.total_request_number += end - begin + 1;
-
         vector<ll> keys;
         for (ll i = begin; i <= end; i++)
         {
             keys.push_back(i * chunk_size);
         }
 
+        // st.request_size_v.push_back(chunk_size);
+        // st.total_request_number += 1;
+        // vector<ll> keys;
+        // keys.push_back(curKey * chunk_size);
+
         gettimeofday(&t1, NULL);
 
+        bool isTraceHit;
         switch (type)
         {
         case 0:
@@ -250,16 +253,12 @@ void Sl::test()
 
         gettimeofday(&t2, NULL);
         st.total_latency.addDeltaT(st.computeDeltaT(t1,t2));
-        // printf("io[%d/2]: %s | cache_size[%d/%d]: %.2f | caching_policy[%d/%d]: %s || trace: %llu, time: %lldus, total_time: %lld\n", 
-        // io_on? 2:1, io_on? "on":"off", cache_size_index+1, cache_size_types_size, cache_size_factor, caching_policy_index+1, policy_types_size, st.caching_policy.c_str(), st.total_trace_nums, deltaT, st.total_latency); // printf("trace: %llu time: %llu ns\n", st.total_trace_nums, deltaT);
         if (isTraceHit) st.hit_trace_nums++;
-        // printChunkMap();
-        // cout<<"isTraceHit: "<<isTraceHit<<' '<<"st.hit_trace_nums: "<<st.hit_trace_nums<<endl;
     }
     gettimeofday(&t3, NULL);
     st.total_time = st.computeDeltaT(t0,t3);
     st.getEndTime();
-    printf("test end\n");
+    // printf("test end\n");
 }
 
 bool Sl::isWriteCache()
@@ -303,7 +302,7 @@ void Sl::init()
 void Sl::initFile()
 {
     disk_path = storage_dir + "disk.bin";
-    cout<<"disk_path: "<<disk_path<<endl;
+    // cout<<"disk_path: "<<disk_path<<endl;
     if(O_DIRECT_ON){
         fd_cache = open(cache_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd_cache >= 0);
@@ -418,7 +417,7 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
 
 void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 {
-    // cout<<"readChunk"<<endl;
+    // printf("readChunk\n");
     struct timeval begin, end;
     gettimeofday(&begin, NULL);
     if(!io_on) return;
@@ -436,6 +435,7 @@ void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
 
 void Sl::writeChunk(bool isCache, const long long &offset, const long long &size)
 {
+    // printf("writeChunk\n");
     struct timeval begin, end;
     gettimeofday(&begin, NULL);
     if(!io_on) return;
