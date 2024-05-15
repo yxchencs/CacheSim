@@ -5,10 +5,7 @@ using namespace std;
 int main(){
     // mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC");
 
-    // run2();
-    run();
-    // run_no_cache();
-    // run_no_cache_fixed_disk_size();
+    run_tmp2();
     return 0;
 }
 

@@ -59,6 +59,7 @@ void TqSl::writeCacheWhenReadItem(const ll &key, char* buffer)
     {
         // cout<<"replace"<<endl;
         ll offset_cache = chunk_map[victim].offset_cache;
+        writeBack(&chunk_map[victim]);
         chunk_map[victim].offset_cache = -1;
         if (chunk_map.count(key) == 0)
         {
@@ -69,7 +70,6 @@ void TqSl::writeCacheWhenReadItem(const ll &key, char* buffer)
         {
             chunk_map[key].offset_cache = offset_cache;
         }
-        writeBack(&chunk_map[victim]);
         writeChunk(true, offset_cache, chunk_size, buffer);
     }
 }
@@ -92,6 +92,7 @@ void TqSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
     {
         // cout<<"replace"<<endl;
         ll offset_cache = chunk_map[victim].offset_cache;
+        writeBack(&chunk_map[victim]);
         chunk_map[victim].offset_cache = -1;
         if (chunk_map.count(key) == 0)
         {
@@ -103,7 +104,6 @@ void TqSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
             chunk_map[key].offset_cache = offset_cache;
             chunk_map[key].dirty = 1;
         }
-        writeBack(&chunk_map[victim]);
         writeChunk(true, offset_cache, chunk_size, buffer);
     }
 }

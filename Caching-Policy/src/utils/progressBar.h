@@ -7,7 +7,7 @@
 #include <chrono>
 #include <thread>
 
-void show_progress_bar(int progress, int total)
+void showProgressBar(int progress, int total)
 {
     int bar_width = 70;
 

@@ -29,10 +29,10 @@
 #include "../utils/chunk.h"
 #include "../utils/globals.h"
 #include "../utils/statistic.h"
-#include "../utils/cache_conf.h"
+#include "../utils/cacheConf.h"
 #include "../utils/policy.h"
 #include "../utils/run.h"
-#include "../utils/progress_bar.h"
+#include "../utils/progressBar.h"
 
 using namespace std;
 
@@ -182,6 +182,7 @@ void Sl::writeCacheWhenReadItem(const ll &key, char* buffer)
         ll victim = getVictim(); // [lirs] ll victim = cache_map.getCurVictim();
         assert(victim != -1);
         ll offset_cache = chunk_map[victim].offset_cache;
+        writeBack(&chunk_map[victim]);
         chunk_map[victim].offset_cache = -1;
         if (chunk_map.count(key) == 0)
         {
@@ -192,7 +193,6 @@ void Sl::writeCacheWhenReadItem(const ll &key, char* buffer)
         {
             chunk_map[key].offset_cache = offset_cache;
         }
-        writeBack(&chunk_map[victim]);
         writeChunk(true, offset_cache, chunk_size, buffer);
     }
 }
@@ -218,6 +218,7 @@ void Sl::writeCacheWhenWriteItem(const ll &key, char* buffer)
         ll victim = getVictim(); // [lirs] ll victim = cache_map.getCurVictim();
         assert(victim != -1);
         ll offset_cache = chunk_map[victim].offset_cache;
+        writeBack(&chunk_map[victim]);
         chunk_map[victim].offset_cache = -1;
         if (chunk_map.count(key) == 0)
         {
@@ -229,7 +230,6 @@ void Sl::writeCacheWhenWriteItem(const ll &key, char* buffer)
             chunk_map[key].offset_cache = offset_cache;
             chunk_map[key].dirty = 1;
         }
-        writeBack(&chunk_map[victim]);
         writeChunk(true, offset_cache, chunk_size, buffer);
     }
 }
@@ -255,11 +255,12 @@ void Sl::test()
     {
         // cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
         st.total_trace_nums++;
-        show_progress_bar(st.total_trace_nums, trace_size);
+        showProgressBar(st.total_trace_nums, trace_size);
 
 
         ll begin = curKey / chunk_size;
         ll end = (curKey + curSize - 1) / chunk_size;
+
         st.request_size_v.push_back(end - begin + 1);
         st.total_request_number += end - begin + 1;
         vector<ll> keys;
@@ -336,14 +337,18 @@ void Sl::init()
 
 void Sl::initFile()
 {
+    // printf("initFile\n");
     disk_path = storage_dir + "disk.bin";
-    // cout<<"disk_path: "<<disk_path<<endl;
-    if(O_DIRECT_ON){
+    printf("disk_path: %s", disk_path.c_str());
+    if (O_DIRECT_ON)
+    {
         fd_cache = open(cache_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd_cache >= 0);
         fd_disk = open(disk_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd_disk >= 0);
-    } else {
+    }
+    else
+    {
         fd_cache = open(cache_path.c_str(), O_RDWR, 0664);
         assert(fd_cache >= 0);
         fd_disk = open(disk_path.c_str(), O_RDWR, 0664);
@@ -382,14 +387,13 @@ void Sl::writeBack(chunk *arg)
     if (arg->dirty == 1)
     {
         arg->dirty = 0;
-        readCache(arg->key, buffer_read);
+        readCache(arg->offset_cache, buffer_read);
         writeDisk(arg->key, buffer_read);
     }
 }
 
 void Sl::odirectRead(bool isCache, const long long &offset, const long long &size, char* buffer)
 {
-    // cout<<"odirectRead"<<endl;
     int fd = -1;
     if (isCache)
         fd = fd_cache;
@@ -398,7 +402,7 @@ void Sl::odirectRead(bool isCache, const long long &offset, const long long &siz
     assert(fd >= 0);
 
     int res = pread64(fd, buffer, size, offset);
-    // printf("odirectRead: %d\n",res);
+    // cout<<"[odirectRead]isCache: "<<isCache<<", offset: "<<offset<<", res: "<<res<<endl;
     assert(res == size);
 }
 

@@ -92,10 +92,11 @@ def generate_trace(input_path, output_path, block_size_KB):
         keys, types = read_trace_from_file(os.path.join(input_path, ycsb_trace_run_name))
         indexes, block_num = frequency_counter(keys)
         trace_size = len(keys)
-        output_file(trace_file_path, indexes, types, block_num, trace_size, block_size_KB)
+        # output_file(trace_file_path, indexes, types, block_num, trace_size, block_size_KB)
         disk_size = block_num * block_size_KB * 1024
+        print("disk_size:", disk_size/1024/1024/1024, "GB")
         print("done process trace")
-        generate_storage(output_path, disk_size)
+        # generate_storage(output_path, disk_size)
     else:
         print("trace exists")  
 
@@ -167,20 +168,22 @@ def device_test():
     
     ycsb_dir = os.path.join(ycsb_root, trace_name)
     save_dir = os.path.join(save_root, trace_name)
+    os.mkdir(save_dir)
     for workload_name in workload_name_list:
         process_workload_device_test(ycsb_dir, workload_name, save_dir)
     generate_storage_device_test(save_dir, max_disk_size)
 
 def caching_policy_test():
     ycsb_root = "../../../../workloads"
-    trace_name = "1GB/uniform"
-    workload_name_list = ["read_0","read_0.2","read_0.4","read_0.6","read_0.8","read_1"]
-    # workload_name_list = ["read_1"]
-    save_root = "E:/projects/Caching-Policy/trace_backup"
+    trace_name = "1GB/latest"
+    # workload_name_list = ["read_0","read_0.2","read_0.4","read_0.6","read_0.8","read_1"]
+    workload_name_list = ["read_0.8"]
+    save_root = "E:/projects/Caching-Policy/trace"
     
     ycsb_dir = os.path.join(ycsb_root, trace_name)
     save_dir = os.path.join(save_root, trace_name)
     for workload_name in workload_name_list:
+        # print(workload_name)
         process_workload(ycsb_dir, workload_name, save_dir)
 
 

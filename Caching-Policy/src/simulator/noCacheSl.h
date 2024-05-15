@@ -5,7 +5,7 @@
 #include "../utils/statistic.h"
 #include "../utils/globals.h"
 #include "../utils/run.h"
-#include "../utils/progress_bar.h"
+#include "../utils/progressBar.h"
 
 using namespace std;
 
@@ -93,7 +93,7 @@ void NoCacheSl::test()
     {
         // cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
         st.total_trace_nums++;
-        show_progress_bar(st.total_trace_nums, trace_size);
+        showProgressBar(st.total_trace_nums, trace_size);
 
 
         ll begin = curKey / chunk_size;

@@ -30,7 +30,7 @@
 #include "../simulator/tinylfuSl.h"
 #include "../simulator/noCacheSl.h"
 
-#include "../utils/progress_bar.h"
+#include "../utils/progressBar.h"
 
 namespace fs = std::filesystem;
 
@@ -90,22 +90,19 @@ bool copy_file_to_directory(const fs::path& source_file, const fs::path& target_
     fs::path target_file = target_directory / source_file.filename();
 
     try {
-        // 复制文件
         fs::copy(source_file, target_file, fs::copy_options::overwrite_existing);
 
-        // 设置目标文件的权限
-        // 给所有用户读写权限
         fs::permissions(source_file, fs::perms::owner_read | fs::perms::owner_write |
                         fs::perms::group_read | fs::perms::group_write |
                         fs::perms::others_read | fs::perms::others_write);
         fs::permissions(target_file, fs::perms::owner_read | fs::perms::owner_write |
                         fs::perms::group_read | fs::perms::group_write |
                         fs::perms::others_read | fs::perms::others_write);
-        // std::cout<<"copy "<<source_file<<" to "<<target_directory<<std::endl;
-        return true; // 复制并设置权限成功
+        std::cout<<"copy "<<source_file<<" to "<<target_directory<<std::endl;
+        return true; 
     } catch (const fs::filesystem_error& e) {
-        std::cerr << "复制文件或设置权限时出错: " << e.what() << std::endl;
-        return false; // 操作失败
+        std::cerr << "error when copy or give permissions: " << e.what() << std::endl;
+        return false; 
     }
 }
 
@@ -137,7 +134,6 @@ std::string getSubstringAfter(const std::string& original, const std::string& to
     }
 }
 
-// 若目录不存在，则创建目录
 void mkdir(string path){
 	string cmd("mkdir -p " + path);
 	int ret = system(cmd.c_str());
@@ -208,34 +204,131 @@ void run_once(){
 }
 
 void run(){
+    // save root
     save_root = "../records/" + getCurrentDateTime() + '/';
-    cout<<"save_root: "<<save_root<<endl;
     mkdir(save_root);
+    cout<<"save_root: "<<save_root<<endl;
+    // cache dir
     cache_dir = "/mnt/eMMC/";
-    chunk_size = 4 * 1024;
-    cout<<"cache_dir: "<<cache_dir<<endl;
     mkdir(cache_dir);
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // storage dir
+    // storage_dir = "../storage/";
+    // mkdir(storage_dir);
+    // cout<<"storage_dir: "<<storage_dir<<endl;
+    // trace dir
     auto trace_root_dir = "../trace/";
     auto trace_dirs = find_trace_paths(trace_root_dir);
+
     for (const auto& dir : trace_dirs) {
     // int trace_num = trace_dirs.size();
     // for (int m = 0; m < trace_num; m++){
-        // show_progress_bar(m, trace_num);
+        // showProgressBar(m, trace_num);
         // auto dir = trace_dirs[m];
         trace_dir = dir;
         trace_path = trace_dir+"/trace.txt";
         std::cout<<"trace_path: "<<trace_path<<std::endl;
-        storage_dir = trace_dir + "/storage/";
 
+        storage_dir = trace_dir + "/storage/";
         copy_files_containing_cache(storage_dir, cache_dir);
         for(int k=0; k<2; k++){ // io
-            // show_progress_bar(k, 2);
+            // showProgressBar(k, 2);
             io_on = k;
             for(int i=0;i<cache_size_types_size;i++){ // cache_size
-                // show_progress_bar(i, cache_size_types_size);
+                // showProgressBar(i, cache_size_types_size);
                 cache_size_index = i;
                 for(int j=0;j<policy_types_size;j++){ // cache_policy
-                    // show_progress_bar(j, policy_types_size);
+                    // showProgressBar(j, policy_types_size);
+                    caching_policy_index = j;
+                    run_once();
+                }
+            }
+        }
+    }
+}
+
+// [tmp test]not copy disk.bin 
+void run_tmp2(){
+    // save root
+    save_root = "../records/" + getCurrentDateTime() + '/';
+    mkdir(save_root);
+    cout<<"save_root: "<<save_root<<endl;
+    // cache dir
+    cache_dir = "/mnt/eMMC/";
+    mkdir(cache_dir);
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // storage dir
+    // storage_dir = "../storage/";
+    // mkdir(storage_dir);
+    // cout<<"storage_dir: "<<storage_dir<<endl;
+    // trace dir
+    auto trace_root_dir = "../trace/";
+    auto trace_dirs = find_trace_paths(trace_root_dir);
+
+    for (const auto& dir : trace_dirs) {
+    // int trace_num = trace_dirs.size();
+    // for (int m = 0; m < trace_num; m++){
+        // showProgressBar(m, trace_num);
+        // auto dir = trace_dirs[m];
+        trace_dir = dir;
+        trace_path = trace_dir+"/trace.txt";
+        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        
+        storage_dir = trace_dir + "/storage/";
+        copy_files_containing_cache(storage_dir, cache_dir);
+        for(int k=0; k<2; k++){ // io
+            // showProgressBar(k, 2);
+            io_on = 1;
+            for(int i=0;i<cache_size_types_size;i++){ // cache_size
+                // showProgressBar(i, cache_size_types_size);
+                cache_size_index = i;
+                for(int j=0;j<policy_types_size;j++){ // cache_policy
+                    // showProgressBar(j, policy_types_size);
+                    caching_policy_index = j;
+                    run_once();
+                }
+            }
+        }
+    }
+}
+
+// [tmp test]copy disk.bin 
+void run_tmp1(){
+    // save root
+    save_root = "../records/" + getCurrentDateTime() + '/';
+    mkdir(save_root);
+    cout<<"save_root: "<<save_root<<endl;
+    // cache dir
+    cache_dir = "/mnt/eMMC/";
+    mkdir(cache_dir);
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // storage dir
+    storage_dir = "../storage/";
+    mkdir(storage_dir);
+    cout<<"storage_dir: "<<storage_dir<<endl;
+    // trace dir
+    auto trace_root_dir = "../trace/";
+    auto trace_dirs = find_trace_paths(trace_root_dir);
+
+    for (const auto& dir : trace_dirs) {
+    // int trace_num = trace_dirs.size();
+    // for (int m = 0; m < trace_num; m++){
+        // showProgressBar(m, trace_num);
+        // auto dir = trace_dirs[m];
+        trace_dir = dir;
+        trace_path = trace_dir+"/trace.txt";
+        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        std::string trace_storage_dir = trace_dir + "/storage/";
+        copy_file_to_directory(trace_storage_dir + "disk.bin", storage_dir);
+        copy_files_containing_cache(trace_storage_dir, cache_dir);
+        for(int k=0; k<2; k++){ // io
+            // showProgressBar(k, 2);
+            io_on = k;
+            for(int i=0;i<cache_size_types_size;i++){ // cache_size
+                // showProgressBar(i, cache_size_types_size);
+                cache_size_index = i;
+                for(int j=0;j<policy_types_size;j++){ // cache_policy
+                    // showProgressBar(j, policy_types_size);
                     caching_policy_index = j;
                     run_once();
                 }
@@ -297,6 +390,7 @@ void run2(){
     chunk_size = 4 * 1024;
     // cout<<"cache_dir: "<<cache_dir<<endl;
     mkdir(cache_dir);
+
     auto trace_root_dir = "../trace/";
     auto trace_dirs = find_trace_paths(trace_root_dir);
     for (const auto& dir : trace_dirs) {

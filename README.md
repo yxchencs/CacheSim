@@ -45,12 +45,12 @@ Caching-Policy/
 │   │   └── tinylfuSl.h
 │   └── utils
 │       ├── bitmap.h
-│       ├── cache_conf.h
+│       ├── cacheConf.h
 │       ├── chunk.h
 │       ├── globals.h
 │       ├── mount.h
 │       ├── policy.h
-│       ├── progress_bar.h
+│       ├── progressBar.h
 │       ├── run.h
 │       └── statistic.h
 └── trace

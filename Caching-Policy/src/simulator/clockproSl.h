@@ -69,12 +69,13 @@ void ClockproSl::writeCacheWhenReadItem(const ll &key, char* buffer)
             ll victim = victimList[i];
             assert(victim != -1);
             ll offset_cache = chunk_map[victim].offset_cache;
+            writeBack(&chunk_map[victim]);
             chunk_map[victim].offset_cache = -1;
             if (i != victimList.size() - 1)
             {
                 free_cache.push_back(offset_cache);
             }
-            else
+            else // last victim
             {
                 if (chunk_map.count(key) == 0)
                 {
@@ -85,7 +86,6 @@ void ClockproSl::writeCacheWhenReadItem(const ll &key, char* buffer)
                 {
                     chunk_map[key].offset_cache = offset_cache;
                 }
-                writeBack(&chunk_map[victim]);
                 writeChunk(true, offset_cache, chunk_size, buffer);
             }
         }
@@ -114,6 +114,7 @@ void ClockproSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
             ll victim = victimList[i];
             assert(victim != -1);
             ll offset_cache = chunk_map[victim].offset_cache;
+            writeBack(&chunk_map[victim]);
             chunk_map[victim].offset_cache = -1;
             if (i != victimList.size() - 1)
             {
@@ -131,7 +132,6 @@ void ClockproSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
                     chunk_map[key].offset_cache = offset_cache;
                     chunk_map[key].dirty = 1;
                 }
-                writeBack(&chunk_map[victim]);
                 writeChunk(true, offset_cache, chunk_size, buffer);
             }
         }
