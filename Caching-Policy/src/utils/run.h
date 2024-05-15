@@ -227,7 +227,7 @@ void run(){
         std::cout<<"trace_path: "<<trace_path<<std::endl;
         storage_dir = trace_dir + "/storage/";
 
-        // copy_files_containing_cache(storage_dir, cache_dir);
+        copy_files_containing_cache(storage_dir, cache_dir);
         for(int k=0; k<2; k++){ // io
             // show_progress_bar(k, 2);
             io_on = k;

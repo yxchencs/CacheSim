@@ -65,23 +65,22 @@ protected:
 
     bool readItem(vector<ll> &keys);
     bool writeItem(vector<ll> &keys);
-    virtual void writeCache(const ll &key);
+    // virtual void writeCache(const ll &key, char* buffer);
+    virtual void writeCacheWhenReadItem(const ll &key, char* buffer);
+    virtual void writeCacheWhenWriteItem(const ll &key, char* buffer);
 
     void writeBack(chunk *arg);
 
-    void readDisk(const long long &key); // disk->cache disk->buffer
-    void writeDisk(const long long &key);
+    void readDisk(const long long &key, char* buffer); // disk->cache disk->buffer
+    void writeDisk(const long long &key, char* buffer);
 
-    void readCache(const ll &offset_cache); // cache->buffer
-    void coverageCache(chunk *arg);
+    void readCache(const ll &offset_cache, char* buffer); // cache->buffer
 
-    void normRead(bool isCache, const long long &offset, const long long &size);
-    void normWrite(bool isCache, const long long &offset, const long long &size);
-    void odirectRead(bool isCache, const long long &offset, const long long &size);
-    void odirectWrite(bool isCache, const long long &offset, const long long &size);
+    void odirectRead(bool isCache, const long long &offset, const long long &size, char* buffer);
+    void odirectWrite(bool isCache, const long long &offset, const long long &size, char* buffer);
 
-    void readChunk(bool isCache, const long long &offset, const long long &size);
-    void writeChunk(bool isCache, const long long &offset, const long long &size);
+    void readChunk(bool isCache, const long long &offset, const long long &size, char* buffer);
+    void writeChunk(bool isCache, const long long &offset, const long long &size, char* buffer);
 
     void printChunk(chunk *arg);
     void printChunkMap();
@@ -105,7 +104,7 @@ bool Sl::readItem(vector<ll> &keys)
         {
             st.read_hit_nums += 1;
             accessKey(keys[i], true); // [lirs] cache_map.Get(keys[i]);
-            readCache(chunk_map[keys[i]].offset_cache);
+            readCache(chunk_map[keys[i]].offset_cache, buffer_read); // cache -> buffer
             keys[i] = -1;
         }
     }
@@ -117,8 +116,8 @@ bool Sl::readItem(vector<ll> &keys)
             // cout<<"cache miss"<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
-            readDisk(keys[i]);
-            writeCache(keys[i]);
+            readDisk(keys[i], buffer_read);
+            writeCacheWhenReadItem(keys[i], buffer_read); // disk -> cache
         }
     }
     // for (int i = 0; i < keys.size(); i++){
@@ -139,7 +138,8 @@ bool Sl::writeItem(vector<ll> &keys)
         {
             st.write_hit_nums += 1;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
-            coverageCache(&chunk_map[keys[i]]);
+            chunk_map[keys[i]].dirty = 1;
+            writeChunk(true, chunk_map[keys[i]].offset_cache, chunk_size, buffer_write);
             keys[i] = -1;
         }
     }
@@ -151,7 +151,7 @@ bool Sl::writeItem(vector<ll> &keys)
             // cout<<"miss "<<keys[i]<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
-            writeCache(keys[i]);
+            writeCacheWhenWriteItem(keys[i], buffer_write); // buffer -> cache
         }
     }
     // for (int i = 0; i < keys.size(); i++){
@@ -161,11 +161,9 @@ bool Sl::writeItem(vector<ll> &keys)
     return isTraceHit;
 }
 
-void Sl::writeCache(const ll &key)
+void Sl::writeCacheWhenReadItem(const ll &key, char* buffer)
 {
-    // cout << "writeCache: ";
-    if (!isWriteCache())
-        return;
+    // cout << "writeCacheWhenReadItem";
 
     // cache not full
     if (!free_cache.empty())
@@ -175,7 +173,7 @@ void Sl::writeCache(const ll &key)
         chunk item = {key, offset_cache};
         chunk_map[key] = item;
         free_cache.pop_back();
-        writeChunk(true, offset_cache, chunk_size);
+        writeChunk(true, offset_cache, chunk_size, buffer);
     }
     // cache full
     else
@@ -194,8 +192,45 @@ void Sl::writeCache(const ll &key)
         {
             chunk_map[key].offset_cache = offset_cache;
         }
-        writeChunk(true, offset_cache, chunk_size);
         writeBack(&chunk_map[victim]);
+        writeChunk(true, offset_cache, chunk_size, buffer);
+    }
+}
+
+void Sl::writeCacheWhenWriteItem(const ll &key, char* buffer)
+{
+    // cout << "writeCacheWhenWrite";
+
+    // cache not full
+    if (!free_cache.empty())
+    {
+        // cout << "cache not full" << endl;
+        ll offset_cache = free_cache.back();
+        chunk item = {key, offset_cache, 1};
+        chunk_map[key] = item;
+        free_cache.pop_back();
+        writeChunk(true, offset_cache, chunk_size, buffer);
+    }
+    // cache full
+    else
+    {
+        // cout << "cache full" << endl;
+        ll victim = getVictim(); // [lirs] ll victim = cache_map.getCurVictim();
+        assert(victim != -1);
+        ll offset_cache = chunk_map[victim].offset_cache;
+        chunk_map[victim].offset_cache = -1;
+        if (chunk_map.count(key) == 0)
+        {
+            chunk item = {key, offset_cache, 1};
+            chunk_map[key] = item;
+        }
+        else
+        {
+            chunk_map[key].offset_cache = offset_cache;
+            chunk_map[key].dirty = 1;
+        }
+        writeBack(&chunk_map[victim]);
+        writeChunk(true, offset_cache, chunk_size, buffer);
     }
 }
 
@@ -347,43 +382,12 @@ void Sl::writeBack(chunk *arg)
     if (arg->dirty == 1)
     {
         arg->dirty = 0;
-        writeDisk(arg->key);
+        readCache(arg->key, buffer_read);
+        writeDisk(arg->key, buffer_read);
     }
 }
 
-void Sl::normRead(bool isCache, const long long &offset, const long long &size)
-{
-    int fd = -1;
-    if (isCache)
-        fd = fd_cache;
-    else
-        fd = fd_disk;
-    assert(fd >= 0);
-    char buffer[chunk_size];
-
-    int res = pread64(fd, buffer, size, offset);
-    assert(res == size);
-
-    // close(fd);
-}
-
-void Sl::normWrite(bool isCache, const long long &offset, const long long &size)
-{
-    int fd = -1;
-    if (isCache)
-        fd = fd_cache;
-    else
-        fd = fd_disk;
-    assert(fd >= 0);
-    char buffer[chunk_size] = "Ram15978";
-
-    int res = pwrite64(fd, buffer, size, offset);
-    assert(res == size);
-
-    // close(fd);
-}
-
-void Sl::odirectRead(bool isCache, const long long &offset, const long long &size)
+void Sl::odirectRead(bool isCache, const long long &offset, const long long &size, char* buffer)
 {
     // cout<<"odirectRead"<<endl;
     int fd = -1;
@@ -393,12 +397,12 @@ void Sl::odirectRead(bool isCache, const long long &offset, const long long &siz
         fd = fd_disk;
     assert(fd >= 0);
 
-    int res = pread64(fd, buffer_read, size, offset);
+    int res = pread64(fd, buffer, size, offset);
     // printf("odirectRead: %d\n",res);
     assert(res == size);
 }
 
-void Sl::odirectWrite(bool isCache, const long long &offset, const long long &size)
+void Sl::odirectWrite(bool isCache, const long long &offset, const long long &size, char* buffer)
 {
     assert(offset != -1);
     int fd = -1;
@@ -415,7 +419,7 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
     assert(res == size);
 }
 
-void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
+void Sl::readChunk(bool isCache, const long long &offset, const long long &size, char* buffer)
 {
     // printf("readChunk\n");
     struct timeval begin, end;
@@ -423,9 +427,7 @@ void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
     if(!io_on) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
-        odirectRead(isCache, offset, size);
-    else
-        normRead(isCache, offset, size);
+        odirectRead(isCache, offset, size, buffer);
     gettimeofday(&end, NULL);
     if (isCache)
         st.cache_read_latency.addDeltaT(st.computeDeltaT(begin, end));
@@ -433,7 +435,7 @@ void Sl::readChunk(bool isCache, const long long &offset, const long long &size)
         st.disk_read_latency.addDeltaT(st.computeDeltaT(begin, end));
 }
 
-void Sl::writeChunk(bool isCache, const long long &offset, const long long &size)
+void Sl::writeChunk(bool isCache, const long long &offset, const long long &size, char* buffer)
 {
     // printf("writeChunk\n");
     struct timeval begin, end;
@@ -441,9 +443,7 @@ void Sl::writeChunk(bool isCache, const long long &offset, const long long &size
     if(!io_on) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
-        odirectWrite(isCache, offset, size);
-    else
-        normWrite(isCache, offset, size);
+        odirectWrite(isCache, offset, size, buffer);
     gettimeofday(&end, NULL);
     if (isCache)
         st.cache_write_latency.addDeltaT(st.computeDeltaT(begin, end));
@@ -467,18 +467,18 @@ void Sl::initFreeCache()
     }
 }
 
-void Sl::readCache(const ll &offset_cache)
+void Sl::readCache(const ll &offset_cache, char* buffer)
 {
     // printf("readCache\n");
     assert(offset_cache != -1);
-    readChunk(true, offset_cache, chunk_size);
+    readChunk(true, offset_cache, chunk_size, buffer);
 }
 
-void Sl::readDisk(const long long &key)
+void Sl::readDisk(const long long &key, char* buffer)
 {
     // printf("readDisk\n");
     assert(key != -1);
-    readChunk(false, key, chunk_size);
+    readChunk(false, key, chunk_size, buffer);
 }
 
 void Sl::printChunkMap()
@@ -489,17 +489,11 @@ void Sl::printChunkMap()
         cout << it->second;
 }
 
-void Sl::coverageCache(chunk *arg)
-{
-    // cout << "coverageCache" << endl;
-    arg->dirty = 1;
-    writeChunk(true, arg->offset_cache, chunk_size);
-}
 
-void Sl::writeDisk(const long long &key)
+void Sl::writeDisk(const long long &key, char* buffer)
 {
     // cout << "writeDisk" << endl;
-    writeChunk(false, key, chunk_size);
+    writeChunk(false, key, chunk_size, buffer);
 }
 
 void Sl::statistic()
