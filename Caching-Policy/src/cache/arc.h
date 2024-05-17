@@ -6,7 +6,7 @@
 #include <map>
 #include <unordered_map>
 #include "../utils/globals.h"
-#define HASHSIZE 100000
+// #define HASHSIZE 100000
 using namespace std;
 
 class ARC
@@ -49,8 +49,7 @@ public:
 private:
     // creating a hash file through array
     // long long Hash[HASHSIZE];
-    unordered_map<long long, long long> Hash;
-    // map<long long, long long> block_map;
+    unordered_map<long long, long long> block_map;
 
     // we use vector(dynamic array) data structures to represent queues.
     /*
@@ -69,7 +68,7 @@ private:
 
 ARC::~ARC()
 {
-    Hash.clear();
+    block_map.clear();
 }
 
 // A function to check whether Page x is available in 'v' queue
@@ -153,7 +152,7 @@ void ARC::arc_lookup(long long i)
     // cout << "===access " << i << "===" << endl;
     // if (block_map.count(i)!=0)
     // if(Hash[i % HASHSIZE])
-    if (Hash.find(i) != Hash.end())
+    if (block_map.find(i) != block_map.end())
     {
         // Case 1: Part A: Page found in MRU
         if (check(mru, i))
@@ -198,8 +197,8 @@ void ARC::arc_lookup(long long i)
                 if (mru.size() < c)
                 {
                     // cout<<"Case 4: Part A: Part a"<<endl;
-                    Hash[ mrug[0]% HASHSIZE]--;
-                    // block_map[mrug[0]]--;
+                    // Hash[ mrug[0]% HASHSIZE]--;
+                    block_map[mrug[0]]--;
 
                     queue_delete(mrug);
                     Replace(i, p);
@@ -208,8 +207,8 @@ void ARC::arc_lookup(long long i)
                 else
                 {
                     // cout<<"Case 4: Part A: Part b"<<endl;
-                    Hash[ mru[0]% HASHSIZE]--;
-                    // block_map[mru[0]]--;
+                    // Hash[ mru[0]% HASHSIZE]--;
+                    block_map[mru[0]]--;
                     victim = mru[0];
                     queue_delete(mru);
                 }
@@ -222,8 +221,8 @@ void ARC::arc_lookup(long long i)
                 {
                     if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) == (2 * c))
                     {
-                        Hash[ mfug[0] % HASHSIZE]--;
-                        // block_map[mrug[0]]--;
+                        // Hash[ mfug[0] % HASHSIZE]--;
+                        block_map[mrug[0]]--;
 
                         queue_delete(mfug);
                     }
@@ -232,8 +231,8 @@ void ARC::arc_lookup(long long i)
             }
             // Move the page to the most recently used position
             queue_insert(mru, i);
-            Hash[i % HASHSIZE]++;
-            // block_map[i]++;
+            // Hash[i % HASHSIZE]++;
+            block_map[i]++;
         }
     }
 
@@ -248,8 +247,8 @@ void ARC::arc_lookup(long long i)
             // cout<<"Case 5: Part A"<<endl;
             if (mru.size() < c)
             {
-                Hash[mrug[0]%HASHSIZE]--;
-                // block_map[mrug[0]]--;
+                // Hash[mrug[0]%HASHSIZE]--;
+                block_map[mrug[0]]--;
 
                 queue_delete(mrug);
                 Replace(i, p);
@@ -257,8 +256,8 @@ void ARC::arc_lookup(long long i)
 
             else
             {
-                Hash[mru[0]%HASHSIZE]--;
-                // block_map[mru[0]]--;
+                // Hash[mru[0]%HASHSIZE]--;
+                block_map[mru[0]]--;
                 victim = mru[0];
                 queue_delete(mru);
             }
@@ -272,8 +271,8 @@ void ARC::arc_lookup(long long i)
             {
                 if ((mru.size() + mfu.size() + mrug.size() + mfug.size()) == 2 * c)
                 {
-                    Hash[mfug[0]%HASHSIZE]--;
-                    // block_map[mfug[0]]--;
+                    // Hash[mfug[0]%HASHSIZE]--;
+                    block_map[mfug[0]]--;
 
                     queue_delete(mfug);
                 }
@@ -283,8 +282,8 @@ void ARC::arc_lookup(long long i)
 
         // Move the page to the most recently used position
         queue_insert(mru, i);
-        Hash[i % HASHSIZE]++;
-        // block_map[i]++;
+        // Hash[i % HASHSIZE]++;
+        block_map[i]++;
     }
 
     // cout << "victim=" << victim << endl;
@@ -297,7 +296,7 @@ bool ARC::Cached(long long i)
 {
     // if (block_map.count(i)!=0)
     // if(Hash[i % HASHSIZE])
-    if (Hash.find(i) != Hash.end())
+    if (block_map.find(i) != block_map.end())
     {
         // Page found in MRU & MFU
         if (check(mru, i) || check(mfu, i))

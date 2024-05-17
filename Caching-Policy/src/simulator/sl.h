@@ -351,7 +351,7 @@ void Sl::initFile()
 {
     // printf("initFile\n");
     disk_path = storage_dir + "disk.bin";
-    printf("disk_path: %s", disk_path.c_str());
+    cout<<"disk_path: "<<disk_path<<endl;
     if (O_DIRECT_ON)
     {
         fd_cache = open(cache_path.c_str(), O_RDWR | O_DIRECT, 0664);

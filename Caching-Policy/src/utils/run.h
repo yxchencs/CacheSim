@@ -248,6 +248,46 @@ void run(){
 }
 
 // [tmp test]not copy disk.bin 
+void run_tmp4(){
+    // save root
+    save_root = "../records/" + getCurrentDateTime() + '/';
+    mkdir(save_root);
+    cout<<"save_root: "<<save_root<<endl;
+    // cache dir
+    cache_dir = "/mnt/eMMC/";
+    mkdir(cache_dir);
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // storage dir
+    // storage_dir = "../storage/";
+    // mkdir(storage_dir);
+    // cout<<"storage_dir: "<<storage_dir<<endl;
+    // trace dir
+    auto trace_root_dir = "../trace/";
+    auto trace_dirs = find_trace_paths(trace_root_dir);
+
+    for (const auto& dir : trace_dirs) {
+    // int trace_num = trace_dirs.size();
+    // for (int m = 0; m < trace_num; m++){
+        // showProgressBar(m, trace_num);
+        // auto dir = trace_dirs[m];
+        trace_dir = dir;
+        trace_path = trace_dir+"/trace.txt";
+        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        
+        storage_dir = trace_dir + "/storage/";
+        // copy_files_containing_cache(storage_dir, cache_dir);
+        io_on = 0;
+        // cache_size_index = cache_size_types_size-1;
+        cache_size_index = 0;
+
+        caching_policy_index = 5;
+        run_once();
+                
+    }
+}
+
+
+// [tmp test]not copy disk.bin 
 void run_tmp3(){
     // save root
     save_root = "../records/" + getCurrentDateTime() + '/';

@@ -5,8 +5,8 @@ using namespace std;
 int main(){
     // mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC");
 
-    // run();
-    run_tmp3();
+    run();
+    // run_tmp4();
     return 0;
 }
 
