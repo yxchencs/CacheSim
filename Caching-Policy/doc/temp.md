@@ -63,18 +63,18 @@ const char *DISK_PATH = "../trace/zipfian/r100w_o15w_0.99/read_0/storage/disk.bi
 const char *TRACE_PATH = "../trace/zipfian/r100w_o15w_0.99/read_0/trace.txt";
 ```
 
-3. 修改 `disk_size`和 `chunk_num`
+3. 修改 `disk_size`和 `block_num`
 
 ```C++
 const long long disk_size = 33668;
-const long long chunk_num = 33668;
+const long long block_num = 33668;
 ```
 
 其中，`disk_size`表示disk的总存储容量，由trace访问的offset跨度决定；
 
-`chunk_num`表示trace访问的不重复的chunk总size。
+`block_num`表示trace访问的不重复的block总size。
 
-> 在生成的trace.txt文件第一行按顺序记录了统计的 `disk_size`、`chunk_num`和 `TRACE_SIZE`信息，我使用YCSB生成的trace控制了单次访问一个chunk，因此前两者数值一致，只记录了一个数字。
+> 在生成的trace.txt文件第一行按顺序记录了统计的 `disk_size`、`block_num`和 `TRACE_SIZE`信息，我使用YCSB生成的trace控制了单次访问一个block，因此前两者数值一致，只记录了一个数字。
 
 ###### 配置cache和disk文件
 

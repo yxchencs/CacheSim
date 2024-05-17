@@ -26,7 +26,7 @@
 #include <sys/time.h>
 
 #include "../utils/bitmap.h"
-#include "../utils/chunk.h"
+#include "../utils/block.h"
 #include "../utils/globals.h"
 #include "../utils/statistic.h"
 #include "../utils/cacheConf.h"
@@ -40,6 +40,8 @@ void checkFile(fstream &file);
 class Sl
 {
 public:
+    Sl();
+    virtual ~Sl();
     void test();
     void statistic();
 
@@ -48,16 +50,13 @@ protected:
 
     int fd_cache, fd_disk;
     fstream fin_trace;
-    char * buffer_read = nullptr;
-    char * buffer_write = nullptr;
+    unique_ptr<char[]> buffer_read;
+    unique_ptr<char[]> buffer_write; 
 
-    long long curKey;
-    vector<long long> free_cache;
-    map<long long, chunk> chunk_map;
+    ll curKey;
+    vector<ll> free_cache;
+    map<ll, block> block_map;
     Statistic st;
-
-    Sl();
-    ~Sl();
     void init();
     void initFreeCache();
     void initFile();
@@ -69,21 +68,21 @@ protected:
     virtual void writeCacheWhenReadItem(const ll &key, char* buffer);
     virtual void writeCacheWhenWriteItem(const ll &key, char* buffer);
 
-    void writeBack(chunk *arg);
+    void writeBack(const ll &key);
 
-    void readDisk(const long long &key, char* buffer); // disk->cache disk->buffer
-    void writeDisk(const long long &key, char* buffer);
+    void readDisk(const ll &key, char* buffer); // disk->cache disk->buffer
+    void writeDisk(const ll &key, char* buffer);
 
     void readCache(const ll &offset_cache, char* buffer); // cache->buffer
 
-    void odirectRead(bool isCache, const long long &offset, const long long &size, char* buffer);
-    void odirectWrite(bool isCache, const long long &offset, const long long &size, char* buffer);
+    void read(bool isCache, const ll &offset, const ll &size, char* buffer);
+    void write(bool isCache, const ll &offset, const ll &size, char* buffer);
 
-    void readChunk(bool isCache, const long long &offset, const long long &size, char* buffer);
-    void writeChunk(bool isCache, const long long &offset, const long long &size, char* buffer);
+    void readBlock(bool isCache, const ll &offset, const ll &size, char* buffer);
+    void writeBlock(bool isCache, const ll &offset, const ll &size, char* buffer);
 
-    void printChunk(chunk *arg);
-    void printChunkMap();
+    void printBlock(const ll &key);
+    void printBlockMap();
     void printFreeCache();
 
     bool isWriteCache(); // 使用随机策略，根据概率决定是否写入cache
@@ -104,7 +103,7 @@ bool Sl::readItem(vector<ll> &keys)
         {
             st.read_hit_nums += 1;
             accessKey(keys[i], true); // [lirs] cache_map.Get(keys[i]);
-            readCache(chunk_map[keys[i]].offset_cache, buffer_read); // cache -> buffer
+            readCache(block_map[keys[i]].offset_cache, buffer_read.get()); // cache -> buffer
             keys[i] = -1;
         }
     }
@@ -116,8 +115,8 @@ bool Sl::readItem(vector<ll> &keys)
             // cout<<"cache miss"<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
-            readDisk(keys[i], buffer_read);
-            writeCacheWhenReadItem(keys[i], buffer_read); // disk -> cache
+            readDisk(keys[i], buffer_read.get());
+            writeCacheWhenReadItem(keys[i], buffer_read.get()); // disk -> cache
         }
     }
     // for (int i = 0; i < keys.size(); i++){
@@ -138,8 +137,8 @@ bool Sl::writeItem(vector<ll> &keys)
         {
             st.write_hit_nums += 1;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
-            chunk_map[keys[i]].dirty = 1;
-            writeChunk(true, chunk_map[keys[i]].offset_cache, chunk_size, buffer_write);
+            block_map[keys[i]].dirty = 1;
+            writeBlock(true, block_map[keys[i]].offset_cache, block_size, buffer_write.get());
             keys[i] = -1;
         }
     }
@@ -151,7 +150,7 @@ bool Sl::writeItem(vector<ll> &keys)
             // cout<<"miss "<<keys[i]<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
-            writeCacheWhenWriteItem(keys[i], buffer_write); // buffer -> cache
+            writeCacheWhenWriteItem(keys[i], buffer_write.get()); // buffer -> cache
         }
     }
     // for (int i = 0; i < keys.size(); i++){
@@ -164,41 +163,47 @@ bool Sl::writeItem(vector<ll> &keys)
 void Sl::writeCacheWhenReadItem(const ll &key, char* buffer)
 {
     // cout << "writeCacheWhenReadItem";
-
+    // printf("Sl::writeCacheWhenReadItem\n");
     // cache not full
     if (!free_cache.empty())
     {
         // cout << "cache not full" << endl;
         ll offset_cache = free_cache.back();
-        chunk item = {key, offset_cache};
-        chunk_map[key] = item;
+        block item = {key, offset_cache};
+        block_map[key] = item;
         free_cache.pop_back();
-        writeChunk(true, offset_cache, chunk_size, buffer);
+        writeBlock(true, offset_cache, block_size, buffer);
     }
     // cache full
     else
     {
         // cout << "cache full" << endl;
-        ll victim = getVictim(); // [lirs] ll victim = cache_map.getCurVictim();
+        ll victim = getVictim();
         assert(victim != -1);
-        ll offset_cache = chunk_map[victim].offset_cache;
-        writeBack(&chunk_map[victim]);
-        chunk_map[victim].offset_cache = -1;
-        if (chunk_map.count(key) == 0)
+
+        writeBack(victim);
+        
+        assert(block_map.find(victim) != block_map.end());
+        ll offset_cache = block_map[victim].offset_cache;
+        assert(offset_cache != -1);
+        block_map[victim].offset_cache = -1;
+
+        if (block_map.count(key) == 0)
         {
-            chunk item = {key, offset_cache};
-            chunk_map[key] = item;
+            block item = {key, offset_cache};
+            block_map[key] = item;
         }
         else
         {
-            chunk_map[key].offset_cache = offset_cache;
+            block_map[key].offset_cache = offset_cache;
         }
-        writeChunk(true, offset_cache, chunk_size, buffer);
+        writeBlock(true, offset_cache, block_size, buffer);
     }
 }
 
 void Sl::writeCacheWhenWriteItem(const ll &key, char* buffer)
 {
+    // printf("Sl::writeCacheWhenWriteItem\n");
     // cout << "writeCacheWhenWrite";
 
     // cache not full
@@ -206,31 +211,36 @@ void Sl::writeCacheWhenWriteItem(const ll &key, char* buffer)
     {
         // cout << "cache not full" << endl;
         ll offset_cache = free_cache.back();
-        chunk item = {key, offset_cache, 1};
-        chunk_map[key] = item;
+        block item = {key, offset_cache, 1};
+        block_map[key] = item;
         free_cache.pop_back();
-        writeChunk(true, offset_cache, chunk_size, buffer);
+        writeBlock(true, offset_cache, block_size, buffer);
     }
     // cache full
     else
     {
         // cout << "cache full" << endl;
-        ll victim = getVictim(); // [lirs] ll victim = cache_map.getCurVictim();
-        assert(victim != -1);
-        ll offset_cache = chunk_map[victim].offset_cache;
-        writeBack(&chunk_map[victim]);
-        chunk_map[victim].offset_cache = -1;
-        if (chunk_map.count(key) == 0)
+        ll victim = getVictim();
+        assert(victim != -1);       
+
+        writeBack(victim);
+        
+        assert(block_map.find(victim) != block_map.end());
+        ll offset_cache = block_map[victim].offset_cache;
+        assert(offset_cache != -1);
+        block_map[victim].offset_cache = -1;
+
+        if (block_map.count(key) == 0)
         {
-            chunk item = {key, offset_cache, 1};
-            chunk_map[key] = item;
+            block item = {key, offset_cache, 1};
+            block_map[key] = item;
         }
         else
         {
-            chunk_map[key].offset_cache = offset_cache;
-            chunk_map[key].dirty = 1;
+            block_map[key].offset_cache = offset_cache;
+            block_map[key].dirty = 1;
         }
-        writeChunk(true, offset_cache, chunk_size, buffer);
+        writeBlock(true, offset_cache, block_size, buffer);
     }
 }
 
@@ -258,21 +268,21 @@ void Sl::test()
         showProgressBar(st.total_trace_nums, trace_size);
 
 
-        ll begin = curKey / chunk_size;
-        ll end = (curKey + curSize - 1) / chunk_size;
+        ll begin = curKey / block_size;
+        ll end = (curKey + curSize - 1) / block_size;
 
         st.request_size_v.push_back(end - begin + 1);
         st.total_request_number += end - begin + 1;
         vector<ll> keys;
         for (ll i = begin; i <= end; i++)
         {
-            keys.push_back(i * chunk_size);
+            keys.push_back(i * block_size);
         }
 
-        // st.request_size_v.push_back(chunk_size);
+        // st.request_size_v.push_back(block_size);
         // st.total_request_number += 1;
         // vector<ll> keys;
-        // keys.push_back(curKey * chunk_size);
+        // keys.push_back(curKey * block_size);
 
         gettimeofday(&t1, NULL);
 
@@ -326,6 +336,8 @@ Sl::Sl()
 Sl::~Sl()
 {
     closeFile();
+    block_map.clear();
+    free_cache.clear();
 }
 
 void Sl::init()
@@ -355,20 +367,15 @@ void Sl::initFile()
         assert(fd_disk >= 0);
     }
 
-    int res = posix_memalign((void **)&buffer_read, chunk_size, chunk_size);
-    assert(res == 0);
-
-    res = posix_memalign((void **)&buffer_write, chunk_size, chunk_size);
-    assert(res == 0);
-    memset(buffer_write, 0, chunk_size);
+    buffer_read = make_unique<char[]>(block_size);  
+    buffer_write = make_unique<char[]>(block_size); 
+    memset(buffer_write.get(), 0, block_size); 
 }
 
 void Sl::closeFile()
 {
     close(fd_cache);
     close(fd_disk);
-    free(buffer_read);
-    free(buffer_write);
 }
 
 void Sl::printFreeCache()
@@ -382,17 +389,19 @@ void Sl::printFreeCache()
     // cout << free_cache.back() << endl;
 }
 
-void Sl::writeBack(chunk *arg)
+void Sl::writeBack(const ll &key)
 {
-    if (arg->dirty == 1)
+    assert(block_map.find(key) != block_map.end());
+    ll offset_cache = block_map[key].offset_cache;
+    if (block_map[key].dirty == 1)
     {
-        arg->dirty = 0;
-        readCache(arg->offset_cache, buffer_read);
-        writeDisk(arg->key, buffer_read);
+        block_map[key].dirty = 0;
+        readCache(offset_cache, buffer_read.get());
+        writeDisk(key, buffer_read.get());
     }
 }
 
-void Sl::odirectRead(bool isCache, const long long &offset, const long long &size, char* buffer)
+void Sl::read(bool isCache, const ll &offset, const ll &size, char* buffer)
 {
     int fd = -1;
     if (isCache)
@@ -402,11 +411,11 @@ void Sl::odirectRead(bool isCache, const long long &offset, const long long &siz
     assert(fd >= 0);
 
     int res = pread64(fd, buffer, size, offset);
-    // cout<<"[odirectRead]isCache: "<<isCache<<", offset: "<<offset<<", res: "<<res<<endl;
+    // cout<<"[read]isCache: "<<isCache<<", offset: "<<offset<<", res: "<<res<<endl;
     assert(res == size);
 }
 
-void Sl::odirectWrite(bool isCache, const long long &offset, const long long &size, char* buffer)
+void Sl::write(bool isCache, const ll &offset, const ll &size, char* buffer)
 {
     assert(offset != -1);
     int fd = -1;
@@ -417,21 +426,21 @@ void Sl::odirectWrite(bool isCache, const long long &offset, const long long &si
     // cout<<filePath<<endl;
     assert(fd >= 0);
 
-    int res = pwrite64(fd, buffer_write, size, offset);
-    // cout<<"odirectWrite: res: "<<res<<", fd: "<<fd<<", buffer: "<<buffer<<", size: "<<size<<", offset: "<<offset<<endl;
-    // printf("odirectWrite: %d\n",res);
+    int res = pwrite64(fd, buffer, size, offset);
+    // cout<<"write: res: "<<res<<", fd: "<<fd<<", buffer: "<<buffer<<", size: "<<size<<", offset: "<<offset<<endl;
+    // printf("write: %d\n",res);
     assert(res == size);
 }
 
-void Sl::readChunk(bool isCache, const long long &offset, const long long &size, char* buffer)
+void Sl::readBlock(bool isCache, const ll &offset, const ll &size, char* buffer)
 {
-    // printf("readChunk\n");
+    // printf("readBlock\n");
     struct timeval begin, end;
     gettimeofday(&begin, NULL);
     if(!io_on) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
-        odirectRead(isCache, offset, size, buffer);
+        read(isCache, offset, size, buffer);
     gettimeofday(&end, NULL);
     if (isCache)
         st.cache_read_latency.addDeltaT(st.computeDeltaT(begin, end));
@@ -439,15 +448,15 @@ void Sl::readChunk(bool isCache, const long long &offset, const long long &size,
         st.disk_read_latency.addDeltaT(st.computeDeltaT(begin, end));
 }
 
-void Sl::writeChunk(bool isCache, const long long &offset, const long long &size, char* buffer)
+void Sl::writeBlock(bool isCache, const ll &offset, const ll &size, char* buffer)
 {
-    // printf("writeChunk\n");
+    // printf("writeBlock\n");
     struct timeval begin, end;
     gettimeofday(&begin, NULL);
     if(!io_on) return;
     assert(offset != -1);
     if (O_DIRECT_ON)
-        odirectWrite(isCache, offset, size, buffer);
+        write(isCache, offset, size, buffer);
     gettimeofday(&end, NULL);
     if (isCache)
         st.cache_write_latency.addDeltaT(st.computeDeltaT(begin, end));
@@ -455,19 +464,20 @@ void Sl::writeChunk(bool isCache, const long long &offset, const long long &size
         st.disk_write_latency.addDeltaT(st.computeDeltaT(begin, end));
 }
 
-void Sl::printChunk(chunk *arg)
+void Sl::printBlock(const ll &key)
 {
-    cout << "key: " << arg->key << endl;
-    cout << "offset_cache: " << arg->offset_cache << endl;
-    cout << "dirty: " << arg->dirty << endl;
+    block blockTmp = block_map[key];
+    cout << "key: " << blockTmp.key << endl;
+    cout << "offset_cache: " << blockTmp.offset_cache << endl;
+    cout << "dirty: " << blockTmp.dirty << endl;
 }
 
 void Sl::initFreeCache()
 {
-    for (long long i = 0; i < cache_size; i++)
+    for (ll i = 0; i < cache_size; i++)
     {
-        free_cache.push_back(i * chunk_size);
-        // cout<<i * chunk_size<<" has pushed in to free cache"<<endl;
+        free_cache.push_back(i * block_size);
+        // cout<<i * block_size<<" has pushed in to free cache"<<endl;
     }
 }
 
@@ -475,29 +485,29 @@ void Sl::readCache(const ll &offset_cache, char* buffer)
 {
     // printf("readCache\n");
     assert(offset_cache != -1);
-    readChunk(true, offset_cache, chunk_size, buffer);
+    readBlock(true, offset_cache, block_size, buffer);
 }
 
-void Sl::readDisk(const long long &key, char* buffer)
+void Sl::readDisk(const ll &key, char* buffer)
 {
     // printf("readDisk\n");
     assert(key != -1);
-    readChunk(false, key, chunk_size, buffer);
+    readBlock(false, key, block_size, buffer);
 }
 
-void Sl::printChunkMap()
+void Sl::printBlockMap()
 {
-    cout << "chunk map:" << endl;
-    map<long long, chunk>::iterator it;
-    for (it = chunk_map.begin(); it != chunk_map.end(); it++)
+    cout << "block map:" << endl;
+    map<ll, block>::iterator it;
+    for (it = block_map.begin(); it != block_map.end(); it++)
         cout << it->second;
 }
 
 
-void Sl::writeDisk(const long long &key, char* buffer)
+void Sl::writeDisk(const ll &key, char* buffer)
 {
     // cout << "writeDisk" << endl;
-    writeChunk(false, key, chunk_size, buffer);
+    writeBlock(false, key, block_size, buffer);
 }
 
 void Sl::statistic()

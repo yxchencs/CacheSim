@@ -216,7 +216,7 @@ def resetPath(power_on):
 def get_folder_list():
     global operation_read_ratio_list
     global device_id_list
-    global chunk_size_list
+    global block_size_list
 
     for folder1 in os.listdir(path_head):
         sub_dir1 = os.path.join(path_head, folder1)
@@ -229,17 +229,17 @@ def get_folder_list():
                         if os.path.isdir(sub_dir3):
                             device_id_list.append(folder2)
                             operation_read_ratio_list.append(folder1)
-                            chunk_size_list.append(folder3)
+                            block_size_list.append(folder3)
 
     # print(f"operation_read_ratio_list({len(operation_read_ratio_list)}):{operation_read_ratio_list}")
     # print(f"device_id_list({len(device_id_list)}):{device_id_list}")
-    # print(f"chunk_size_list({len(chunk_size_list)}):{chunk_size_list}")
+    # print(f"block_size_list({len(block_size_list)}):{block_size_list}")
     print('done get folders')
 
 def process_results_for_device_test():
     global operation_read_ratio_list
     global device_id_list
-    global chunk_size_list
+    global block_size_list
 
     list_total, list_p99, list_avg_latency =  [], [], []
     list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn = [], [], [], [], [], []
@@ -256,9 +256,9 @@ def process_results_for_device_test():
     for i in range(len(operation_read_ratio_list)):
         operation_read_ratio = operation_read_ratio_list[i]
         device_id = device_id_list[i]
-        chunk_size = chunk_size_list[i]
+        block_size = block_size_list[i]
 
-        file_path_begin = os.path.join(path_head, operation_read_ratio, device_id, chunk_size)
+        file_path_begin = os.path.join(path_head, operation_read_ratio, device_id, block_size)
         print('data process:', file_path_begin)
         
         rdwr_only = False
@@ -320,7 +320,7 @@ def process_results_for_device_test():
     dict_device_id={'sd':'SD','emmc':"eMMC"}
     device_id_list = [dict_device_id[x] for x in device_id_list]
 
-    data = {'Operation Read Ratio': operation_read_ratio_list, 'Device ID': device_id_list, 'Chunk Size(KB)': chunk_size_list,
+    data = {'Operation Read Ratio': operation_read_ratio_list, 'Device ID': device_id_list, 'Block Size(KB)': block_size_list,
             'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99, 
             'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth, 
@@ -359,7 +359,7 @@ file_statistic_name = 'statistic.txt'
 
 operation_read_ratio_list = []
 device_id_list = []
-chunk_size_list = []
+block_size_list = []
 
 path_head = ''
 log_dir = ''

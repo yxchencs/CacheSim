@@ -82,6 +82,8 @@ template<
         enum cache_slot cache_slot;
         std::shared_ptr<V> data;
 
+        page() : key(), cache_slot(), data(nullptr) {}
+
         page(K key_, enum cache_slot cache_slot_, std::shared_ptr<V> data_)
             : key(std::move(key_))
             , cache_slot(cache_slot_)
@@ -316,6 +318,11 @@ public:
         , window_(window_capacity(capacity))
         , main_(capacity - window_.capacity())
     {}
+
+    ~wtinylfu_cache() 
+    {
+        page_map_.clear();
+    }
 
     size_t size() const noexcept
     {

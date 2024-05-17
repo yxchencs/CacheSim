@@ -13,12 +13,12 @@ public:
 private:
     cache_2q<ll> cache_map{cache_size};
 
-    bool isCached(const ll &key);
-    void accessKey(const ll &key, const bool &isGet);
-    ll getVictim();
+    bool isCached(const ll &key) override;
+    void accessKey(const ll &key, const bool &isGet) override;;
+    ll getVictim() override;;
     // special for 2q: may replace when cache is not full because of A1out
-    void writeCacheWhenReadItem(const ll &key, char* buffer);
-    void writeCacheWhenWriteItem(const ll &key, char* buffer);
+    void writeCacheWhenReadItem(const ll &key, char* buffer) override;;
+    void writeCacheWhenWriteItem(const ll &key, char* buffer) override;;
 };
 
 TqSl::TqSl() : Sl()
@@ -49,28 +49,32 @@ void TqSl::writeCacheWhenReadItem(const ll &key, char* buffer)
     {
         // cout<<"no replace"<<endl;
         ll offset_cache = free_cache.back();
-        chunk item = {key, offset_cache};
-        chunk_map[key] = item;
+        block item = {key, offset_cache};
+        block_map[key] = item;
         free_cache.pop_back();
-        writeChunk(true, offset_cache, chunk_size, buffer);
+        writeBlock(true, offset_cache, block_size, buffer);
     }
     // victim!=-1 ==> replace ==> victim provide a free one[no matter cache is full/not full]
     else
     {
         // cout<<"replace"<<endl;
-        ll offset_cache = chunk_map[victim].offset_cache;
-        writeBack(&chunk_map[victim]);
-        chunk_map[victim].offset_cache = -1;
-        if (chunk_map.count(key) == 0)
+        writeBack(victim);
+        
+        assert(block_map.find(victim) != block_map.end());
+        ll offset_cache = block_map[victim].offset_cache;
+        assert(offset_cache != -1);
+        block_map[victim].offset_cache = -1;
+
+        if (block_map.count(key) == 0)
         {
-            chunk item = {key, offset_cache};
-            chunk_map[key] = item;
+            block item = {key, offset_cache};
+            block_map[key] = item;
         }
         else
         {
-            chunk_map[key].offset_cache = offset_cache;
+            block_map[key].offset_cache = offset_cache;
         }
-        writeChunk(true, offset_cache, chunk_size, buffer);
+        writeBlock(true, offset_cache, block_size, buffer);
     }
 }
 
@@ -82,29 +86,33 @@ void TqSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
     {
         // cout<<"no replace"<<endl;
         ll offset_cache = free_cache.back();
-        chunk item = {key, offset_cache, 1};
-        chunk_map[key] = item;
+        block item = {key, offset_cache, 1};
+        block_map[key] = item;
         free_cache.pop_back();
-        writeChunk(true, offset_cache, chunk_size, buffer);
+        writeBlock(true, offset_cache, block_size, buffer);
     }
     // victim!=-1 ==> replace ==> victim provide a free one[no matter cache is full/not full]
     else
     {
         // cout<<"replace"<<endl;
-        ll offset_cache = chunk_map[victim].offset_cache;
-        writeBack(&chunk_map[victim]);
-        chunk_map[victim].offset_cache = -1;
-        if (chunk_map.count(key) == 0)
+        writeBack(victim);
+        
+        assert(block_map.find(victim) != block_map.end());
+        ll offset_cache = block_map[victim].offset_cache;
+        assert(offset_cache != -1);
+        block_map[victim].offset_cache = -1;
+
+        if (block_map.count(key) == 0)
         {
-            chunk item = {key, offset_cache, 1};
-            chunk_map[key] = item;
+            block item = {key, offset_cache, 1};
+            block_map[key] = item;
         }
         else
         {
-            chunk_map[key].offset_cache = offset_cache;
-            chunk_map[key].dirty = 1;
+            block_map[key].offset_cache = offset_cache;
+            block_map[key].dirty = 1;
         }
-        writeChunk(true, offset_cache, chunk_size, buffer);
+        writeBlock(true, offset_cache, block_size, buffer);
     }
 }
 

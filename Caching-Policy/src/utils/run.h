@@ -154,48 +154,48 @@ void initCacheAndDiskSize(){
     checkFile(fin_trace);
     string s;
     ll block_size_KB;
-    fin_trace>>s>>chunk_num>>disk_size>>trace_size>>block_size_KB;
-    cache_size = chunk_num*cache_size_factor;
-    chunk_size = block_size_KB * 1024;
-    // cout<<s<<", "<<chunk_num<<", "<<disk_size<<", "<<cache_size<<endl;
+    fin_trace>>s>>block_num>>disk_size>>trace_size>>block_size_KB;
+    cache_size = block_num*cache_size_factor;
+    block_size = block_size_KB * 1024;
+    // cout<<s<<", "<<block_num<<", "<<disk_size<<", "<<cache_size<<endl;
 }
 
 void run_once(){
     std::this_thread::sleep_for(std::chrono::seconds(20));
 
     printf("--------------------------------------------------------------------------------\n");
-    Sl *sim = nullptr;
+    std::unique_ptr<Sl> sim = nullptr;
     cache_size_factor = cacheSizeTypes[cache_size_index];
     initCacheAndDiskSize();
     cache_path = cache_dir+cachePath[cache_size_index];
     cout<<"cache_path: "<<cache_path<<endl;
     switch(policyTypes[caching_policy_index]){
         case PolicyType::RANDOM: 
-            sim = new RandomSl();
+            sim = std::make_unique<RandomSl>();
             break;
         case PolicyType::FIFO:
-            sim = new FifoSl();
+            sim = std::make_unique<FifoSl>();
             break;
         case PolicyType::LFU:
-            sim = new LfuSl();
+            sim = std::make_unique<LfuSl>();
             break;
         case PolicyType::LRU:
-            sim = new LruSl();
+            sim = std::make_unique<LruSl>();
             break;
         case PolicyType::LIRS:
-            sim = new LirsSl();
+            sim = std::make_unique<LirsSl>();
             break;
         case PolicyType::ARC:
-            sim = new ArcSl();
+            sim = std::make_unique<ArcSl>();
             break;
         case PolicyType::CLOCKPRO:
-            sim = new ClockproSl();
+            sim = std::make_unique<ClockproSl>();
             break;
         case PolicyType::TQ:
-            sim = new TqSl();
+            sim = std::make_unique<TqSl>();
             break;
         case PolicyType::TINYLFU:
-            sim = new TinylfuSl();
+            sim = std::make_unique<TinylfuSl>();
             break;
     }
 
@@ -246,6 +246,48 @@ void run(){
         }
     }
 }
+
+// [tmp test]not copy disk.bin 
+void run_tmp3(){
+    // save root
+    save_root = "../records/" + getCurrentDateTime() + '/';
+    mkdir(save_root);
+    cout<<"save_root: "<<save_root<<endl;
+    // cache dir
+    cache_dir = "/mnt/eMMC/";
+    mkdir(cache_dir);
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // storage dir
+    // storage_dir = "../storage/";
+    // mkdir(storage_dir);
+    // cout<<"storage_dir: "<<storage_dir<<endl;
+    // trace dir
+    auto trace_root_dir = "../trace/";
+    auto trace_dirs = find_trace_paths(trace_root_dir);
+
+    for (const auto& dir : trace_dirs) {
+    // int trace_num = trace_dirs.size();
+    // for (int m = 0; m < trace_num; m++){
+        // showProgressBar(m, trace_num);
+        // auto dir = trace_dirs[m];
+        trace_dir = dir;
+        trace_path = trace_dir+"/trace.txt";
+        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        
+        storage_dir = trace_dir + "/storage/";
+        // copy_files_containing_cache(storage_dir, cache_dir);
+        io_on = 0;
+        cache_size_index = cache_size_types_size-1;
+
+        for(int j=0;j<policy_types_size;j++){ // cache_policy
+            // showProgressBar(j, policy_types_size);
+            caching_policy_index = j;
+            run_once();
+        }
+                
+    }
+}
+
 
 // [tmp test]not copy disk.bin 
 void run_tmp2(){
@@ -342,38 +384,38 @@ void run_once2(){
     std::this_thread::sleep_for(std::chrono::seconds(20));
 
     printf("--------------------------------------------------------------------------------\n");
-    Sl *sim = nullptr;
+    std::unique_ptr<Sl> sim = nullptr;
     cache_size_factor = cacheSizeTypes2[cache_size_index];
     initCacheAndDiskSize();
     cache_path = cache_dir+cachePath2[cache_size_index];
     cout<<"cache_path: "<<cache_path<<endl;
     switch(policyTypes[caching_policy_index]){
         case PolicyType::RANDOM: 
-            sim = new RandomSl();
+            sim = std::make_unique<RandomSl>();
             break;
         case PolicyType::FIFO:
-            sim = new FifoSl();
+            sim = std::make_unique<FifoSl>();
             break;
         case PolicyType::LFU:
-            sim = new LfuSl();
+            sim = std::make_unique<LfuSl>();
             break;
         case PolicyType::LRU:
-            sim = new LruSl();
+            sim = std::make_unique<LruSl>();
             break;
         case PolicyType::LIRS:
-            sim = new LirsSl();
+            sim = std::make_unique<LirsSl>();
             break;
         case PolicyType::ARC:
-            sim = new ArcSl();
+            sim = std::make_unique<ArcSl>();
             break;
         case PolicyType::CLOCKPRO:
-            sim = new ClockproSl();
+            sim = std::make_unique<ClockproSl>();
             break;
         case PolicyType::TQ:
-            sim = new TqSl();
+            sim = std::make_unique<TqSl>();
             break;
         case PolicyType::TINYLFU:
-            sim = new TinylfuSl();
+            sim = std::make_unique<TinylfuSl>();
             break;
     }
 
@@ -387,7 +429,7 @@ void run2(){
     cout<<"save_root: "<<save_root<<endl;
     mkdir(save_root);
     cache_dir = "/mnt/eMMC/";
-    chunk_size = 4 * 1024;
+    block_size = 4 * 1024;
     // cout<<"cache_dir: "<<cache_dir<<endl;
     mkdir(cache_dir);
 
@@ -417,13 +459,13 @@ void run2(){
 // @param trace_path
 // @param device_id
 // @param device_path
-// @param chunk_size
-void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::string device_id, std::string device_path)
+// @param block_size
+void run_no_cache_once(std::string operation_read_ratio, ll block_size_KB, std::string device_id, std::string device_path)
 {
     std::this_thread::sleep_for(std::chrono::seconds(20));
-    std::cout << "operation_read_ratio: " << operation_read_ratio << ", chunk_size_KB: " << chunk_size_KB
+    std::cout << "operation_read_ratio: " << operation_read_ratio << ", block_size_KB: " << block_size_KB
     <<", device_id: " << device_id << ", device_path: " << device_path << std::endl;
-    chunk_size = chunk_size_KB * 1024;
+    block_size = block_size_KB * 1024;
     NoCacheSl sl(operation_read_ratio, device_id, device_path);
     sl.test();
     sl.statistic();
@@ -433,10 +475,10 @@ void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::
 //     save_root = "../records/" + getCurrentDateTime() + '/';
 //     trace_dir = "../trace/uniform/r100w_o15w_0.99/read_0/";
 //     trace_path = trace_dir + "trace.txt";
-//     ll chunk_size_KB = 4;
+//     ll block_size_KB = 4;
 //     std::string device_id = "disk";
 //     std::string device_path = trace_dir + "storage/disk.bin";
-//     run_no_cache_once(chunk_size_KB, device_id, device_path);
+//     run_no_cache_once(block_size_KB, device_id, device_path);
 // }
 
 // void run_no_cache(){
@@ -450,7 +492,7 @@ void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::
 //     std::string sd_dir = "../storage/";
 //     mkdir(sd_dir);
 
-//     ll list_chunk_size_KB[] = {1, 4, 16, 64, 256, 1024};
+//     ll list_block_size_KB[] = {1, 4, 16, 64, 256, 1024};
 
 //     auto trace_dirs = find_trace_paths("../trace/");
 
@@ -464,14 +506,14 @@ void run_no_cache_once(std::string operation_read_ratio, ll chunk_size_KB, std::
 //         device_id = "sd";
 //         device_path = sd_dir + "disk.bin";
 //         // copy_files_containing_cache(storage_dir, sd_dir);
-//         for (auto chunk_size_KB : list_chunk_size_KB)
-//             run_no_cache_once(chunk_size_KB, device_id, device_path);
+//         for (auto block_size_KB : list_block_size_KB)
+//             run_no_cache_once(block_size_KB, device_id, device_path);
 
 //         device_id = "emmc";
 //         device_path = emmc_dir + "disk.bin";
 //         // copy_files_containing_cache(storage_dir, emmc_dir);
-//         for (auto chunk_size_KB : list_chunk_size_KB)
-//             run_no_cache_once(chunk_size_KB, device_id, device_path);
+//         for (auto block_size_KB : list_block_size_KB)
+//             run_no_cache_once(block_size_KB, device_id, device_path);
 //     }
 // }
 
@@ -490,7 +532,7 @@ void run_no_cache_fixed_disk_size(){
 
     std::regex re("(\\d+)KB");
     std::smatch matches;
-    int chunk_size_KB;
+    int block_size_KB;
 
     std::string trace_root = "../trace/";
     vector<std::string> operation_read_ratio_list = {"read_1", "read_0"};
@@ -502,7 +544,7 @@ void run_no_cache_fixed_disk_size(){
             std::cout << "trace_dir: " << trace_dir << std::endl;
             if (std::regex_search(trace_dir, matches, re)) {
                 // std::cout << "Number extracted: " << matches[1] << std::endl;
-                chunk_size_KB = std::stoi(matches[1]);
+                block_size_KB = std::stoi(matches[1]);
             } else {
                 std::cout << "No number found." << std::endl;
                 continue;
@@ -515,12 +557,12 @@ void run_no_cache_fixed_disk_size(){
             device_id = "sd";
             device_path = sd_dir + "/" + disk_name;
             // copy_file_to_directory(disk_dir, sd_dir);
-            run_no_cache_once(operation_read_ratio, chunk_size_KB, device_id, device_path);
+            run_no_cache_once(operation_read_ratio, block_size_KB, device_id, device_path);
 
             device_id = "emmc";
             device_path = emmc_dir + "/" + disk_name;
             // copy_file_to_directory(disk_dir, emmc_dir);
-            run_no_cache_once(operation_read_ratio, chunk_size_KB, device_id, device_path);
+            run_no_cache_once(operation_read_ratio, block_size_KB, device_id, device_path);
         }
     }
 }

@@ -60,6 +60,11 @@ public:
         change_capacity(capacity);
     }
 
+    ~frequency_sketch()
+    {
+        table_.clear();
+    }
+
     void change_capacity(const int n)
     {
         if(n <= 0)

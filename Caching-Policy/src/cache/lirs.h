@@ -24,7 +24,7 @@
 #define IS_VALID(value) ((value) != NONE && (value) != INVALID)
 
 struct lirs_node;
-typedef std::list<lirs_node *>::iterator lirs_iterator;
+typedef std::list<std::shared_ptr<lirs_node>>::iterator lirs_iterator;
 
 enum lirs_type
 {
@@ -68,11 +68,12 @@ public:
 
     ~LIRS()
     {
-        for (auto it = map_.begin(); it != map_.end(); ++it)
-        {
-            // std::cout << "key: " << it->second->key << std::endl;
-            delete (it->second);
-        }
+        // for (auto it = map_.begin(); it != map_.end(); ++it)
+        // {
+        //     // std::cout << "key: " << it->second->key << std::endl;
+        //     delete (it->second);
+        // }
+        map_.clear();
     }
 
     ll getVictim()
@@ -112,7 +113,7 @@ public:
         {
             // std::cout << "Free Pnode" << std::endl;
             map_.erase(pnode->key);
-            delete pnode;
+            // delete pnode;
         }
         // return key;//for key_erased
 
@@ -145,7 +146,7 @@ public:
         // } else if(q_.size() >= q_size_) FreeOne();
 
         // S is not FULL, so just input it as LIR
-        lirs_node *p = new lirs_node(key, value, s_.end(), q_.end());
+        auto p = std::make_shared<lirs_node>(key, value, s_.end(), q_.end());
         assert(p);
         Push(p, true);
         ++used_size_;
@@ -323,7 +324,7 @@ private:
         }
     }
     // true to S, false to Q
-    void Push(lirs_node *p, bool toS)
+    void Push(std::shared_ptr<lirs_node> p, bool toS)
     {
         if (toS)
         { // 将p插入S队首
@@ -342,7 +343,7 @@ private:
         }
     }
     // true from S, false from Q
-    void Pop(lirs_node *p, bool fromS)
+    void Pop(std::shared_ptr<lirs_node> p, bool fromS)
     {
         if (fromS)
         { // 将p从S中删除
@@ -358,7 +359,7 @@ private:
         }
     }
     // 将p移动到S/Q的队首, true为S,false为Q
-    void MoveTop(lirs_node *p, bool toS = true)
+    void MoveTop(std::shared_ptr<lirs_node> p, bool toS = true)
     {
         Pop(p, toS);
         Push(p, toS);
@@ -367,8 +368,8 @@ private:
     // front -- top  back  -- bottom
     // Stack S: 保存数据块的历史记录(LIR,HIR,NHIR),越靠近栈顶recency越小;类似LRU,只是大小会变
     // Queue Q：保存resident-HIR集合,大小固定为Lhirs
-    std::list<lirs_node *> s_, q_;
-    std::map<ll, lirs_node *> map_;
+    std::list<std::shared_ptr<lirs_node>> s_, q_;
+    std::map<ll, std::shared_ptr<lirs_node>> map_;
 
     ll cache_size_, used_size_; // used_size_: 目前VALID的数据
     ll s_size_;

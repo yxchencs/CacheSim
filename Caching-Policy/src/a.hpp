@@ -24,70 +24,60 @@ namespace clockpro
 	};
 
 	template <typename k, typename v>
-	struct Entry
+	struct Entry : std::enable_shared_from_this<Entry<k, v>> 
 	{
 		// member for instrusive circular list
-		Entry<k, v> *next;
-		Entry<k, v> *prev;
+		shared_ptr<Entry<k, v>> next;
+		shared_ptr<Entry<k, v>> prev;
 		PageType ptype;
 		bool ref;
 		k key;
 		std::optional<v> val;
 
-		Entry()
-		{
-			next = this;
-			prev = this;
-		}
+		Entry() : next(nullptr), prev(nullptr), ptype(ptEmpty), ref(false) {}
 
 		Entry(bool pref, k pkey, v pval, PageType type)
-		{
-			next = this;
-			prev = this;
-			key = pkey;
-			val = pval;
-			ptype = type;
-			ref = pref;
-		}
+			: next(nullptr), prev(nullptr), ptype(type), ref(pref), key(pkey), val(pval) {}
 
 		// Link connects ring r with ring s such that r.Next()
 		// becomes s and returns the original value for r.Next().
 		// r must not be empty.
-		Entry<k, v> *Link(Entry *s)
+		shared_ptr<Entry<k, v>> Link(shared_ptr<Entry<k, v>> s)
 		{
 			auto n = this->Next();
 			if (s != nullptr)
 			{
 				auto p = s->Prev();
 				this->next = s;
-				s->prev = this;
+				s->prev = this->shared_from_this();
 				n->prev = p;
 				p->next = n;
 			}
 			return n;
 		}
 
-		Entry<k, v> *init()
+		std::shared_ptr<Entry<k, v>> init() 
 		{
-			this->next = this;
-			this->prev = this;
-			return this;
+			this->next = this->shared_from_this();
+			this->prev = this->shared_from_this();
+			return this->shared_from_this();
 		}
 
+
 		// Next returns the next ring element. r must not be empty.
-		Entry<k, v> *Next()
+		shared_ptr<Entry<k, v>> Next()
 		{
 
 			return this->next;
 		}
 
 		// Prev returns the previous ring element. r must not be empty.
-		Entry<k, v> *Prev()
+		shared_ptr<Entry<k, v>> Prev()
 		{
 			return this->prev;
 		}
 
-		Entry<k, v> *Unlink(int n)
+		shared_ptr<Entry<k, v>> Unlink(int n)
 		{
 			if (n <= 0)
 			{
@@ -96,9 +86,9 @@ namespace clockpro
 			return this->Link(this->Move(n + 1));
 		}
 
-		Entry<k, v> *Move(int n)
+		shared_ptr<Entry<k, v>> Move(int n)
 		{
-			Entry<k, v> *r = this;
+			shared_ptr<Entry<k, v>> r = this->shared_from_this();
 			if (n < 0)
 			{
 				for (; n < 0; n++)
@@ -120,7 +110,7 @@ namespace clockpro
 	template <typename k, typename v>
 	struct Cache
 	{
-		typedef Entry<k, v> *Entryref;
+		typedef shared_ptr<Entry<k, v>> Entryref;
 		size_t _capacity;
 		size_t _test_capacity;
 		size_t _cold_capacity;
@@ -155,15 +145,9 @@ namespace clockpro
 			victim = (ll)-1;
 		}
 
-		~Cache()
-		{
-			for (auto &entry : cache_map)
-			{
-				delete entry.second;
-			}
-			cache_map.clear();
-			deletedList.clear();
-		}
+		~Cache() {
+    		cache_map.clear();
+		}		
 
 		string pageTypeToString(PageType ptype) const
 		{
@@ -253,17 +237,16 @@ namespace clockpro
 			return mentry->val;
 		}
 
-		bool Set(k key, v value)
+		bool Set(const k &key, v value)
 		{
 			// cout << "===access " << key << "===" << endl;
 			// cout<<"cacheFull: "<<cacheFull()<<endl;
-			// victimList.clear();
 			int cnt = cache_map.count(key); // Entryref mentry; bool found = map.find(key, mentry);
 			if (!cnt)						// miss
 			{
 				// cout<<"Case 1: miss"<<endl;
 				// Allocate memory outside of holding cache the lock
-				auto e = new Entry<k, v>(false, key, value, ptCold);
+				auto e = make_shared<Entry<k, v>>(false, key, value, ptCold);
 				// no cache entry?  add it
 				cache_map[key] = e; // map.insert_or_assign(key, e);
 				std::unique_lock<std::mutex> lockx(cacheMutex);
@@ -303,8 +286,7 @@ namespace clockpro
 			}
 		}
 
-
-		bool Cached(k key)
+		bool Cached(const k &key)
 		{
 			int cnt = cache_map.count(key); // Entryref mentry; bool found = map.find(key, mentry);
 			if (!cnt)
@@ -344,7 +326,6 @@ namespace clockpro
 			hand_hot = r->Next();
 		}
 
-
 		void meta_del(Entryref e, bool deleteNode = true)
 		{
 			// cout<<"meta_del: "<<e->key<<endl;
@@ -376,8 +357,7 @@ namespace clockpro
 			}
 
 			e->Prev()->Unlink(1);
-			if (deleteNode)
-				delete e;
+			if (deleteNode) e.reset();
 		}
 
 		void evict()

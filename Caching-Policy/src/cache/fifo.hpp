@@ -38,7 +38,10 @@ class FIFO : public ICachePolicy<Key>
     using fifo_iterator = typename std::list<Key>::const_iterator;
 
     FIFO() = default;
-    ~FIFO() = default;
+    ~FIFO() override {
+        fifo_queue.clear();
+        key_lookup.clear();
+    }
 
     void Insert(const Key &key) override
     {

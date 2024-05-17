@@ -53,6 +53,11 @@ public:
         , num_hashes_(num_hashes)
     {}
 
+    ~bloom_filter()
+    {
+        bitset_.clear();
+    }
+
     /**
      * A truthy return value indicates that the item may or may not have been accessed.
      * A falsy return value guarantees that the item has not been accessed.

@@ -15,9 +15,9 @@ private:
     using fifo_cache_t = typename caches::fixed_sized_cache<Key, Value, caches::FIFO>;
     fifo_cache_t<long long, bool> cache_map{cache_size};
 
-    bool isCached(const ll &key);
-    void accessKey(const ll &key, const bool &isGet);
-    ll getVictim();
+    bool isCached(const ll &key) override;;
+    void accessKey(const ll &key, const bool &isGet) override;;
+    ll getVictim() override;;
 };
 
 FifoSl::FifoSl() : Sl()

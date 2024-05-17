@@ -24,12 +24,12 @@ public:
         fd = open(device_path.c_str(), O_RDWR | O_DIRECT, 0664);
         assert(fd >= 0);
 
-        int res = posix_memalign((void **)&buffer_read, chunk_size, chunk_size);
+        int res = posix_memalign((void **)&buffer_read, block_size, block_size);
         assert(res == 0);
 
-        res = posix_memalign((void **)&buffer_write, chunk_size, chunk_size);
+        res = posix_memalign((void **)&buffer_write, block_size, block_size);
         assert(res == 0);
-        memset(buffer_write, 0, chunk_size);
+        memset(buffer_write, 0, block_size);
     };
     ~NoCacheSl()
     {
@@ -50,8 +50,8 @@ private:
 
     void readItem(vector<ll> &keys);
     void writeItem(vector<ll> &keys);
-    void readChunk(const long long &offset, const long long &size);
-    void writeChunk(const long long &offset, const long long &size);
+    void readBlock(const long long &offset, const long long &size);
+    void writeBlock(const long long &offset, const long long &size);
 };
 
 void NoCacheSl::test()
@@ -96,20 +96,20 @@ void NoCacheSl::test()
         showProgressBar(st.total_trace_nums, trace_size);
 
 
-        ll begin = curKey / chunk_size;
-        ll end = (curKey + curSize - 1) / chunk_size;
+        ll begin = curKey / block_size;
+        ll end = (curKey + curSize - 1) / block_size;
         st.request_size_v.push_back(end - begin + 1);
         st.total_request_number += end - begin + 1;
         vector<ll> keys;
         for (ll i = begin; i <= end; i++)
         {
-            keys.push_back(i * chunk_size);
+            keys.push_back(i * block_size);
         }
 
-        // st.request_size_v.push_back(chunk_size);
+        // st.request_size_v.push_back(block_size);
         // st.total_request_number += 1;
         // vector<ll> keys;
-        // keys.push_back(curKey * chunk_size);
+        // keys.push_back(curKey * block_size);
 
         gettimeofday(&t1, NULL);
         switch (type)
@@ -136,7 +136,7 @@ void NoCacheSl::readItem(vector<ll> &keys)
     st.read_nums += keys.size();
     for (int i = 0; i < keys.size(); i++)
     {
-        readChunk(keys[i], chunk_size);
+        readBlock(keys[i], block_size);
     }
 }
 
@@ -145,11 +145,11 @@ void NoCacheSl::writeItem(vector<ll> &keys)
     st.write_nums += keys.size();
     for (int i = 0; i < keys.size(); i++)
     {
-        writeChunk(keys[i], chunk_size);
+        writeBlock(keys[i], block_size);
     }
 }
 
-void NoCacheSl::readChunk(const long long &offset, const long long &size)
+void NoCacheSl::readBlock(const long long &offset, const long long &size)
 {
     struct timeval begin, end;
     gettimeofday(&begin, NULL);
@@ -164,7 +164,7 @@ void NoCacheSl::readChunk(const long long &offset, const long long &size)
         st.disk_read_latency.addDeltaT(st.computeDeltaT(begin, end));
 }
 
-void NoCacheSl::writeChunk(const long long &offset, const long long &size)
+void NoCacheSl::writeBlock(const long long &offset, const long long &size)
 {
     struct timeval begin, end;
     gettimeofday(&begin, NULL);
@@ -181,7 +181,7 @@ void NoCacheSl::writeChunk(const long long &offset, const long long &size)
 
 void NoCacheSl::statistic()
 {
-    string dir = save_root + operation_read_ratio + '/' + device_id + '/' + std::to_string(int(chunk_size*1.0/1024)) + "KB/";
+    string dir = save_root + operation_read_ratio + '/' + device_id + '/' + std::to_string(int(block_size*1.0/1024)) + "KB/";
 
     st.resetSaveDir(dir);
     st.record();

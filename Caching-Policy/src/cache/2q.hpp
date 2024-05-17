@@ -10,6 +10,7 @@ class cache_2q final
 {
 public:
     cache_2q(size_t cache_size);
+    ~cache_2q();
     bool cached(Key key);
     void touch(Key key);
     Key getVictim();
@@ -49,6 +50,13 @@ cache_2q<Key>::cache_2q(size_t cache_size)
 {
     assert(cache_size >= 3);
     // printSize();
+}
+
+template <typename Key>
+cache_2q<Key>::~cache_2q() {
+    A_in_hash_.clear();
+    A_out_hash_.clear();
+    A_m_hash_.clear();
 }
 
 // change key with A_m.head()

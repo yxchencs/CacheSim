@@ -3,14 +3,14 @@
 #include <string>
 typedef long long ll;
 
-size_t chunk_num;
-ll disk_size; // Unit: chunk_size
+size_t block_num;
+ll disk_size; // Unit: block_size
 bool io_on; // 控制是否开启读写IO
 int cache_size_index;
 int caching_policy_index;
 double cache_size_factor; // eg: 0.02
 size_t cache_size; // Unit: B
-ll chunk_size; // Unit: B
+ll block_size; // Unit: B
 std::string cache_dir;
 std::string cache_path;
 std::string trace_dir;
@@ -18,7 +18,7 @@ std::string trace_path;
 ll trace_size;
 std::string storage_dir;
 std::string save_root;
-bool isAccessSingleChunk;
+bool isAccessSingleBlock;
 
 const bool RANDOM_ON = false; // 控制是否随机写入cache，即在所有Caching-Policy外面再加上一层cache写入过滤器，注意与RANDOM算法无关
 const int RANDOM_THRESHOLD = 0;  // 随机写入cache的概率[0-1]

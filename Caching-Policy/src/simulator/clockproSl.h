@@ -10,22 +10,26 @@ class ClockproSl : public Sl
 {
 public:
     ClockproSl();
+    // ~ClockproSl();
 
 private:
-    clockpro::Cache<long long, bool> cache_map{cache_size};
+    clockpro::Cache<ll, bool> cache_map{cache_size};
 
-    bool isCached(const ll &key);
-    void accessKey(const ll &key, const bool &isGet);
-    ll getVictim();
-    vector<ll> getVictimList(); // special for clockpro: may multi-victims at one access because of test period
-    void writeCacheWhenReadItem(const ll &key, char* buffer);
-    void writeCacheWhenWriteItem(const ll &key, char* buffer);
+    bool isCached(const ll &key) override;
+    void accessKey(const ll &key, const bool &isGet) override;
+    ll getVictim() override;
+    // vector<ll> getVictimList(); 
+    vector<ll> getDeletedList();
+    void deleteBlockInfo();
+    // special for clockpro: may multi-victims at one access because of test period
 };
 
 ClockproSl::ClockproSl() : Sl()
 {
     st.caching_policy = "clockpro";
 }
+
+// ClockproSl::~ClockproSl() {}
 
 bool ClockproSl::isCached(const ll &key)
 {
@@ -35,6 +39,7 @@ bool ClockproSl::isCached(const ll &key)
 void ClockproSl::accessKey(const ll &key, const bool &isGet)
 {
     cache_map.Set(key, 0);
+    // deleteBlockInfo();
 }
 
 ll ClockproSl::getVictim()
@@ -42,99 +47,24 @@ ll ClockproSl::getVictim()
     return cache_map.getVictim();
 }
 
-vector<ll> ClockproSl::getVictimList()
+// vector<ll> ClockproSl::getVictimList()
+// {
+//     return cache_map.getVictimList();
+// }
+
+vector<ll> ClockproSl::getDeletedList()
 {
-    return cache_map.getVictimList();
+    return cache_map.getDeletedList();
 }
 
-void ClockproSl::writeCacheWhenReadItem(const ll &key, char* buffer)
+void ClockproSl::deleteBlockInfo() 
 {
-    // cache not full
-    if (!free_cache.empty())
+    vector<ll> deletedList = getDeletedList();
+    for(auto key: deletedList)
     {
-        // cout << "cache not full" << endl;
-        ll offset_cache = free_cache.back();
-        chunk item = {key, offset_cache};
-        chunk_map[key] = item;
-        free_cache.pop_back();
-        writeChunk(true, offset_cache, chunk_size, buffer);
-    }
-    // cache full
-    else
-    {
-        // cout << "cache full" << endl;
-        vector<ll> victimList = getVictimList(); // [lirs] ll victim = cache_map.getCurVictim();
-        for (int i = 0; i < victimList.size(); i++)
-        {
-            ll victim = victimList[i];
-            assert(victim != -1);
-            ll offset_cache = chunk_map[victim].offset_cache;
-            writeBack(&chunk_map[victim]);
-            chunk_map[victim].offset_cache = -1;
-            if (i != victimList.size() - 1)
-            {
-                free_cache.push_back(offset_cache);
-            }
-            else // last victim
-            {
-                if (chunk_map.count(key) == 0)
-                {
-                    chunk item = {key, offset_cache};
-                    chunk_map[key] = item;
-                }
-                else
-                {
-                    chunk_map[key].offset_cache = offset_cache;
-                }
-                writeChunk(true, offset_cache, chunk_size, buffer);
-            }
-        }
-    }
-}
-
-void ClockproSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
-{
-    // cache not full
-    if (!free_cache.empty())
-    {
-        // cout << "cache not full" << endl;
-        ll offset_cache = free_cache.back();
-        chunk item = {key, offset_cache, 1};
-        chunk_map[key] = item;
-        free_cache.pop_back();
-        writeChunk(true, offset_cache, chunk_size, buffer);
-    }
-    // cache full
-    else
-    {
-        // cout << "cache full" << endl;
-        vector<ll> victimList = getVictimList(); // [lirs] ll victim = cache_map.getCurVictim();
-        for (int i = 0; i < victimList.size(); i++)
-        {
-            ll victim = victimList[i];
-            assert(victim != -1);
-            ll offset_cache = chunk_map[victim].offset_cache;
-            writeBack(&chunk_map[victim]);
-            chunk_map[victim].offset_cache = -1;
-            if (i != victimList.size() - 1)
-            {
-                free_cache.push_back(offset_cache);
-            }
-            else
-            {
-                if (chunk_map.count(key) == 0)
-                {
-                    chunk item = {key, offset_cache, 1};
-                    chunk_map[key] = item;
-                }
-                else
-                {
-                    chunk_map[key].offset_cache = offset_cache;
-                    chunk_map[key].dirty = 1;
-                }
-                writeChunk(true, offset_cache, chunk_size, buffer);
-            }
-        }
+        assert(block_map.find(key) != block_map.end());
+        // assert(block_map[key].offset_cache == -1);
+        block_map.erase(key);
     }
 }
 

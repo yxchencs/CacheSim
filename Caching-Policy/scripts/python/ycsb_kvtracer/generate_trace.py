@@ -56,11 +56,11 @@ def generate_data(n):
         s += str(random.randint(0, 1))
     return s
 
-def generate_file(chunk_size,expected_size,filename):
+def generate_file(block_size,expected_size,filename):
     s=''
     with open(filename, "a", encoding='utf-8') as f:
         for i in range(expected_size):
-            s=s+generate_data(chunk_size)
+            s=s+generate_data(block_size)
             print(i,'/',expected_size)
             f.writelines(s)
 
@@ -82,11 +82,11 @@ def create_file(file_path, size):
 
 if __name__ == '__main__':
     disk_size=770   *4*1024
-    chunk_num=582  *4*1024
+    block_num=582  *4*1024
     path="D:/Projects/Caching-Policy/Caching-Policy/storage/"
     create_file(path+"disk.bin",disk_size)
-    create_file(path+"cache_0.02.bin",chunk_num*0.02)
-    create_file(path+"cache_0.04.bin",chunk_num*0.04)
-    create_file(path+"cache_0.06.bin",chunk_num*0.06)
-    create_file(path+"cache_0.08.bin",chunk_num*0.08)
-    create_file(path+"cache_0.1.bin",chunk_num*0.1)
+    create_file(path+"cache_0.02.bin",block_num*0.02)
+    create_file(path+"cache_0.04.bin",block_num*0.04)
+    create_file(path+"cache_0.06.bin",block_num*0.06)
+    create_file(path+"cache_0.08.bin",block_num*0.08)
+    create_file(path+"cache_0.1.bin",block_num*0.1)

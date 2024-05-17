@@ -36,7 +36,10 @@ class LRU : public ICachePolicy<Key>
     using lru_iterator = typename std::list<Key>::iterator;
 
     LRU() = default;
-    ~LRU() = default;
+    ~LRU() override {
+        lru_queue.clear();
+        key_finder.clear();
+    }
 
     void Insert(const Key &key) override
     {

@@ -12,9 +12,9 @@ public:
 private:
     LIRS cache_map;
 
-    bool isCached(const ll &key);
-    void accessKey(const ll &key, const bool &isGet);
-    ll getVictim();
+    bool isCached(const ll &key) override;;
+    void accessKey(const ll &key, const bool &isGet) override;;
+    ll getVictim() override;;
 };
 
 LirsSl::LirsSl() : Sl()

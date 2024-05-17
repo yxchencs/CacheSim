@@ -33,7 +33,10 @@ class LFU : public ICachePolicy<Key>
     using lfu_iterator = typename std::multimap<std::size_t, Key>::iterator;
 
     LFU() = default;
-    ~LFU() override = default;
+    ~LFU() override {
+        frequency_storage.clear();
+        lfu_storage.clear();
+    }
 
     void Insert(const Key &key) override
     {
