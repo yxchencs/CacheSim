@@ -12,6 +12,7 @@
 // #include <libcuckoo/bucket_container.hh>
 // #include <libcuckoo/cuckoohash_map.hh>
 
+// cache_size >= 3
 namespace clockpro
 {
 

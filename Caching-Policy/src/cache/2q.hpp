@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <cassert>
 
+// cache_size >= 3
+
 template <typename Key>
 class cache_2q final
 {
