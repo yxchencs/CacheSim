@@ -101,7 +101,7 @@ def generate_trace(input_path, output_path, block_size_KB):
     #     print("trace exists")  
     keys, types = read_trace_from_file(os.path.join(input_path, ycsb_trace_run_name))
     indexes, block_num = frequency_counter(keys)
-    if block_num*0.02 < 10:
+    if block_num*0.02 < 10: # Demand of caching policy
         print("Exiting program due to block number being less than 10.")
         exit()
     trace_size = len(keys)
