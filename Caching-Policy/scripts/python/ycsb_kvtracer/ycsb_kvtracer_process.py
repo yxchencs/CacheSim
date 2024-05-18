@@ -101,6 +101,9 @@ def generate_trace(input_path, output_path, block_size_KB):
     #     print("trace exists")  
     keys, types = read_trace_from_file(os.path.join(input_path, ycsb_trace_run_name))
     indexes, block_num = frequency_counter(keys)
+    if block_num < 10:
+        print("Exiting program due to block number being less than 10.")
+        exit()
     trace_size = len(keys)
     output_file(trace_file_path, indexes, types, block_num, trace_size, block_size_KB)
     disk_size = block_num * block_size_KB * 1024

@@ -10,10 +10,12 @@
 #include "../utils/globals.h"
 #include <fstream>
 
-/*  ¶¨Òåºêº¯ÊýNEED_PRUNING
-    ÊäÈë£ºÒ»¸öÖ¸Ïò¾ßÓÐtype³ÉÔ±µÄ½á¹¹ÌåµÄÖ¸Õën
-    ´¦Àí£º¸ù¾Ý¸Ã¶ÔÏóµÄtypeÊôÐÔÊÇ·ñµÈÓÚLIRÀ´ÅÐ¶ÏÊÇ·ñÐèÒª½øÐÐÐÞ¼ô²Ù×÷
-    Êä³ö£ºÈç¹ûÐèÒªÐÞ¼ô£¬Ôòºêº¯Êý·µ»Øtrue£¨·ÇÁãÖµ£©£¬·ñÔò·µ»Øfalse£¨ÁãÖµ£©*/
+// cache_size_ >= 10
+
+/*  ï¿½ï¿½ï¿½ï¿½êº¯ï¿½ï¿½NEED_PRUNING
+    ï¿½ï¿½ï¿½ë£ºÒ»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½typeï¿½ï¿½Ô±ï¿½Ä½á¹¹ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½n
+    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¸Ã¶ï¿½ï¿½ï¿½ï¿½typeï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½LIRï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½
+    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½êº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½falseï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½*/
 #define NEED_PRUNING(n) ((n)->type != LIR)
 
 // typedef unsigned long long ll;
@@ -56,6 +58,7 @@ public:
     LIRS(ll size = cache_size)
         : cache_size_(size), used_size_(0), s_size_(0.99 * size), q_size_(0.1 * size) // Lhirs = 1%
     {
+        assert(cache_size_ >= 10);
         assert(s_size_);
         assert(q_size_);
         // isReplaced = false;
@@ -83,12 +86,12 @@ public:
         return curVictim;
     }
 
-    // É¾³ýQ¶ÓÎ²ÔªËØ
+    // É¾ï¿½ï¿½Qï¿½ï¿½Î²Ôªï¿½ï¿½
     void FreeOne()
     {
-        assert(!q_.empty()); // ¼ì²éQ·Ç¿Õ
+        assert(!q_.empty()); // ï¿½ï¿½ï¿½Qï¿½Ç¿ï¿½
 
-        // É¾³ýQ¶ÓÎ²ÔªËØ
+        // É¾ï¿½ï¿½Qï¿½ï¿½Î²Ôªï¿½ï¿½
         auto pnode = q_.back();
         // ll key=pnode->key;//for key_erased
         q_.pop_back();
@@ -103,11 +106,11 @@ public:
             --used_size_;
         }
 
-        // ÈôpÔÚSÖÐ->ÉèÖÃÆäÎªNHIR
+        // ï¿½ï¿½pï¿½ï¿½Sï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªNHIR
         if (pnode->s != s_.end())
         {
             pnode->type = NHIR;
-            // Èôp²»ÔÚSÖÐ->map_É¾³ýp
+            // ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½Sï¿½ï¿½->map_É¾ï¿½ï¿½p
         }
         else
         {
@@ -123,7 +126,7 @@ public:
     bool Add(ll key, ll value)
     {
         // Print();
-        // ·ÃÎÊ´æÔÚLIRºÍHIRµÄÊý¾Ý¿é
+        // ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½LIRï¿½ï¿½HIRï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
         if (map_.find(key) != map_.end())
         { // find it
             auto pnode = map_[key];
@@ -135,14 +138,14 @@ public:
             // PrintTxt();
             return true;
         }
-        // ·ÃÎÊ²»´æÔÚLIRºÍHIRµÄÊý¾Ý¿é
+        // ï¿½ï¿½ï¿½Ê²ï¿½ï¿½ï¿½ï¿½ï¿½LIRï¿½ï¿½HIRï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
         if (used_size_ >= cache_size_ || q_.size() >= q_size_)
-        { // ÇåÀí
+        { // ï¿½ï¿½ï¿½ï¿½
             FreeOne();
         }
 
-        // if (used_size_ >= cache_size_) { //Èç¹ûcacheÂúÁË»òQ¶ÓÁÐÂúÁË
-        //     erased_key=FreeOne();//É¾³ýÒ»¸ö ²Ù×÷¼ûÉÏ
+        // if (used_size_ >= cache_size_) { //ï¿½ï¿½ï¿½cacheï¿½ï¿½ï¿½Ë»ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //     erased_key=FreeOne();//É¾ï¿½ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         // } else if(q_.size() >= q_size_) FreeOne();
 
         // S is not FULL, so just input it as LIR
@@ -170,44 +173,44 @@ public:
         }
 
         auto p = map_[key]; // lirs_node*
-        //[LIR]ÈÈÊý¾Ý->ÒÆ¶¯µ½S¶ÓÊ×
+        //[LIR]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½->ï¿½Æ¶ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½
         if (p->type == LIR)
         {
-            assert(p->s != s_.end()); // ±£Ö¤pÔÚSÖÐ
-            MoveTop(p);               // ½«pÒÆ¶¯µ½S¶ÓÊ×
-            //[HIR]ÀäÊý¾Ý->ÀäÈÈ×ª»»£ºpÒÆ¶¯µ½S¶ÓÊ×£¬s¶ÓÎ²ÒÆ¶¯µ½Q¶ÓÊ×
+            assert(p->s != s_.end()); // ï¿½ï¿½Ö¤pï¿½ï¿½Sï¿½ï¿½
+            MoveTop(p);               // ï¿½ï¿½pï¿½Æ¶ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½
+            //[HIR]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½pï¿½Æ¶ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½×£ï¿½sï¿½ï¿½Î²ï¿½Æ¶ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½
         }
         else if (p->type == HIR)
         {
-            assert(p->q != q_.end()); // ±£Ö¤pÔÚQÖÐ
+            assert(p->q != q_.end()); // ï¿½ï¿½Ö¤pï¿½ï¿½Qï¿½ï¿½
             if (p->s != s_.end())
-            {                  // ÈôpÔÚSÖÐ
-                p->type = LIR; // ×ª»¯ÎªLIRÀàÐÍ
+            {                  // ï¿½ï¿½pï¿½ï¿½Sï¿½ï¿½
+                p->type = LIR; // ×ªï¿½ï¿½ÎªLIRï¿½ï¿½ï¿½ï¿½
 
-                MoveTop(p);    // pÒÆ¶¯µ½S¶ÓÊ×
-                Pop(p, false); // ÔÚQ¶ÓÁÐÖÐÉ¾³ýp
-                Bottom();      // ½«S¶ÓÁÐ¶ÓÎ²ÔªËØÒÆ¶¯µ½Q¶ÓÁÐ¶ÓÊ×£¬Í¬Ê±½«LIR×ª±äÎªHIR
+                MoveTop(p);    // pï¿½Æ¶ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½
+                Pop(p, false); // ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½p
+                Bottom();      // ï¿½ï¿½Sï¿½ï¿½ï¿½Ð¶ï¿½Î²Ôªï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½Ð¶ï¿½ï¿½×£ï¿½Í¬Ê±ï¿½ï¿½LIR×ªï¿½ï¿½ÎªHIR
             }
             else
-            {                      // Èôp²»ÔÚSÖÐ
+            {                      // ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½Sï¿½ï¿½
                 Push(p, true);     // put p into S
                 MoveTop(p, false); // move p top of Q
             }
-            //[NHIR]²»ÔÚcacheÖÐµÄÀäÊý¾Ý->
+            //[NHIR]ï¿½ï¿½ï¿½ï¿½cacheï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½->
         }
         else
         { // p->type==NHIR
             assert(p->type == NHIR);
-            FreeOne(); // É¾³ýQ¶ÓÎ²ÔªËØ
+            FreeOne(); // É¾ï¿½ï¿½Qï¿½ï¿½Î²Ôªï¿½ï¿½
             p->value = value;
 
-            // ÈôpÔÚSÖÐ->ÀäÈÈ×ª»»
+            // ï¿½ï¿½pï¿½ï¿½Sï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
             if (p->s != s_.end())
             { // p is in S
                 p->type = LIR;
                 MoveTop(p); // move p top of S
                 Bottom();
-                // Èôp²»ÔÚSºÍQÖÐ->pÉèÖÃÎªHIR,½«pÍ¬Ê±·ÅÈëSºÍQ¶ÓÊ×
+                // ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½Sï¿½ï¿½Qï¿½ï¿½->pï¿½ï¿½ï¿½ï¿½ÎªHIR,ï¿½ï¿½pÍ¬Ê±ï¿½ï¿½ï¿½ï¿½Sï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½
             }
             else
             {
@@ -247,7 +250,7 @@ public:
     //     return false;
     // }
 
-    // Õ»¼ôÖ¦: ½«SÕ»µ×(back)ËùÓÐ·ÇLIRÉ¾³ý->±£Ö¤SÕ»µ×Ò»¶¨ÊÇLIR
+    // Õ»ï¿½ï¿½Ö¦: ï¿½ï¿½SÕ»ï¿½ï¿½(back)ï¿½ï¿½ï¿½Ð·ï¿½LIRÉ¾ï¿½ï¿½->ï¿½ï¿½Ö¤SÕ»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½LIR
     void Pruning()
     {
         while (!s_.empty() && NEED_PRUNING(s_.back()))
@@ -309,7 +312,7 @@ public:
     }
 
 private:
-    // ½«S¶ÓÁÐ¶ÓÎ²ÔªËØÒÆ¶¯µ½Q¶ÓÁÐ¶ÓÊ×£¬Í¬Ê±½«LIR×ª±äÎªHIR
+    // ï¿½ï¿½Sï¿½ï¿½ï¿½Ð¶ï¿½Î²Ôªï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½Ð¶ï¿½ï¿½×£ï¿½Í¬Ê±ï¿½ï¿½LIR×ªï¿½ï¿½ÎªHIR
     void Bottom()
     {
         auto bottom = s_.back();
@@ -327,16 +330,16 @@ private:
     void Push(std::shared_ptr<lirs_node> p, bool toS)
     {
         if (toS)
-        { // ½«p²åÈëS¶ÓÊ×
+        { // ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½
             s_.push_front(p);
             p->s = s_.begin();
         }
         else
-        { // ½«p²åÈëQ¶ÓÊ×
+        { // ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½
             q_.push_front(p);
             p->q = q_.begin();
         }
-        // Èôp²»ÔÚmap_ÖÐ,Ôò½«p¼ÓÈëmap_
+        // ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½map_ï¿½ï¿½,ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½map_
         if (map_.find(p->key) == map_.end())
         {
             map_[p->key] = p;
@@ -346,19 +349,19 @@ private:
     void Pop(std::shared_ptr<lirs_node> p, bool fromS)
     {
         if (fromS)
-        { // ½«p´ÓSÖÐÉ¾³ý
+        { // ï¿½ï¿½pï¿½ï¿½Sï¿½ï¿½É¾ï¿½ï¿½
             assert(p->s != s_.end());
             s_.erase(p->s);
             p->s = s_.end();
         }
         else
-        { // ½«p´ÓQÖÐÉ¾³ý
+        { // ï¿½ï¿½pï¿½ï¿½Qï¿½ï¿½É¾ï¿½ï¿½
             assert(p->q != q_.end());
             q_.erase(p->q);
             p->q = q_.end();
         }
     }
-    // ½«pÒÆ¶¯µ½S/QµÄ¶ÓÊ×, trueÎªS,falseÎªQ
+    // ï¿½ï¿½pï¿½Æ¶ï¿½ï¿½ï¿½S/Qï¿½Ä¶ï¿½ï¿½ï¿½, trueÎªS,falseÎªQ
     void MoveTop(std::shared_ptr<lirs_node> p, bool toS = true)
     {
         Pop(p, toS);
@@ -366,12 +369,12 @@ private:
     }
 
     // front -- top  back  -- bottom
-    // Stack S: ±£´æÊý¾Ý¿éµÄÀúÊ·¼ÇÂ¼(LIR,HIR,NHIR),Ô½¿¿½üÕ»¶¥recencyÔ½Ð¡;ÀàËÆLRU,Ö»ÊÇ´óÐ¡»á±ä
-    // Queue Q£º±£´æresident-HIR¼¯ºÏ,´óÐ¡¹Ì¶¨ÎªLhirs
+    // Stack S: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ê·ï¿½ï¿½Â¼(LIR,HIR,NHIR),Ô½ï¿½ï¿½ï¿½ï¿½Õ»ï¿½ï¿½recencyÔ½Ð¡;ï¿½ï¿½ï¿½ï¿½LRU,Ö»ï¿½Ç´ï¿½Ð¡ï¿½ï¿½ï¿½
+    // Queue Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½resident-HIRï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ð¡ï¿½Ì¶ï¿½ÎªLhirs
     std::list<std::shared_ptr<lirs_node>> s_, q_;
     std::map<ll, std::shared_ptr<lirs_node>> map_;
 
-    ll cache_size_, used_size_; // used_size_: Ä¿Ç°VALIDµÄÊý¾Ý
+    ll cache_size_, used_size_; // used_size_: Ä¿Ç°VALIDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     ll s_size_;
     ll q_size_;
 
