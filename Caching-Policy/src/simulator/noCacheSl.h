@@ -41,8 +41,8 @@ public:
 private:
     int fd;
 
-    char *buffer_read = nullptr;
-    char *buffer_write = nullptr;
+    char* buffer_read;
+    char* buffer_write;
 
     Statistic st;
     string device_id;

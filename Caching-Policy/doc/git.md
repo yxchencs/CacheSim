@@ -41,6 +41,12 @@ git reset --hard Obfafd
 git push -f
 ```
 
+#### 列出本地仓库跟踪的所有文件
+
+```shell
+git ls-files
+```
+
 #### 撤销commit
 
 ##### 不改动工作区间的代码
@@ -93,6 +99,12 @@ git diff
 
 ```shell
 git diff HEAD^ HEAD
+```
+
+#### 修改用户名和邮箱
+```shell
+git config --global user.name <username>
+git config --global user.email <email>
 ```
 
 #### `git push`报错

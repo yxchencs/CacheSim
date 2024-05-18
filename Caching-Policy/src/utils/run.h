@@ -149,6 +149,60 @@ void checkFile(fstream &file)
     }
 }
 
+bool checkSpaceEnough(int fd, ll offset, ll size) {
+    struct stat fileStat;
+    if (fstat(fd, &fileStat) == -1) {
+        cerr << "Failed to get file status." << endl;
+        return false;
+    }
+
+    off_t fileSize = fileStat.st_size;
+    off_t requiredSpace = offset + size;
+    if (requiredSpace > fileSize) {
+        cerr << "Not enough space in the file." << endl;
+        return false;
+    }
+
+    return true;
+}
+
+bool checkRes(int res) {
+    if (res == -1) {
+        std::cerr << "write: pwrite64 failed with error: " << strerror(errno) << std::endl;
+        std::cerr << "write: errno: " << errno << std::endl;
+
+        switch(errno) {
+            case EBADF:
+                std::cerr << "Error: Invalid file descriptor." << std::endl;
+                break;
+            case EFAULT:
+                std::cerr << "Error: Buffer is outside accessible address space." << std::endl;
+                break;
+            case EFBIG:
+                std::cerr << "Error: File is too large." << std::endl;
+                break;
+            case EINTR:
+                std::cerr << "Error: Write operation interrupted by signal." << std::endl;
+                break;
+            case EINVAL:
+                std::cerr << "Error: Invalid offset or file not suitable for writing." << std::endl;
+                break;
+            case ENOSPC:
+                std::cerr << "Error: No space left on device." << std::endl;
+                break;
+            case EROFS:
+                std::cerr << "Error: File system is read-only." << std::endl;
+                break;
+            default:
+                std::cerr << "Error: Unexpected error." << std::endl;
+                break;
+        }
+        return false;
+    }
+    return true;
+}
+
+
 void initCacheAndDiskSize(){
     fstream fin_trace(trace_path);
     checkFile(fin_trace);
@@ -157,7 +211,7 @@ void initCacheAndDiskSize(){
     fin_trace>>s>>block_num>>disk_size>>trace_size>>block_size_KB;
     cache_size = block_num*cache_size_factor;
     block_size = block_size_KB * 1024;
-    // cout<<s<<", "<<block_num<<", "<<disk_size<<", "<<cache_size<<endl;
+    cout<<s<<", "<<block_num<<", "<<disk_size<<", "<<cache_size<<endl;
 }
 
 void run_once(){
@@ -212,33 +266,23 @@ void run(){
     cache_dir = "/mnt/eMMC/";
     mkdir(cache_dir);
     cout<<"cache_dir: "<<cache_dir<<endl;
-    // storage dir
-    // storage_dir = "../storage/";
-    // mkdir(storage_dir);
-    // cout<<"storage_dir: "<<storage_dir<<endl;
     // trace dir
     auto trace_root_dir = "../trace/";
+    // auto trace_root_dir = "../../trace_wait/";
     auto trace_dirs = find_trace_paths(trace_root_dir);
 
     for (const auto& dir : trace_dirs) {
-    // int trace_num = trace_dirs.size();
-    // for (int m = 0; m < trace_num; m++){
-        // showProgressBar(m, trace_num);
-        // auto dir = trace_dirs[m];
         trace_dir = dir;
         trace_path = trace_dir+"/trace.txt";
         std::cout<<"trace_path: "<<trace_path<<std::endl;
-
+        // storage dir
         storage_dir = trace_dir + "/storage/";
         copy_files_containing_cache(storage_dir, cache_dir);
         for(int k=0; k<2; k++){ // io
-            // showProgressBar(k, 2);
-            io_on = k;
+            io_on = 1-k;
             for(int i=0;i<cache_size_types_size;i++){ // cache_size
-                // showProgressBar(i, cache_size_types_size);
                 cache_size_index = i;
                 for(int j=0;j<policy_types_size;j++){ // cache_policy
-                    // showProgressBar(j, policy_types_size);
                     caching_policy_index = j;
                     run_once();
                 }
@@ -247,6 +291,10 @@ void run(){
     }
 }
 
+<<<<<<< HEAD
+// [tmp test]not copy disk.bin & cache.bin& use original bin
+void run_tmp(){
+=======
 // [tmp test]not copy disk.bin 
 void run_tmp4(){
     // save root
@@ -289,132 +337,28 @@ void run_tmp4(){
 
 // [tmp test]not copy disk.bin 
 void run_tmp3(){
+>>>>>>> 55ebc006e838a620cdfb1ef6d1374bcc54e8035b
     // save root
     save_root = "../records/" + getCurrentDateTime() + '/';
     mkdir(save_root);
     cout<<"save_root: "<<save_root<<endl;
-    // cache dir
-    cache_dir = "/mnt/eMMC/";
-    mkdir(cache_dir);
-    cout<<"cache_dir: "<<cache_dir<<endl;
-    // storage dir
-    // storage_dir = "../storage/";
-    // mkdir(storage_dir);
-    // cout<<"storage_dir: "<<storage_dir<<endl;
     // trace dir
     auto trace_root_dir = "../trace/";
     auto trace_dirs = find_trace_paths(trace_root_dir);
 
     for (const auto& dir : trace_dirs) {
-    // int trace_num = trace_dirs.size();
-    // for (int m = 0; m < trace_num; m++){
-        // showProgressBar(m, trace_num);
-        // auto dir = trace_dirs[m];
         trace_dir = dir;
         trace_path = trace_dir+"/trace.txt";
         std::cout<<"trace_path: "<<trace_path<<std::endl;
         
-        storage_dir = trace_dir + "/storage/";
-        // copy_files_containing_cache(storage_dir, cache_dir);
-        io_on = 0;
-        cache_size_index = cache_size_types_size-1;
+        cache_dir = storage_dir = trace_dir + "/storage/";
+        
+        io_on = 1;
 
+        cache_size_index = 4;
         for(int j=0;j<policy_types_size;j++){ // cache_policy
-            // showProgressBar(j, policy_types_size);
             caching_policy_index = j;
             run_once();
-        }
-                
-    }
-}
-
-
-// [tmp test]not copy disk.bin 
-void run_tmp2(){
-    // save root
-    save_root = "../records/" + getCurrentDateTime() + '/';
-    mkdir(save_root);
-    cout<<"save_root: "<<save_root<<endl;
-    // cache dir
-    cache_dir = "/mnt/eMMC/";
-    mkdir(cache_dir);
-    cout<<"cache_dir: "<<cache_dir<<endl;
-    // storage dir
-    // storage_dir = "../storage/";
-    // mkdir(storage_dir);
-    // cout<<"storage_dir: "<<storage_dir<<endl;
-    // trace dir
-    auto trace_root_dir = "../trace/";
-    auto trace_dirs = find_trace_paths(trace_root_dir);
-
-    for (const auto& dir : trace_dirs) {
-    // int trace_num = trace_dirs.size();
-    // for (int m = 0; m < trace_num; m++){
-        // showProgressBar(m, trace_num);
-        // auto dir = trace_dirs[m];
-        trace_dir = dir;
-        trace_path = trace_dir+"/trace.txt";
-        std::cout<<"trace_path: "<<trace_path<<std::endl;
-        
-        storage_dir = trace_dir + "/storage/";
-        copy_files_containing_cache(storage_dir, cache_dir);
-        for(int k=0; k<2; k++){ // io
-            // showProgressBar(k, 2);
-            io_on = 1;
-            for(int i=0;i<cache_size_types_size;i++){ // cache_size
-                // showProgressBar(i, cache_size_types_size);
-                cache_size_index = i;
-                for(int j=0;j<policy_types_size;j++){ // cache_policy
-                    // showProgressBar(j, policy_types_size);
-                    caching_policy_index = j;
-                    run_once();
-                }
-            }
-        }
-    }
-}
-
-// [tmp test]copy disk.bin 
-void run_tmp1(){
-    // save root
-    save_root = "../records/" + getCurrentDateTime() + '/';
-    mkdir(save_root);
-    cout<<"save_root: "<<save_root<<endl;
-    // cache dir
-    cache_dir = "/mnt/eMMC/";
-    mkdir(cache_dir);
-    cout<<"cache_dir: "<<cache_dir<<endl;
-    // storage dir
-    storage_dir = "../storage/";
-    mkdir(storage_dir);
-    cout<<"storage_dir: "<<storage_dir<<endl;
-    // trace dir
-    auto trace_root_dir = "../trace/";
-    auto trace_dirs = find_trace_paths(trace_root_dir);
-
-    for (const auto& dir : trace_dirs) {
-    // int trace_num = trace_dirs.size();
-    // for (int m = 0; m < trace_num; m++){
-        // showProgressBar(m, trace_num);
-        // auto dir = trace_dirs[m];
-        trace_dir = dir;
-        trace_path = trace_dir+"/trace.txt";
-        std::cout<<"trace_path: "<<trace_path<<std::endl;
-        std::string trace_storage_dir = trace_dir + "/storage/";
-        copy_file_to_directory(trace_storage_dir + "disk.bin", storage_dir);
-        copy_files_containing_cache(trace_storage_dir, cache_dir);
-        for(int k=0; k<2; k++){ // io
-            // showProgressBar(k, 2);
-            io_on = k;
-            for(int i=0;i<cache_size_types_size;i++){ // cache_size
-                // showProgressBar(i, cache_size_types_size);
-                cache_size_index = i;
-                for(int j=0;j<policy_types_size;j++){ // cache_policy
-                    // showProgressBar(j, policy_types_size);
-                    caching_policy_index = j;
-                    run_once();
-                }
-            }
         }
     }
 }

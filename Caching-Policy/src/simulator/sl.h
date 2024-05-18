@@ -24,6 +24,7 @@
 #include <errno.h>
 #include <sys/ioctl.h>
 #include <sys/time.h>
+#include <sys/stat.h>
 
 #include "../utils/bitmap.h"
 #include "../utils/block.h"
@@ -37,6 +38,8 @@
 using namespace std;
 
 void checkFile(fstream &file);
+bool checkSpaceEnough(int fd, ll offset, ll size);
+bool checkRes(int res);
 class Sl
 {
 public:
@@ -50,8 +53,8 @@ protected:
 
     int fd_cache, fd_disk;
     fstream fin_trace;
-    unique_ptr<char[]> buffer_read;
-    unique_ptr<char[]> buffer_write; 
+    char* buffer_read;
+    char* buffer_write; 
 
     ll curKey;
     vector<ll> free_cache;
@@ -92,6 +95,7 @@ protected:
     virtual ll getVictim() = 0;
 };
 
+
 bool Sl::readItem(vector<ll> &keys)
 {
     bool isTraceHit = true;
@@ -103,7 +107,7 @@ bool Sl::readItem(vector<ll> &keys)
         {
             st.read_hit_nums += 1;
             accessKey(keys[i], true); // [lirs] cache_map.Get(keys[i]);
-            readCache(block_map[keys[i]].offset_cache, buffer_read.get()); // cache -> buffer
+            readCache(block_map[keys[i]].offset_cache, buffer_read); // cache -> buffer
             keys[i] = -1;
         }
     }
@@ -115,8 +119,8 @@ bool Sl::readItem(vector<ll> &keys)
             // cout<<"cache miss"<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
-            readDisk(keys[i], buffer_read.get());
-            writeCacheWhenReadItem(keys[i], buffer_read.get()); // disk -> cache
+            readDisk(keys[i], buffer_read);
+            writeCacheWhenReadItem(keys[i], buffer_read); // disk -> cache
         }
     }
     // for (int i = 0; i < keys.size(); i++){
@@ -138,7 +142,7 @@ bool Sl::writeItem(vector<ll> &keys)
             st.write_hit_nums += 1;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
             block_map[keys[i]].dirty = 1;
-            writeBlock(true, block_map[keys[i]].offset_cache, block_size, buffer_write.get());
+            writeBlock(true, block_map[keys[i]].offset_cache, block_size, buffer_write);
             keys[i] = -1;
         }
     }
@@ -150,7 +154,7 @@ bool Sl::writeItem(vector<ll> &keys)
             // cout<<"miss "<<keys[i]<<endl;
             isTraceHit = false;
             accessKey(keys[i], false); // [lirs] cache_map.Add(keys[i],0);
-            writeCacheWhenWriteItem(keys[i], buffer_write.get()); // buffer -> cache
+            writeCacheWhenWriteItem(keys[i], buffer_write); // buffer -> cache
         }
     }
     // for (int i = 0; i < keys.size(); i++){
@@ -244,7 +248,7 @@ void Sl::writeCacheWhenWriteItem(const ll &key, char* buffer)
     }
 }
 
-void Sl::test()
+void Sl:: test()
 {
     // cout << "-----------------------------------------------------------------" << endl;
     // printf("test start\n");
@@ -367,15 +371,20 @@ void Sl::initFile()
         assert(fd_disk >= 0);
     }
 
-    buffer_read = make_unique<char[]>(block_size);  
-    buffer_write = make_unique<char[]>(block_size); 
-    memset(buffer_write.get(), 0, block_size); 
+    int res = posix_memalign((void **)&buffer_read, block_size, block_size);
+    assert(res == 0);
+
+    res = posix_memalign((void **)&buffer_write, block_size, block_size);
+    assert(res == 0);
+    memset(buffer_write, 0, block_size);
 }
 
 void Sl::closeFile()
 {
     close(fd_cache);
     close(fd_disk);
+    free(buffer_read);
+    free(buffer_write);
 }
 
 void Sl::printFreeCache()
@@ -396,8 +405,8 @@ void Sl::writeBack(const ll &key)
     if (block_map[key].dirty == 1)
     {
         block_map[key].dirty = 0;
-        readCache(offset_cache, buffer_read.get());
-        writeDisk(key, buffer_read.get());
+        readCache(offset_cache, buffer_read);
+        writeDisk(key, buffer_read);
     }
 }
 
@@ -409,9 +418,10 @@ void Sl::read(bool isCache, const ll &offset, const ll &size, char* buffer)
     else
         fd = fd_disk;
     assert(fd >= 0);
-
+    assert(checkSpaceEnough(fd, offset, size));
     int res = pread64(fd, buffer, size, offset);
     // cout<<"[read]isCache: "<<isCache<<", offset: "<<offset<<", res: "<<res<<endl;
+    assert(checkRes(res));
     assert(res == size);
 }
 
@@ -425,10 +435,11 @@ void Sl::write(bool isCache, const ll &offset, const ll &size, char* buffer)
         fd = fd_disk;
     // cout<<filePath<<endl;
     assert(fd >= 0);
+    assert(checkSpaceEnough(fd, offset, size));
 
     int res = pwrite64(fd, buffer, size, offset);
-    // cout<<"write: res: "<<res<<", fd: "<<fd<<", buffer: "<<buffer<<", size: "<<size<<", offset: "<<offset<<endl;
-    // printf("write: %d\n",res);
+    // cout<<"[write]isCache: "<<isCache<<", offset: "<<offset<<", res: "<<res<<endl;
+    assert(checkRes(res));
     assert(res == size);
 }
 
@@ -455,8 +466,7 @@ void Sl::writeBlock(bool isCache, const ll &offset, const ll &size, char* buffer
     gettimeofday(&begin, NULL);
     if(!io_on) return;
     assert(offset != -1);
-    if (O_DIRECT_ON)
-        write(isCache, offset, size, buffer);
+    write(isCache, offset, size, buffer);
     gettimeofday(&end, NULL);
     if (isCache)
         st.cache_write_latency.addDeltaT(st.computeDeltaT(begin, end));
@@ -474,6 +484,7 @@ void Sl::printBlock(const ll &key)
 
 void Sl::initFreeCache()
 {
+    cout << "cache_size: " << cache_size << endl;
     for (ll i = 0; i < cache_size; i++)
     {
         free_cache.push_back(i * block_size);
