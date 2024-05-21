@@ -196,17 +196,17 @@ def resetPath(power_on):
     global file_disk_path
     global file_power_path
 
-    log_dir = path_head + 'log/'
+    log_dir = os.path.join(path_head, dir_log_name)
 
-    file_cpu_usage_path = log_dir + file_cpu_usage_name
+    file_cpu_usage_path = os.path.join(log_dir, file_cpu_usage_name)
     os.chmod(file_cpu_usage_path, 0o666)
-    file_mem_used_path = log_dir + file_mem_used_name
+    file_mem_used_path = os.path.join(log_dir, file_mem_used_name)
     os.chmod(file_mem_used_path, 0o666)
-    file_disk_path = log_dir + file_disk_name
+    file_disk_path = os.path.join(log_dir, file_disk_name)
     os.chmod(file_disk_path, 0o666)
 
     if power_on:
-        file_power_path = log_dir + file_power_name
+        file_power_path = os.path.join(log_dir, file_power_name)
         convertPowerFromTxt2Xlsx()
         os.chmod(file_power_path, 0o666)
 
@@ -325,10 +325,10 @@ def process_results_for_device_test():
             'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth, 
             'Average Power(W)': list_avg_power, 'Energy(J)': list_energy, 
-            'eMMC Read Numbers': list_emmc_read_nums, 'eMMC Read Avarage Latency(ms)': list_emmc_read_avg_latency, 'eMMC Read P99 Latency(ms)':list_emmc_read_p99,
-            'eMMC Write Numbers': list_emmc_write_nums, 'eMMC Write Avarage Latency(ms)': list_emmc_write_avg_latency, 'eMMC Write P99 Latency(ms)':list_emmc_write_p99,
-            'SD Read Numbers': list_sd_read_nums, 'SD Read Avarage Latency(ms)': list_sd_read_avg_latency, 'SD Read P99 Latency(ms)':list_sd_read_p99,
-            'SD Write Numbers': list_sd_write_nums, 'SD Write Avarage Latency(ms)': list_sd_write_avg_latency, 'SD Write P99 Latency(ms)':list_sd_write_p99}
+            'eMMC Read Numbers': list_emmc_read_nums, 'eMMC Read Average Latency(ms)': list_emmc_read_avg_latency, 'eMMC Read P99 Latency(ms)':list_emmc_read_p99,
+            'eMMC Write Numbers': list_emmc_write_nums, 'eMMC Write Average Latency(ms)': list_emmc_write_avg_latency, 'eMMC Write P99 Latency(ms)':list_emmc_write_p99,
+            'SD Read Numbers': list_sd_read_nums, 'SD Read Average Latency(ms)': list_sd_read_avg_latency, 'SD Read P99 Latency(ms)':list_sd_read_p99,
+            'SD Write Numbers': list_sd_write_nums, 'SD Write Average Latency(ms)': list_sd_write_avg_latency, 'SD Write P99 Latency(ms)':list_sd_write_p99}
 
     df = pd.DataFrame(data)
     excel_file = path_head + 'statistic.xlsx'
@@ -350,7 +350,7 @@ def process_device_test():
     get_folder_list()
     process_results_for_device_test()
 
-
+dir_log_name = 'log'
 file_cpu_usage_name = 'cpu_usage.log'
 file_mem_used_name = 'mem_used.log'
 file_disk_name = 'disk_read_wrtn.log'

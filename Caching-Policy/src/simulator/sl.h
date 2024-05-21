@@ -484,7 +484,6 @@ void Sl::printBlock(const ll &key)
 
 void Sl::initFreeCache()
 {
-    cout << "cache_size: " << cache_size << endl;
     for (ll i = 0; i < cache_size; i++)
     {
         free_cache.push_back(i * block_size);

@@ -1,12 +1,16 @@
+# C
 .vscode
+# python
+.idea
+__pycache__
+
 storage
-lib
-output
 records
 trace
 trace_backup
 data_analysis
 log
+
 *.o
 *.exe
 *.bin

@@ -210,9 +210,10 @@ void initCacheAndDiskSize(){
     ll block_size_KB;
     fin_trace>>s>>block_num>>disk_size>>trace_size>>block_size_KB;
     cache_size = block_num*cache_size_factor;
-    assert(cache_size >= 10);
+    assert(cache_size >= 10); // block_num >= 500
     block_size = block_size_KB * 1024;
-    cout<<s<<", "<<block_num<<", "<<disk_size<<", "<<cache_size<<endl;
+    cout<<"block_num: "<<block_num<<", disk_size: "<<disk_size<<", trace_size: "<<trace_size
+        <<", block_size_KB: "<<block_size_KB<<", cache_size: "<<cache_size<<endl;
 }
 
 void run_once(){
