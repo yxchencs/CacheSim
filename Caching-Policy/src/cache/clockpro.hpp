@@ -136,7 +136,7 @@ namespace clockpro
 		size_t count_test;
 
 		k victim;
-		// vector<k> victimList;
+		vector<k> victimList;
 		vector<k> deletedList;
 
 		Cache(size_t size)
@@ -221,11 +221,11 @@ namespace clockpro
 			return curVictim;
 		}
 
-		// vector<k> getVictimList(){
-		// 	vector<k> curVictimList = victimList;
-		// 	victimList.clear();
-		// 	return curVictimList;
-		// }
+		vector<k> getVictimList(){
+			vector<k> curVictimList = victimList;
+			victimList.clear();
+			return curVictimList;
+		}
 
 		vector<k> getDeletedList(){
 			vector<k> curDeletedList = deletedList;
@@ -413,7 +413,7 @@ namespace clockpro
 					count_test++;
 
 					victim = mentry->key;
-					// victimList.push_back(victim);
+					victimList.push_back(victim);
 					// cout << "curVictim: " << victim << ", ptype: " << pageTypeToString(mentry->ptype) << endl;
 
 					while (_capacity < count_test)

@@ -281,7 +281,7 @@ void run(){
         storage_dir = trace_dir + "/storage/";
         copy_files_containing_cache(storage_dir, cache_dir);
         for(int k=0; k<2; k++){ // io
-            io_on = 1-k;
+            io_on = k;
             for(int i=0;i<cache_size_types_size;i++){ // cache_size
                 cache_size_index = i;
                 for(int j=0;j<policy_types_size;j++){ // cache_policy
@@ -310,9 +310,10 @@ void run_tmp(){
         
         cache_dir = storage_dir = trace_dir + "/storage/";
         
-        io_on = 1;
+        io_on = 0;
 
         cache_size_index = 4;
+
         for(int j=0;j<policy_types_size;j++){ // cache_policy
             caching_policy_index = j;
             run_once();

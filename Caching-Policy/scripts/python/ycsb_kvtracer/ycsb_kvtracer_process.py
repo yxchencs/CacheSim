@@ -218,7 +218,7 @@ def device_test():
 def caching_policy_test():
     # ycsb_root = "../../../../workloads"
     ycsb_root = "D:/Projects/YCSB/workloads"
-    disk_size_list = ["100MB"]
+    disk_size_list = ["10MB"]
     workload_type_list = ["uniform", "latest", "zipfian"]
     operation_read_ratio_list = ["read_0", "read_0.2", "read_0.4", "read_0.6", "read_0.8", "read_1"]
     save_root = "E:/projects/cs/Caching-Policy/trace"

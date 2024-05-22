@@ -6,6 +6,7 @@ int main(){
     // mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC");
 
     run();
+    // run_tmp();
     return 0;
 }
 
