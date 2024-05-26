@@ -41,6 +41,7 @@ ll TqSl::getVictim()
     return cache_map.getVictim();
 }
 
+// TODO::Delete
 void TqSl::writeCacheWhenReadItem(const ll &key, char* buffer)
 {
     ll victim = getVictim(); 
@@ -78,6 +79,7 @@ void TqSl::writeCacheWhenReadItem(const ll &key, char* buffer)
     }
 }
 
+// TODO::Delete
 void TqSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
 {
     ll victim = getVictim(); 

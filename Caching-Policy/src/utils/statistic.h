@@ -113,6 +113,7 @@ public:
     void saveLatency();
     void resetSaveDir(const string &dir);
     void makeDefaultSaveDir();
+    string getCurrentDateTime();
 
     string caching_policy;
 
@@ -155,6 +156,7 @@ Statistic::Statistic()
     total_time = 0;
     total_request_number = 0;
 }
+
 
 ll Statistic::computeDeltaT(struct timeval begin, struct timeval end)
 {

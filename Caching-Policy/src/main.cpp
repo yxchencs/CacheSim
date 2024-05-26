@@ -5,8 +5,7 @@ using namespace std;
 int main(){
     // mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC");
 
-    run();
-    // run_tmp();
+    runNoCache();
     return 0;
 }
 

@@ -34,34 +34,39 @@
 
 namespace fs = std::filesystem;
 
-// 获取当前时间点的日期时间格式化字符串，形如 2023-03-15_15:30:45
-std::string getCurrentDateTime() {
-    // 获取当前时间点
-    auto now = std::chrono::system_clock::now();
-    auto in_time_t = std::chrono::system_clock::to_time_t(now);
-
-    // 将时间格式化为字符串
-    std::stringstream ss;
-    ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d_%H-%M-%S");
-
-    return ss.str();
+double extractDiskSizeKB(const std::string& str) {
+    std::regex pattern(R"((\d+(\.\d+)?)\s*([a-zA-Z]+))");
+    std::smatch match;
+    if (std::regex_match(str, match, pattern)) {
+        std::string number = match[1];
+        std::string unit = match[3];
+        // std::cout << "number: " << number << ", unit: " << unit << std::endl;
+        if (unit == "GB") {
+            return std::stod(number) * 1024 * 1024;
+        } else if (unit == "MB") {
+            return std::stod(number) * 1024;
+        }
+    }
+    return 0.0;
 }
 
-std::vector<fs::path> find_trace_paths(const fs::path& root_dir) {
-    std::vector<fs::path> directories;
+std::vector<std::string> findTracePathsReal(const std::string& root_dir) {
+    std::vector<std::string> directories;
 
-    if (!fs::exists(root_dir) || !fs::is_directory(root_dir)) {
+    fs::path root_path(root_dir); 
+
+    if (!fs::exists(root_path) || !fs::is_directory(root_path)) {
         std::cerr << "Provided path is not a valid directory." << std::endl;
         return directories;
     }
 
-    for (const auto& entry : fs::recursive_directory_iterator(root_dir)) {
+    for (const auto& entry : fs::recursive_directory_iterator(root_path)) {
         if (entry.is_regular_file() && entry.path().filename() == "trace.txt") {
             fs::path parent_dir = entry.path().parent_path();
             fs::path storage_dir = parent_dir / "storage";
 
             if (fs::exists(storage_dir) && fs::is_directory(storage_dir)) {
-                directories.push_back(parent_dir);
+                directories.push_back(parent_dir.string()); 
             }
         }
     }
@@ -69,8 +74,40 @@ std::vector<fs::path> find_trace_paths(const fs::path& root_dir) {
     return directories;
 }
 
-std::vector<fs::path> find_trace_paths_shard_storage(const fs::path& root_dir) {
-    std::vector<fs::path> directories;
+std::vector<std::string> findTracePathsYcsb(const std::string& root_dir) {
+    std::vector<std::string> directories;
+
+    fs::path root_path(root_dir); 
+    if (!fs::exists(root_path) || !fs::is_directory(root_path)) {
+        std::cerr << "Provided path is not a valid directory." << std::endl;
+        return directories;
+    }
+
+    for (const auto& entry : fs::recursive_directory_iterator(root_path)) {
+        if (entry.is_regular_file() && entry.path().filename() == "trace.txt") {
+            fs::path parent_dir = entry.path().parent_path();
+            directories.push_back(parent_dir.string()); 
+        }
+    }
+
+    return directories;
+}
+
+std::vector<std::string> findTraceRootNames(const std::string& folder_path) {
+    std::vector<std::string> trace_roots;
+
+    // 遍历文件夹中的文件和子文件夹
+    for (const auto& entry : fs::directory_iterator(folder_path)) {
+        if (entry.is_directory()) {
+            trace_roots.push_back(entry.path().filename().string());
+        }
+    }
+
+    return trace_roots;
+}
+
+std::vector<std::string> findTracePathsSharedStorage(const fs::path& root_dir) {
+    std::vector<std::string> directories;
 
     if (!fs::exists(root_dir) || !fs::is_directory(root_dir)) {
         std::cerr << "Provided path is not a valid directory." << std::endl;
@@ -79,14 +116,14 @@ std::vector<fs::path> find_trace_paths_shard_storage(const fs::path& root_dir) {
 
     for (const auto& entry : fs::recursive_directory_iterator(root_dir)) {
         if (entry.is_regular_file() && entry.path().filename() == "trace.txt") {
-            directories.push_back(entry.path().parent_path());
+            directories.push_back(entry.path().parent_path().string());
         }
     }
 
     return directories;
 }
 
-bool copy_file_to_directory(const fs::path& source_file, const fs::path& target_directory) {
+bool copyFileToDirectory(const fs::path& source_file, const fs::path& target_directory) {
     fs::path target_file = target_directory / source_file.filename();
 
     try {
@@ -106,7 +143,7 @@ bool copy_file_to_directory(const fs::path& source_file, const fs::path& target_
     }
 }
 
-void copy_files_containing_cache(const fs::path& source_directory, const fs::path& target_directory) {
+void copyFilesContainingCache(const fs::path& source_directory, const fs::path& target_directory) {
     if (!fs::exists(source_directory) || !fs::is_directory(source_directory)) {
         std::cerr << "source dir does not exist or not valid: "<<source_directory.string() << std::endl;
         return;
@@ -116,7 +153,7 @@ void copy_files_containing_cache(const fs::path& source_directory, const fs::pat
         if (entry.is_regular_file()) {
             std::string filename = entry.path().filename().string();
             if (filename.find("cache") != std::string::npos) {
-                assert(copy_file_to_directory(entry.path(), target_directory));
+                assert(copyFileToDirectory(entry.path(), target_directory));
             }
         }
     }
@@ -132,6 +169,24 @@ std::string getSubstringAfter(const std::string& original, const std::string& to
         // 如果 to_find 未找到，可以返回原始字符串或空字符串
         return original;  // 或者返回 ""
     }
+}
+
+string getCurrentDateTime() {
+    auto now = std::chrono::system_clock::now();
+    auto in_time_t = std::chrono::system_clock::to_time_t(now);
+
+    std::stringstream ss;
+    ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d_%H-%M-%S");
+
+    return ss.str();
+}
+
+
+void makeSaveRoot() {
+    // save root
+    save_root = "../records/" + getCurrentDateTime() + '/';
+    mkdir(save_root);
+    cout<<"save_root: "<<save_root<<endl;
 }
 
 void mkdir(string path){
@@ -203,7 +258,7 @@ bool checkRes(int res) {
 }
 
 
-void initCacheAndDiskSize(){
+void initParm(){
     fstream fin_trace(trace_path);
     checkFile(fin_trace);
     string s;
@@ -216,13 +271,14 @@ void initCacheAndDiskSize(){
         <<", block_size_KB: "<<block_size_KB<<", cache_size: "<<cache_size<<endl;
 }
 
-void run_once(){
+
+void runRealOnce(){
     std::this_thread::sleep_for(std::chrono::seconds(20));
 
     printf("--------------------------------------------------------------------------------\n");
     std::unique_ptr<Sl> sim = nullptr;
     cache_size_factor = cacheSizeTypes[cache_size_index];
-    initCacheAndDiskSize();
+    initParm();
     cache_path = cache_dir+cachePath[cache_size_index];
     cout<<"cache_path: "<<cache_path<<endl;
     switch(policyTypes[caching_policy_index]){
@@ -259,11 +315,8 @@ void run_once(){
     sim->statistic();
 }
 
-void run(){
-    // save root
-    save_root = "../records/" + getCurrentDateTime() + '/';
-    mkdir(save_root);
-    cout<<"save_root: "<<save_root<<endl;
+void runReal(){
+    makeSaveRoot();
     // cache dir
     cache_dir = "/mnt/eMMC/";
     mkdir(cache_dir);
@@ -271,7 +324,7 @@ void run(){
     // trace dir
     auto trace_root_dir = "../trace/";
     // auto trace_root_dir = "../../trace_wait/";
-    auto trace_dirs = find_trace_paths(trace_root_dir);
+    auto trace_dirs = findTracePathsReal(trace_root_dir);
 
     for (const auto& dir : trace_dirs) {
         trace_dir = dir;
@@ -279,29 +332,28 @@ void run(){
         std::cout<<"trace_path: "<<trace_path<<std::endl;
         // storage dir
         storage_dir = trace_dir + "/storage/";
-        copy_files_containing_cache(storage_dir, cache_dir);
+        copyFilesContainingCache(storage_dir, cache_dir);
         for(int k=0; k<2; k++){ // io
             io_on = k;
             for(int i=0;i<cache_size_types_size;i++){ // cache_size
                 cache_size_index = i;
                 for(int j=0;j<policy_types_size;j++){ // cache_policy
                     caching_policy_index = j;
-                    run_once();
+                    runRealOnce();
                 }
             }
         }
     }
 }
 
+
+
 // [tmp test]not copy disk.bin & cache.bin& use original bin
-void run_tmp(){
-    // save root
-    save_root = "../records/" + getCurrentDateTime() + '/';
-    mkdir(save_root);
-    cout<<"save_root: "<<save_root<<endl;
+void runRealTest(){
+    makeSaveRoot();
     // trace dir
     auto trace_root_dir = "../trace/";
-    auto trace_dirs = find_trace_paths(trace_root_dir);
+    auto trace_dirs = findTracePathsReal(trace_root_dir);
 
     for (const auto& dir : trace_dirs) {
         trace_dir = dir;
@@ -314,22 +366,40 @@ void run_tmp(){
 
         cache_size_index = 4;
 
-        for(int j=0;j<policy_types_size;j++){ // cache_policy
-            caching_policy_index = j;
-            run_once();
-        }
+        caching_policy_index = 6;
+        runRealOnce();
+
+        // for(int j=0;j<policy_types_size;j++){ // cache_policy
+        //     caching_policy_index = j;
+        //     runRealOnce();
+        // }
     }
 }
 
-// for run2()
-void run_once2(){
+
+// ycsb test
+void initParmYcsb(){
+    fstream fin_trace(trace_path);
+    checkFile(fin_trace);
+    string s;
+    ll block_size_KB;
+    fin_trace>>s>>block_num>>disk_size>>trace_size>>block_size_KB;
+    disk_size = disk_size_KB / block_size_KB;
+    cache_size = disk_size*cache_size_factor;
+    assert(cache_size >= 10); // block_num >= 500
+    block_size = block_size_KB * 1024;
+    cout<<"block_num: "<<block_num<<", disk_size: "<<disk_size<<", trace_size: "<<trace_size
+        <<", block_size_KB: "<<block_size_KB<<", cache_size: "<<cache_size<<endl;
+}
+
+void runYcsbOnce(){
     std::this_thread::sleep_for(std::chrono::seconds(20));
 
     printf("--------------------------------------------------------------------------------\n");
     std::unique_ptr<Sl> sim = nullptr;
-    cache_size_factor = cacheSizeTypes2[cache_size_index];
-    initCacheAndDiskSize();
-    cache_path = cache_dir+cachePath2[cache_size_index];
+    cache_size_factor = cacheSizeTypes[cache_size_index];
+    initParmYcsb();
+    cache_path = cache_dir+cachePath[cache_size_index];
     cout<<"cache_path: "<<cache_path<<endl;
     switch(policyTypes[caching_policy_index]){
         case PolicyType::RANDOM: 
@@ -365,147 +435,149 @@ void run_once2(){
     sim->statistic();
 }
 
-// 测试memory使用，选择uniform分布，数据集设置大一点，比如20gb，然后cache size设置8% 16% 32%
-void run2(){
-    save_root = "../records/" + getCurrentDateTime() + '/';
-    cout<<"save_root: "<<save_root<<endl;
-    mkdir(save_root);
+
+void runYcsb(){
+    makeSaveRoot();
+    // cache dir
     cache_dir = "/mnt/eMMC/";
-    block_size = 4 * 1024;
-    // cout<<"cache_dir: "<<cache_dir<<endl;
     mkdir(cache_dir);
-
-    auto trace_root_dir = "../trace/";
-    auto trace_dirs = find_trace_paths(trace_root_dir);
-    for (const auto& dir : trace_dirs) {
-        trace_dir = dir;
-        trace_path = trace_dir+"/trace.txt";
-        std::cout<<"trace_path: "<<trace_path<<std::endl;
-        storage_dir = trace_dir + "/storage/";
-
-        copy_files_containing_cache(storage_dir, cache_dir);
-        for(int k=0; k<2; k++){
-            io_on = k;
-            for(int i=0;i<cache_size_types_size2;i++){
-                cache_size_index = i;
-                for(int j=0;j<policy_types_size;j++){
-                    caching_policy_index = j;
-                    run_once2();
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // trace dir
+    string trace_root_dir = "../trace/";
+    // auto trace_root_dir = "../../trace_wait/";
+    auto trace_root_names = findTraceRootNames(trace_root_dir);
+    for (const auto& root_name : trace_root_names) { // disk_size = trace_name
+        cout << "trace: " << root_name << endl;
+        string trace_root = trace_root_dir + '/' + root_name;
+        disk_size_KB = extractDiskSizeKB(root_name);
+        storage_dir = trace_root + "/storage/";
+        copyFilesContainingCache(storage_dir, cache_dir);
+        auto trace_dirs = findTracePathsYcsb(trace_root);
+        for (const auto& dir : trace_dirs) {
+            trace_dir = dir;
+            trace_path = trace_dir+"/trace.txt";
+            std::cout<<"single_trace_path: "<<trace_path<<std::endl;
+            for(int k=0; k<2; k++){ // io
+                io_on = k;
+                for(int i=0;i<cache_size_types_size;i++){ // cache_size
+                    cache_size_index = i;
+                    for(int j=0;j<policy_types_size;j++){ // cache_policy
+                        caching_policy_index = j;
+                        runYcsbOnce();
+                    }
                 }
             }
         }
     }
 }
 
+void runYcsbTest(){
+    makeSaveRoot();
+    // cache dir
+    cache_dir = "/mnt/eMMC/";
+    mkdir(cache_dir);
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // trace dir
+    string trace_root_dir = "../trace/";
+    auto trace_root_names = findTraceRootNames(trace_root_dir);
+    for (const auto& root_name : trace_root_names) { // disk_size = trace_name
+        cout << "trace: " << root_name << endl;
+        string trace_root = trace_root_dir + '/' + root_name;
+        disk_size_KB = extractDiskSizeKB(root_name);
+        storage_dir = trace_root + "/storage/";
+        copyFilesContainingCache(storage_dir, cache_dir);
+        auto trace_dirs = findTracePathsYcsb(trace_root);
+        for (const auto& dir : trace_dirs) {
+            trace_dir = dir;
+            trace_path = trace_dir+"/trace.txt";
+            std::cout<<"single_trace_path: "<<trace_path<<std::endl;
+                io_on = 0;
+                for(int i=0;i<cache_size_types_size;i++){ // cache_size
+                    cache_size_index = i;
+                    caching_policy_index = 3;
+                    runYcsbOnce();
+                }
+        }
+    }
+}
+
+
+
+
+// No Cache Test
+
+void initParmNoCache(){
+    fstream fin_trace(trace_path);
+    checkFile(fin_trace);
+    string s;
+    ll block_size_KB;
+    fin_trace>>s>>block_num>>disk_size>>trace_size>>block_size_KB;
+    block_size = block_size_KB * 1024;
+    cout<<"block_num: "<<block_num<<", disk_size: "<<disk_size<<", trace_size: "<<trace_size
+        <<", block_size_KB: "<<block_size_KB<<", cache_size: "<<cache_size<<endl;
+}
+
+
 // @brief 测试无缓存直接读写设备(sd/eMMC)的性能
 // @param trace_path
 // @param device_id
 // @param device_path
 // @param block_size
-void run_no_cache_once(std::string operation_read_ratio, ll block_size_KB, std::string device_id, std::string device_path)
+void runNoCacheOnce(std::string device_id, std::string device_path)
 {
     std::this_thread::sleep_for(std::chrono::seconds(20));
-    std::cout << "operation_read_ratio: " << operation_read_ratio << ", block_size_KB: " << block_size_KB
-    <<", device_id: " << device_id << ", device_path: " << device_path << std::endl;
-    block_size = block_size_KB * 1024;
-    NoCacheSl sl(operation_read_ratio, device_id, device_path);
+    std::cout <<"device_id: " << device_id << ", device_path: " << device_path << std::endl;
+    NoCacheSl sl(device_id, device_path);
     sl.test();
     sl.statistic();
 }
 
-// void run_no_cache_example(){
-//     save_root = "../records/" + getCurrentDateTime() + '/';
-//     trace_dir = "../trace/uniform/r100w_o15w_0.99/read_0/";
-//     trace_path = trace_dir + "trace.txt";
-//     ll block_size_KB = 4;
-//     std::string device_id = "disk";
-//     std::string device_path = trace_dir + "storage/disk.bin";
-//     run_no_cache_once(block_size_KB, device_id, device_path);
-// }
+void runNoCache(){
+    makeSaveRoot();
 
-// void run_no_cache(){
-//     std::string device_id;
-//     std::string device_path;
-
-//     save_root = "../records/" + getCurrentDateTime() + '/';
-//     mkdir(save_root);
-//     std::string emmc_dir = "/mnt/eMMC/";
-//     mkdir(emmc_dir);
-//     std::string sd_dir = "../storage/";
-//     mkdir(sd_dir);
-
-//     ll list_block_size_KB[] = {1, 4, 16, 64, 256, 1024};
-
-//     auto trace_dirs = find_trace_paths("../trace/");
-
-//     for (const auto &dir : trace_dirs)
-//     {
-//         trace_dir = dir;
-//         trace_path = trace_dir + "/trace.txt";
-//         std::cout << "trace_path: " << trace_path << std::endl;
-//         std::string disk_dir = trace_dir + "/storage/disk.bin";
-
-//         device_id = "sd";
-//         device_path = sd_dir + "disk.bin";
-//         // copy_files_containing_cache(storage_dir, sd_dir);
-//         for (auto block_size_KB : list_block_size_KB)
-//             run_no_cache_once(block_size_KB, device_id, device_path);
-
-//         device_id = "emmc";
-//         device_path = emmc_dir + "disk.bin";
-//         // copy_files_containing_cache(storage_dir, emmc_dir);
-//         for (auto block_size_KB : list_block_size_KB)
-//             run_no_cache_once(block_size_KB, device_id, device_path);
-//     }
-// }
-
-// Need copy disk.bin manually
-void run_no_cache_fixed_disk_size(){
     std::string device_id;
     std::string device_path;
-    initCacheAndDiskSize();
-    save_root = "../records/" + getCurrentDateTime() + '/';
-    mkdir(save_root);
-    std::string emmc_dir = "/mnt/eMMC/";
-    mkdir(emmc_dir);
-    std::string sd_dir = "../storage/";
-    mkdir(sd_dir);
     std::string disk_name = "disk.bin";
 
-    std::regex re("(\\d+)KB");
-    std::smatch matches;
-    int block_size_KB;
+    // emmc dir
+    std::string emmc_dir = "/mnt/eMMC/";
+    mkdir(emmc_dir);
+    cout<<"emmc_dir: "<<emmc_dir<<endl;
+    // sd dir
+    std::string sd_dir = "../storage/";
+    mkdir(sd_dir);
+    cout<<"sd_dir: "<<sd_dir<<endl;
+    // trace dir
+    string trace_root_dir = "../trace/";
+    auto trace_root_names = findTraceRootNames(trace_root_dir);
+    for (const auto& root_name : trace_root_names) { // disk_size = trace_name
+        cout << "trace: " << root_name << endl;
+        string trace_root = trace_root_dir + '/' + root_name;
+        disk_size_KB = extractDiskSizeKB(root_name);
+        storage_dir = trace_root + "/storage/";
+        string disk_dir = storage_dir + '/' + disk_name;
+        copyFileToDirectory(disk_dir, sd_dir);
+        copyFileToDirectory(disk_dir, emmc_dir);
+        auto trace_dirs = findTracePathsYcsb(trace_root);
+        for (const auto& dir : trace_dirs) {
+            trace_dir = dir;
+            trace_path = trace_dir+"/trace.txt";
+            initParmNoCache();
 
-    std::string trace_root = "../trace/";
-    vector<std::string> operation_read_ratio_list = {"read_1", "read_0"};
-    for(auto operation_read_ratio: operation_read_ratio_list) {
-        auto trace_dirs = find_trace_paths_shard_storage(trace_root+"/"+operation_read_ratio+"/");
-        for (const auto &dir : trace_dirs)
-        {
-            trace_dir = dir.string();
-            std::cout << "trace_dir: " << trace_dir << std::endl;
-            if (std::regex_search(trace_dir, matches, re)) {
-                // std::cout << "Number extracted: " << matches[1] << std::endl;
-                block_size_KB = std::stoi(matches[1]);
-            } else {
-                std::cout << "No number found." << std::endl;
-                continue;
-            }
+            std::cout<<"single_trace_path: "<<trace_path<<std::endl;
 
-            trace_path = trace_dir + "/trace.txt";
-            std::cout << "trace_path: " << trace_path << std::endl;
-            // std::string disk_dir = trace_dir + "/storage/" + disk_name; // Copying manually
-
+            // sd
             device_id = "sd";
             device_path = sd_dir + "/" + disk_name;
-            // copy_file_to_directory(disk_dir, sd_dir);
-            run_no_cache_once(operation_read_ratio, block_size_KB, device_id, device_path);
+            runNoCacheOnce(device_id, device_path);
 
+            // emmc 
             device_id = "emmc";
             device_path = emmc_dir + "/" + disk_name;
-            // copy_file_to_directory(disk_dir, emmc_dir);
-            run_no_cache_once(operation_read_ratio, block_size_KB, device_id, device_path);
+            runNoCacheOnce(device_id, device_path);
+
         }
     }
 }
+
 #endif /*_RUN_HPP_INCLUDED_*/

@@ -5,6 +5,7 @@ typedef long long ll;
 
 size_t block_num;
 ll disk_size; // Unit: block_size
+ll disk_size_KB; // Unit: KB
 bool io_on; // 控制是否开启读写IO
 int cache_size_index;
 int caching_policy_index;
