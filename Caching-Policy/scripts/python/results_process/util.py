@@ -1,7 +1,6 @@
 import pandas as pd
 import os
 from datetime import datetime, timedelta
-import re
 
 def convert_to_numeric(value):
     if value.endswith("KB"):
@@ -231,6 +230,9 @@ def extract_statistic(filename, rdwr_only):
     if not rdwr_only:
         bias = 2
     lines = data.strip().split('\n')
+    hit_ratio = 0
+    if len(lines[13 + bias].split())>3:
+        hit_ratio = float(lines[13 + bias].split()[3])
     total_time = float(lines[15 + bias].split()[2])
     avg_latency = float(lines[16 + bias].split()[2])
     p99 = float(lines[17 + bias].split('=')[2].split()[0])
@@ -262,7 +264,7 @@ def extract_statistic(filename, rdwr_only):
 
     # print(time_begin, time_end)
 
-    return total_time, \
+    return hit_ratio, total_time, \
            p99, avg_latency, time_begin, time_end, bandwidth, \
            emmc_read_nums, emmc_read_avg_latency, emmc_read_p99, \
            emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \

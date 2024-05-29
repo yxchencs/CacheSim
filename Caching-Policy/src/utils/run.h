@@ -386,10 +386,10 @@ void initParmYcsb(){
     fin_trace>>s>>block_num>>disk_size>>trace_size>>block_size_KB;
     disk_size = disk_size_KB / block_size_KB;
     cache_size = disk_size*cache_size_factor;
-    assert(cache_size >= 10); // block_num >= 500
     block_size = block_size_KB * 1024;
     cout<<"block_num: "<<block_num<<", disk_size: "<<disk_size<<", trace_size: "<<trace_size
         <<", block_size_KB: "<<block_size_KB<<", cache_size: "<<cache_size<<endl;
+    assert(cache_size >= 10); // block_num >= 500
 }
 
 void runYcsbOnce(){
@@ -450,6 +450,7 @@ void runYcsb(){
         cout << "trace: " << root_name << endl;
         string trace_root = trace_root_dir + '/' + root_name;
         disk_size_KB = extractDiskSizeKB(root_name);
+        cout << "disk_size_KB: " << disk_size_KB << " KB" << endl;
         storage_dir = trace_root + "/storage/";
         copyFilesContainingCache(storage_dir, cache_dir);
         auto trace_dirs = findTracePathsYcsb(trace_root);
@@ -491,7 +492,7 @@ void runYcsbTest(){
             trace_dir = dir;
             trace_path = trace_dir+"/trace.txt";
             std::cout<<"single_trace_path: "<<trace_path<<std::endl;
-                io_on = 0;
+                io_on = 1;
                 for(int i=0;i<cache_size_types_size;i++){ // cache_size
                     cache_size_index = i;
                     caching_policy_index = 3;

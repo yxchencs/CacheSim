@@ -174,6 +174,7 @@ def generate_storage(output_path, disk_size_B):
                 create_storage_file(cache_file_path, disk_size_B * cache_size * (1 + file_size_save_threshold))
         print("done generate storage")
 
+
 def process_workload(trace_dir, trace_save_root, block_size_KB):
     os.makedirs(trace_save_root, exist_ok=True)
     print("process:", trace_dir)
@@ -186,7 +187,7 @@ def test():
         for workload_type in workload_type_list:
             for operation_read_ratio in operation_read_ratio_list:
                 for block_size_KB in block_size_KB_list:
-                    path = os.path.join(disk_size, workload_type, operation_read_ratio, str(block_size_KB)+'KB')
+                    path = os.path.join(disk_size, workload_type, operation_read_ratio, str(block_size_KB) + 'KB')
                     print(f"path: {path}")
                     trace_root = os.path.join(ycsb_root, path)
                     trace_save_root = os.path.join(save_root, path)
@@ -196,8 +197,6 @@ def test():
         storage_path = os.path.join(save_root, disk_size)
         disk_size_B = util.extract_disk_size(disk_size)
         generate_storage(storage_path, disk_size_B)
-
-
 
 
 ycsb_trace_run_name = "trace_run.txt"
@@ -213,22 +212,22 @@ do_generate_trace = True
 do_generate_storage = True
 check_trace_exist = False
 check_storage_exist = False
-cache_or_device = False
-save_root = "E:/projects/cs/Caching-Policy/trace"
+cache_or_device = True
+save_root = "E:/projects/cs/Caching-Policy/trace_backup"
 
 # device test
 ycsb_root = 'D:\Projects\YCSB\workloads/'
-disk_size_list = ["1GB"]
-workload_type_list = ["uniform"]
-operation_read_ratio_list = ["read_0","read_1"]
+disk_size_list = ["2GB"]
+workload_type_list = ["uniform", "latest"]
+operation_read_ratio_list = ["read_0", "read_0.2", "read_0.4", "read_0.6", "read_0.8", "read_1"]
 block_size_KB_list = [1, 2, 4, 8, 16, 64, 256, 1024, 4096]
 
 # cache test
 cache_size_list = [0.02, 0.04, 0.06, 0.08, 0.1]
-# operation_read_ratio_list = ["read_0", "read_0.2", "read_0.4", "read_0.6", "read_0.8", "read_1"]
+
+
 
 if __name__ == '__main__':
-    # caching_policy_test()
     test()
     max_disk_size = max_disk_size / 1024 / 1024
     min_disk_size = min_disk_size / 1024 / 1024

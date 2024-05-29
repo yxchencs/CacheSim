@@ -1,9 +1,10 @@
 import os
 import pandas as pd
 import util
+import tqdm
 
 
-# trace_name/1GB/uniform/read_1/4KB/io_on/0.1/2q
+# 1GB/uniform/read_1/4KB/io_on/0.1/2q
 def get_folder_list():
     global disk_size_list
     global io_list
@@ -64,7 +65,7 @@ def process_results():
     global cache_size_list
     global cache_policy_list
 
-    list_total, list_p99, list_avg_latency = [], [], []
+    list_hit_ratio, list_total, list_p99, list_avg_latency = [], [], [], []
     list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn = [], [], [], [], [], []
     list_time_begin, list_time_end = [], []
     list_bandwidth = []
@@ -74,7 +75,7 @@ def process_results():
     list_sd_read_nums, list_sd_read_avg_latency, list_sd_read_p99 = [], [], []
     list_sd_write_nums, list_sd_write_avg_latency, list_sd_write_p99 = [], [], []
 
-    for i in range(len(util.operation_read_ratio_list)):
+    for i in tqdm.trange(len(util.operation_read_ratio_list)):
         disk_size = disk_size_list[i]
         workload_type = util.workload_type_list[i]
         operation_read_ratio = util.operation_read_ratio_list[i]
@@ -92,7 +93,7 @@ def process_results():
             rdwr_only = True
         file_statistic_path = os.path.join(file_path_begin, util.file_statistic_name)
 
-        total, p99, avg_latency, \
+        hit_ratio, total, p99, avg_latency, \
         time_begin, time_end, bandwidth, \
         emmc_read_nums, emmc_read_avg_latency, emmc_read_p99, \
         emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \
@@ -115,6 +116,7 @@ def process_results():
         list_sd_kb_read.append(sd_kb_read)
         list_sd_kb_wrtn.append(sd_kb_wrtn)
 
+        list_hit_ratio.append(hit_ratio)
         list_total.append(total)
         list_p99.append(p99)
         list_avg_latency.append(avg_latency)
@@ -154,6 +156,7 @@ def process_results():
             'IO(on/off)': io_list,
             'Cache Size': cache_size_list,
             'Caching Policy': list_cache_policy,
+            'Hit Ratio': list_hit_ratio,
             'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99,
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
             'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
@@ -188,7 +191,7 @@ cache_policy_list = []
 
 if __name__ == '__main__':
     path_root = 'E:/projects/records'
-    folder_list = ['2024-05-22_19-32-49']
+    folder_list = ['2024-05-28_16-54-26_real_3']
     for folder in folder_list:
         util.path_head = os.path.join(path_root, folder)
         process_cache_test()

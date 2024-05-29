@@ -4,8 +4,9 @@ using namespace std;
 
 int main(){
     // mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC");
-
-    runNoCache();
+    // runYcsb();
+    runYcsbTest();
+    // runNoCache();
     return 0;
 }
 

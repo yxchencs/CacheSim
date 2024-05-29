@@ -1,7 +1,10 @@
 import os
 import pandas as pd
 import util
+import tqdm
 
+
+# 1GB/uniform/read_1/4KB/emmc
 def get_folder_list():
     global device_id_list
 
@@ -37,9 +40,8 @@ def process_results_for_device_test():
     list_sd_read_nums, list_sd_read_avg_latency, list_sd_read_p99 = [], [], []
     list_sd_write_nums, list_sd_write_avg_latency, list_sd_write_p99 = [], [], []
 
-    rdwr_only = True  # ratio == 'read_1' or ratio == 'read_0'
 
-    for i in range(len(util.operation_read_ratio_list)):
+    for i in tqdm.trange(len(util.operation_read_ratio_list)):
         operation_read_ratio = util.operation_read_ratio_list[i]
         device_id = device_id_list[i]
         block_size = util.block_size_list[i]
@@ -52,7 +54,7 @@ def process_results_for_device_test():
             rdwr_only = True
         file_statistic_path = os.path.join(file_path_begin, util.file_statistic_name)
 
-        total, p99, avg_latency, \
+        hit_ratio, total, p99, avg_latency, \
         time_begin, time_end, bandwidth, \
         emmc_read_nums, emmc_read_avg_latency, emmc_read_p99, \
         emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \
