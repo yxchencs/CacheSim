@@ -217,15 +217,13 @@ save_root = "E:/projects/cs/Caching-Policy/trace_backup"
 
 # device test
 ycsb_root = 'D:\Projects\YCSB\workloads/'
-disk_size_list = ["2GB"]
-workload_type_list = ["uniform", "latest"]
+disk_size_list = ["125MB"]
+workload_type_list = ["latest", "uniform", "zipfian"]
 operation_read_ratio_list = ["read_0", "read_0.2", "read_0.4", "read_0.6", "read_0.8", "read_1"]
 block_size_KB_list = [1, 2, 4, 8, 16, 64, 256, 1024, 4096]
 
 # cache test
 cache_size_list = [0.02, 0.04, 0.06, 0.08, 0.1]
-
-
 
 if __name__ == '__main__':
     test()

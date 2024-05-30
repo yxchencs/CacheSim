@@ -47,7 +47,8 @@ def process_results_for_device_test():
         block_size = util.block_size_list[i]
 
         file_path_begin = os.path.join(util.path_head, operation_read_ratio, device_id, block_size)
-        print('data process:', file_path_begin)
+        if util.PRINT_INFO:
+            print('data process:', file_path_begin)
 
         rdwr_only = False
         if operation_read_ratio == 'read_1' or operation_read_ratio == 'read_0':

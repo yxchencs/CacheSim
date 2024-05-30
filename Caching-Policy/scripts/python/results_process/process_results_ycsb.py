@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import util
+import util2
 import tqdm
 
 
@@ -12,8 +12,8 @@ def get_folder_list():
     global cache_policy_list
 
     # disk_size
-    for folder1 in os.listdir(util.path_head):
-        sub_dir1 = os.path.join(util.path_head, folder1)
+    for folder1 in os.listdir(util2.path_head):
+        sub_dir1 = os.path.join(util2.path_head, folder1)
         if os.path.isdir(sub_dir1) and folder1 != 'log':
             # workload_type
             for folder2 in os.listdir(sub_dir1):
@@ -40,18 +40,18 @@ def get_folder_list():
                                                         sub_dir7 = os.path.join(sub_dir6, folder7)
                                                         if os.path.isdir(sub_dir7):
                                                             disk_size_list.append(folder1)
-                                                            util.workload_type_list.append(folder2)
-                                                            util.operation_read_ratio_list.append(folder3)
-                                                            util.block_size_list.append(folder4)
+                                                            util2.workload_type_list.append(folder2)
+                                                            util2.operation_read_ratio_list.append(folder3)
+                                                            util2.block_size_list.append(folder4)
                                                             io_list.append(folder5)
                                                             cache_size_list.append(folder6)
                                                             cache_policy_list.append(folder7)
 
-    if util.PRINT_INFO:
+    if util2.PRINT_INFO:
         print(f"disk_size_list({len(disk_size_list)}):{disk_size_list}")
-        print(f"workload_type_list({len(util.workload_type_list)}):{util.workload_type_list}")
-        print(f"operation_read_ratio_list({len(util.operation_read_ratio_list)}):{util.operation_read_ratio_list}")
-        print(f"block_size_list({len(util.block_size_list)}):{util.block_size_list}")
+        print(f"workload_type_list({len(util2.workload_type_list)}):{util2.workload_type_list}")
+        print(f"operation_read_ratio_list({len(util2.operation_read_ratio_list)}):{util2.operation_read_ratio_list}")
+        print(f"block_size_list({len(util2.block_size_list)}):{util2.block_size_list}")
         print(f"io_list({len(io_list)}):{io_list}")
         print(f"cache_size_list({len(cache_size_list)}):{cache_size_list}")
         print(f"cache_policy_list({len(cache_policy_list)}):{cache_policy_list}")
@@ -75,23 +75,24 @@ def process_results():
     list_sd_read_nums, list_sd_read_avg_latency, list_sd_read_p99 = [], [], []
     list_sd_write_nums, list_sd_write_avg_latency, list_sd_write_p99 = [], [], []
 
-    for i in tqdm.trange(len(util.operation_read_ratio_list)):
+    for i in tqdm.trange(len(util2.operation_read_ratio_list)):
         disk_size = disk_size_list[i]
-        workload_type = util.workload_type_list[i]
-        operation_read_ratio = util.operation_read_ratio_list[i]
-        block_size = util.block_size_list[i]
+        workload_type = util2.workload_type_list[i]
+        operation_read_ratio = util2.operation_read_ratio_list[i]
+        block_size = util2.block_size_list[i]
         io = io_list[i]
         cache_size = cache_size_list[i]
         cache_policy = cache_policy_list[i]
 
-        file_path_begin = os.path.join(util.path_head, disk_size, workload_type, operation_read_ratio,
+        file_path_begin = os.path.join(util2.path_head, disk_size, workload_type, operation_read_ratio,
                                        block_size, io, cache_size, cache_policy)
-        print('data process:', file_path_begin)
+        if util2.PRINT_INFO:
+            print('data process:', file_path_begin)
 
         rdwr_only = False
         if operation_read_ratio == 'read_1' or operation_read_ratio == 'read_0':
             rdwr_only = True
-        file_statistic_path = os.path.join(file_path_begin, util.file_statistic_name)
+        file_statistic_path = os.path.join(file_path_begin, util2.file_statistic_name)
 
         hit_ratio, total, p99, avg_latency, \
         time_begin, time_end, bandwidth, \
@@ -99,17 +100,17 @@ def process_results():
         emmc_write_nums, emmc_write_avg_latency, emmc_write_p99, \
         sd_read_nums, sd_read_avg_latency, sd_read_p99, \
         sd_write_nums, sd_write_avg_latency, sd_write_p99 = \
-            util.extract_statistic(
+            util2.extract_statistic(
                 file_statistic_path,
                 rdwr_only)
 
         list_cpu_usage.append(
-            util.calculate_avg_cpu_usage(util.file_cpu_usage_path, time_begin, time_end))
-        list_mem_used.append(util.calculate_avg_mem_used(util.file_mem_used_path, time_begin, time_end))
+            util2.calculate_avg_cpu_usage(util2.file_cpu_usage_path, time_begin, time_end))
+        list_mem_used.append(util2.calculate_avg_mem_used(util2.file_mem_used_path, time_begin, time_end))
         emmc_kb_read, emmc_kb_wrtn, sd_kb_read, sd_kb_wrtn \
-            = util.calculate_disk_read_wrtn(util.file_disk_path, time_begin, time_end)
+            = util2.calculate_disk_read_wrtn(util2.file_disk_path, time_begin, time_end)
 
-        list_avg_power.append(util.calculate_avg_power(util.file_power_path, time_begin, time_end))
+        list_avg_power.append(util2.calculate_avg_power(util2.file_power_path, time_begin, time_end))
 
         list_emmc_kb_read.append(emmc_kb_read)
         list_emmc_kb_wrtn.append(emmc_kb_wrtn)
@@ -139,10 +140,10 @@ def process_results():
         list_sd_write_avg_latency.append(sd_write_avg_latency)
         list_sd_write_p99.append(sd_write_p99)
 
-    list_cache_policy = [util.convert_cache_policy(x) for x in cache_policy_list]
-    list_disk_size = [util.convert_to_numeric(x) for x in disk_size_list]
-    list_block_size = [util.convert_to_numeric(x) for x in util.block_size_list]
-    list_operation_read_ratio = [util.convert_to_numeric(x) for x in util.operation_read_ratio_list]
+    list_cache_policy = [util2.convert_cache_policy(x) for x in cache_policy_list]
+    list_disk_size = [util2.convert_to_numeric(x) for x in disk_size_list]
+    list_block_size = [util2.convert_to_numeric(x) for x in util2.block_size_list]
+    list_operation_read_ratio = [util2.convert_to_numeric(x) for x in util2.operation_read_ratio_list]
     list_energy = [a * b if a is not None and b is not None else None for a, b in zip(list_avg_power, list_total)]
     list_emmc_kb_read = [x / 1024 for x in list_emmc_kb_read]
     list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_wrtn]
@@ -150,7 +151,7 @@ def process_results():
     list_sd_kb_wrtn = [x / 1024 for x in list_sd_kb_wrtn]
 
     data = {'Disk Size(GB)': list_disk_size,
-            'Workload Type': util.workload_type_list,
+            'Workload Type': util2.workload_type_list,
             'Operation Read Ratio': list_operation_read_ratio,
             'Block Size(KB)': list_block_size,
             'IO(on/off)': io_list,
@@ -173,13 +174,13 @@ def process_results():
             'SD Write P99 Latency(ms)': list_sd_write_p99}
 
     df = pd.DataFrame(data)
-    excel_file = os.path.join(util.path_head, 'statistic.xlsx')
+    excel_file = os.path.join(util2.path_head, 'statistic.xlsx')
     df.to_excel(excel_file, index=False)
     print(f"data save in {excel_file}")
 
 
 def process_cache_test():
-    util.reset_path()
+    util2.reset_path()
     get_folder_list()
     process_results()
 
@@ -193,6 +194,6 @@ if __name__ == '__main__':
     path_root = 'E:/projects/records'
     folder_list = ['2024-05-28_16-54-26_real_3']
     for folder in folder_list:
-        util.path_head = os.path.join(path_root, folder)
+        util2.path_head = os.path.join(path_root, folder)
         process_cache_test()
-    util.merge_excel_files(path_root, folder_list)
+    util2.merge_excel_files(path_root, folder_list)
