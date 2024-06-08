@@ -11,6 +11,8 @@ trace
 trace_backup
 data_analysis
 log
+data
+result
 
 *.o
 *.exe

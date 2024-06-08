@@ -2,8 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-data_dir = '../data/statistic'
-result_dir = '../result'
+data_dir = '../../data/statistic'
+trace_dir = '2024-05-07_01-23-13_device_test'
+result_dir = '../../result/device'
+statistic_name = 'statistic.xlsx'
 device_id_list = ['eMMC', 'SD']
 operation_read_ratio_list = ['read_0', 'read_1']
 
@@ -11,10 +13,11 @@ operation_read_ratio_list = ['read_0', 'read_1']
 plt.rcParams['font.family'] = 'Times New Roman'
 
 # 读取Excel文件
-original_data = pd.read_excel(os.path.join(data_dir, 'device_test_5GB_uniform_statistic.xlsx'))
+original_data = pd.read_excel(os.path.join(data_dir, trace_dir, statistic_name))
 
 # 设置图表的大小和风格
 plt.rcParams["figure.figsize"] = (12, 6)
+
 
 # 定义Block Size和对应的颜色
 block_sizes = ['1KB', '4KB', '16KB', '64KB', '256KB', '1024KB', '4096KB']
@@ -23,7 +26,8 @@ hatches = ['', '//']
 
 # 不同的y坐标
 y_labels = ['Average Latency(ms)', 'P99 Latency(ms)', 'Average CPU Usage(%)', 'Total Time(s)', 'Bandwidth(MB/s)',
-            'Average Power(W)', 'Energy(J)']
+            'Average Power(W)', 'Energy(J)', 'Average Memory Used(MB)',
+            'eMMC Read Size(KB)', 'eMMC Write Size(KB)', 'SD Read Size(KB)', 'SD Write Size(KB)']
 
 
 def barplot_pure_read_vs_pure_write(device_id_, y_label_):
@@ -64,7 +68,7 @@ def barplot_pure_read_vs_pure_write(device_id_, y_label_):
     if y_label_ == 'Bandwidth(MB/s)':
         y_label_ = 'Bandwidth(MBps)'
 
-    plt.savefig(os.path.join(save_dir, f"{y_label_}.svg"))
+    plt.savefig(os.path.join(save_dir, f"{y_label_}.svg"),bbox_inches='tight', pad_inches=0)
     plt.close(fig)
     # 显示图形
     # plt.show()
@@ -108,7 +112,7 @@ def barplot_emmc_vs_sd(operation_read_ratio_, y_label_):
     if y_label_ == 'Bandwidth(MB/s)':
         y_label_ = 'Bandwidth(MBps)'
 
-    plt.savefig(os.path.join(save_dir, f"{y_label_}.svg"))
+    plt.savefig(os.path.join(save_dir, f"{y_label_}.svg"),bbox_inches='tight', pad_inches=0)
     plt.close(fig)
     # 显示图形
     # plt.show()

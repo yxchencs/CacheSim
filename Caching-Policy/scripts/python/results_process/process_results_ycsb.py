@@ -67,7 +67,7 @@ def process_results():
 
     list_hit_ratio, list_total, list_p99, list_avg_latency = [], [], [], []
     list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn = [], [], [], [], [], []
-    list_time_begin, list_time_end = [], []
+    list_time_begin, list_time_end = [], [] # TODO::record time
     list_bandwidth = []
     list_avg_power, list_energy = [], []
     list_emmc_read_nums, list_emmc_read_avg_latency, list_emmc_read_p99 = [], [], []
@@ -77,6 +77,7 @@ def process_results():
 
     for i in tqdm.trange(len(util2.operation_read_ratio_list)):
         disk_size = disk_size_list[i]
+        disk_size_unit = disk_size[-2:]
         workload_type = util2.workload_type_list[i]
         operation_read_ratio = util2.operation_read_ratio_list[i]
         block_size = util2.block_size_list[i]
@@ -86,6 +87,8 @@ def process_results():
 
         file_path_begin = os.path.join(util2.path_head, disk_size, workload_type, operation_read_ratio,
                                        block_size, io, cache_size, cache_policy)
+
+        # print(file_path_begin)
         if util2.PRINT_INFO:
             print('data process:', file_path_begin)
 
@@ -150,7 +153,8 @@ def process_results():
     list_sd_kb_read = [x / 1024 for x in list_sd_kb_read]
     list_sd_kb_wrtn = [x / 1024 for x in list_sd_kb_wrtn]
 
-    data = {'Disk Size(GB)': list_disk_size,
+
+    data = {f'Disk Size({disk_size_unit})': list_disk_size,
             'Workload Type': util2.workload_type_list,
             'Operation Read Ratio': list_operation_read_ratio,
             'Block Size(KB)': list_block_size,
@@ -192,8 +196,18 @@ cache_policy_list = []
 
 if __name__ == '__main__':
     path_root = 'E:/projects/records'
-    folder_list = ['2024-05-28_16-54-26_real_3']
-    for folder in folder_list:
-        util2.path_head = os.path.join(path_root, folder)
-        process_cache_test()
+    folder_list = ['2024-05-31_20-49-28_uniform_read_0',
+                   '2024-06-01_15-02-13_uniform_read_0.4',
+                   '2024-06-01_01-58-53_uniform_read_0.2-0.6-0.8-1',
+                   '2024-05-29_22-19-07_latest',
+                   '2024-05-31_17-03-19_zipfian_read_0.2',
+                   '2024-05-31_12-45-07_zipfian_read_0_0.2',
+                   '2024-05-31_00-53-23_zipfian_read_0.2_0.4_0.8_1',
+                   '2024-06-04_18-32-41_zipfian_read_0.6_1-64KB',
+                   '2024-06-04_17-42-35_zipfian_read_0.6_256KB',
+                   ]
+
+    # for folder in folder_list:
+    #     util2.path_head = os.path.join(path_root, folder)
+    #     process_cache_test()
     util2.merge_excel_files(path_root, folder_list)

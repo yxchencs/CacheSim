@@ -31,18 +31,23 @@ def merge_excel_files(path_dir, folder_list):
     # 初始化空 DataFrame 用于合并数据
     combined_df = pd.DataFrame()
 
+    total_cnt = len(folder_list)
+    combine_cnt = 0
     # 遍历文件夹并读取每个文件
     for folder in folder_list:
         file_path = os.path.join(path_dir, folder, file_result_name)
-        print(file_path)
         if os.path.exists(file_path):
             df = pd.read_excel(file_path)
             combined_df = combined_df.append(df, ignore_index=True)
+            combine_cnt = combine_cnt + 1
+            print(f'Combine {file_path}')
+        else:
+            print(f'Not exist {file_path}')
 
     # 保存合并后的 DataFrame 到新文件
     save_dir = os.path.join(path_dir, file_result_name)
     combined_df.to_excel(save_dir, index=False)
-    print("Files merged successfully into", save_dir)
+    print(f"Combine {combine_cnt}/{total_cnt} files successfully into", save_dir)
 
 
 def str_to_datetime(raw_str, format):
@@ -136,9 +141,7 @@ def calculate_avg_mem_used(file_path, time_begin, time_end):
     else:
         return None
 
-
-# IO Read/Write Mount
-def calculate_disk_read_wrtn(file_path, time_begin, time_end):
+def calculate_disk_read_wrtn(file_path, time_begin, time_end, delta_time=timedelta(minutes=5)):
     # 定义时间格式
     time_format = "%Y-%m-%d %H:%M:%S"
 
@@ -147,10 +150,16 @@ def calculate_disk_read_wrtn(file_path, time_begin, time_end):
     data['timestamp'] = pd.to_datetime(data['timestamp'].str.strip(), format=time_format)
 
     # 提取 eMMC 和 SD 的读写数据
-    data['emmc_kb_read'] = data['mmcblk0'].str.extract(r'kB_read\s*=\s*(\d+)').astype(int)
-    data['emmc_kb_wrtn'] = data['mmcblk0'].str.extract(r'kB_wrtn\s*=\s*(\d+)').astype(int)
-    data['sd_kb_read'] = data['mmcblk1'].str.extract(r'kB_read\s*=\s*(\d+)').astype(int)
-    data['sd_kb_wrtn'] = data['mmcblk1'].str.extract(r'kB_wrtn\s*=\s*(\d+)').astype(int)
+    data['emmc_kb_read'] = pd.to_numeric(data['mmcblk0'].str.extract(r'kB_read\s*=\s*(\d+)')[0], errors='coerce')
+    data['emmc_kb_wrtn'] = pd.to_numeric(data['mmcblk0'].str.extract(r'kB_wrtn\s*=\s*(\d+)')[0], errors='coerce')
+    data['sd_kb_read'] = pd.to_numeric(data['mmcblk1'].str.extract(r'kB_read\s*=\s*(\d+)')[0], errors='coerce')
+    data['sd_kb_wrtn'] = pd.to_numeric(data['mmcblk1'].str.extract(r'kB_wrtn\s*=\s*(\d+)')[0], errors='coerce')
+
+    # 转换为 float 再转换为 int，以处理大数值
+    data['emmc_kb_read'] = data['emmc_kb_read'].astype(float).astype('Int64')
+    data['emmc_kb_wrtn'] = data['emmc_kb_wrtn'].astype(float).astype('Int64')
+    data['sd_kb_read'] = data['sd_kb_read'].astype(float).astype('Int64')
+    data['sd_kb_wrtn'] = data['sd_kb_wrtn'].astype(float).astype('Int64')
 
     # 筛选出时间范围内的数据
     filter_data = data[(data['timestamp'] >= time_begin) & (data['timestamp'] <= time_end)]
@@ -172,6 +181,42 @@ def calculate_disk_read_wrtn(file_path, time_begin, time_end):
         return emmc_kb_read_diff, emmc_kb_wrtn_diff, sd_kb_read_diff, sd_kb_wrtn_diff
     else:
         return None, None, None, None
+
+# IO Read/Write Mount
+# def calculate_disk_read_wrtn(file_path, time_begin, time_end):
+#     # 定义时间格式
+#     time_format = "%Y-%m-%d %H:%M:%S"
+#
+#     # 读取文件，解析数据
+#     data = pd.read_csv(file_path, sep=';', header=None, names=['mmcblk0', 'mmcblk1', 'timestamp'])
+#     data['timestamp'] = pd.to_datetime(data['timestamp'].str.strip(), format=time_format)
+#
+#     # 提取 eMMC 和 SD 的读写数据
+#     data['emmc_kb_read'] = data['mmcblk0'].str.extract(r'kB_read\s*=\s*(\d+)').astype(int)
+#     data['emmc_kb_wrtn'] = data['mmcblk0'].str.extract(r'kB_wrtn\s*=\s*(\d+)').astype(int)
+#     data['sd_kb_read'] = data['mmcblk1'].str.extract(r'kB_read\s*=\s*(\d+)').astype(int)
+#     data['sd_kb_wrtn'] = data['mmcblk1'].str.extract(r'kB_wrtn\s*=\s*(\d+)').astype(int)
+#
+#     # 筛选出时间范围内的数据
+#     filter_data = data[(data['timestamp'] >= time_begin) & (data['timestamp'] <= time_end)]
+#
+#     if filter_data.empty:
+#         filter_data = data[(data['timestamp'] >= time_begin - delta_time) & (data['timestamp'] <= time_end)]
+#         if filter_data.empty:
+#             filter_data = data[(data['timestamp'] >= time_begin) & (data['timestamp'] <= time_end + delta_time)]
+#             if filter_data.empty:
+#                 filter_data = data[
+#                     (data['timestamp'] >= time_begin - delta_time) & (data['timestamp'] <= time_end + delta_time)]
+#
+#     if not filter_data.empty:
+#         # 计算读写数据的差异
+#         emmc_kb_read_diff = filter_data['emmc_kb_read'].iloc[-1] - filter_data['emmc_kb_read'].iloc[0]
+#         emmc_kb_wrtn_diff = filter_data['emmc_kb_wrtn'].iloc[-1] - filter_data['emmc_kb_wrtn'].iloc[0]
+#         sd_kb_read_diff = filter_data['sd_kb_read'].iloc[-1] - filter_data['sd_kb_read'].iloc[0]
+#         sd_kb_wrtn_diff = filter_data['sd_kb_wrtn'].iloc[-1] - filter_data['sd_kb_wrtn'].iloc[0]
+#         return emmc_kb_read_diff, emmc_kb_wrtn_diff, sd_kb_read_diff, sd_kb_wrtn_diff
+#     else:
+#         return None, None, None, None
 
 
 def convert_power_from_txt_to_xlsx():

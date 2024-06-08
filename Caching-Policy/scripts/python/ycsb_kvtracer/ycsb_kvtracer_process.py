@@ -183,20 +183,31 @@ def process_workload(trace_dir, trace_save_root, block_size_KB):
 
 
 def test():
+
     for disk_size in disk_size_list:
+        total_workload = 0
+        valid_workload = 0
         for workload_type in workload_type_list:
             for operation_read_ratio in operation_read_ratio_list:
                 for block_size_KB in block_size_KB_list:
+                    total_workload = total_workload + 1
                     path = os.path.join(disk_size, workload_type, operation_read_ratio, str(block_size_KB) + 'KB')
-                    print(f"path: {path}")
                     trace_root = os.path.join(ycsb_root, path)
-                    trace_save_root = os.path.join(save_root, path)
+                    if not os.path.exists(trace_root):
+                        continue
+                    valid_workload = valid_workload + 1
                     print('------------------------------------------------------------------------------')
+                    print(f"path: {path}")
+                    trace_save_root = os.path.join(save_root, path)
                     process_workload(trace_root, trace_save_root, block_size_KB)
+        if not valid_workload:
+            continue
         print('------------------------------------------------------------------------------')
         storage_path = os.path.join(save_root, disk_size)
         disk_size_B = util.extract_disk_size(disk_size)
         generate_storage(storage_path, disk_size_B)
+        print('------------------------------------------------------------------------------')
+        print(f'Done generate trace({valid_workload}/{total_workload})')
 
 
 ycsb_trace_run_name = "trace_run.txt"
@@ -212,19 +223,21 @@ do_generate_trace = True
 do_generate_storage = True
 check_trace_exist = False
 check_storage_exist = False
-cache_or_device = True
+
 save_root = "E:/projects/cs/Caching-Policy/trace_backup"
 
 # device test
 ycsb_root = 'D:\Projects\YCSB\workloads/'
-disk_size_list = ["125MB"]
-workload_type_list = ["latest", "uniform", "zipfian"]
-operation_read_ratio_list = ["read_0", "read_0.2", "read_0.4", "read_0.6", "read_0.8", "read_1"]
+disk_size_list = ["50MB"]
+workload_type_list = ['uniform']
+operation_read_ratio_list = ["read_0", "read_1"]
+# workload_type_list = ["latest", "uniform", "zipfian"]
+# operation_read_ratio_list = ["read_0", "read_0.2", "read_0.4", "read_0.6", "read_0.8", "read_1"]
 block_size_KB_list = [1, 2, 4, 8, 16, 64, 256, 1024, 4096]
 
 # cache test
 cache_size_list = [0.02, 0.04, 0.06, 0.08, 0.1]
-
+cache_or_device = False
 if __name__ == '__main__':
     test()
     max_disk_size = max_disk_size / 1024 / 1024

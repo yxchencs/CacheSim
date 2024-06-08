@@ -195,8 +195,8 @@ cache_policy_list = []
 
 if __name__ == '__main__':
     path_root = 'E:/projects/records'
-    folder_list = ['2024-05-28_16-54-26_real_3']
-    for folder in folder_list:
-        util2.path_head = os.path.join(path_root, folder)
-        process_cache_test()
-    # util2.merge_excel_files(path_root, folder_list)
+    folder_list = ['2024-06-01_18-59-46_real_mobi.trace.0','2024-05-25_18-56-40_real_3']
+    # for folder in folder_list:
+    #     util2.path_head = os.path.join(path_root, folder)
+    #     process_cache_test()
+    util2.merge_excel_files(path_root, folder_list)
