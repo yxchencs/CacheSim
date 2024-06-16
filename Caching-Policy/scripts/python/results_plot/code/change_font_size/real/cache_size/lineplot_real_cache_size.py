@@ -6,7 +6,7 @@ import matplotlib.font_manager as fm
 
 
 data_dir = '../../../../data/statistic'
-result_dir = '../../../../result/change_font_size/real/cache_size_no_lfu_random/lineplot'
+result_dir = '../../../../result/change_font_size/real/cache_size/lineplot'
 # 读入数据
 df = pd.read_excel(os.path.join(data_dir, 'statistic_real_3.xlsx'))
 
@@ -49,9 +49,9 @@ y_labels = ['Hit Ratio', 'Average Latency(ms)', 'P99 Latency(ms)', 'Total Time(s
             'SD Read Numbers', 'SD Read Average Latency(ms)', 'SD Read P99 Latency(ms)',
             'SD Write Numbers', 'SD Write Average Latency(ms)', 'SD Write P99 Latency(ms)']
 
-# caching_policy_list = ['Random', 'FIFO', 'LFU', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
+caching_policy_list = ['Random', 'FIFO', 'LFU', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
 # caching_policy_list = ['Random', 'FIFO', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
-caching_policy_list = ['FIFO', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
+# caching_policy_list = ['FIFO', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
 
 
 # 获取Times New Roman字体对象
@@ -117,7 +117,7 @@ def lineplot_real_cache_size(combination_, y_label_):
     # plt.show()
 
     # 保存图表到文件夹中
-    save_path = os.path.join(save_dir, f"{y_label_}.svg")
+    save_path = os.path.join(save_dir, f"{y_label_}.png")
     plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
     plt.close(fig)
 

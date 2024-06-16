@@ -195,19 +195,20 @@ cache_size_list = []
 cache_policy_list = []
 
 if __name__ == '__main__':
-    path_root = 'E:/projects/records'
-    folder_list = ['2024-05-31_20-49-28_uniform_read_0',
-                   '2024-06-01_15-02-13_uniform_read_0.4',
-                   '2024-06-01_01-58-53_uniform_read_0.2-0.6-0.8-1',
-                   '2024-05-29_22-19-07_latest',
-                   '2024-05-31_17-03-19_zipfian_read_0.2',
-                   '2024-05-31_12-45-07_zipfian_read_0_0.2',
-                   '2024-05-31_00-53-23_zipfian_read_0.2_0.4_0.8_1',
-                   '2024-06-04_18-32-41_zipfian_read_0.6_1-64KB',
-                   '2024-06-04_17-42-35_zipfian_read_0.6_256KB',
-                   ]
-
-    # for folder in folder_list:
-    #     util2.path_head = os.path.join(path_root, folder)
-    #     process_cache_test()
-    util2.merge_excel_files(path_root, folder_list)
+    # path_root = 'E:/projects/records'
+    # folder_list = ['2024-05-31_20-49-28_uniform_read_0',
+    #                '2024-06-01_15-02-13_uniform_read_0.4',
+    #                '2024-06-01_01-58-53_uniform_read_0.2-0.6-0.8-1',
+    #                '2024-05-29_22-19-07_latest',
+    #                '2024-05-31_17-03-19_zipfian_read_0.2',
+    #                '2024-05-31_12-45-07_zipfian_read_0_0.2',
+    #                '2024-05-31_00-53-23_zipfian_read_0.2_0.4_0.8_1',
+    #                '2024-06-04_18-32-41_zipfian_read_0.6_1-64KB',
+    #                '2024-06-04_17-42-35_zipfian_read_0.6_256KB',
+    #                ]
+    path_root = 'D:/Projects/Caching-Policy/Caching-Policy/records'
+    folder_list = ['2024-06-11_01-36-01']
+    for folder in folder_list:
+        util2.path_head = os.path.join(path_root, folder)
+        process_cache_test()
+    # util2.merge_excel_files(path_root, folder_list)

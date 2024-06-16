@@ -74,7 +74,7 @@ def barplot_pure_read_vs_pure_write(device_id_, y_label_):
     # 显示图形
     # plt.show()
 
-    plt.savefig(os.path.join(save_dir, f"{y_label_}.svg"), bbox_inches='tight', pad_inches=0)
+    plt.savefig(os.path.join(save_dir, f"{y_label_}.png"), bbox_inches='tight', pad_inches=0.1)
     plt.close(fig)
 
 
@@ -120,7 +120,7 @@ def barplot_emmc_vs_sd(operation_read_ratio_, y_label_):
     # 显示图形
     # plt.show()
 
-    plt.savefig(os.path.join(save_dir, f"{y_label_}.svg"), bbox_inches='tight', pad_inches=0)
+    plt.savefig(os.path.join(save_dir, f"{y_label_}.png"), bbox_inches='tight', pad_inches=0.1)
     plt.close(fig)
 
 

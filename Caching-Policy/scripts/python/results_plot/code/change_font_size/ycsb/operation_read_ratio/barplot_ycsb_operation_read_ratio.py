@@ -58,7 +58,7 @@ def barplots_ycsb_block_size(combination_, y_label_):
     save_dir = os.path.join(result_dir, workload_type, str(block_size), str(cache_size), io_status)
 
     os.makedirs(save_dir, exist_ok=True)  # 先创建目录
-    save_path = os.path.join(save_dir, f"{file_name}.svg")
+    save_path = os.path.join(save_dir, f"{file_name}.png")
 
     # 初始化画布和子图
     fig, ax = plt.subplots()

@@ -224,20 +224,20 @@ do_generate_storage = True
 check_trace_exist = False
 check_storage_exist = False
 
-save_root = "E:/projects/cs/Caching-Policy/trace_backup"
+save_root = "D:/Projects/Caching-Policy/Caching-Policy/trace"
 
 # device test
-ycsb_root = 'D:\Projects\YCSB\workloads/'
-disk_size_list = ["50MB"]
-workload_type_list = ['uniform']
-operation_read_ratio_list = ["read_0", "read_1"]
-# workload_type_list = ["latest", "uniform", "zipfian"]
-# operation_read_ratio_list = ["read_0", "read_0.2", "read_0.4", "read_0.6", "read_0.8", "read_1"]
+ycsb_root = 'D:/Projects/Caching-Policy/Caching-Policy/workloads'
+disk_size_list = ["125MB"]
+# workload_type_list = ['uniform']
+# operation_read_ratio_list = ["read_0", "read_1"]
+workload_type_list = ["latest", "uniform", "zipfian"]
+operation_read_ratio_list = ["read_0", "read_0.2", "read_0.4", "read_0.6", "read_0.8", "read_1"]
 block_size_KB_list = [1, 2, 4, 8, 16, 64, 256, 1024, 4096]
 
 # cache test
 cache_size_list = [0.02, 0.04, 0.06, 0.08, 0.1]
-cache_or_device = False
+cache_or_device = True
 if __name__ == '__main__':
     test()
     max_disk_size = max_disk_size / 1024 / 1024

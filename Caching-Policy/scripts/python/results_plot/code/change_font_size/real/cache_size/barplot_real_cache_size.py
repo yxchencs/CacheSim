@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import os
 
 data_dir = '../../../../data/statistic'
-result_dir = '../../../../result/change_font_size/real/cache_size_no_lfu_random/barplot'
+result_dir = '../../../../result/change_font_size/real/cache_size/barplot'
 statistic_name = 'statistic_real_3.xlsx'
 
 # 设置全局字体
@@ -35,9 +35,9 @@ trace_operation_combinations = original_data[
     ['Real Trace Type', 'Real Trace Name', 'IO(on/off)']].drop_duplicates()
 combination_list = trace_operation_combinations.values.tolist()
 
-# caching_policy_list = ['Random', 'FIFO', 'LFU', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
+caching_policy_list = ['Random', 'FIFO', 'LFU', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
 # caching_policy_list = ['Random', 'FIFO', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
-caching_policy_list = ['FIFO', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
+# caching_policy_list = ['FIFO', 'LRU', 'LIRS', 'ARC', 'CLOCK-Pro', '2Q', 'TinyLFU']
 
 # 不同的y坐标
 y_labels = ['Hit Ratio', 'Average Latency(ms)', 'P99 Latency(ms)', 'Total Time(s)', 'Bandwidth(MB/s)',
@@ -63,7 +63,7 @@ def barplots_real_cache_size_and_policy(combination_, y_label_):
     save_dir = os.path.join(result_dir, real_trace_type, real_trace_name, io_status)
 
     os.makedirs(save_dir, exist_ok=True)  # 先创建目录
-    save_path = os.path.join(save_dir, f"{file_name}.svg")
+    save_path = os.path.join(save_dir, f"{file_name}.png")
 
     # 初始化画布和子图
     fig, ax = plt.subplots()

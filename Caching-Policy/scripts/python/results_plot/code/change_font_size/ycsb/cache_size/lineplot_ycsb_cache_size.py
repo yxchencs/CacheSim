@@ -102,7 +102,7 @@ def lineplot_ycsb_caching_policy(combination_, y_label_):
     # plt.show()
 
     # 保存图表到文件夹中
-    save_path = os.path.join(save_dir, f"{y_label_}.svg")
+    save_path = os.path.join(save_dir, f"{y_label_}.png")
     plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
     plt.close(fig)
 
