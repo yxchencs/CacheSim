@@ -227,8 +227,9 @@ check_storage_exist = False
 save_root = "D:/Projects/Caching-Policy/Caching-Policy/trace"
 
 # device test
-ycsb_root = 'D:/Projects/Caching-Policy/Caching-Policy/workloads'
-disk_size_list = ["125MB"]
+# ycsb_root = 'D:/Projects/Caching-Policy/Caching-Policy/workloads'
+ycsb_root = 'D:/Users/Ram/Desktop'
+disk_size_list = ["2GB"]
 # workload_type_list = ['uniform']
 # operation_read_ratio_list = ["read_0", "read_1"]
 workload_type_list = ["latest", "uniform", "zipfian"]

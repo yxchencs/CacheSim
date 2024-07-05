@@ -334,5 +334,5 @@ workload_type_list = []
 operation_read_ratio_list = []
 block_size_list = []
 
-PRINT_INFO = True
+PRINT_INFO = False
 PROCESS_POWER = True  # TODO::NotCompleted

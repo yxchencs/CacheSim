@@ -206,8 +206,8 @@ if __name__ == '__main__':
     #                '2024-06-04_18-32-41_zipfian_read_0.6_1-64KB',
     #                '2024-06-04_17-42-35_zipfian_read_0.6_256KB',
     #                ]
-    path_root = 'D:/Projects/Caching-Policy/Caching-Policy/records'
-    folder_list = ['2024-06-11_01-36-01']
+    path_root = 'D:/Projects/Caching-Policy/records'
+    folder_list = ['2024-07-04_00-59-52_cache_2GB_uniform_read_0_1-1024KB']
     for folder in folder_list:
         util2.path_head = os.path.join(path_root, folder)
         process_cache_test()

@@ -163,5 +163,5 @@ disk_size_list = []
 device_id_list = []
 
 if __name__ == '__main__':
-    util2.path_head = 'E:\projects/records/2024-06-10_11-25-29_device_uniform_latest_zipfian'
+    util2.path_head = 'D:/projects/Caching-Policy/records/2024-07-02_14-09-43_device_125MB_ycsb_all'
     process_device_test()

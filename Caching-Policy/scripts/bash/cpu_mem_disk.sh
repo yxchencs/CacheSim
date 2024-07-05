@@ -1,15 +1,17 @@
 #!/bin/sh
 
-save_directory="../../../log/"
-mkdir "$save_directory"
+current_time=$(date "+%Y-%m-%d_%H-%M-%S")
+
+save_directory="../../../logs/$current_time/log/"
+mkdir -p "$save_directory"
 cpu_usage_addr="${save_directory}cpu_usage.log"
 mem_used_addr="${save_directory}mem_used.log"
 disk_read_wrtn_addr="${save_directory}disk_read_wrtn.log"
 top_output_addr="${save_directory}top_output.txt"
-rm "$cpu_usage_addr"
-rm "$mem_used_addr"
-rm "$disk_read_wrtn_addr"
-rm "$top_output_addr"
+# rm "$cpu_usage_addr"
+# rm "$mem_used_addr"
+# rm "$disk_read_wrtn_addr"
+# rm "$top_output_addr"
 
 eMMC_name="mmcblk0"
 sd_name="mmcblk1"

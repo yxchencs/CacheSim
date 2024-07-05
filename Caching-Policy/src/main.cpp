@@ -1,13 +1,26 @@
 #include "utils/run.h"
 using namespace std;
 
-
-int main(){
+int main(int argc, char* argv[]) {
     // mountAndCheck("/dev/mmcblk0p1", "/mnt/eMMC");
-    // runYcsb();
-    // runReal();
-    runYcsbTest();
-    // runNoCache();
+    if (argc < 2) {
+        cerr << "Usage: " << argv[0] << " <run_mode> [arguments]" << endl;
+        return 1;
+    }
+
+    string runMode = argv[1];
+
+    if (runMode == "device" ) {
+        runNoCache();
+    } else if (runMode == "ycsb") {
+        runYcsb();
+    } else if (runMode == "real") {
+        runReal();
+    } else {
+        cerr << "Unknown run mode: " << runMode << endl;
+        return 1;
+    }
+
     return 0;
 }
 

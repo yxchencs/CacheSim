@@ -2,6 +2,12 @@
 
 本文件记录有关git的所有使用过的命令和报错解决方法
 
+#### 查看已暂存的更改
+
+```shell
+git diff --cached
+```
+
 #### 如何删除git所有提交历史，如何在不删除本地仓库文件的情况下删除远程仓库文件
 
 https://www.cnblogs.com/raiuny/p/15856085.html
