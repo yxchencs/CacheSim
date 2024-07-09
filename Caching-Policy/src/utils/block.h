@@ -3,15 +3,15 @@
 
 #include "globals.h"
 
-struct block {
+struct Block {
     ll key;
     ll offset_cache;
     int  dirty;
-    block(){}
-    block(const ll &key, const ll &oc, const int &d = 0) : key(key), offset_cache(oc), dirty(d) {}
-    friend ostream&  operator<<(ostream& os, const block& arg);
+    Block(){}
+    Block(const ll &key, const ll &oc, const int &d = 0) : key(key), offset_cache(oc), dirty(d) {}
+    friend ostream&  operator<<(ostream& os, const Block& arg);
 };
-ostream& operator<<(ostream& os, const block& arg) {
+ostream& operator<<(ostream& os, const Block& arg) {
     os << "key: " << arg.key << endl;
     os << "offset_cache: " << arg.offset_cache << endl;
     // os << "size: " << arg.size << endl;

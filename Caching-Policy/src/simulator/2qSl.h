@@ -50,7 +50,7 @@ void TqSl::writeCacheWhenReadItem(const ll &key, char* buffer)
     {
         // cout<<"no replace"<<endl;
         ll offset_cache = free_cache.back();
-        block item = {key, offset_cache};
+        Block item = {key, offset_cache};
         block_map[key] = item;
         free_cache.pop_back();
         writeBlock(true, offset_cache, block_size, buffer);
@@ -68,7 +68,7 @@ void TqSl::writeCacheWhenReadItem(const ll &key, char* buffer)
 
         if (block_map.count(key) == 0)
         {
-            block item = {key, offset_cache};
+            Block item = {key, offset_cache};
             block_map[key] = item;
         }
         else
@@ -88,7 +88,7 @@ void TqSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
     {
         // cout<<"no replace"<<endl;
         ll offset_cache = free_cache.back();
-        block item = {key, offset_cache, 1};
+        Block item = {key, offset_cache, 1};
         block_map[key] = item;
         free_cache.pop_back();
         writeBlock(true, offset_cache, block_size, buffer);
@@ -106,7 +106,7 @@ void TqSl::writeCacheWhenWriteItem(const ll &key, char* buffer)
 
         if (block_map.count(key) == 0)
         {
-            block item = {key, offset_cache, 1};
+            Block item = {key, offset_cache, 1};
             block_map[key] = item;
         }
         else

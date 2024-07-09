@@ -58,7 +58,7 @@ protected:
 
     ll curKey;
     vector<ll> free_cache;
-    map<ll, block> block_map;
+    map<ll, Block> block_map;
     Statistic st;
     void init();
     void initFreeCache();
@@ -173,7 +173,7 @@ void Sl::writeCacheWhenReadItem(const ll &key, char* buffer)
     {
         // cout << "cache not full" << endl;
         ll offset_cache = free_cache.back();
-        block item = {key, offset_cache};
+        Block item = {key, offset_cache};
         block_map[key] = item;
         free_cache.pop_back();
         writeBlock(true, offset_cache, block_size, buffer);
@@ -194,7 +194,7 @@ void Sl::writeCacheWhenReadItem(const ll &key, char* buffer)
 
         if (block_map.count(key) == 0)
         {
-            block item = {key, offset_cache};
+            Block item = {key, offset_cache};
             block_map[key] = item;
         }
         else
@@ -215,7 +215,7 @@ void Sl::writeCacheWhenWriteItem(const ll &key, char* buffer)
     {
         // cout << "cache not full" << endl;
         ll offset_cache = free_cache.back();
-        block item = {key, offset_cache, 1};
+        Block item = {key, offset_cache, 1};
         block_map[key] = item;
         free_cache.pop_back();
         writeBlock(true, offset_cache, block_size, buffer);
@@ -236,7 +236,7 @@ void Sl::writeCacheWhenWriteItem(const ll &key, char* buffer)
 
         if (block_map.count(key) == 0)
         {
-            block item = {key, offset_cache, 1};
+            Block item = {key, offset_cache, 1};
             block_map[key] = item;
         }
         else
@@ -476,7 +476,7 @@ void Sl::writeBlock(bool isCache, const ll &offset, const ll &size, char* buffer
 
 void Sl::printBlock(const ll &key)
 {
-    block blockTmp = block_map[key];
+    Block blockTmp = block_map[key];
     cout << "key: " << blockTmp.key << endl;
     cout << "offset_cache: " << blockTmp.offset_cache << endl;
     cout << "dirty: " << blockTmp.dirty << endl;
@@ -508,7 +508,7 @@ void Sl::readDisk(const ll &key, char* buffer)
 void Sl::printBlockMap()
 {
     cout << "block map:" << endl;
-    map<ll, block>::iterator it;
+    map<ll, Block>::iterator it;
     for (it = block_map.begin(); it != block_map.end(); it++)
         cout << it->second;
 }
