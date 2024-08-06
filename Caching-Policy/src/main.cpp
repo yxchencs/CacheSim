@@ -16,7 +16,10 @@ int main(int argc, char* argv[]) {
         runYcsb();
     } else if (runMode == "real") {
         runReal();
-    } else {
+    } else if (runMode == "ycsb_test") {
+        runYcsbCacheSize10pp();
+    }
+    else {
         cerr << "Unknown run mode: " << runMode << endl;
         return 1;
     }

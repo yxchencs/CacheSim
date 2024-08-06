@@ -67,7 +67,7 @@ def process_results():
 
     list_hit_ratio, list_total, list_p99, list_avg_latency = [], [], [], []
     list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn = [], [], [], [], [], []
-    list_time_begin, list_time_end = [], []  # TODO::record time
+    list_time_begin, list_time_end = [], []
     list_bandwidth = []
     list_avg_power, list_energy = [], []
     list_emmc_read_nums, list_emmc_read_avg_latency, list_emmc_read_p99 = [], [], []
@@ -155,7 +155,7 @@ def process_results():
     list_disk_size = [util2.convert_to_numeric(x) for x in disk_size_list]
     list_block_size = [util2.convert_to_numeric(x) for x in util2.block_size_list]
     list_operation_read_ratio = [util2.convert_to_numeric(x) for x in util2.operation_read_ratio_list]
-    list_energy = [a * b if a is not None and b is not None else None for a, b in zip(list_avg_power, list_total)]
+    # list_energy = [a * b if a is not None and b is not None else None for a, b in zip(list_avg_power, list_total)]
     list_emmc_kb_read = [x / 1024 for x in list_emmc_kb_read]
     list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_wrtn]
     list_sd_kb_read = [x / 1024 for x in list_sd_kb_read]
@@ -207,26 +207,8 @@ cache_size_list = []
 cache_policy_list = []
 
 if __name__ == '__main__':
-    # path_root = 'D:/Projects/Caching-Policy/records/cache_ycsb_2GB_8000\zipfian'
-    # folder_list = [#'2024-07-14_14-07-02',
-    #                '2024-07-15_11-45-06', '2024-07-15_22-06-55',
-    #                '2024-07-16_14-02-43', '2024-07-17_01-51-19', '2024-07-17_14-59-34',
-    #                '2024-07-17_22-38-52', '2024-07-20_00-51-07',
-    #                '2024-07-21_01-12-26_cache_2GB_zipfian_read_0.4_4096KB',
-    #                '2024-07-22_14-24-23_cache_2GB_zipfian_read_0.8_4096KB',
-    #                '2024-07-23_14-01-32_cache_2GB_zipfian_read_1_4096KB']
-    # path_root = 'D:/Projects/Caching-Policy/records/cache_ycsb_2GB_8000/uniform'
-    # folder_list = [#'2024-07-04_00-59-52_cache_2GB_uniform_read_0_1-1024KB',
-    #                '2024-07-05_12-17-50','2024-07-05_23-50-11','2024-07-06_12-26-00',
-    #                '2024-07-06_22-37-58','2024-07-07_10-36-07','2024-07-07_18-03-11_cache_2GB_uniform_read_0_4096KB',
-    #                '2024-07-08_18-58-44','2024-07-12_00-13-35','2024-07-12_20-41-13',
-    #                '2024-07-13_12-23-19','2024-07-14_00-47-45']
-    path_root = 'D:/Projects/Caching-Policy/records/cache_ycsb_2GB_8000/latest'
-    folder_list = [  # '2024-06-27_22-28-27_2GB_8000_latest_read_0',
-        # '2024-06-29_02-09-49','2024-06-30_00-58-58_cache_latest_read_0.4',
-        # '2024-06-30_10-10-17_cache_latest_read_0.6',
-        '2024-06-30_19-50-36_cache_latest_read_0.8', '2024-07-01_10-13-15',
-        '2024-07-01_17-24-45', '2024-07-02_17-59-47', '2024-07-03_11-23-38', '2024-07-03_19-52-58']
+    path_root = 'D:/Projects/Caching-Policy/records'
+    folder_list = ['2024-08-06_00-26-32_cache_ycsb_latest_read_0.6_4-1024KB']
     for folder in folder_list:
         util2.path_head = os.path.join(path_root, folder)
         print(util2.path_head)

@@ -69,6 +69,7 @@ def process_results():
     list_emmc_write_nums, list_emmc_write_avg_latency, list_emmc_write_p99 = [], [], []
     list_sd_read_nums, list_sd_read_avg_latency, list_sd_read_p99 = [], [], []
     list_sd_write_nums, list_sd_write_avg_latency, list_sd_write_p99 = [], [], []
+    list_total_time_32gb, list_energy_32gb = [], []
 
     for i in tqdm.trange(len(util2.workload_type_list)):
         workload_type = util2.workload_type_list[i]
@@ -97,13 +98,19 @@ def process_results():
                 file_statistic_path,
                 rdwr_only)
 
+        total_time_32gb = 32 * 1024 / bandwidth
+        avg_power = util2.calculate_avg_power(util2.file_power_path, time_begin, time_end)
+        energy_32gb = total_time_32gb * avg_power
+        list_total_time_32gb.append(total_time_32gb)
+        list_energy_32gb.append(energy_32gb)
+
         list_cpu_usage.append(
             util2.calculate_avg_cpu_usage(util2.file_cpu_usage_path, time_begin, time_end))
         list_mem_used.append(util2.calculate_avg_mem_used(util2.file_mem_used_path, time_begin, time_end))
         emmc_kb_read, emmc_kb_wrtn, sd_kb_read, sd_kb_wrtn \
             = util2.calculate_disk_read_wrtn(util2.file_disk_path, time_begin, time_end)
 
-        list_avg_power.append(util2.calculate_avg_power(util2.file_power_path, time_begin, time_end))
+        list_avg_power.append(avg_power)
 
         list_emmc_kb_read.append(emmc_kb_read)
         list_emmc_kb_wrtn.append(emmc_kb_wrtn)
@@ -134,7 +141,7 @@ def process_results():
         list_sd_write_p99.append(sd_write_p99)
 
     list_cache_policy = [util2.convert_cache_policy(x) for x in cache_policy_list]
-    list_energy = [a * b if a is not None and b is not None else None for a, b in zip(list_avg_power, list_total)]
+    # list_energy = [a * b if a is not None and b is not None else None for a, b in zip(list_avg_power, list_total)]
     list_emmc_kb_read = [x / 1024 for x in list_emmc_kb_read]
     list_emmc_kb_wrtn = [x / 1024 for x in list_emmc_kb_wrtn]
     list_sd_kb_read = [x / 1024 for x in list_sd_kb_read]
@@ -148,11 +155,15 @@ def process_results():
             'Caching Policy': list_cache_policy,
             'Hit Ratio': list_hit_ratio,
             'P99 Latency(ms)': list_p99, 'Average Latency(ms)': list_avg_latency,
-            'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
+            # 'Total Time(s)': list_total, # Origin Total Time
+            "Bandwidth(MB/s)": list_bandwidth,
             'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
+            'Average Power(W)': list_avg_power,  # Origin Energy
+            # 'Energy(J)': list_energy,
+            # 'Total Time(s)[32GB]': list_total_time_32gb, # Total Time For 32GB
+            'Energy(J)[32GB]': list_energy_32gb,  # Energy For 32GB
             'eMMC Read Size(KB)': list_emmc_kb_read, 'eMMC Write Size(KB)': list_emmc_kb_wrtn,
             'SD Read Size(KB)': list_sd_kb_read, 'SD Write Size(KB)': list_sd_kb_wrtn,
-            'Average Power(W)': list_avg_power, 'Energy(J)': list_energy,
             'eMMC Read Numbers': list_emmc_read_nums, 'eMMC Read Average Latency(ms)': list_emmc_read_avg_latency,
             'eMMC Read P99 Latency(ms)': list_emmc_read_p99,
             'eMMC Write Numbers': list_emmc_write_nums, 'eMMC Write Average Latency(ms)': list_emmc_write_avg_latency,
@@ -160,7 +171,8 @@ def process_results():
             'SD Read Numbers': list_sd_read_nums, 'SD Read Average Latency(ms)': list_sd_read_avg_latency,
             'SD Read P99 Latency(ms)': list_sd_read_p99,
             'SD Write Numbers': list_sd_write_nums, 'SD Write Average Latency(ms)': list_sd_write_avg_latency,
-            'SD Write P99 Latency(ms)': list_sd_write_p99}
+            'SD Write P99 Latency(ms)': list_sd_write_p99,
+            'Time Begin': list_time_begin, 'Time End': list_time_end}
 
     df = pd.DataFrame(data)
     excel_file = os.path.join(util2.path_head, 'statistic.xlsx')
