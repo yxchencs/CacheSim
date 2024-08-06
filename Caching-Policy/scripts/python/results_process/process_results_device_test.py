@@ -132,7 +132,7 @@ def process_results_for_device_test():
             'Operation Read Ratio': list_operation_read_ratio,
             'Block Size(KB)': list_block_size,
             'Device ID': device_id_list,
-            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99,
+            'P99 Latency(ms)': list_p99, 'Average Latency(ms)': list_avg_latency,
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
             'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
             'eMMC Read Size(KB)': list_emmc_kb_read, 'eMMC Write Size(KB)': list_emmc_kb_wrtn,
@@ -163,5 +163,5 @@ disk_size_list = []
 device_id_list = []
 
 if __name__ == '__main__':
-    util2.path_head = 'D:/projects/Caching-Policy/records/2024-07-02_14-09-43_device_125MB_ycsb_all'
+    util2.path_head = 'D:/projects/Caching-Policy/records/2024-07-11_00-15-30_device_2GB_ycsb_all'
     process_device_test()

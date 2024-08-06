@@ -6,7 +6,7 @@
 struct Block {
     ll key;
     ll offset_cache;
-    int  dirty;
+    int dirty;
     Block(){}
     Block(const ll &key, const ll &oc, const int &d = 0) : key(key), offset_cache(oc), dirty(d) {}
     friend ostream&  operator<<(ostream& os, const Block& arg);

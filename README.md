@@ -182,7 +182,8 @@ sudo ./main
 ##### Trace
 
 1. [Nexus5_Kernel_BIOTracer_traces - Nexus 5 Smartphone Traces](http://iotta.snia.org/traces/block-io)
-   sample: log106_Messaging.txt
+
+Trace sample: log106_Messaging.txt
 
 - 列0: access起始地址，单位为扇区
 - 列1: 说明大小应该是时间为8，因为基本块大小是4kb或8扇区。但是mmc驱动程序添加了额外的扇区到一些大小，因此你需要清理它。
@@ -194,27 +195,24 @@ sudo ./main
 - 列6: 向硬件提交请求的时间(驱动程序向硬件发出请求的时间)
 - 列7: 请求完成时间(请求完成后调用回调函数的时间)
 
-ref: Revisiting Temporal Storage I/O Behaviors of Smartphone Applications: Analysis and Synthesis
-https://ieeexplore.ieee.org/document/9975405
-ref: I/O Characteristics of Smartphone Applications and Their Implications for eMMC Design
+cite: I/O Characteristics of Smartphone Applications and Their Implications for eMMC Design
 https://ieeexplore.ieee.org/abstract/document/7314143
 
 2. [Smartphone Traces](http://visa.lab.asu.edu/web/resources/traces/)
 
-http://visa.lab.asu.edu/web/resources/traces/traces-smartphone/
+Trace sample: mobi.trace.0.txt
 
-sample: mobi.trace.1
-
-ref: Q. Yang, R. Jin, and M. Zhao, “SmartDedup: Optimizing Deduplication for Resource-constrained Devices,” Proceedings of USENIX Annual Technical Conference (USENIX ATC ’19), July 2019.
+cite: Q. Yang, R. Jin, and M. Zhao, “SmartDedup: Optimizing Deduplication for Resource-constrained Devices,” Proceedings of USENIX Annual Technical Conference (USENIX ATC ’19), July 2019.
 
 3. [MobileAppTraces](https://astl.xmu.edu.cn/appdedupe.html)
 
+Trace sample: baidutieba-4h.txt
+
 The trace file-names are indicating different mobile applications and some file-names also include the running hours. Each record in the trace files is as follows:
 [Time in s] [R or W] [LBA] [size in 512 Bytes blocks] [pid] [process] [MD5 per 4096 Bytes]
-sample:
+sample: 
 7.430000743 	R	     1548752	        24	       744	       Binder_5	fb0ece031db8f58df6849c2211df8c5a-35598db6787678b2acf4d0fc056f3b1d-9fc4e51c5541ecaeefc9da9e7cc55587
 
-ref: Improving Flash Memory Performance and Reliability for Smartphones With I/O Deduplication
 cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware Trace Collection and I/O Deduplication for Smartphones. In Proceedings of the 33rd International Conference on Massive Storage Systems and Technology (MSST'17), Santa Clara, CA, USA, May 15-19, 2017.
 
 4. [uniform/latest/zipfian trace](ycsb-kvtracer.md)

@@ -67,13 +67,14 @@ def process_results():
 
     list_hit_ratio, list_total, list_p99, list_avg_latency = [], [], [], []
     list_cpu_usage, list_mem_used, list_emmc_kb_read, list_emmc_kb_wrtn, list_sd_kb_read, list_sd_kb_wrtn = [], [], [], [], [], []
-    list_time_begin, list_time_end = [], [] # TODO::record time
+    list_time_begin, list_time_end = [], []  # TODO::record time
     list_bandwidth = []
     list_avg_power, list_energy = [], []
     list_emmc_read_nums, list_emmc_read_avg_latency, list_emmc_read_p99 = [], [], []
     list_emmc_write_nums, list_emmc_write_avg_latency, list_emmc_write_p99 = [], [], []
     list_sd_read_nums, list_sd_read_avg_latency, list_sd_read_p99 = [], [], []
     list_sd_write_nums, list_sd_write_avg_latency, list_sd_write_p99 = [], [], []
+    list_total_time_32gb, list_energy_32gb = [], []
 
     for i in tqdm.trange(len(util2.operation_read_ratio_list)):
         disk_size = disk_size_list[i]
@@ -107,13 +108,20 @@ def process_results():
                 file_statistic_path,
                 rdwr_only)
 
+        total_time_32gb = 32 * 1024 / bandwidth
+        avg_power = util2.calculate_avg_power(util2.file_power_path, time_begin, time_end)
+        energy_32gb = total_time_32gb * avg_power
+
+        list_total_time_32gb.append(total_time_32gb)
+        list_energy_32gb.append(energy_32gb)
+
         list_cpu_usage.append(
             util2.calculate_avg_cpu_usage(util2.file_cpu_usage_path, time_begin, time_end))
         list_mem_used.append(util2.calculate_avg_mem_used(util2.file_mem_used_path, time_begin, time_end))
         emmc_kb_read, emmc_kb_wrtn, sd_kb_read, sd_kb_wrtn \
             = util2.calculate_disk_read_wrtn(util2.file_disk_path, time_begin, time_end)
 
-        list_avg_power.append(util2.calculate_avg_power(util2.file_power_path, time_begin, time_end))
+        list_avg_power.append(avg_power)
 
         list_emmc_kb_read.append(emmc_kb_read)
         list_emmc_kb_wrtn.append(emmc_kb_wrtn)
@@ -153,7 +161,6 @@ def process_results():
     list_sd_kb_read = [x / 1024 for x in list_sd_kb_read]
     list_sd_kb_wrtn = [x / 1024 for x in list_sd_kb_wrtn]
 
-
     data = {f'Disk Size({disk_size_unit})': list_disk_size,
             'Workload Type': util2.workload_type_list,
             'Operation Read Ratio': list_operation_read_ratio,
@@ -162,12 +169,16 @@ def process_results():
             'Cache Size': cache_size_list,
             'Caching Policy': list_cache_policy,
             'Hit Ratio': list_hit_ratio,
-            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99,
-            'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
+            'P99 Latency(ms)': list_p99, 'Average Latency(ms)': list_avg_latency,
+            # 'Total Time(s)': list_total, # Origin Total Time
+            "Bandwidth(MB/s)": list_bandwidth,
             'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
+            'Average Power(W)': list_avg_power,  # Origin Energy
+            # 'Energy(J)': list_energy,
+            # 'Total Time(s)[32GB]': list_total_time_32gb, # Total Time For 32GB
+            'Energy(J)[32GB]': list_energy_32gb,  # Energy For 32GB
             'eMMC Read Size(KB)': list_emmc_kb_read, 'eMMC Write Size(KB)': list_emmc_kb_wrtn,
             'SD Read Size(KB)': list_sd_kb_read, 'SD Write Size(KB)': list_sd_kb_wrtn,
-            'Average Power(W)': list_avg_power, 'Energy(J)': list_energy,
             'eMMC Read Numbers': list_emmc_read_nums, 'eMMC Read Average Latency(ms)': list_emmc_read_avg_latency,
             'eMMC Read P99 Latency(ms)': list_emmc_read_p99,
             'eMMC Write Numbers': list_emmc_write_nums, 'eMMC Write Average Latency(ms)': list_emmc_write_avg_latency,
@@ -175,7 +186,8 @@ def process_results():
             'SD Read Numbers': list_sd_read_nums, 'SD Read Average Latency(ms)': list_sd_read_avg_latency,
             'SD Read P99 Latency(ms)': list_sd_read_p99,
             'SD Write Numbers': list_sd_write_nums, 'SD Write Average Latency(ms)': list_sd_write_avg_latency,
-            'SD Write P99 Latency(ms)': list_sd_write_p99}
+            'SD Write P99 Latency(ms)': list_sd_write_p99,
+            'Time Begin': list_time_begin, 'Time End': list_time_end}
 
     df = pd.DataFrame(data)
     excel_file = os.path.join(util2.path_head, 'statistic.xlsx')
@@ -195,20 +207,28 @@ cache_size_list = []
 cache_policy_list = []
 
 if __name__ == '__main__':
-    # path_root = 'E:/projects/records'
-    # folder_list = ['2024-05-31_20-49-28_uniform_read_0',
-    #                '2024-06-01_15-02-13_uniform_read_0.4',
-    #                '2024-06-01_01-58-53_uniform_read_0.2-0.6-0.8-1',
-    #                '2024-05-29_22-19-07_latest',
-    #                '2024-05-31_17-03-19_zipfian_read_0.2',
-    #                '2024-05-31_12-45-07_zipfian_read_0_0.2',
-    #                '2024-05-31_00-53-23_zipfian_read_0.2_0.4_0.8_1',
-    #                '2024-06-04_18-32-41_zipfian_read_0.6_1-64KB',
-    #                '2024-06-04_17-42-35_zipfian_read_0.6_256KB',
-    #                ]
-    path_root = 'D:/Projects/Caching-Policy/records'
-    folder_list = ['2024-07-04_00-59-52_cache_2GB_uniform_read_0_1-1024KB']
+    # path_root = 'D:/Projects/Caching-Policy/records/cache_ycsb_2GB_8000\zipfian'
+    # folder_list = [#'2024-07-14_14-07-02',
+    #                '2024-07-15_11-45-06', '2024-07-15_22-06-55',
+    #                '2024-07-16_14-02-43', '2024-07-17_01-51-19', '2024-07-17_14-59-34',
+    #                '2024-07-17_22-38-52', '2024-07-20_00-51-07',
+    #                '2024-07-21_01-12-26_cache_2GB_zipfian_read_0.4_4096KB',
+    #                '2024-07-22_14-24-23_cache_2GB_zipfian_read_0.8_4096KB',
+    #                '2024-07-23_14-01-32_cache_2GB_zipfian_read_1_4096KB']
+    # path_root = 'D:/Projects/Caching-Policy/records/cache_ycsb_2GB_8000/uniform'
+    # folder_list = [#'2024-07-04_00-59-52_cache_2GB_uniform_read_0_1-1024KB',
+    #                '2024-07-05_12-17-50','2024-07-05_23-50-11','2024-07-06_12-26-00',
+    #                '2024-07-06_22-37-58','2024-07-07_10-36-07','2024-07-07_18-03-11_cache_2GB_uniform_read_0_4096KB',
+    #                '2024-07-08_18-58-44','2024-07-12_00-13-35','2024-07-12_20-41-13',
+    #                '2024-07-13_12-23-19','2024-07-14_00-47-45']
+    path_root = 'D:/Projects/Caching-Policy/records/cache_ycsb_2GB_8000/latest'
+    folder_list = [  # '2024-06-27_22-28-27_2GB_8000_latest_read_0',
+        # '2024-06-29_02-09-49','2024-06-30_00-58-58_cache_latest_read_0.4',
+        # '2024-06-30_10-10-17_cache_latest_read_0.6',
+        '2024-06-30_19-50-36_cache_latest_read_0.8', '2024-07-01_10-13-15',
+        '2024-07-01_17-24-45', '2024-07-02_17-59-47', '2024-07-03_11-23-38', '2024-07-03_19-52-58']
     for folder in folder_list:
         util2.path_head = os.path.join(path_root, folder)
+        print(util2.path_head)
         process_cache_test()
     # util2.merge_excel_files(path_root, folder_list)

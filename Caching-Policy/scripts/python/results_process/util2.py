@@ -103,7 +103,7 @@ def calculate_avg_power(file_path, time_begin, time_end):
 
             if filtered_df.empty:
                 mask_extended = (df['Time(HH:MM:SS)'] >= time_begin_extended) & (
-                            df['Time(HH:MM:SS)'] <= time_end_extended)
+                        df['Time(HH:MM:SS)'] <= time_end_extended)
                 filtered_df = df.loc[mask_extended]
 
     # 计算平均功率
@@ -140,6 +140,7 @@ def calculate_avg_mem_used(file_path, time_begin, time_end):
         return filter_data['mem'].mean()
     else:
         return None
+
 
 def calculate_disk_read_wrtn(file_path, time_begin, time_end, delta_time=timedelta(minutes=5)):
     # 定义时间格式
@@ -181,6 +182,7 @@ def calculate_disk_read_wrtn(file_path, time_begin, time_end, delta_time=timedel
         return emmc_kb_read_diff, emmc_kb_wrtn_diff, sd_kb_read_diff, sd_kb_wrtn_diff
     else:
         return None, None, None, None
+
 
 # IO Read/Write Mount
 # def calculate_disk_read_wrtn(file_path, time_begin, time_end):

@@ -147,7 +147,7 @@ def process_results():
             'Cache Size': cache_size_list,
             'Caching Policy': list_cache_policy,
             'Hit Ratio': list_hit_ratio,
-            'Average Latency(ms)': list_avg_latency, 'P99 Latency(ms)': list_p99,
+            'P99 Latency(ms)': list_p99, 'Average Latency(ms)': list_avg_latency,
             'Total Time(s)': list_total, "Bandwidth(MB/s)": list_bandwidth,
             'Average CPU Usage(%)': list_cpu_usage, 'Average Memory Used(MB)': list_mem_used,
             'eMMC Read Size(KB)': list_emmc_kb_read, 'eMMC Write Size(KB)': list_emmc_kb_wrtn,
