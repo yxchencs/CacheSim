@@ -110,7 +110,10 @@ def process_results():
 
         total_time_32gb = 32 * 1024 / bandwidth
         avg_power = util2.calculate_avg_power(util2.file_power_path, time_begin, time_end)
-        energy_32gb = total_time_32gb * avg_power
+        if avg_power is not None:
+            energy_32gb = total_time_32gb * avg_power
+        else:
+            energy_32gb = None
 
         list_total_time_32gb.append(total_time_32gb)
         list_energy_32gb.append(energy_32gb)
@@ -208,7 +211,7 @@ cache_policy_list = []
 
 if __name__ == '__main__':
     path_root = 'D:/Projects/Caching-Policy/records'
-    folder_list = ['2024-08-06_00-26-32_cache_ycsb_latest_read_0.6_4-1024KB']
+    folder_list = ['2024-08-06_23-02-27_cache_ycsb_latest_read_0.6_1KB_io_on_0.1']
     for folder in folder_list:
         util2.path_head = os.path.join(path_root, folder)
         print(util2.path_head)

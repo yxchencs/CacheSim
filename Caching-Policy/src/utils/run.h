@@ -503,7 +503,7 @@ void runYcsbTest(){
 }
 
 
-void runYcsbCacheSize10pp(){
+void runYcsbIoOnCacheSize10pp(){
     makeSaveRoot();
     // cache dir
     cache_dir = "/mnt/eMMC/";
@@ -525,18 +525,45 @@ void runYcsbCacheSize10pp(){
             trace_dir = dir;
             trace_path = trace_dir+"/trace.txt";
             std::cout<<"single_trace_path: "<<trace_path<<std::endl;
-            for(int k=0; k<2; k++){ // io
-                io_on = k;
-                cache_size_index = cache_size_types_size-1; // cache_size = 0.1
-                for(int j=0;j<policy_types_size;j++){ // cache_policy
-                    caching_policy_index = j;
-                    runYcsbOnce();
-                }
+            io_on = 1;  // io = on
+            cache_size_index = cache_size_types_size-1; // cache_size = 0.1
+            for(int j=0;j<policy_types_size;j++){ // cache_policy
+                caching_policy_index = j;
+                runYcsbOnce();
             }
         }
     }
 }
 
+void runYcsbIoOnCacheSize10ppRandom(){
+    makeSaveRoot();
+    // cache dir
+    cache_dir = "/mnt/eMMC/";
+    mkdir(cache_dir);
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // trace dir
+    string trace_root_dir = "../trace/";
+    // auto trace_root_dir = "../../trace_wait/";
+    auto trace_root_names = findTraceRootNames(trace_root_dir);
+    for (const auto& root_name : trace_root_names) { // disk_size = trace_name
+        cout << "trace: " << root_name << endl;
+        string trace_root = trace_root_dir + '/' + root_name;
+        disk_size_KB = extractDiskSizeKB(root_name);
+        cout << "disk_size_KB: " << disk_size_KB << " KB" << endl;
+        storage_dir = trace_root + "/storage/";
+        copyFilesContainingCache(storage_dir, cache_dir);
+        auto trace_dirs = findTracePathsYcsb(trace_root);
+        for (const auto& dir : trace_dirs) {
+            trace_dir = dir;
+            trace_path = trace_dir+"/trace.txt";
+            std::cout<<"single_trace_path: "<<trace_path<<std::endl;
+            io_on = 1;  // io = on
+            cache_size_index = cache_size_types_size-1; // cache_size = 0.1
+            caching_policy_index = 0; // cache_policy = random
+            runYcsbOnce();
+        }
+    }
+}
 
 // No Cache Test
 

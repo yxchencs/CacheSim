@@ -100,7 +100,10 @@ def process_results():
 
         total_time_32gb = 32 * 1024 / bandwidth
         avg_power = util2.calculate_avg_power(util2.file_power_path, time_begin, time_end)
-        energy_32gb = total_time_32gb * avg_power
+        if avg_power is not None:
+            energy_32gb = total_time_32gb * avg_power
+        else:
+            energy_32gb = None
         list_total_time_32gb.append(total_time_32gb)
         list_energy_32gb.append(energy_32gb)
 
