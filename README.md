@@ -1,6 +1,6 @@
 #### 项目概述
 
-本项目用于测试部署在多级混合存储机制的缓存策略的系统性能数据，项目结构如下：
+本项目用于测试不同缓存算法的系统性能，包含C语言代码4191行，项目结构如下：
 
 ```shell
 
@@ -210,7 +210,7 @@ Trace sample: baidutieba-4h.txt
 
 The trace file-names are indicating different mobile applications and some file-names also include the running hours. Each record in the trace files is as follows:
 [Time in s] [R or W] [LBA] [size in 512 Bytes blocks] [pid] [process] [MD5 per 4096 Bytes]
-sample: 
+sample:
 7.430000743 	R	     1548752	        24	       744	       Binder_5	fb0ece031db8f58df6849c2211df8c5a-35598db6787678b2acf4d0fc056f3b1d-9fc4e51c5541ecaeefc9da9e7cc55587
 
 cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware Trace Collection and I/O Deduplication for Smartphones. In Proceedings of the 33rd International Conference on Massive Storage Systems and Technology (MSST'17), Santa Clara, CA, USA, May 15-19, 2017.

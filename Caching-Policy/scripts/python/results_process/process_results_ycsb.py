@@ -211,9 +211,10 @@ cache_policy_list = []
 
 if __name__ == '__main__':
     path_root = 'D:/Projects/Caching-Policy/records'
-    folder_list = ['2024-08-06_23-02-27_cache_ycsb_latest_read_0.6_1KB_io_on_0.1']
-    for folder in folder_list:
-        util2.path_head = os.path.join(path_root, folder)
-        print(util2.path_head)
-        process_cache_test()
-    # util2.merge_excel_files(path_root, folder_list)
+    folder_list = ['2024-08-07_11-32-09_cache_ycsb_latest_read_0.6_1KB_io_on_0.1_random','2024-08-06_00-26-32_cache_ycsb_latest_read_0.6_4-1024KB',
+                   '2024-08-06_23-02-27_cache_ycsb_latest_read_0.6_1KB_io_on_0.1']
+    # for folder in folder_list:
+    #     util2.path_head = os.path.join(path_root, folder)
+    #     print(util2.path_head)
+    #     process_cache_test()
+    util2.merge_excel_files(path_root, folder_list)
