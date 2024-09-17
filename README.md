@@ -4,10 +4,7 @@
 
 ```shell
 
-Caching-Policy/
-├── doc
-│   ├── git.md
-│   └── ycsb-kvtracer.md
+CacheSim/
 ├── scripts
 │   ├── bash
 │   │   ├── cpu_mem_disk.sh
@@ -155,7 +152,7 @@ sudo g++ -std=c++17 -o main main.cpp # -std=c++17  for clock-pro
 3. 执行
 
 ```shell
-sudo ./main
+sudo ./main <run_mode>
 ```
 
 #### 项目内容
