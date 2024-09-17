@@ -14,6 +14,7 @@ data_analysis
 logs
 result
 doc
+results_plot
 
 *.o
 *.exe

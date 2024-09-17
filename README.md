@@ -1,94 +1,42 @@
-#### 项目概述
+# Presentation
 
-本项目用于测试不同缓存算法的系统性能，包含C语言代码4191行，项目结构如下：
+CacheSim is a tool to evaluate the performance of various classical caching algorithms on small edge devices. The tool implements nine caching algorithms including FIFO, LRU, LFU, 2Q, ARC, LIRS, CLOCK-Pro and TinyLFU.
 
-```shell
+# Configuration
 
-CacheSim/
-├── scripts
-│   ├── bash
-│   │   ├── cpu_mem_disk.sh
-│   ├── python
-│   │   ├── results_plot
-│   │   ├── results_process
-│   │   ├── ycsb_kvtracer
-├── src
-│   ├── cache
-│   │   ├── 2q.hpp
-│   │   ├── arc.h
-│   │   ├── cache.hpp
-│   │   ├── cache_policy.hpp
-│   │   ├── clockpro.hpp
-│   │   ├── fifo.hpp
-│   │   ├── lfu.hpp
-│   │   ├── lirs.h
-│   │   ├── lru.hpp
-│   │   ├── random.h
-│   │   └── tinylfu
-│   │       ├── bloom_filter.hpp
-│   │       ├── detail.hpp
-│   │       ├── frequency_sketch.hpp
-│   │       └── tinylfu.hpp
-│   ├── main.cpp
-│   ├── simulator
-│   │   ├── 2qSl.h
-│   │   ├── arcSl.h
-│   │   ├── clockproSl.h
-│   │   ├── fifoSl.h
-│   │   ├── lfuSl.h
-│   │   ├── lirsSl.h
-│   │   ├── lruSl.h
-│   │   ├── randomSl.h
-│   │   ├── sl.h
-│   │   └── tinylfuSl.h
-│   └── utils
-│       ├── bitmap.h
-│       ├── cacheConf.h
-│       ├── block.h
-│       ├── globals.h
-│       ├── mount.h
-│       ├── policy.h
-│       ├── progressBar.h
-│       ├── run.h
-│       └── statistic.h
-└── trace
-```
+## Environment
 
-#### 项目配置
+- Device: Odroid-c4
+- OS: Ubuntu 20.04.4 LTS
+- Processor: Cortex-A55
+- Memory: 3.6 GiB
+- Storage: SD, eMMC
 
-##### 运行环境
+## Requirements
 
-设备：Odroid-c4
-操作系统：Ubuntu 20.04.4 LTS
-处理器：Cortex-A55
-内存：3.6 GiB
-主存：SD、eMMC
+- C++: 17 or later
+- Python 3.7 or later
+- Storage: Any two flash devices with performance differences
 
-##### 设置系统时间
+# Preparation
 
-```shell
-sudo date -s "YYYY-YY-DD HH:mm:ss"
-```
+## Partitioning and Formatting eMMC
 
-其中，`YYYY-YY-DD HH:mm:ss`为现实时间
+> Note: eMMC here can be the better performing of the two types of flash memory.
 
-##### 挂载eMMC
-
-###### 对eMMC进行分区和格式化
-
-1. 列出系统上所有可用的磁盘分区
+1. List all available disk partitions on the system
 
 ```shell
 fdisk -l
 ```
 
-2. 创建磁盘分区
+2. Create disk partitions
 
 ```shell
 fdisk /dev/mmcblk0
 ```
 
-依次输入如下命令
+Enter the following commands in sequence
 
 ```shell
 n
@@ -98,142 +46,138 @@ p
 w
 ```
 
-3. 将新创建的分区 `/dev/mmcblk0p1` 格式化为ext4文件系统
+3. Format the newly created partition `/dev/mmcblk0p1` as ext4 file system
 
 ```shell
 mkfs -t ext4 /dev/mmcblk0p1
 ```
 
-###### 挂载eMMC
+# Getting started
 
-1. 查看系统所有识别到的磁盘
+## Configure per boot
+
+### Setting the real system time if not networked
+
+```shell
+sudo date -s "YYYY-YY-DD HH:mm:ss"
+```
+
+### Mount eMMC
+
+1. View all disks recognized by the system
 
 ```shell
 fdisk -l
 ```
 
-2. 将eMMC临时挂载到/mnt/eMMC
+2. Temporarily mount eMMC to /mnt/eMMC
 
 ```shell
 sudo mount /dev/mmcblk0p1 /mnt/eMMC
 ```
 
-3. 检查磁盘挂载情况
+3. Check disk mounts
 
 ```shell
 lsblk
 ```
 
-#### 项目运行
+## Do each test
 
-##### Terminal 1
+### Place trace
+
+Place the `trace` file in the `CacheSim\trace` directory.
+
+### Run
+
+#### Terminal 1
 
 ```shell
-cd scripts/
+cd CacheSim/scripts/bash
 bash cpu_mem_disk.sh
 ```
 
-`Terminal 2`中代码运行结束后 `Ctrl+C`终止
+> Note: manually conduct `Ctrl+C` to terminate code at the end of its run in `Terminal 2`.
 
-##### Terminal 2
+#### Terminal 2
 
-1. 进入源代码目录
-
-```shell
-cd src
-```
-
-2. 编译main.cpp
+1. Go to the source code directory
 
 ```shell
-sudo g++ -std=c++17 -o main main.cpp # -std=c++17  for clock-pro
+cd CacheSim/src
 ```
 
-3. 执行
+2. Compile `main.cpp`
+
+```shell
+sudo g++ -std=c++17 -o main main.cpp
+```
+
+> Note: `-std=c++17` is for CLOCK-Pro
+
+3. Execute
 
 ```shell
 sudo ./main <run_mode>
 ```
 
-#### 项目内容
+> Note: `run_mode` includes `device`, `ycsb` and `real`.
 
-##### Caching policy
+# Details
 
-下面列出缓存策略实现参考的代码仓库和博客
+## Caching algorithms
 
-- FIFO-LFU-LRU
-  https://github.com/vpetrigo/caches
-- LIRS
-  https://github.com/374576114/cache
+The following is a list of code repositories and blogs referenced for caching algorithm implementations.
+
+- FIFO-LFU-LRU: https://github.com/vpetrigo/caches
+- 2Q: https://github.com/Mirageinvo/2Q-cache & https://blog.csdn.net/Sableye/article/details/118703319
+- ARC: https://github.com/anuj-rai-23/Adaptive-Replacement-Cache-ARC-Algorithm
+- LIRS: https://github.com/374576114/cache &
   https://blog.csdn.net/z69183787/article/details/105534151
-- ARC
-  https://github.com/anuj-rai-23/Adaptive-Replacement-Cache-ARC-Algorithm
-- Clock-Pro
-  https://github.com/maximecaron/ClockProCPP
-- 2Q
-  https://github.com/Mirageinvo/2Q-cache
-  https://blog.csdn.net/Sableye/article/details/118703319
-- TinyLFU
-  https://github.com/vimpunk/tinylfu
+- Clock-Pro: https://github.com/maximecaron/ClockProCPP
+- TinyLFU: https://github.com/vimpunk/tinylfu
 
-##### Trace
+## Traces
+
+### YCSB-KVTracer Traces
+
+For further details, refer to: https://github.com/yxchencs/YCSB-KVTracer
+
+### Real Traces
 
 1. [Nexus5_Kernel_BIOTracer_traces - Nexus 5 Smartphone Traces](http://iotta.snia.org/traces/block-io)
 
-Trace sample: log106_Messaging.txt
-
-- 列0: access起始地址，单位为扇区
-- 列1: 说明大小应该是时间为8，因为基本块大小是4kb或8扇区。但是mmc驱动程序添加了额外的扇区到一些大小，因此你需要清理它。
-- 列2: 访问大小，以字节为单位。
-- 列3: 访问类型&是否等待:最低位表示读或写(0表示读，1表示写)，第三位表示请求是否等待(4表示没有等待，0表示已经等待了一段时间)
-  例如，5表示请求是一个写请求，请求在处理之前没有等待，这表明请求到达时队列是空的。
-- 列4: 请求生成时间(请求生成并插入到请求队列)。
-- 列5: 请求处理开始时间(MMC驱动程序从请求队列取出请求并开始处理)
-- 列6: 向硬件提交请求的时间(驱动程序向硬件发出请求的时间)
-- 列7: 请求完成时间(请求完成后调用回调函数的时间)
-
-cite: I/O Characteristics of Smartphone Applications and Their Implications for eMMC Design
-https://ieeexplore.ieee.org/abstract/document/7314143
-
+   - Trace sample: log106_Messaging.txt
+   - Cite: I/O Characteristics of Smartphone Applications and Their Implications for eMMC Design
+     https://ieeexplore.ieee.org/abstract/document/7314143
 2. [Smartphone Traces](http://visa.lab.asu.edu/web/resources/traces/)
 
-Trace sample: mobi.trace.0.txt
-
-cite: Q. Yang, R. Jin, and M. Zhao, “SmartDedup: Optimizing Deduplication for Resource-constrained Devices,” Proceedings of USENIX Annual Technical Conference (USENIX ATC ’19), July 2019.
-
+   - Trace sample: mobi.trace.0.txt
+   - Cite: Q. Yang, R. Jin, and M. Zhao, “SmartDedup: Optimizing Deduplication for Resource-constrained Devices,” Proceedings of USENIX Annual Technical Conference (USENIX ATC ’19), July 2019.
 3. [MobileAppTraces](https://astl.xmu.edu.cn/appdedupe.html)
 
-Trace sample: baidutieba-4h.txt
+   - Trace sample: baidutieba-4h.txt
+   - Cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware Trace Collection and I/O Deduplication for Smartphones. In Proceedings of the 33rd International Conference on Massive Storage Systems and Technology (MSST'17), Santa Clara, CA, USA, May 15-19, 2017.
 
-The trace file-names are indicating different mobile applications and some file-names also include the running hours. Each record in the trace files is as follows:
-[Time in s] [R or W] [LBA] [size in 512 Bytes blocks] [pid] [process] [MD5 per 4096 Bytes]
-sample:
-7.430000743 	R	     1548752	        24	       744	       Binder_5	fb0ece031db8f58df6849c2211df8c5a-35598db6787678b2acf4d0fc056f3b1d-9fc4e51c5541ecaeefc9da9e7cc55587
+## Statistics
 
-cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware Trace Collection and I/O Deduplication for Smartphones. In Proceedings of the 33rd International Conference on Massive Storage Systems and Technology (MSST'17), Santa Clara, CA, USA, May 15-19, 2017.
-
-4. [uniform/latest/zipfian trace](ycsb-kvtracer.md)
-5. random trace
-
-##### Statistic
-
-本项目主要测试的数据如下
+The main data tested in this project are as follows:
 
 1. `main.cpp`
-   - hit ratio
-     - block hit ratio
-     - trace hit ratio
-     - read/write hit ratio
-   - latency
-     - total time
-     - average time
-     - p95/p99 latency
-   - band width = total size / total time
-   - average size = total size / request number
+   - Hit ratio
+     - Block hit ratio
+     - Trace hit ratio
+     - Read/Write hit ratio
+   - Latency
+     - Total time
+     - Average time
+     - P95/P99 latency
+   - Bandwidth = total size / total time
+   - Average size = total size / request number
 2. `cpu_mem_disk.sh`
-   - cpu usage
-   - memory used
-   - disk read/write
-3. USB功率计：IoT Power - CC
-   - power
-   - energy
+   - Average cpu usage
+   - Average memory used
+   - Disk read/write
+3. U96P-B power meter
+   - Average power
+   - Total Energy
