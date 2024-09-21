@@ -92,7 +92,7 @@ void NoCacheSl::test()
     {
         // cout << "----------" << curKey << ' ' << curSize << ' ' << type << "----------" << endl;
         st.total_trace_nums++;
-        showProgressBar(st.total_trace_nums, trace_size);
+        // showProgressBar(st.total_trace_nums, trace_size);
 
 
         ll begin = curKey / block_size;

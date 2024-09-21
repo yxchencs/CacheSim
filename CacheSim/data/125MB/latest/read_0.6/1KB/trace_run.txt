@@ -1,0 +1,2000 @@
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1538624663640014373:field0|9\{6Tu.Ve'J!3+*<[%,<d>-x?5:9Jk59r&'l+Xe'Y'&Eo.A-;7 (R'9^q3Z37.>->r/%,8?d?3"!As2*45T3*Yc.Bc< 0-/`0(( 
+UPDATE|usertable:user1322655549913066730:field0|"3t".h(#&1=<'U{/8|(G%==: Lc?Ks<_;51(1X;-Pc"1d&<>4@3=+f*U#%1  [{:)l70v'O}<+r2V%+B5%,$?C!,7p4H{?@-0;"(
+UPDATE|usertable:user1322655549913066730:field0|'&x3$(1*00"t']o7]35J=((l>P%,Ga.F?40~#W#8'x+T{&\u:I516<&$<(Ri(A{3N#=Sk+&`)-28* >2b''|'\o>L-*-p'6h'-f.
+UPDATE|usertable:user455066467631661857:field0|86h"Z!2*8=*h:Q/)U#$<t#>"/Q- )n?0v>968Xs*<*4_i?@%0V!%G<,~#5$*<v;]++E%9,$:'48U/-;644.2Be.!v"5j"]#!Yg&
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2653885884051841857:field0
+GET|usertable:user7531290184929052007:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5386677189508267507:field0
+GET|usertable:user1561515284517094427:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user6964905180961907687:field0
+UPDATE|usertable:user1322655549913066730:field0|/ >40r*Y'<A'+Be'Le0X;9Oy+Vk" : Vw&Om3#8$<n.X;=4`3?6(4n2.v2]54Vo:K>S11. ;+ -,69G3 J;'9r*8268`?A50Qa/
+UPDATE|usertable:user6613189735245120138:field0|%]5)(b-[10Vg83b+S50Ay>Gg+;x&+~ )x*D5+J7(]),#`";v+Ie++(+B#<&.>Aq"I9 $j#"6&!<<..(0&=K/ Q#9P;+6v39p)F' 
+UPDATE|usertable:user7451540848610782768:field0|"$((Zs<N1=@y)^-(Nq6/x'Y%?Yg?Ay<9(,B#+Li/Ie,#t/36(1d')6)Uo+',$Wi?/n00(<'h?#l2L!,9r;Qu'_!,@=722=5r%-h6
+GET|usertable:user6693630832200069758:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|6Tw3Z?;("(M?3.v#(d'Xg:L=-V;(=z9D{".0"!$0R<7z&A-?-&(_i.)`3Pw<Z!(*p Ma3<.454,A?"Y98"`8)"!H{%E;!_c9.20
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|/80!<<8La?Le 8$<E%*[s>[q!!&1^30Ls7F5"$&0;*22b#!x4#p71p<#.(D%;#r;^i$4z/#b1N"Xo>Sm:Z;0@o"B7"#`7+:!)0%
+UPDATE|usertable:user6624567918120006787:field0|%!b7H7 C%4=v5-t7?d3I5$%8%'`>[o1% 9D+!N}'D-&@/51&%)*)2v%L-8Ek7Uk.Cq>#t?]55Xo*Dk4Su+=<!#f#F5>^}7S1'%.<
+UPDATE|usertable:user455066467631661857:field0|*J3<R':2*,@#-^}.G!4\113>?Q? $<$0~#;6:Q3,3, ]c"9x9"<=^s!Ti/Dm7-0-<092`2348V%=Y;!Aw.I{3+f>P;.,z"V{7;h2
+GET|usertable:user4396777638105551731:field0
+GET|usertable:user9139447905935114811:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user455066467631661857:field0|=D=!R'3Pc+:25D!0"6"..9A+"Oc"9";Gg'_47~?8<,;r?&~9& (Y{6Z}'4l3;&9>$4Ms6*(%Mi+3.2*t66p4Ws*8|<)t'+0:N3(
+UPDATE|usertable:user8746926292375594621:field0|+Wa/Ns8]/<^k5Ec2Yy7A{#Z)"D95B17_30?(42&4Y!<A;544:?r.I94+"5A7.K+V+,Eo*!4#-0)&".3.<Cq E1!3v*%~7(6+)d&
+GET|usertable:user3679182014227989543:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5928624446962305623:field0|%Mi*+0#N=0Pi"U)!%v"_=(5`<_i3Sm > 00v!( 4\+ 'd::l!X/1G{#*`+P38-29$<6.n#Z5). <M9;@?,#8$/ (W-"$(9/d/^/ 
+UPDATE|usertable:user1322655549913066730:field0|(Zq6=z<[+=*,5R=(R'.Fe&B{?Hw2#&:O-1^34+~?Kg9%8=Ee6'.,"&-02%/n:;h'&8&Ws'Me-+"18:;$ !Tm5;(1*,+.r+Xg6I58
+GET|usertable:user1522773151438276889:field0
+UPDATE|usertable:user6222620507537905967:field0|$.$4/|366<)p8C181n 6><>h )")0r!4p"Sk=!f:6z)My;H#+>48U?8.j*Fu-*|:/82Aq*P7(4$ !>=W35%0. d'*j(H%<Ji8Iw?
+GET|usertable:user287218205792339863:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2988363746996999100:field0|<9x&V-%&=O;&V?!_**~#3l2Cy>",;_i: d36:5=*&.0!Zu!&l;Si26h+Nm3S/)!`#Eu6Jq*+x75j;5.9+l%M%$(~9Pm:W#/Oy2
+GET|usertable:user6933589380839592241:field0
+UPDATE|usertable:user2509545463753448920:field0|8.v*.$)#*,[+;"b2Ye(\{&@y Y),/`"#h&*d/=8!Ry-Wc"0<6Dc+Z+,L{3/`(2.1$8+Q')-t)S5 _u>^w+Ey>?8922"@=(O+4,`?
+UPDATE|usertable:user5687879768595616498:field0|""`*7v0+69+~%P{:D1?U{&Ou<Mo&Uc>S31\%6O/(0h8W#=+4:];(#>)M#0Lc34:<U'-Ac/L-<)&0?l&Jy7E93;<(#j4\3(56+5 ,
+UPDATE|usertable:user1322655549913066730:field0|+Pq.;p#^19=>042-$451p'L1$Ii3":>Fu*9(5>h#8$.>*(((#<|?9.)-013z%2>$>~)&r7%p<$h.Ha(E{/Ye8Vm6%x3>8)_33F7$
+UPDATE|usertable:user7442093944599416028:field0|1@{;+~==t/Eo>! 4"<*W}2M{*?2!T+$*6(.r8F)4#j6]a.0h J--.|#"8 B7,.d>V'<B}2B/8]71V73+,8Ei=G)=J;#?8=,b7E1,
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user3044455111759056028:field0
+GET|usertable:user2622182859648366889:field0
+UPDATE|usertable:user2246079073572997380:field0|6820J{8B3=Y%>428Ke" n/+&0\k2]g$]c>1*$#|7:$0H50Pa!S}/Mo"0p3R3"10=^+$;<<>4#Y19%|+^g?Z/2%2-Mc5S)0: :Qc+
+GET|usertable:user7256671781088740012:field0
+UPDATE|usertable:user6342684236389326028:field0|*/h22,8@m:Dw1F7<Z1<#"$I)9+>0Yq![3-Oa0&:(/f#;8("8?Lu&/n$V11S5/2)2(;'f7D!+7p6Y!%A!$-n?K91Og1#d.7t?2t#
+GET|usertable:user1911601210627840137:field0
+UPDATE|usertable:user1793665874575230521:field0|*As+@c*%&9%28*68<~18 )N9#:0098;!b>(x"Ao#52-"p6La=46$ n91"!$l+ $5:b2(>4Ue++>1=&;V%006.X{.Sg+=f6_3 R7,
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1793665874575230521:field0
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user7344894937811934262:field0|#344Bi1-<$P3)3t>6d"R!0T75Ga+_w*!x2.r,5r+Vg%@a:E%5$&5^w#&~+M12Og+_a"Z}"[?<3"(P. f'6x>"n>B%9^m.'h!%t6
+UPDATE|usertable:user6312829046809734782:field0|;^w?&x7.&,$z;7n+Xa0Aw3(83"f:)83($%-d?1&4E;31 =R;,E)48&%Au?-f":h:3$=2|.I#=Fu.K/8N-=]q64444(%<.(Su#6.1
+GET|usertable:user1410135755543358920:field0
+UPDATE|usertable:user3465552510634507441:field0|34$ M{4S11M)6!<<5p'!b'=f/8r&@w&!<0;n"\5-5j-880=z;=d>F{>2b.G3 .t.V{-;z/+d>T3-Gi6K34?v+[m"Ew9S5<<n3Re3
+UPDATE|usertable:user7529574150229708218:field0|;U{*E/'&"-<n7W{.)f.)2=L+(Xa+Ho#%~/S)?)04=(>^;1P)"2v30"3[%-I;4K!<^{!>8$"d'P-57<&4j'V5(M-);*=+&5;$3$n&
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user455066467631661857:field0|=+t7Tg%_u*Kg7 n/^!?^q/M9U*;:1%n/D34"~+<d5,v/=&+Iq":j>Ie6M}<(<8Me Lw6<*;)v7Z/2F{&]c"L')3,4+|' l6M};
+UPDATE|usertable:user1322655549913066730:field0|+9.-J910(16*)*b;Z;0+:81 9#l>V+/&j2Lc5($ X53(8!Z1%7&)Dy7K79Da.6$,3~4U1=^g2@}?R)"%:,S;;. )9n+ $)/| B9-
+UPDATE|usertable:user1322655549913066730:field0|>M}#T)1Hm'Za$Ge*W9,X%5X=1K59*6 Y94!<!)6$Re-\m3) 77z+\?9N/1&26N{+/l>O!4+8)W1=;z;.b:7"><l3;~#3z31x"Dm.
+UPDATE|usertable:user1322655549913066730:field0|/Lg*6~>8(,E=.<<<1l)+x:'"-,x7U!?+"8%$2Lw+I+>'n#Z=]e6Li9+*9_}5-r"+b>-x2L)9Y9-Aa,^#))`>9") b9%l/C&8<1
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user3361340293984824864:field0|>E;!I)48<5U79I1,Rk!0*<Ti71r39r4->-;0!S%,F+;7|"I?2->( p"U%,32% :9Bw:\}7+`;M;(/,3*t*K-?-p?B?$Ts.Y/$Wy;
+UPDATE|usertable:user8040038197725024811:field0|*8x;A'/B;%Rs $v'6d(G;)&> (.81t;[-<]97Rk2^k&]=0Z1'Q+=/t9N?59"(20(.z+By:<"4Y3,N!:&>,^/$/b. 8#(l'D71n#
+UPDATE|usertable:user8782322871149026531:field0|(4`3Yy).x60v5+`#5f6Dc>.<80j?Xi/K%40p:Ha:P'=)n"2(.56=Nu72h:!*<.<-*n?[1=M!;,l.-x5Ve& z P752r>?&$98",4=
+UPDATE|usertable:user4407331210149597568:field0|:5v;Io,32-G}!D1=Ik>5$=.x-:v:=:5Hq+Cs=W!%0f!#l7V=2(1/20:v+",6^k>I=6>*4Mi7-:8F13%* 1b$?j#Wy.8v;\k.P#)
+GET|usertable:user9139447905935114811:field0
+UPDATE|usertable:user5865495472751817687:field0|2Xm&,8'Km:>29-0%;`>!p2,l2K;5Ks5 |&-&!3d2F#7P)=.,;9$)Ag+>`/[12N=)9~"@!)>")Tq'F-;2`&@9-!x*Ok66n3Gu5.r*
+UPDATE|usertable:user5123210799327815967:field0|1+h37x>G7,Mc%Dc73t%Uw22x:_o:*21\?,d&H9)(2 R; ?v!%z.<":Zy.K32/<8K# H;%\k0=|/I=/>.%Bk)52=(j+F/0Y7:P) 
+UPDATE|usertable:user7529574150229708218:field0|)W+0E)75d6Z7#O?-"./A-<7,;%&<<j<("%3|9R78.j$3f7S725t2865A195,+_+,L%:440Zc,#$5O-6E{>U!+&*4,n"#h/$d>;t7
+UPDATE|usertable:user1322655549913066730:field0|-%<!&$4X#,Qg!4v"B)1G-1Fu8];0^i6Cq&<0$=f>@1,$f/\? ?d"-8&Ma+)h=%d/3>?;:0M%;S?,L12:24K}4?f>Go>=f*X'(2~2
+UPDATE|usertable:user5594221123989979758:field0|.\#<?v V/0[?,%8!0h;C6P!4Xq.%$<Q{6Hc5"4 J; B;0Ju+H;43&7?$=\)#Ri/!j<Lw"%v?9&,Is5-* X#>Rm2Io6R;,&| Nu2
+GET|usertable:user3729018900814958981:field0
+GET|usertable:user4274994047387124594:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user2632954746910254609:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1850211905708091562:field0|;%,%\s#6z60*6\a2+8 /|#\-%K+>4 Q3$Wk1Du>O5(>z"3(!L}7%x \91Mq)Oo/!~#Ca#]i:Sg''.=Qm;30=7h7.:"F31A'.Ew>
+UPDATE|usertable:user1322655549913066730:field0|9Q+ 8`>M7<>$486$Iw'1$ 9z/*4%9l$\a65,%=>8Vy![+%Oe75x:K5.Ie>Y3%)`#Hm7Mg.:2 1d*6*<X?!A1%Gc>:l.30 A7&V9%
+GET|usertable:user1120035783961346140:field0
+UPDATE|usertable:user4000293249576796910:field0|%"x*I9)."<&x?)~7V%2Xk>Yc"'68G#&U3-S)'(*5C37H%% 8$Q74P! ;d3Nk-]!<J5;,( %x$^?8T{(%&,3r+Ku"E{-/.!Qo;X1 
+UPDATE|usertable:user3573201294551610271:field0|!Qo;,f)W)<Oa37,4H$.84$.1Jk&#<&L3<&j5Tw'"`=Wc#S)-\;8$,9\s3De"P59Py;Y-1Gg;02 Oq*#64U?)B- Yc#Fi3;$,V{2
+GET|usertable:user455066467631661857:field0
+GET|usertable:user5513780027035030138:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user4870297981191410264:field0
+GET|usertable:user2074318942145876561:field0
+UPDATE|usertable:user6430164442019618218:field0|-Q/0.$=D+$5x--.=K+(4z*'2(Vg""x!Ba72h26j61r%%d7&p7E-%X'2H9=Ws,]',+j/I{7@w5*,!Ik%"<)T;'G2&r ,d:;8!^i6
+GET|usertable:user7815931161287239812:field0
+UPDATE|usertable:user8580245785888323566:field0|+6*4Es&^% /,$7~:4n-0v&0l=-29]9"<<978?Ow>Uo+ t" 8'H?=&z09t"A350&4 z.P!!.6.<r'Ga.+|&Qs5>.-Os9:r;[q=0`&
+UPDATE|usertable:user4407331210149597568:field0|5_m*144Sw2N18"x/#&;Lq:H}(#$<)z,Nc>Sm-Au'Vu#Q%9<f2<t.)<5;t.]#<66,80=]=%""=+,,Qq!K}?^ Ws*T!*Tc2Wm3To6
+GET|usertable:user1344760041062980142:field0
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user1322655549913066730:field0|-4f&#j._}/F}64p&C94*8)<9<81@56Wq#Eu=%f3<">G'!Ky!;f7R'<%n&+n-_?Rq.$~*G3(9> -n)U9-Z?(K'-Ws+^9=[;1?(%
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user692070513414621521:field0|9)j'Ve9^3!3,7O{#E3>^5-*d).t"]9$;04['3Sq+:|//p&J'2L)0Wq=\30(|'*j3Nm0<(8D=/W=8Lu9Mu?M-."p7X/1A%8)p?;d/
+UPDATE|usertable:user2987577617269832458:field0|''6,Z=1+((Js#/|&-< :"4Sw#Ms6Kk=Aw+Re%-z#%>- .=?n,5d23$0"d:T96Nq;J5"/b+_g.&<8Mq,.")V{/V--H9<C}6D/,Wg>
+GET|usertable:user3941463369235267321:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user7442093944599416028:field0|5Pa+B398l/]i9Pe336'0<97"!W1<!r)Te'Gi9Hy?2b8J9)_+ 5r7081.&( p5\u61.-Bq/Q--A}&&v)0x*962^i7['5C?<<h-\s;
+GET|usertable:user455066467631661857:field0
+GET|usertable:user287218205792339863:field0
+UPDATE|usertable:user290563760097725491:field0|*Sc>Ig.O+ 0v.Q5%)"6-`:]q)(<= 27W'4f1N.3~+Ra/0`:Va+Le(E!5&f%Oo?9f ,8(*0:G=$X?7P7 ]=8= 4@7'Co?U95)09
+GET|usertable:user8064314889171997687:field0
+UPDATE|usertable:user4407331210149597568:field0|29b;B) (f?F-Ey/?`9*<9# %Y/1R;=Rc#^q,_/ Y- 4(1Au')*)Q%.K#8Vq7<$=Kk8D!(0~(&<-=p;*j;12&$v?O#3(<1 ~?1,=
+UPDATE|usertable:user5863940493118607226:field0|!M)!Le79~.Lg+:r7Iw?8<=@e=%h"#44%r'Zu/]e.Gu5@;5B5=*v3Sw8Nu;Pc5N+1[.U#9@o-]55>,)A+</h+/&<*l$\s?Ki0,.0
+UPDATE|usertable:user3371893866028870701:field0|+8"81"'_}/Bc&Mo"Tg-164K!7 (19>>:6)9(0M)5_1>4z&%4>D*A!9*`..2=Go6B51_79(x$Yw"K7"2l6Xm5*,!:b*."(B/%[#5
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2509545463753448920:field0|41n**8-E+$I3($r?E+9Qc3>4<G1-V!8&~:^k*Eg>(67A#%'`'8&4129>*$%r'+&!&:4?d"*,,)~&^s(Bs?5h);r/),!=t&J)$)(=
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user5839259297569352005:field0|&4~"3.'!"$Fs99|+0&*@7-Lm%7x#$47$j3;f#>(9)r8(<)-b/@s#M)?9& #(*:`'*z0O!$@#.S}?Ps)$d#G+92> Y5#Jg"P;7Om/
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7897083847996524696:field0
+UPDATE|usertable:user6631998078244172166:field0|,Fa&Ik)R3=Dc!#d+]#!])<'v(5d.=(#&l+U18No75r 7b6^;<M{.Eg&Tu7Z'<4$0Ym0Jw7I9&F')-6;<&)T3(5 ,7,1;x3Rw1Qq?
+UPDATE|usertable:user4643063705666081520:field0|>8v/Kq09")D13I','d/?&4]'/C/4)&>Ue'6r!W%%Ha:.l+Zi/?n/\c6D==Z9,4l7<>6)v7H5?T7='0<54%**&<h6>::8:):t24>$
+UPDATE|usertable:user5187183163417179100:field0|%.f7Kg'G)%Wu/W%-L{!)>!Ps Qi7=(;/$<]o!!69E=$=x2.n%D+$90,Q}.4v%\=1#b70b/&&6_e:&$,>$,=6+]w6Xy1?x6/0"V?
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user4471303574238960701:field0
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user3992485290995410521:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user2743949977377590779:field0
+UPDATE|usertable:user1322655549913066730:field0|>L{+]/?3p?9&$ b6N{!9,8=05Vk>Ri(I#92x+4z/Hc:^;9^!(/,9;0422 \k2@o>.f(;|'Q?.22<.z>?*8Zi8Ng;G{!\3% "(Mm;
+UPDATE|usertable:user8628983858439798218:field0|1>b>)&3""=B.2j/?:2A-%(('%l/,z)8l68(7T% O{))&-88;". ^"Kq>7~'Bg:^{&!4,L!<B95!v7\g6N}'.n:Ew:Sc>+h#E+0
+UPDATE|usertable:user5123210799327815967:field0|(=r6Nk#%f"B'$3>$U3+/n&Cm8@}&Kq?&|++n*Uu/No!O}65&%Bc/+885h:G1*T1%K';_-%'.%_%)'b$Zk>7<,Zu;0z!6 8[9"&|;
+GET|usertable:user3371893866028870701:field0
+GET|usertable:user172621326161929088:field0
+GET|usertable:user6912102110353527832:field0
+UPDATE|usertable:user1322655549913066730:field0|6-n78|#8(8A5!L7-@{8Sk6?0&+(1Fy(0t?^m.-: +:?0z6N'73`6<44@u/1h%!v&<(#Nk7L='%z.828I;,[}-[i'Nm*@-0*"&Uw"
+GET|usertable:user2422065258123156730:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user8495632068794380683:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user5187183163417179100:field0
+GET|usertable:user7412659732111310374:field0
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user6222620507537905967:field0|7[5(B%5V=-/l*7l*(&9^!0O33E9(\/*:p3Ru4S5 Cy9340X=9(t'/&)Wi?0~45j+3t2%:(U?;/&=)~/=l&Hw9+>0[c:80$Qk8G7(
+UPDATE|usertable:user264553754130286003:field0|%Cm#$t4@u.>r(Xw+Mc'E3,\?>:"$<r<2>=0v"&h7K=4Zw;=r1^#5K9<]54* 2D?4F9/4*$F17"z7Dq//6 Li,6.8$(&?z&#n.02!
+UPDATE|usertable:user6347665665071026244:field0|%8:1&f0#>$Pg#B;1]=8!4 A+/(>9"l+D}/;p&^!=Be6A;=;4!2p#:6$\w'N=4]a+Ca+-0$E#*#r&/x2**9,l+(( [y4B),=>6*61
+UPDATE|usertable:user455066467631661857:field0|): 9>>*Mm#:b5(p&9 (Xc34</#~>=b20&)@g2/$(Bs8Is?Qa$+j?(09*$1S%*Pq'R!,9b*&*>Ky2Vw.X? >t9S==9,!Lk.'*/P'0
+UPDATE|usertable:user6964905180961907687:field0|.\'1!,=X!)_3&]i.0n7L;9%|<Y3),6!?h;'`736%_%>>*44j1\k"Ty)P#52h-Wi>E'1O- -(9&v*($/(l33$,Yg*Ba5"r*843>> 
+GET|usertable:user5674756590035415639:field0
+GET|usertable:user2653885884051841857:field0
+UPDATE|usertable:user5570713282449050701:field0| K3 .l6V{2]m<\%-8,7^}*=z4U3);r#A/=-0$X'=)p6Mq>#|(G#%0`>2*8I!7G7!]-6!b2Ow"P!=A/6Fm7=z4*|>.f'<4=../^5(
+UPDATE|usertable:user746890327910202737:field0|':,,Aw7Uo#Tw'V5)Li#&<<C+Mg+]m T+-,z"+p6Jq1Ds?:>%];0Ds&Y9%[9A/ V9(C%0?&0+~6$z52:,#b7-& #n&-l.\)(+~6
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5123210799327815967:field0
+GET|usertable:user7722531768005885948:field0
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user9139447905935114811:field0
+GET|usertable:user1104402586977450539:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4579091341576718387:field0
+UPDATE|usertable:user3504911864377173982:field0|;7d>90<@3(^w ;r.)*0Q?%@-! `?Di6J%5Y9)#l3T):8d"Zy;<&-/t$;:=P9';b7?|5_q7/<;Ao:<<+*v:Xa9Y!5.`>/61,p:8x3
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user455066467631661857:field0|2X)1/,2,2$)6.<h"@k=.r6)x+Xk?6,*9p&"`;L{.Bw%22%\+.Ag?6>#Km3<$<G=)1l/P#$&n!*"9Y},Cy25p:&d6S;4E-9[y1V1$
+GET|usertable:user455066467631661857:field0
+GET|usertable:user9129843017911280506:field0
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user679173504069446856:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5938222980215867179:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user1875443635945548719:field0|(Jy"$f.3f:569#:8Xc*0`'\)7-l;""/%v67|"Rs.$.):f??b7Co2R{&7l2Ju3^q&\?%I'(^1.X}6<(/P!82&;8r/400.$=K8,t2
+UPDATE|usertable:user1322655549913066730:field0|'V?50*2Eo"Mw192,^1,.<(>h4H=%=x?**4La'F+4@k0X3$H) +85&038<8\#+Na+Ss8!>,5p(Km+\!/!");t"!:%M-&H=0Q#<Vw#
+UPDATE|usertable:user7442093944599416028:field0|"8j+>>0@&F*?d*^!0[%%#<2^c/ r:$~/[=0I= '|*7r'Ie1Au><.+_3$H!67|>J#/=h&5$9Ko:[a-Zg:@s Hm28p((`>Im0U/<
+GET|usertable:user381946409491877994:field0
+GET|usertable:user62325039627388222:field0
+UPDATE|usertable:user3173728650355966561:field0|.H5 @e%\}>M##Nq:**(6h7Ny >j#6`'$r.Fw8]k;C+_c79.*"0%>d&S3=V#9Kw7/|,9 4/0<7:4 <)G7-+,!\--0>8R)8'"&!p.
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user223245841702976730:field0
+GET|usertable:user5805822202531412901:field0
+UPDATE|usertable:user7465601786140345085:field0|0)n6V-)<v2@i5_'-_96b'=>2888:p22f7E/;$84*><P!(Y+.+d7>d0J!=:b"Q%<Se"9>-Z/)L#!Sc)W#!-2/Cs;Xw/Ua?Z+?Zy>
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user6299318643968374401:field0|&Fm2^y&?j75n6X58Y;,,v+3$2=&%K7&Ns&C"6057$-#44^m:'.$Ba,S'(60.^===<=Z')L76I=<$j&A%%Bi(2:=(p!&<<328Hk;
+GET|usertable:user6606150626569777568:field0
+GET|usertable:user4471303574238960701:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user455066467631661857:field0|+Rw+B)2_)!B;/@%)+.?E910:3:>1Y!:Bu2!81Nm.B)98,=3"!P%1.<+Y+8Pg162(M'<[a?;4+Q=5\'>;r.V39S{?;b#H;-2.5L3-
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|3]#9.~4!:(Da'#: H++L+=M9(O= [7   0Lw5Vs*Ky>_o#3z2S=!;t+?:!'4=5~#N3/Qm/&";:*0+&=_5-D};+~7I1*"&4Nk,[)-
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user8782322871149026531:field0|0J)=?z)'$!;f'D30Bi"),51"6!v2^3:Rm&I+&'v#1d;Re>$x7A5=+ #5v>?~7C-4Xm-@m']!+; =A?18&,L?6J34Jc5?:,*>7O70
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user5865495472751817687:field0
+UPDATE|usertable:user4407331210149597568:field0|?A-0183),4M?&[g#Y'472!,";(n2Ru$L+)C5:!b7/n2^=1P S7 Y34Ra?=z&/.8W%01"1D56W2!`:5z"D)"Le>Ze7>~+_'?Ha/
+UPDATE|usertable:user2638034371850104373:field0|6Ji&@i%.d;206Py>*,49|6&p+<"1Sq5C' G-/2d>?h=]k75z0B'<\q1R')Em!"|&68(\u+3l!\c3M??&. I9:5~>/d5Y+)+b=4j?
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user455066467631661857:field0|9H)!L?3C7!Qg8N{&7$ Oe")>%1r?3d32>0Ek<Hm;N'"9h*/67\#$761M!)*n7E}3Fy1#8(J%.3 ,9*8[m*)*84>) <($f/@u'"j/
+UPDATE|usertable:user8782322871149026531:field0|&As'#x6S18Nc(%01,:.A?1:v2@w2,b322)Hk#Pc/.h4,p.:j/L)$3h>R/<U{%>&%P;"Z1$2r2U?)@};1. 5n$8v7)f 8>(L;*.v;
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user7465601786140345085:field0
+UPDATE|usertable:user1322655549913066730:field0|)K95%h;S-(M!55x+@o*Ok3M#(? 8Rq. ",C/)Rc2&f/Le7)<2I%-6n( z*I93>|2C)+S+1[c4Ru'P;2@i:?&%$4 E!<U}6G1 "x/
+UPDATE|usertable:user455066467631661857:field0|'Nk+Pg:J9 Wq;Yk;N/%/h;&|"+v"@q #z?]a==f#^7"Y=9R6,p/"8 Dm&Z##Pa+Z-4W3$?|+;"$H-%-.0Jk#0*4Dk9T?$2(/&(,
+UPDATE|usertable:user9116557285058034757:field0|!\c"=`1Iw:+*:-8 6& F#(A9;%>!Xm6W=85d$$",]{/I;9%p.^y7O?5-$-V9!Sa/#f'G}3,.<]7,_w ]%1Sc/#<!56+Mm2Eq"_}/
+GET|usertable:user7204094879695386351:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user287218205792339863:field0|.(*$R-":z6,(6/0!Z'=!:5 b#6.1]#:#4%H7&1<4/h"7r*%22F}#W;3!|7H33%.)1l76h"0p#9()Ss2Xg&#|9_a2[+<'8,&~?2.4
+UPDATE|usertable:user7744302467858685106:field0|$3v2Z-'4&5>h$O)(0r?Mg67l$%h2/>.*j?<p*Iu:<f!701%j*(p:883Wa'7z?Rc6Ve.*<=S=# .98d/\10'*,@g.-p'7t2.&??v7
+GET|usertable:user8361271807374433599:field0
+UPDATE|usertable:user455066467631661857:field0|!1l+'8>?`#'f=J+4R+9B59Mo#R?1  8%,,/ ,,~2D%$&,8-8;U/B%'@q#@o+T=)(b$.<-Ts2*p>&.7\s>T#*0`2X1.J)8_;9G/-
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user8782322871149026531:field0|;7,9^+'>h*^')Tq.D-;J' #,0L=)A{8Y7-"($Ra3X# _e7Sm-4j>T;5O?)(v?5`>N) .l3#>',f:/*<Da'?|/*"5& 8:4=C+66"<
+GET|usertable:user8137042396636047179:field0
+GET|usertable:user1627203683305801349:field0
+UPDATE|usertable:user1322655549913066730:field0|85$=Cy!Wi#E{,Pk>3x:&`6%f"*$=8l>U?;|:3b/<0"Z5%8>'#(!Nu1> 9Do?^=)Oc:)p?Ky0,>(Pw!U#1N9_{:%x+@996v9&f&
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user1322655549913066730:field0|2>(,(x!5((Es-Fe"4 &F3$$0&,896p7Vg;(j/J3<R?9Zi6Wa S{+B1#7"4&p*.20\s""d>1p=[y"I53Tw::&#201;`)=t3Uy7F1<
+GET|usertable:user2668968546347535522:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user5330754733809528218:field0
+GET|usertable:user2509545463753448920:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7764683070312070418:field0
+UPDATE|usertable:user3608955171963538920:field0|67:-B#*K%$['=\s".p+V)!^)4&"!:>$;,8"x B;%O}%Dk#@56!b.52<Cu"D;60 ,^g>Fi6/|0M)<&h&<t#4t-.p;A!?Fy." ;I=)
+UPDATE|usertable:user455066467631661857:field0|*0>4O1"*b6C17Sa;C%0[w3Kg%^;1-v4Z553t(V-4?z81,)Jy5C5(::.0`"@w/_+9"|,Q999~*F{/6l07$-_/4:r632)X%<F)73z?
+UPDATE|usertable:user1322655549913066730:field0|+,|>1v#V!-4p5Nw/($0-|""l".v"Xk;Xq&A}6)b2E#!<x&Bi #*%9r:;~3T?4]k":l1&"9R+,Tu6^#3)<,\#62$!\a#L;<"l!-|>
+GET|usertable:user223245841702976730:field0
+UPDATE|usertable:user9139447905935114811:field0|:&8,2&/V{"Ey8#t:,~*Cg76|4=|6((0$|#W/1Lk7X974z66:>?$0::6)x2Js%Fi>Nk,2h:4|8[m"!j#<2%2>%Y#(Bi?Ms"Oe+*,!
+GET|usertable:user8565011494350435085:field0
+UPDATE|usertable:user5506740918359687568:field0|,W38Jc4<0%0,:%057*4Ie*%|22p*Gi!1|7+b,=2$Zk'3>0We8W#=&b'Su6)(#L%!9d %<<="-^k7.r0,.-F/?N;1%p&0d#=6<-d?
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user8655001718404422017:field0
+GET|usertable:user8431993496002131804:field0
+UPDATE|usertable:user455066467631661857:field0|).$)$|*%&-Z=/@+4V%>\?!4d$@?-8,??v>\+1X#9F!+Lc&9./Hy3O%!# %Ti$=.)0j'2`7E+<R/%\=:^/(A5.$0 X?;?p.Yw%4 4
+GET|usertable:user4000293249576796910:field0
+GET|usertable:user6693630832200069758:field0
+UPDATE|usertable:user6222620507537905967:field0|>-d&Y#.R{61~5Hw*^54:j7>('7j6U31L1)=x!&v&G=%F10Jy=Q/%Q1*[{>6v15r#"| 2"-3<"Q7<5~682=_':S)5$.0T;<Cs O?=
+UPDATE|usertable:user7204094879695386351:field0|5,t## *N?4K}+#|.6r.-$4G+)&>$Ys",~22j?@-=&<<Vi>Is C!<%"+7z?^k7]k:=88B+1Vy;>d3E)!0f*/4,Lu&*`1Y}:/02+(1
+GET|usertable:user3371893866028870701:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6326832724187588544:field0
+UPDATE|usertable:user2885032029164969426:field0|'X=8'j<@-4Pa+!:<D1.&25P!.H/1Hm41d:Q!;R/$?z"-j+>|./:01*$;~>Ua69h/5,61d65<4?,=F<>r?!b-Ue3&&-P"Jc$Xa#
+UPDATE|usertable:user7912935360198262180:field0|3Nc'0h*6h&4l9$h;(  0(% .8Uy"*&7%$8\5,:4M;+X?96|=0*07<?(< Dm"'4)Cy9W18*`-':5\1-X{>X1-=, Ji4P-1<~6Bc6
+GET|usertable:user103182112851556669:field0
+UPDATE|usertable:user1322655549913066730:field0|?@i'!,"W',.x9*x3Le'Oo2/d/Q9=[;9^74(d=9l6/<>$v+Jy>&.0C'2M+40n:#*9]+',~&Q{*"t>A3>(40A=3<81$2+#08Z?,Ya&
+GET|usertable:user900770522083537113:field0
+GET|usertable:user2064940223337068450:field0
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user1305080149014801146:field0|49l;Ao2@'8'd%P+-Og&'b"5$!70-;>)W%%!0?<6<8z414$$d<W?Za&Nu#4""1$ &84S)5<<&0$<Uo')2,Bo 'b>L)$B5=[))0x&
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8638022431181219326:field0
+GET|usertable:user702064124946526910:field0
+GET|usertable:user2710761879314153865:field0
+GET|usertable:user7712599443455210138:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user7750889238103975288:field0|7=$<+|8(|;D''R=(Ds2Nw&;v(N+)Ei*@5%7 8Oe# <.+&5-l1N%-&$"(0 *b0Pu#4 6[)5^{&("9$r;Y?(T%.Na+Tq%Dm7O8U+5
+UPDATE|usertable:user1699770135703717513:field0|&Zm/P1?Tm+> %[?=@a $6)0*$Li21 ><4)Ms:\=1Uy4?p"Wc+E{&:`<;p/Zu<)60 .8"8=Yq!P!=0 ,2&)Jw-7t/L/=?>$.(=Zk3
+GET|usertable:user5834179672629502241:field0
+GET|usertable:user4822961759804039695:field0
+UPDATE|usertable:user4313283842035889744:field0|/R#5Ea;/,=Rw)1j")r% t2K?%@+0@}3E94B'=Z#<;r5A%!Nq%*405&3$t7)"2^'1T':Dg+$j,98)E?+D'1T?8H#,Su+1t*)|+/p+
+UPDATE|usertable:user1322655549913066730:field0|%.*)'d7M9$<b)[5!Z)!Co;%t'^m3%x3C;%V{#80,_u+0,=\/=X/-7*<60 =j5?h:Ea5H#!Qu(J!!5:=<n#4p6>b66v5P1%!6;@i&
+UPDATE|usertable:user455066467631661857:field0|:5:<[=:3|')d8]k;Eq'!d?!n!M51Gi<?6!76:Hg;^a;A7Qg&/6,4"5$"0I}4 &<Dk6728Q1 Z+)H)B?, 0>K}/Y3<Ce'?v&820
+UPDATE|usertable:user4222733657469762364:field0|'Uy##,-Z% @34-&8:|&66,#.-Xi/K7;T#8\;1O+)Fo?7014<(%0-M%82n*$z1 t#*:%Z-1Mk*Fi3#j1Eu*Ou3Ki/=d,Q7%;|(Yy6
+UPDATE|usertable:user8782322871149026531:field0|0T'$.n:..1<n/Dw6I=&Z?\q3C)-Hi*Fw;)l10 , ($?d:%x=%8(Qi#W!9@m1G+-Y{$De.Po-E#8I=)]? W)1+&9_;).>=K/.F?=
+GET|usertable:user1041613758834349606:field0
+UPDATE|usertable:user5865495472751817687:field0|7):<\#&Ve2 f1\e7Y'.Na'Aw#.2(Vm$Fu6Aw-N597p:4p.%<-!:,P}+Ho&[u50x7];#!6!X1.74(Oy5:8)2<%$$40(84v>$p69,!
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5187183163417179100:field0
+GET|usertable:user2900883541366706910:field0
+GET|usertable:user2159384997669871832:field0
+UPDATE|usertable:user1322655549913066730:field0|3Aw6;:5;$%2>3/.<' 26>,:t/6$02<,=f:=n'%(<+d=Oa.M=?#h:0&?_'-]#?-b+08=>&%_q%/&(Fc> *<Q5>8`?%6>0`6@3:^' 
+UPDATE|usertable:user5204984733530470878:field0|<Ac>3f7T5)$b*7z29p1!~?B3;(n3>t1_o7'`:Y1-P)1$d+$n=\;-]i'Nc+Bq0S385<*M))Mg0Fk/I=2O'-Aa01n&3|8?21I?&@u"
+GET|usertable:user1785622320954879426:field0
+UPDATE|usertable:user7442093944599416028:field0|$F' [i$]i74.=Tc.\s=W*N3$0j#:"  " Ns?S=4<<)G),#:3Cc'Yw2Y!%^--00=G;%Ys:'$!:`.]/ 6`?T*=l.)66Wc73r>>($
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1322655549913066730:field0|5_+<< 0Xg*O3/5r>To&%x;X73Hm?)z>>,,0j8Zk?Mc,%()'r6Cs>'6:=$9$v:%p2*d/D!!C7>R/=7f8^59[o2H}3P1?Pm?(t4!.,
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|*Nc:_9""z>N'%My/300%:(6$ #j3O%?S))",3_};:l%,p&8r-!(9&|9Py/+`<+8<W/2 ",/~!Qm7De6K;5B?84" .`4F71(n$Hy/
+GET|usertable:user6286592871627269100:field0
+GET|usertable:user3024529175676474829:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user3044455111759056028:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4315624951396266847:field0|,Ai:N#&%&5$v Le&5";22)2l9_'%;b='.4?r"#"(Ey-Ac;T)0-4 Ca<Bu?%40A113v-,r2,n)? 0D'8K50+$,,<9;z-/p7T'$=`#
+GET|usertable:user9139447905935114811:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user2246079073572997380:field0
+GET|usertable:user1911601210627840137:field0
+GET|usertable:user6606150626569777568:field0
+UPDATE|usertable:user1322655549913066730:field0|8&p3Fg'_=4Rk=S}6,$7"49_7=Tw*Uo6&t?9.:Ss6947Ti"',&B51Ao,$l>'&=74-Ay="r*W1-8~>?(1#x3*p1%20E3$1d*Qu36z2
+UPDATE|usertable:user8782322871149026531:field0|0G1 Em)A%%;"-Ia><0!1v"F#!18=@i'Vs/5&"@.M/'Zs'Du%Ua:4r-^90C# ?,166?Y),Zk.Z/1P1)M#96 $&z&Ws*Gq*Ha3,p*
+UPDATE|usertable:user287218205792339863:field0|9;>-7&9>v&E--+6!Ja.*21Y5'2r.+80K+-36;\g?+63A1%=t Fa6V+>_u&Ow.J!5Y=<;.5 43%l&) 'Qg:;.''4%*l $l.N39K; 
+UPDATE|usertable:user4271910815459687605:field0|>Qg&: -X39K%(l#Pm$&n#Jk>;*9 r'"(0#,?-.9]-%:|6?f4)v>Y35Wa;<$+U?9Me<Sk.Uo:9b*X9%/d?X{76f32d%G+%U;3^;8
+GET|usertable:user5386677189508267507:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user2374567981669652833:field0|1Wo#%p'2"8^-+P%-.j%R=-K?>S!4Ds0Fo+Iy*O}?&4)]e&Dw7\#<<|/)n+/&'9|&D;"Q%8[s2=`;@;80:)?(#G313(!]{?!$#-8$
+UPDATE|usertable:user1322655549913066730:field0|!];,R+:^y#E7(Lk3.d2*(4]s? z'&p+R78/r<=x>\y(F?5&p0O%-&v!'816(+/"%2:$B{+)(9*4,^3'L}'Gg*!4$< >U5%M3!C?<
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user5513780027035030138:field0
+UPDATE|usertable:user2586243600183917354:field0|-'2!!x$^m"%`69x*Y};Bo?C5/1,-Z)=]{?B50?h3!z(Lu7Cg2D'=V!6I3%_3?Ks>2p:M=-F/)#r2:&6Rc7. =K)<E{&Di:Yu."<5
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user4407331210149597568:field0|<#r:9r!("4$.8U/1H39Iw6,t68`>=t0*>5Bq',"(O!<3z*Tu8Ko"He O?1Po5-`+)`.&,91~*(f>841Vs6]9?/f*Pw?8j'Eg=+<8
+GET|usertable:user5506740918359687568:field0
+UPDATE|usertable:user4407331210149597568:field0|> &$.>"Qq*8x<N'4K'3S?0\y""24*$>G-(2x)+j+$>9Wm#Ic+Mq+E??+&0:`4"t#Ko*0l>Xs=;88> )]=!]e6_q2;,!%v';6?#~*
+UPDATE|usertable:user1410135755543358920:field0|/Cu"H5U=50(1)8 @5002)X)6?b'Vy<Lu2Oc1Z}?Ng1Ji/+>72n7F{* j#+.6;~*B--U?1.v)Bm7]m?-j;(6#)j; t%Sw'K} $<%
+GET|usertable:user4287267481298177507:field0
+UPDATE|usertable:user6631412218918889959:field0|>]o"?z#2",N7'[e..v"(d6Z{,L!%U+>>~&_))X1=*n'7:<2t'!f30l 4p/9j662$]c*D3 U735p7A93Qo/^u3:t/?</-,, 8=!r/
+UPDATE|usertable:user9139447905935114811:field0|(Eg?063Ci7U74%0=Ou")*=Wy -p7:21'j:Vw(:b'Tc(_)%S5,H+!]{//f6W/?]w6"$ 4l;W/184,N'2T?,64-!p+@#8A-)M{2Eq+
+UPDATE|usertable:user7529574150229708218:field0|-R=1K90Le7M9!Pa*4b!?n3@q5-<83$.?b:6t*:b2R Q1=3"#- =Dg;]y>&,3F!='n/6>9^k4Be#@'?'017p2*.5W1/,~/Ys"_e6
+UPDATE|usertable:user7529574150229708218:field0|5&|/Qu#P#A9%^7<Ie)(>858;G'4D5<Ha'Za*:*$0 8+`>K1->29T?',>03v:B=([y,"v*8b9S;))t1?d"]55T{7Jy;E#1Xa%_g?
+UPDATE|usertable:user7529574150229708218:field0|19,<J#8@:U')To"!:$O5%Rw>,f*/p43n7B53"z>Kk?X}6E+2/d78(!C#1"n!Sq"% 9*v&#b<$f>.&4_-("j"Hi+Su;Bm;7d74p7
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user8329794952185984825:field0
+GET|usertable:user5311152407086125237:field0
+UPDATE|usertable:user5594221123989979758:field0|5_e"=x$Wc7'>.3(,W'$Eo79f2\+=Nw!:p7Ny/7(=Bw$C#0Jy!#h+N++.f'<2!/`2Oo:3t#O'9C#9Zu#I+!4l#(x3Rs"Y%93x'[5%
+GET|usertable:user3760334700937274427:field0
+GET|usertable:user2924391382907635967:field0
+UPDATE|usertable:user1322655549913066730:field0|;V9-P=$4:<6z%Au#Os2+ 0_1$#<)".&Fm#'(5K!-J/(8p>%b-Ja;F-(\+)G''="8S+M)=$`5+($4<1Oa&4"6Rs:No+Qy7V/&,|;
+GET|usertable:user8207886459564346805:field0
+GET|usertable:user8685692443865704149:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user1322655549913066730:field0|"Mg?Ws6+r"J!1&j>W;1_o:^=:Z!0Pq+/z?P1-A5<*&#A}&96$(&=Hc3Tw"- &,h6*z2+`/Si?%r"J):]/=9z; 4-Ni5Ck2I#?)r6
+UPDATE|usertable:user2711386953975187179:field0|%!n+Bi$E%0$x$Nw+Wy%;<-/&.*p+N':Wi.F%<Iw'Gs8Wa2/0%9d>4l&64%Ne#+8,3 ,8v.Qw83j/5r%)2,."5Ts*Fo$Ok74n0Dc+
+GET|usertable:user8064314889171997687:field0
+GET|usertable:user2847919415692193727:field0
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user1322655549913066730:field0|1W6:~#-f">j%[w+^o'_y'S)%701Pq7 64G+"Z}3D5%Dc6=v<2~. $<Q}2>l86`&C=7*0-@m6Jo7(n"F=-Qc&8.5B9,<,1':#"|/
+UPDATE|usertable:user455066467631661857:field0|+Ig?0z=Oa2:(.H#-[u'5p/,.!Um#_e%)z7#~1(81Kk'!t'$ <Nw>5|"J;!3*9@k>Os64*! `4$h#Z!0[-<Lq(#v;5p--8-F1# v6
+UPDATE|usertable:user4000293249576796910:field0|!&r#'f/S7-Um+>r>Ry'9v7<::1z:<p*Y#9:4>A!!3~9D)$:.(Y-1(r)?,85v;"`/Qk%X)<9v*":0Gy5Io?$>>':5G338n.4:6Kc"
+UPDATE|usertable:user4407331210149597568:field0|5S1!N7&.n";01+8<O/1!r/8b1&l6B}(]199d%X/!&v,T'<2*'M7,@'+Vc:Q&4`3Ju1J5$"l>W9$0" .h;_#2\}3]92929J+#Ri2
+GET|usertable:user7967310690260975319:field0
+UPDATE|usertable:user5594221123989979758:field0|$Qq&$*0M'4Ve!\#53,>74(9t!V1-Hu<W.U9$!r;Mm9:|:&*2_m:N131 48.'5v>!&6N}6^5:-<!1"/_15]3;3"8S#<Z;Ac/#45
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6342684236389326028:field0
+UPDATE|usertable:user6606150626569777568:field0|3D1%!(./68Z/<#h+.l,Pa'\+0P%)%n1Vs3\1'7b3Oy9X)$Um'%x"\e%'z;Ys'5d>&.?5z;887*~.C+0>8 Sk('f&U)'!l/T34/*-
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5674756590035415639:field0|*[a&$n.@=8Mo;Ls?\?.Eg.02/Ow:/$372) >8Nk/S{$B!8S{46f2Ve'Hg'<|="6=,.'&r//(=@59#p K;8"0>'n7%|=As3;`&.t#
+GET|usertable:user3197236491896895618:field0
+GET|usertable:user4987291731106995135:field0
+UPDATE|usertable:user7529574150229708218:field0|;V/4?("F}.8<$20(*~":v#Lk(Xs?Le4!>-A=9K+5Mu+Yg"&x7)t2J)1Fo2_y%Du>:b+/z"!l<7"((d-Dc*_+<V5-9~%)<!Pa"1*)
+UPDATE|usertable:user1322655549913066730:field0|/8~:S!3H'8Mi)Z}"[q,$:)^?63j#G95**5['?<6<."-Oi>^=+|7&`9,00G;&B}2X2;.5P)/=81," (r*Km8)l'E} :&,:.-4d7
+UPDATE|usertable:user812191502417750137:field0|;+~;O34L6Qs02*<,z$3z7Z+3+.(/05No>>l?7d*#&0\}&.z$'"5Ye&#v.Lg!,l&F!/Ai#$43Uk:B5_% 'l3>d&^=0G%<?8'A;0
+GET|usertable:user6762228154858478542:field0
+UPDATE|usertable:user4553867465336445541:field0|/,r*Jc?\g>Y50]e3Sw2=p7H'1\m;2::E-$&r @54%r?W#!Va6Jc>Ly:/6=4h.3|?Fs%;z:"j.&z:30*H/ >|;@/$M1#I95!4?<*0
+GET|usertable:user8308584212845326115:field0
+GET|usertable:user3251830137177450640:field0
+GET|usertable:user3041945093335361286:field0
+GET|usertable:user5386677189508267507:field0
+GET|usertable:user1793665874575230521:field0
+UPDATE|usertable:user7531290184929052007:field0|!A=()d"1"9Ps3@o*'*8%<4Q3.1.!,`$Zu&7r9.`/Q:0<8? (0`2Z52.|+C"3l/'60Wu6X96-<0]1&H28t9&$18x;F%4$x75z:
+UPDATE|usertable:user1192376067144236110:field0|13z'!f:I!1&& Pg#%85Bk>W9!8)U1<, )Xa!G;1^w1Q-9 `5C}>T33E?)/ 2'0,=>:80=Bc3Iu36&5>f"78-46-K57F'48, #2!
+UPDATE|usertable:user1322655549913066730:field0|"=p34f9@?)I?*]=8[+%!:0Io8Re'O;#M%(7~5> -L%-04!\a,.v:W;" t.D{.'x?,d%Zk"B);Bi:722=$=\+5Nc/6d%($ He8]q+
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5243274528179236028:field0|4E/8Oy$<p>^{*8|??p5P/5= 4"b"\a9S/%=(+3`.[i714<7l!2n#%&8Ke6]s %,1=b'N3$B+%'$1Vo6=b*5n7Hm>V+-0l772*Ug"
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user3551623011103511237:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4648530554887090806:field0|+Z*Ku%< !Wa%'"4Ka8Ii>Jq2L%1Y+ Ce7He!Q+-,$(I7%B%="x*By+-p"D58 b3:z<Pu'Mg<66)$2'-|#Jo0&n.)p#2`* b7.2 
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user1322655549913066730:field0|0T'9[6C35Zc*G{;[-7@a';j370%5:"_k:-$(Oc+&d6E=<!,"Bs"'n.J9 4f+Y5,&|3?|>@u'_--F?+3t+"><%"!Wq$Gs:C5$Ga&
+GET|usertable:user4351239845387540640:field0
+GET|usertable:user5865495472751817687:field0
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user287218205792339863:field0| Ru/Ua' 6-+p+Ca#@-5Dw?!v(T+)F-%O3=C33Iy*]-:U%<;d8H{??$6(r:-d6I1-;>''p&96&3d&Ku"Pq77l/-:<Yk>'<$/</:h6
+GET|usertable:user1202979045342806191:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user6926163047883090149:field0|#<t3Ws4F75Ki;/20Jk$]{:^s-0"5By.7t.Uq1F?)T}3^?%X3->n3Vo)Qa33**7z>\?>3(8R7'^i>E;(3r',8=/,4 f8J!!!<(\y2
+GET|usertable:user5687879768595616498:field0
+GET|usertable:user6940628489514934811:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4287267481298177507:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7532302483871244843:field0
+GET|usertable:user4855282004871363666:field0
+UPDATE|usertable:user4407331210149597568:field0|>&r>#"/#r?/d8Pg*M?,=x2P=2$&,G7(6*5Ia5$|"X3>U1$?|-]=,]?62p3[m,@!04t)3t;3|4.,)'42*:<Bi?Fu2.~&-d7H%":`:
+GET|usertable:user4503258666670603622:field0
+UPDATE|usertable:user6890500319564046313:field0|9H-(5f,Oa7;29B9<'z+3~?Mu34><Os:O994l !2 -h%Sy2N5( 4% <)).(4>?[}/ .*V7='$&Gs"'v?$4-Lo55x&64#$6<2v'7d#
+GET|usertable:user2644505666016122184:field0
+UPDATE|usertable:user6940628489514934811:field0|*/0(#((Ac3\a:^7=7&4*|.Pq"[!-Xo5Du+Y>\;!H}/Na#4x6F{*<n&Lo'Xe&N/,(z'Gc.^11*>$*:5D3 J19($<Za0Mi:.6>M9(
+GET|usertable:user8345589204236013754:field0
+GET|usertable:user8152893908837784663:field0
+UPDATE|usertable:user7442093944599416028:field0|8Zi>:$9Wa#40,2*!Bq7O/-<~'6b2+|,^;87`?1> Qg7"p6\s6+4 E/9\w'Oe=K19=r66,!D; .:,Jk0@1<6h<?v'[k ?. ;d W%1
+UPDATE|usertable:user1658745652643142989:field0|=4:(O7/6x+Jq5Ls+!n>E300,;.z"I;*Se26t*^=12p)7.!K;:5r"P#>#&) &)O#17~.Fg#>d0Q9!5v-Ks.+&:7r7K!"& !Pa*349
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user2653885884051841857:field0|0%h#Zm"Ks>+r91<5:"0Y/)7f4He24v6C3)Z58Bu>9t44t:*p=W-<7v5@g;Xm*-$<,,9My*I}0:0%0"&7$4]o,>6!1v7B;49>53 !
+GET|usertable:user455066467631661857:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user7204094879695386351:field0|9#x>S3!]?,52!.& Q5!N-<'( G1<H'3>r?Sk15p2^3<;84=p!Rw&<4)Dg.*6#6d3,.%U+(_i: n*5t&Oy7#**K9%N{0$:4*h%O?0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user8942912209868252510:field0
+GET|usertable:user2392378977606883123:field0
+UPDATE|usertable:user455066467631661857:field0|%&j"=*8/:0(0=@7%Aq0=:('$=Z}#!z=&~?&"1Z%,%h#1*03`5!b"]/&]e6=|+G/0$8%Q35S17">,@80j*'<.^{;304[;,;&6<6%
+UPDATE|usertable:user2804714878337375428:field0|*?08;8?Z!<W+1=z'D;2%&1Pi,.&0" #Pq'G{,U3=!b.?f#R{$/z;, +Qe"J&[g"Us*!:<Xu?J'=O;9*&$<&6>|?F%7(:).4">4)
+GET|usertable:user3603488322742529634:field0
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2629609192604868981:field0|3N'8/8,%, A+=D#8C=$Um7[e#"<59&<]#42x?2v+Xq%:((H'Ao>Ie1%"0Oc>B{6C+?-x#F).6&-M;.P) Mq$Xe2U-5;<%1n.Lc'
+UPDATE|usertable:user6868453088565841456:field0|,&b"X;:!`2(88V/1B=9&`6\!'U"%6.^m2Zu>Ug#^c>1( 3,#/: [;.Za&%.44j+Im7Ju6#t)0,!_a'/v") ?&$%4*+W&80"-n;
+GET|usertable:user6790635031111092126:field0
+UPDATE|usertable:user7529574150229708218:field0|47|&26 Iy/Ss"<: Yi-$`"E}-]m/..'G'%0v.;(%C!32$=)f;Xk:X3!>:!-p/'t&Di%U3$)n;?p2=.=60=Es:90=#:<F?(>.6$ 8
+GET|usertable:user2900883541366706910:field0
+GET|usertable:user5862149918446432059:field0
+UPDATE|usertable:user1154695639162135652:field0|.,b>,(:<r;*68>|*]97F#)4$24:%M+288< l0[#4<`4-p?,t-;>1Yc2J# 4t$7(!Cs4$(0Ik9885:|(%04=,4)v..81Ok/^12)v:
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user8835961477639097272:field0
+GET|usertable:user5789970690329675417:field0
+GET|usertable:user4948323428813151403:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user423581758446028772:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4883022254305604003:field0
+GET|usertable:user5123210799327815967:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user455066467631661857:field0|<_!1#&#Su"N=-Y;7.+.p32:1#p;Yc Ti;O)5[s/($/>b'1n9Q?)2b$0r.Qo0765>x=H55N%-+f&R),->8'|1H)-;r-#~2.04*6(
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5187183163417179100:field0
+GET|usertable:user7290714415625680521:field0
+GET|usertable:user8488539527134992845:field0
+GET|usertable:user4287267481298177507:field0
+UPDATE|usertable:user8893236378347416400:field0|.\-0Hy!].*>".p/Io?624Hk7 .9Ac844$U!?9x2 <;Ny."|-[18-r#Rc?^7'+l7&v1M'!".!U3<5(:!*)6.,_9)6`>Fw:Q9;<,%
+UPDATE|usertable:user2900909440179848669:field0|3*f6T%&@3<Gw&5*-1d<Q#8]k#Q3-1d'Ua3Q755n.=(!Ew3Si'^9$?,-<69",5/"-Bw#O= /p)K}"K)9Sa";<'7:=#x6;<5.b7Gm?
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4695866776274461375:field0|+Qa#Y/4@w"$d <0()`95d/T7#&r;&6#[+%S1-28 Tm.:|2;t?V91!4&:<8]52Z{/[=#V!%Zu<H#<Xk"%(,>./Ci"_i22v+T!(=~6
+UPDATE|usertable:user7529574150229708218:field0|<)p2Lm1Q-(6,?>*-+.(G%56"+Ic/Je'@c6*$6Qm?N1#^o"Em<S!$Rs6.68\u92|"Qa.Z;0J{+P-8Xm/X?1P;1_{>];6!b2+z*+$(
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user9139447905935114811:field0
+UPDATE|usertable:user8782322871149026531:field0|2#z>#,/0$<(&<_a:_g+% -Cw5%>8Ig,Ey#L3:^k:Jg7-l::*4Py/<z-@#<*>9C+9^3>&"8%b4Q-$]5%Vw#Q}/*b/Pq!^k3,d8^g>
+GET|usertable:user3656291393350909489:field0
+GET|usertable:user699335791304990285:field0
+GET|usertable:user223245841702976730:field0
+UPDATE|usertable:user1322655549913066730:field0|0Gk#40*[)4.n'^u:1*:<>0G/2#802~0<<<O9"!l29&50p#\3/Ze6Y{%B{.3t&^e/Mu4!&<)d>H{>Eq(3j+(x= v+/b+.0,88'.<%
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user1793665874575230521:field0
+GET|usertable:user5594221123989979758:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user2026198090258250912:field0|:_c7Ak9G+)W)$(>-H?)W78/z$:6)*n6?.(^/'Gi7Bm95d>@3&$n*D! %n;.p0!t:2t$%t+Kk0_c'#h$Bk27&=B9,_323f.$4=U?%
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4407331210149597568:field0|([i"W9*J9=6j('6!H3#"2$X9>Jy'0t%-:%'`6=`/M-([-=C!4$8$Es*2<$N+?+|#]=)9:(Q( ()Zg=X= =.3?0 C??6t?F/)>61
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user9139447905935114811:field0
+UPDATE|usertable:user8540174842391321761:field0|/D29l4L{7@}95,5[- 4`#,(22p.?.*2809h3=>!Fs*1,(0f8;x&Eu:C'<W+7-l>#z&Ik>Pa=Yo6)"!_/!-.,Cq:D*Ru"'p,D/=
+GET|usertable:user3326503675723533402:field0
+UPDATE|usertable:user1322655549913066730:field0|,Ru*Mi.*`.$4"^q7>8,=~76v81|*]a<*:,->93|:)2;(&$\w:1~7%<8Em.U/+G;01,><`&_q%Le>":0,z*5<%$>(82:0n2U;;X?4
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4051372431488648665:field0
+UPDATE|usertable:user1322655549913066730:field0|=@g:*|%>4%U))$l.9p1/.),&=8v&B)0$(4Tm4L!%=&+U?$J-<>&$5t Ak'60;9f3%z>Vi/Is74f2[=4*f*Rw+08%_#<Dy'38/Gm#
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user4000293249576796910:field0|54&)Em"Dq"N/24`:%z+)>!]%&K/8> ?H)(L}:;`2!`,Aw;*z-_%0"z6.n#=p9E3%*$-78%_%=(",My((h.Ue4R5 (</Ay"J#=>j'
+GET|usertable:user8628983858439798218:field0
+GET|usertable:user8334368049597739409:field0
+UPDATE|usertable:user273707802950979482:field0|30" K7<Tg:#|',d6,6"8h;1`-Q{?:<7)p3:j-U{'(h":t&C-_o+6r!<85)6(. 4Wi6 h6E9.Jw+Qg%Lq>L;):$8<t$J=9&p&Wq:
+GET|usertable:user1154112171308612719:field0
+GET|usertable:user1471693969526425134:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7734930103820149744:field0
+GET|usertable:user3521474966333246730:field0
+GET|usertable:user5707497812194225202:field0
+UPDATE|usertable:user1322655549913066730:field0|//b#Uc2' 5:67Nm63(,L5!F7&),9_g($x7Pi;<"%Pm8N=(Ge?_;<$.;2`.O'8H3%,<-J3<O??@e"+b4Fy;!|?Y{&,b.?r?O;9Ka+
+UPDATE|usertable:user4407331210149597568:field0|.[+$Ey1<d&Vo'U3-)j0=z7@1#..5Bq17 !9n&C=%N+#B1)@97P=0;  ]g7Go%&h*!r#^u';20%6%5&)%(9J7+8 1[%41*53x!;h"
+UPDATE|usertable:user5234462124652841114:field0| L?5Q9;@344n6):,Hc7C-48t/De>6h=[/$E73Cg#0x.Lu3Ae6H51_3)&>$2`;J!!64$".,8('Xq3@g48f?V3.Hg"%67Io#;03Ic;
+GET|usertable:user3371893866028870701:field0
+UPDATE|usertable:user3345488781783087380:field0|%C1%B/<<j&#&.""=!0?'p.Z%/D38Ra-'20N}*E18'<%Pk7 &/>d'Ns5Jm? t>]o7H7>,=!p5M3$O+%C3<0x=\-0P#1Oq*M14Ou"
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user7529574150229708218:field0|5Jq*P+$r6#l&0z? x*;$4Q38=l6Ks#Ps?K#,V#%'('Z{?Mg0B!!?8&7.%Ka2V5)@q30"->.2)f*06$'.=4l(0`3Ic70: #:'L?(
+UPDATE|usertable:user4407331210149597568:field0|2Wi"D/,1h:1` N9!=v9Ny:4v!H7(6d'1(8Hg*1f2Le'6f*M?%@e")(8Oa:Oq68:4Xu2@'<G+?W1=T!5G'(Y-+Z+<Lk<5l>.n;*z/
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user3474924874673042803:field0
+UPDATE|usertable:user8782322871149026531:field0|6Z+(4>Lc*>z(X79Ae4*2!U'9'4(*x.4p+Ck*/~?2z# d&.`*9n3_3<Nm;#l<"|7Zq""*-*|!>0(T!$Wm'$f7B90W{(>|&1|?O--
+GET|usertable:user4276265597653600306:field0
+UPDATE|usertable:user8945414374294762941:field0|&Ye76(;#<8Yw+Bo2"</$b?5r4I}*Fo+>. 284+ 5\k?0v"_34U=,,h1B/ Lm)L/9<6:`'N=$O30P3:"~:V!(^9%&`=L!$Ee"6j>
+GET|usertable:user4708364880173628920:field0
+UPDATE|usertable:user4407331210149597568:field0|)Qg"H7%8v7Bw48"1).+:x*6p>)4)Rc<-b3$b>[=-C'#Gu/V!4;|7I,->5:.'A'1&x0H#)C)2&&)Aw1/h?M=('<-^/)Kk&Z',7. 
+UPDATE|usertable:user7254721723177185718:field0|:'*=7"'P)0B3&3 9Ai=5j*:f1^)=@?=H7818/Vq*. 84"%S1>;2,+p$@y6Sq6/|28f.H9)*`-6~73b?, 8$v=Jw3':8>,-(b4W75
+UPDATE|usertable:user1686259732862357132:field0|4[g>("4<$<@52(r.Z/1,v::>8Nk;Xq+7<!Ka;840"$/G+$2|=N7Wc5&t;<|%L55J%.;6<Ns5Ys";4&Oe;?*. ((W73N&Ju2)~+
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8040038197725024811:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4772112574274877421:field0|./~;L+1K9<0~1/$8&b>Ci:E!*#.4<0$B9=H%14f/;62P%-'z3\k/>p0+x"9.-4p;66*^s+121A{.C9#;:,8>)Y#)88*)v+Hs-?v"
+UPDATE|usertable:user455066467631661857:field0|1)v3Ao?5$<-r.V{3)x9@e>D!=Is.[):T'=448U!9?d$U+)Xg6B{":~6G+9_-*L/-Z!-=&![9!1"=W!<Ng'K(A#=Om: n/>~5V)!
+UPDATE|usertable:user1322655549913066730:field0|=]y/?f,1~#:d:#0)\-"U!01x "x"U#<4f?6"%.v#"22Ew+X!,Qw;0*=^m+""=/x#&p'(z'9(<:`>=`=325_e'420K1<Xu:T{9?r3
+GET|usertable:user6826031609884524036:field0
+UPDATE|usertable:user1322655549913066730:field0|;=8 6x3%x//z1Ji#Ri>D1!%*!V30X#9B7,5n>2r+\)0A!5 .>[3=!6$#z6Eo;;<5K+6),,&>5S)1*.6X',5j<D%,D"Z+!!j)E70
+GET|usertable:user7912943214195446491:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5594221123989979758:field0|#%n2 2:Hi2Ng(3z>$r.K?:,43,8?v'Xa7Yq5>f:Q)/!:8[y-&$9Y'5Fu2/61@#%Qu&'t+-*4]?1,b.Zy&"p=< 82<#@y+3x)1&)
+UPDATE|usertable:user5981645832788527361:field0|>$`2 t/@{;V74Xi&B{7G!!$ !0r#M9!]-!Lk!;28Tg'Q7 b)@i;+:6E!%P16#, 6,0:x&/<8$8,4p! ><%t"A}6My=Jq+6x%7(<
+GET|usertable:user5083851445585149426:field0
+UPDATE|usertable:user1322655549913066730:field0|0S98P59G}.I9<E)5 41Sk>@=4L/5,`5* 8:t%;b+#<<%`6E73$2<=~'Um?9"2Eg+>:=Ai6(f,^5 Ty%V;%N!;$h64*2Z-!,n'X)0
+GET|usertable:user8758646120544779835:field0
+UPDATE|usertable:user6222620507537905967:field0|8-:94<1E7(.v-$`;%*?B%1[/2W'$]'%L}&6`6)f65&-/.<^3*Vq7Yq0Re7U-!E/$4:)Y+$=f( *->.(S;(;*$+:!2x"O10' 2+`/
+UPDATE|usertable:user4476601514396652348:field0|8$z6>89Oc*82=Uy;'0&!r/;~9To2@#)6&(Y1S;,2`?>2)T9 E3 Ey;3l#)z.Z7 /(*:"0/j8L)8Ly#Ti/O{)Gu:Os<.j#Gq:\w>
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user5250313636854578598:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user23751815611888323:field0
+UPDATE|usertable:user1322655549913066730:field0|3Oy>"~?J-,4~<L{.1 "(r"-":_{?X%'])%@!9+~&/|1]74Jo=7f>&l(Lm#Kk#.b*@g2Rw/%n01t*M+'(d+=:2Yi7C5?Ru6Cc6.b*
+GET|usertable:user5243274528179236028:field0
+UPDATE|usertable:user1322655549913066730:field0|$^e;0:&:f6>z-F=$\)"Mm'&r+Ia?Vw$%p.%*7Rs">*5]g/F/!2h"66**>(Y':?(=6b&Tg#'z()>=Do,J- B%$8"=Ds9-*(. 25r2
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user7069117397611590264:field0
+UPDATE|usertable:user1322655549913066730:field0|>"b&#b6T{7Lu((v2Hu-W)$0*=4v/A'$4~#;j9$4)>d5X5,@;#Q5);t1Uc&(x5/.4N%3.z32h'Xs"7~%+f#&h,*(0-d),<0.&$<*,
+GET|usertable:user7665320482219548124:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user3591957839924378781:field0|9A- =>8O?!J#2D)='p-'6!:"8,81.$-#|+16+><4><-)05,b!"b2Ga<%:,8p&_3%Z96G59X})B)=<&2Ua>N)!*`:So=T!!]=9*n.
+UPDATE|usertable:user455066467631661857:field0|4:052v+!n6Lg356(.l#B%)_3>8>0H}:Q;=P1Aw"^c"Wm3Z;. p36|8Q94Z 18$H18="5' !Tq6&t4>*928%R7$0f?6b?Y%;6,4
+GET|usertable:user455066467631661857:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5330754733809528218:field0|?-b3Qo#:v";>%Im:.(>W;,7j)[10H{._k#F=:Ca?2z9[;)0x!W{2>, 3,%Ro/8h?S9%Fs+),+&t?;:9685H# ":8 d,F}#D)-.<5
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5594221123989979758:field0
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user455066467631661857:field0|,Zg6)",1 ,T-8Vc>E) D/$Y?#?h#1z3D55't6Bc#(~37,)W!(*2,Je?:$ 0l?Nw*!p"Co"Xy)<n?*8(/|:B7.K#<E;:,|29p*3>!
+GET|usertable:user5690389787019311240:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user7845696773600700446:field0
+GET|usertable:user9139447905935114811:field0
+GET|usertable:user287218205792339863:field0
+GET|usertable:user5638430106289806582:field0
+GET|usertable:user3371893866028870701:field0
+GET|usertable:user9159377669185359297:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user3602483877797521109:field0|3Pc&Pi(/<)A;:Jy7D#-*d#8h2H5 7&+K6\7>:.=X; _y>-.5=n2Xk%Fq'&>#Oi#Z9/O+$72<I34L?'G?-4*;X'()"-I}?K/8Vq*
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user9139447905935114811:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user8633675502984490936:field0|'9v'N/'Ce+X/D=<!:*588/n4,b#/>*@/<B+ )0$3(-H=$M3":d.%.=J7-#t+A9%O==4v'Q3&N),Ya*0f'Ii/%r>T?0(&1&r/Hs;
+UPDATE|usertable:user4981038752158819207:field0|6=.0$64<l#K{0.4 A?6?:-9`"Si"#|<C55=t2*"5"8.Yq.O5*1h;%&-;&-"0&'*0X+5T{2.j(\a37&=,,)<&";,<$>6)f6D34*2$
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1059189159732615190:field0
+UPDATE|usertable:user795722769552163650:field0|60*(266&d2(d3&z&?$+**94f).r#]!016(1x!C1(I35Nc'^y*@)5A)3]3)Y/*F-,A5,Z;,p8,48=j)6r*+x/;x>S!!Oo'0`.$><
+GET|usertable:user8199074056037951891:field0
+GET|usertable:user7145589364827032504:field0
+UPDATE|usertable:user6222620507537905967:field0|3A?)Qu>-0(Ke&T' N'L?(-64G}&Dg=/n7&v(/80[s39j:2~;X+);8#,*08~=:$%T-,]3$,(1\5$ |'U'<Uo-3j#(r1C;1:,6Gw?
+UPDATE|usertable:user5664182581703653080:field0|=$v*2x/4d&I-*[a:8z!=h&V/*7<)L(+ $Mw<O71\%%->5Ww7]+A+>Xc6Us9]/$U->_k/Dg-%|;:*)!b7;p.Ra>3 #K5,Z{'U=$
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user2392378977606883123:field0
+UPDATE|usertable:user455066467631661857:field0|0N{*1484x2X18L31'42Lu6)0:Y7(R=9W%<,*$O}6K{- r3H;%Eu;: 8;,176 Wy.^k!Ti66l,C1(908Bk: *'J'<<>!^q:L'>Qw&
+GET|usertable:user5713889774563055986:field0
+GET|usertable:user6977411138858259543:field0
+UPDATE|usertable:user2422065258123156730:field0|?I;8-n5D)-S;.1&(#t4Lg>Cc"J3$F1%\i7N),+j.7b=R/,F)!]u+Bw9Oi?+.(=d3#n;&0-=$7Y%,Bk Ru33<0/h"N=8@-1U?%9|:
+UPDATE|usertable:user3608955171963538920:field0|0,f3Wo6_+0Y{>Ay2W;!K? D8$08!l(+r#^o/L; ?p;/24/>!0,!Us/4f7K90H;0Us%7d:* 6!`#:0"0<0Fo0[i3\72=04Bc>-v#
+UPDATE|usertable:user2090170454347614045:field0|*G;<4&=,x#\o:_?4;t/K50-> Ig?Gq $r>:j<52!B70Ku"/~>_s'K-4=<,N/6)&,B#Io6I34X3$'$.0l:I%-Ey"[9+B35;&7 t:
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0| .h&949]?Sm! |>W173,=@?"[.68/$x:4`?' )[o9O}>%.&]a?"&"#d*To#.6(Ym?*8<Z16Sw:Y/'Ae+Nm?8|;M-)#6=V32E39
+UPDATE|usertable:user4471303574238960701:field0|3Qi7Oc&,.8>d7A5!02$T59V=9Hc?F;$[+5*|:$"1Ts12n?0&62((Qe)[;1*8<>6$Y%*909G!!,b:_-$Ma'(h$),=!2!A=%:..5" 
+UPDATE|usertable:user8782322871149026531:field0|.H35*l:Qc#\}.[%=/.;0~"-&;6 4U{;?6(@7<I55!p"Km6)(-+h3L1(Pq3A'/Kw+])2Sk&_#+,.11p2Bi>X+6P=0^e$-z6)b6-z7
+UPDATE|usertable:user5187183163417179100:field0|6;|++`83|>!>(V7 ?h!6v/^+-S9$1 ?<   j+>2( 8(4v:Z/,Fi':t>/~#9$)?:,C;27,-O5 L%<8b9= 1I9*R= ^/8' =S?9W- 
+UPDATE|usertable:user4407331210149597568:field0|?Zi?Q1$9.-Ei/Hk?,2)-d/C}1+j66b([g3P;,.>%U%2)~'Q'>Zy"%(00&5Ls=!($^=$5p/%."1&%/f?Ma:000/:,1b+V))-$?Ws:
+GET|usertable:user23751815611888323:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2061594669031682822:field0
+UPDATE|usertable:user455066467631661857:field0|?.|#]9<A!8L;5Sc&!b$"t?/v07616b+$<5Pc/$48C'$*p"M/'$|"&|6[o#O!6Ho.2p/Na?A#';`"94*,<-Wq9)<<$("( 5Z!$S#4
+UPDATE|usertable:user5594221123989979758:field0|!Q*U{&>6$=j''|;L'%,>03<4;l'.p7K}&Cg1F7%>|>D?=.n9M7=E1$P%)18%%v7-f>F{>'b3\#&*?A141.6C;54x)^s/M='<,-
+GET|usertable:user2392378977606883123:field0
+UPDATE|usertable:user7944420069383895265:field0|>$t.,>)Su6Co(#,8,"89f?!<,0&<Oe;9z"Y9!::=-d;$d2#8!'`:3p2<4 G='Eq;*~+Ys34|;!z;;<$/09&v(*~.-<'Ma:Ng=I!1
+UPDATE|usertable:user223245841702976730:field0|<*r'-j!=t'Sm+U)$2l#9f/V=(7t#Sm*F{#!~$9:="$2'x"4d5Ko"26&N/<Ue(%~*M-?>v/? :N9-W%4Y!$I)91<=F?(<,8Gg44z7
+GET|usertable:user923442827742775284:field0
+GET|usertable:user625584303733900359:field0
+UPDATE|usertable:user1322655549913066730:field0|(L}'Cg78`#:x,^c>""<Nm6M+E=9D)9:f&P7//(,W+'$*8Uy5!b'O1>B101d3<v&=z3G%5\o,>p#Pg,Uc'?b&[#9?.$>r?@)4I5!
+GET|usertable:user4344200736712198070:field0
+UPDATE|usertable:user1322655549913066730:field0|)Z?,N-46d&- ']s??~-#j7!v%((,_/1]!9Wk(48,<$;&f*)(?#:%2|=Jc6:p N?He#5>=Y=+Ky3&.*Uc#V-+^-%Gm.O1<Fi3N=!
+GET|usertable:user455066467631661857:field0
+GET|usertable:user5202030230673908059:field0
+UPDATE|usertable:user1322655549913066730:field0|=5"0-`26*1L9#Be#Ce'Fu"M/.\;9<f';j'Ls,4`"A?*'0)E77I'04h&7,=6f-Ba>->.&8-Y;?B!![g$D91Fo)Q=< :4S7 8`:(.)
+GET|usertable:user5506740918359687568:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user423581758446028772:field0
+UPDATE|usertable:user287218205792339863:field0|#Z%5]e0^k3;.(@+$=6,C')Fs$T54M-'@:+<.N)4Mu-=t;Ao8P;!^=2A{6*f#-8<<~$[u">>:H'!(".[7<[o4A7,(z!Jo;#89K#1
+UPDATE|usertable:user1322655549913066730:field0|-5 -O!;^q7"n<#z'*,&*f+'(*[;0[y$',$X)84b3U%6Qm&Y%:^{:@;!Jq.Da ?d>Ui#6z? j*'20[!5H)-'4?\m;/**Js* "7@=5
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user566317792956687004:field0|=6l3Dm))j?Ek;.~7Ik0>h"%2$^w7+<&T-4U+9Tc7_k.-b78*#.j"><%;.,Wm7Su+?>>G;=Y54.*-Ds+4*1Fi"Cg/7>&/:46z1Eo6
+GET|usertable:user4740067904577103888:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5865495472751817687:field0
+GET|usertable:user9201623340582030028:field0
+GET|usertable:user7858510623981024797:field0
+UPDATE|usertable:user721432428457719386:field0|5.$1;~,$b?W9-:p:>*6?(1'j(2$17p&A7<Y57:0!G1?@/4B-#12<Dk/"*%+"6"p"J?%Ts?%*2^s7Sw62f>Tw8U) Z{!>v7>(-\1,
+UPDATE|usertable:user1322655549913066730:field0|4((8F%(86!>j<@u"82*+f.!h5Go6^o#+r:>v7#~;9:*.*4^o)Mm2Fi#&f/J);Ji2(j-[g?E%,0,1-&!20%>..O;%Me(!"<_c>@/0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user6852049469849147835:field0|)?>$Uo16.98p3Ae'N;&]i?V3>)~3#n4(.-L)1;.-+..R{;/,?0f?2r5Zq67*'Ao;S?"7d>D%;2:4<65Ui?"x1/j>Qs"=b>'*/[55
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user2900883541366706910:field0|!+`?5`.>,)'t.9<5H}.J58E=8He;Ju%2n./0$G-(9*"#`79z'5z3(0*)h>/n5Fm/(r(5d?866@74#f3Q=<'l,2,1K'14n2Q}/T'$
+GET|usertable:user8812009151665300138:field0
+UPDATE|usertable:user4407331210149597568:field0|>7(1@k14"!L7 C5$K5844!503Bi?1p9B18@y"!())h9;<4A3##<4Qk$H?)Mm1;$<<d%Y7%^3"22,\c22d2Y?$S=4D39F9 8<%Q9-
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user2392378977606883123:field0| 8x*&2'Z;$W{1U9)!0.B'97r*Y!$Z1=Y+<^'G1<4<>!n&/";1&$0`7;.=R+(X-9=:>Pc"!~9Lu?3*37&57t/-*=Uk-4.%V'=:r'
+UPDATE|usertable:user5130637132284318059:field0|*K-(.h4Fo'Io'94-C'67*$Vq%.>8[! 'b?K-(M# F1/56!1x:&$4Vw8Ho6:x%@w+Kc4Mg36v9C;9)t*#6,)82Jy2.:$$j6I!?Z%1
+UPDATE|usertable:user1322655549913066730:field0|3"v2>*$;n/,x"Ps&- ?C-5Hw1Js:%,"1*=K519p6Hk>L%,9n/L!$Tu"Mw6P?0W=1$v!Qe.:d2?~?:"8;( D-7Sa6;>3Q#=/p+*t7
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2145381320292018070:field0|0T/87`(/j>Dw,[%!0&6R5 _g?Li2Ai(@"Dq"H--T;Tk6Bm?P%%&r!Aa/;r?5p;4 5<d*S=0>x2;l('8<'`(X/,(<3Cq>Dg0"" 
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user6655674828848418862:field0|1Jc'S-+<`7L78Ny.O7("v7&d+'( F;=(*<Qs+>0 O5 T5% $72t.O;*/b.$d:$ 1)n.O;-J};3`#]=7041[y8])1Hc< 4--b0B#
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user8918468108584873557:field0
+UPDATE|usertable:user2509545463753448920:field0|?O-8No(04!=8"'&(!~.6,1O-#7x2&p+3p3]-(@!<;<%;,442>]q>[7#=,0<<1J};">-2p2,l:3~>$|8S:Ru1:l"!f&S-%Vc;J#
+UPDATE|usertable:user7529574150229708218:field0|3\31[g,(<$W+-I{>D'!:`+S}'Og/[)%;"!1t*>b/Fe$O94P),Z7By5B1)$('7 5.24/l?X11**4&t% l7Q8"p'5t24 !Es?="9
+GET|usertable:user408685285034775569:field0
+UPDATE|usertable:user5091894999205500521:field0|/ 6%!d7M=9T!1Am7V)3I=0^1%.2<F5*?",Ku8^%-7h"O58H}*7l;Jc$Z/9O1#M3(*&-O?:.!\%9>,>88,!z>)>5<2?,`#G%<:&=
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2629609192604868981:field0
+UPDATE|usertable:user287218205792339863:field0|&To?9j7T7 Tk,5 0S?'N#1P54Oq'Mu'),5;t12f/E/2_w>M{30 1Xo 8b/)6/8v#Ty6P{:"259 1G16Su")"4:$$0`=I1$+d"2b#
+UPDATE|usertable:user4718918452217674757:field0|&'$1Gc3-.,Py*$45;~5]y61,.D=(J=,Pw',t Z5$Hk1[#9+b$&>8*,(Sy7Ni>.x?<0<M-$D+(Tu+Ko5B-$.x?&f7@}&"h* :2:($
+GET|usertable:user3345488781783087380:field0
+UPDATE|usertable:user5187183163417179100:field0|+_1-K'(#,=\i>6x*(8!424'(3C%=3l%Mc/?<&T=87"(L/-5|"Ag.[a4_9)V'*R{2A'->"<+z+!l;+|4H#4U#/Uq"A9><l2D!5$<
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user7544639532704279060:field0|#5<8'n;S?9#(%/,5Wm-40,[u;?d.&~+R)%<~<R3).j7 .1(l,*z#325Ig&[e,O=9Au</d#1`!*<5I3'940)|9&r?>$#/84T}, >5
+UPDATE|usertable:user1322655549913066730:field0|.,x3.n*Wa'K7>U79F++U94R';0(9B'>Z11Om5T3,<:<Pm2".5[q398#O95Ug=+t"*|4R?02*=H)-A3/8.%8:+%,8Cq!A10Ds"!b3
+UPDATE|usertable:user4000293249576796910:field0|!U-!?45A+%Ke>R}#Vm:A#(Z1%-x?9<3"(%800Si?:0#Oa>B9 72,= ?00<(~+De'Ge.7"46*+F5!:(?Jc>P}5A=9?()Py?_+;N}?
+UPDATE|usertable:user5865495472751817687:field0|/Om6/ 6^q3= 0<h;2x*Q198j3E{.,0,Q!4[3$;`'*p4<h6@}#6<-.p,+t&Gy Ic;Be2Y/5R5#<f&P}+Km6H%)Ji*Uo%8j71>-(z3
+GET|usertable:user455066467631661857:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user7748774297958624379:field0
+UPDATE|usertable:user2629609192604868981:field0|$U#0:0/@3$Wi7@e/*,5)j3U#=-$,R7<!8$("-;d?Pc'(~3\e1C!=?>1W'>*5_;<2426d6Lg&Rq*#(5_?50t<;88Re?Mi"(~8Cw.
+UPDATE|usertable:user8663196901266967928:field0|()*(\k"1>$2b<9:-0|32 ,Du'."4W!2048_u0=n>I-!)<< 4+C'-O+(+r7Z%6@+-3x<&|>Vy7F+9Z7$=|.Y;=O7%Oo&4 1U}4805
+GET|usertable:user6606150626569777568:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user484428382674759722:field0
+GET|usertable:user511521485802488273:field0
+GET|usertable:user1946997789401272047:field0
+UPDATE|usertable:user7529574150229708218:field0|5A5!2&0Yq2\';4`"Cu"C}:=":"6 Ka0H#8O33.p;7|/9f&C')=:)4r.Tg/Yy<;>9[#$& <9f'[9=#8$E;5" -Y{6+z4Ko:?j'"( 
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user3508257418682559610:field0
+UPDATE|usertable:user287218205792339863:field0|$"j.D#2):8Kk17n3?t7^3(0z E)((v7U;04~!R;_q"?h>Ke#A/0~'96,Jy<% <8`/&h&5b"3$)Ma<Eq:S?%,49U%)&b7I%(Y-1
+GET|usertable:user2525396975955186404:field0
+GET|usertable:user430789776184688981:field0
+GET|usertable:user3019840602185447874:field0
+GET|usertable:user8058230819287139398:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user1793665874575230521:field0
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user7197055771020043781:field0
+GET|usertable:user743931997885976631:field0
+UPDATE|usertable:user1322655549913066730:field0|2.|7Z3+;*-'l''>%[q;Ri#U?"$z;969'2 A0I};#"(/ =*x"4: L=&!&1!p/+z?(z8Jc/K-4$d? (2*b'2:(L}:=t )v;E{6P)!
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4471303574238960701:field0
+GET|usertable:user5330754733809528218:field0
+GET|usertable:user4755701101560999489:field0
+UPDATE|usertable:user1532371684691838445:field0|:1 ,&p&Ye;T!1,v*\!.I3!C5+'n?K3?I78K%/)n6Do,<8=&>?W2'8"G11\%4_g6/0->t/M<I}:[=*t*\%,3: 7('!v&$:%T/8
+GET|usertable:user791260365276162889:field0
+GET|usertable:user517692741481717900:field0
+GET|usertable:user6789457849935102675:field0
+UPDATE|usertable:user702681345610375913:field0|$'j2P;35>(1d%8",A#-'`"!6!0n:7"$^7 ]))N%5Dk9"$)Q':;v#;h1$t>#j2!h?9|22<=6.-1~/<..\i'7b!Ti.Ak9E#)C=?8n#
+GET|usertable:user5386677189508267507:field0
+UPDATE|usertable:user5594221123989979758:field0|+7.-%|$=j;-09D+_'5\w*/*0# $;"&Uw+Is5Vw;R'5!z*_{-=v.U+7%2<:l8Ce/Z5/G7,>(//(-@)4Y7<Pe&_m&T%$%l/G} :h"
+GET|usertable:user7278607363175335785:field0
+GET|usertable:user5629761478008422173:field0
+GET|usertable:user6217540882598056203:field0
+UPDATE|usertable:user5099702957786886910:field0|/Z!</<) ,9]s0Ra3C{!\? .<%J# :b)[a#O%(3t7K'6624Q{92(4G;)18$8j!6$5Ym4V% /*-Bi?Ns$=p?7x+2l>.84\e2."(]};
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user2629609192604868981:field0|+;<-2&?1`6:"68j>Y9,'l/E9$ d3923Da;7235l?_)76<0",-&25):/Le'&6%=.</,2@1=Ye<L;=\#(:h?[).Eu'J{)L+8Sc4Xq7
+UPDATE|usertable:user6701599845847589475:field0|>2*5E#:>z#Yq*S- _w>Oa3.(+;x25d-Q'1[3;Y-1=.0-*1?$8'0834008=[w,'j? p*J9<?01H'1Co3<><"~((p/Ek<-z+.h(K;8
+GET|usertable:user4859744409147364427:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user5594221123989979758:field0
+GET|usertable:user5243274528179236028:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7769532698869230701:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8303504587905476351:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4000293249576796910:field0|'(~6B?"T+%'2+Ac;Pq(92!G-4Gg2((("`+^m9\k*9j3\!41n(;0<Q#;+v+&.(805Sk,'r6Dy*.p7C%!;09^5-X{"2~-#.0*>5<z7
+UPDATE|usertable:user3345488781783087380:field0|,Eu*=6;V94=$3_9$Dc*Q?,Ay0!b#[k%3&!2z&$j"((*?n.Ay)R1!Eq-N=5!&5/64N31:h'Ra87 0#f6,x:/p)>d#D{-@}6%p'80$
+GET|usertable:user6606150626569777568:field0
+UPDATE|usertable:user4407331210149597568:field0|#Ns#A{+,,97f0""!5h C6 $9).=X+)Sg+?p)Y79>l;.,)0&/Xg&4f;G/9Nm:3&-C?9:n>Cw/G7%. &]19;(0+,$N-7]q;Ia,6>5
+GET|usertable:user6342684236389326028:field0
+UPDATE|usertable:user3729018900814958981:field0|0+|/5,&W+%Ou23v2>*//*0H-4^e&O!"Tm"Pg7M7$Xw-[%,Bi)P9(#~6V'8F-:" 9#&;(6%4j -4 1*$-f3?&.Q'!O{<Hw.J9"D6
+UPDATE|usertable:user1322655549913066730:field0|/;*=C19@)(#$0Io*/|'/.5V55%00M}!6l3H%"|*C)+T)8]e<&>8$z-\o2S'>Cm.4v+=z24"+&|&3p;=:97:7T%%;v=Y=,+v21l#
+UPDATE|usertable:user3251830137177450640:field0|-@!8)&5Eg'$j,#.!<d0\}76*%+(1U186p&7>!.2,L'(Xc*[{,S/=Py1Xo& 6(K{?'*!>&0C}6?p"%l,;x7><2I;1 d("89Vw/+,5
+GET|usertable:user8056506930590611298:field0
+UPDATE|usertable:user455066467631661857:field0|#E{6R)$j>%t7*z.K98<21^%=N!<J17Am';x),z;.d!\5!Wy2<",Cg'H!-[m(2, !&5E#!S!0N=)C/;:* Mk+5v2&,+D?5;~!,.4
+UPDATE|usertable:user430789776184688981:field0|6#|""v6We.Ac2-r'*28[1(Bg3( -]i"_;4Nu$:.4 4/70<,"49(178(Ci#Ug='40F/'-(%&85">9=&*Nc#Pc?N#9L33@g>\!2O}*
+UPDATE|usertable:user7442093944599416028:field0|1.l:#,!66=V97*49D)9>(-G#2<$9>d9N1$ 2 "z?Nu<;>,@y%Yu&1` \7,3v4N7,/z*2~/[y>Ju6>2<22!H#8V58K9<+n:*n*(0-
+UPDATE|usertable:user6550059261807720640:field0| Gi+3z#(:,?,4>~3Vm8B+ Ak45j+ ,/(,!9v'F/)8::.t&3$5@=5V?0Ag/.(!1,0J!&J5<"`;4"5Ec(8 =2p7Ns.Zm'2()Ea<2>%
+UPDATE|usertable:user1322655549913066730:field0|'!(!@w%Q!-((4?*4)425"<3*<;:$:l/Xs3^#?[u2H;%Rc7A%/4x&[+1. -Mi:6:(>n5Lc?V#7]#5O)"V!,^i3B) <6!Ic"Cy//*,
+UPDATE|usertable:user3468898064939893069:field0|'0j*]/?J3 76(X=$(t#1`&-*9:x:&l*,6$\-T'4(2;V'%+**E}';n!"$)Co(Ua::84L!)W=(9*$F5)B*50!1z'0&5Be:Kk9(f#
+GET|usertable:user2478998513537177293:field0
+UPDATE|usertable:user455066467631661857:field0|#?0)Jy%%$-!<2*()7j*.f:H1.Yi?&<0C+!Qa,!b+?n/729145E}"$87!&<R9$^g24<-0<83(>Jw.)t+[s+)")As7Ig"Tg7K!$ p?
+UPDATE|usertable:user1801473833156616910:field0|-\q:X}"7l:0*'4* 1j4Vi&Ci(D+$Os+P31\32$~64x&4:)G'2&|&<p-/n;$"-48 #l/#*9E7!Zy.P%.Uy?6p$5 ,%`&(x&N1%_/4
+UPDATE|usertable:user5594221123989979758:field0|%:0,T1<B#,@--Nu'/>6N}#+>,D/8Ju((n:8b=9p.(4:@w/:h'Py?Q;!S6:t5La:^)1Ym'&`6[3!,:)5r/P+>04)M;;D!4Mk'6|/
+UPDATE|usertable:user4000293249576796910:field0|<@u>H%-;*)^q=-(5['7Fc#%.7+n6?|(Ni*\=-G9-?$!(894j6&t+\e6L{+C9!8d7\95'h2&~$8j"0n%@"Lo,,`2R{?7v#A98264
+UPDATE|usertable:user1322655549913066730:field0|+C!<Cu(-04 v$M?81j&3`#,z-E{:Tg)&x+%`5[m+$b)Y50U96I"Js*K5-1p0[99O;+(&<^a Gc;\m,[o'*&7Cw&T3X?-.&*>~;
+GET|usertable:user2900883541366706910:field0
+UPDATE|usertable:user7769532698869230701:field0|7V/0-0;#$%Fa#,l&)x?Q'8Z-(14,C':5~6-<(Jk".j?@i?1r"V70W}<(f*N1868!#,>V9-/d5Gc&E#!U}7@/)Ii6," 5j7^%-$z.
+UPDATE|usertable:user455066467631661857:field0|50.(C-+Hy7>$=H%=Pk52494.'L;)%f/V',F!!% 4:&%Lc/7>1Ns69l1[%(Ey>=b#Nu+_s'C92Yg"_#*_s'!*&X+-[}+*l#@q"-h.
+UPDATE|usertable:user8423790459142401582:field0|8X9!/z.P?-[y9#l;8 2<f*Wi+*4)8&0[99J+ *|3;h$,`.*v7@s7=j#@=,>60 x*V22(0]g:G#<6x*Xg/I}+)t;M},S==H{;4.-
+GET|usertable:user455066467631661857:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user5795050315269525181:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user6606150626569777568:field0|1Jy*Zs/;|*]u;$&4A-&Rw>Uy7_5)%*3]e;?:2;&0R;''l?Ge6\)8E?0*,%660J3%:$)V!87f;>l'#n*C;=Ww:L#92:)Eq?/2: "$
+GET|usertable:user2392378977606883123:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user8056506930590611298:field0
+UPDATE|usertable:user1162520877564644864:field0|+=,$Co8S!5Tc;K10T'9Co*/z0G!,,*<>4 X#&Nq3M3*I}#=b7[c3>(78 )Oc:#t*4f(Y;0Jq,,<9C'2$:!6h52$!8|:[s'#:&S}"
+UPDATE|usertable:user7712599443455210138:field0|"Y?9(h#7`* 03R7 %n8+65[/!(.$><#4x3Ks,N'(T99'21\9>8&)Nm+5.$54:-20+22\;!E'-@/!4(1)d"&|'Re?0p5?6=9|),t.
+GET|usertable:user223245841702976730:field0
+GET|usertable:user7197672991683892784:field0
+GET|usertable:user4000293249576796910:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7202135395959893545:field0
+GET|usertable:user2158598867942705190:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user223245841702976730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4109651777141976318:field0|/$f'0,&S}2#v-/&4R%,> ,7$63r;9t*Fa#2v?Rk"K?-7h*Zo+A}*;`#Eg2">!F+%(*/[)8/*&82%:h'C3-C1;3"-H'/(.$Du6 v/
+GET|usertable:user6342684236389326028:field0
+UPDATE|usertable:user2211468624526732112:field0|/^}6!*:Is3">*Xq2$<3O}"%d>'><]s$! !<"*]#Nk;6,!>$/#81Lu.Py*0`>M!)>,0Ac#&f8R{>\1%;b?Uw=X70;h(&*5<v$!.%
+UPDATE|usertable:user2452052247827287909:field0|<&&,0n0^/ Go2S?%Tq'Uy&.,.1p>.d!]9(2`"W{;V/<W};%()=r;Pu0<(0_9">x?^7-/(5Tg4*~;,n!U#<>.#Xi7'6*$<<^e2-:9
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user2064940223337068450:field0|5%d?7r!Ye2%j7^u?N;*,v*Bs-7 80r+005>.-Ce'Ok&Z5=":"\/ #h6U+,P#'16<*,56.%R5#Gy?Fi:F/$Q#-^e:Uw4]}3O=1):)
+GET|usertable:user455066467631661857:field0
+GET|usertable:user6957097222380521298:field0
+UPDATE|usertable:user4407331210149597568:field0|;,d"@7"+|.50<Fg&Po=L{"_a:?b?I=*F;5Xs4Jq.!h%Ra& d.-(9?41529\o>J;5\a7$ 4;v3>>%0z!O;=Wq3(l#Qw*]c3.p3L)(
+GET|usertable:user4287267481298177507:field0
+UPDATE|usertable:user1322655549913066730:field0|#C-<Aa%K?9#z=6l6'*:#:<B?,R}#A- N}>', 66(< 40 %@g7<4)O/</2$7(:U/=O=20<(*<%W!<Z3(/4<Ce?$f;4l0=(0'f8Qa&
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user6192934227021632360:field0
+GET|usertable:user8840584936981231361:field0
+UPDATE|usertable:user3788692171035363767:field0|,"n*:f7Ai/:0;U7-Ie>^o>#d.Gs6U}09z37d H=8)l#Nu;$h Oq+=p2Pg&(f%Ae3">8#($-z3^34Z%3Vu;Mq=!~#L)#Nc:Je >j*
+UPDATE|usertable:user6222620507537905967:field0|/]=,2.2So. <%^-(6n=",%I)9C= -<4:z')v)/r+N#<%*<9p*2$ Uc6K/<&>6Ne6 >0?j..|69:14496. <h2[' 08?K'%3~6Y!=
+GET|usertable:user8168527105821680264:field0
+UPDATE|usertable:user550684595972791403:field0|*(~:]q(Vc.>&'\-!@o?<r;=639$$5d74n&2z<B-=A;#<&(O/+*t6H5('>0!r*Ks.!n8/j*B=!H=!_k1%b"=l?2`**p:_{?_s3 :)
+GET|usertable:user455066467631661857:field0
+GET|usertable:user528419049756744663:field0
+UPDATE|usertable:user4407331210149597568:field0|;&$(A'&,n'#,%Jw.1,0.v&Vw"Us3K?1F5<Fw=Ny:X5>Gq+7r9Xk/?8/Cw:/l+Zk:D;-=~&.:-]k#8x:#:,@a.R/$'r-5 4Gg :`>
+UPDATE|usertable:user455066467631661857:field0|0?"<6`&Mm3Ra2Q?$W79Mu#=d"Pa7 p!68!(,87`/0r4Dm:H%6Vg.9l7>&$56"D3(Ea"Bk31z!8&-W;28j/_a*Y! Q))Re2&|#W}3
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user6613189735245120138:field0|09&!W3:X1=E;*!l*W!$Zq#$47W#07<+8 1!z6Uo.*06>t7Jo&@m+Ia7!f*X?='096x2Q)$Vg3>$(Oo W9%%p0+t38|9":8"`8Uk#
+UPDATE|usertable:user5729181326252653022:field0|;0~>"p7#`.K5<X=$1<:Ge> 0;L58Ly9Q=9D'4Dk/9:/)r'W;'Uy&S34K?5+v8&r?Wc+*~.3t1(h#As)Km3"4 (0,D7)I7<Do Z&
+UPDATE|usertable:user1322655549913066730:field0|+7`*^s$7>4A;22z3Pg4Kg3B'/?f;*d-("80(8'n*]75-~7Zw"328)b/Y}3.2*;v?-6>5j:@#<Aw'?v(,$):p*Bc"32-T54,"#O%0
+GET|usertable:user8628983858439798218:field0
+GET|usertable:user3411964809525872506:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user3729018900814958981:field0
+GET|usertable:user115906385965750408:field0
+UPDATE|usertable:user6102725687749803545:field0|2Oe68j4]c;_7&V+9=("1 -6<4K%17(?1<0-j55`.>:9&h+Ne"U#$?&2^s>Ro2;:(>n"+<!3:&4~"R?-0:)P355>-^s.T+1,&3/j:
+UPDATE|usertable:user9139447905935114811:field0|+Rw"T5%<r+48/3 8Xm 860+ , h6G'0F7(=l.Cq+%d=;(1)b @k.!~6Sk.E#=Z7(Y;'@59D!/2|2@=/A!=$b2Ns&]m/F=4D+2Xa.
+UPDATE|usertable:user6222620507537905967:field0|6O;C-3J68d?/t#F577`&Wo6X;%%h:?x#9x1C+ 7f7Y)(C%.#"1Oi&5*-7h:+4 -800$,'2$ 41Ao,>0(S%:_;$^<-4-?r$7h?
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user2026198090258250912:field0
+GET|usertable:user4734769964419412241:field0
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user2621565638984517886:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user3836020538425550025:field0
+GET|usertable:user3848913720603061403:field0
+UPDATE|usertable:user4031227424074228059:field0|)3~>U?&Z#=$l??,0&n5:n'W+8_g* x,C=,W;7+d?(~(<$%/r$_k.,p7Ds/#b?,*<82 I!=-<0]747.9.f*X9*Ma7=r0W?=#l2?x*
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user4407331210149597568:field0|  4=@m8Hg"By>Um&\)7X=1E%,-6 L?*2h&78(V!!@58Yc?@w5$.8-f'-6%!*;N9%\+9&2=<n7%|:* 7Tk7  1#t>Ui No"3z-Ui+
+UPDATE|usertable:user4592601744418078768:field0|<&2,6j'Ru"/~& p::h1_u:L+",p+Io9-v#%09/0!G%;60(Y15Ew',|(7*!Q#"2v>6~#)t#?|,A{/J/05 4S77!d:?& Kq.Z="R;,
+GET|usertable:user1367707922091768751:field0
+UPDATE|usertable:user2660924992727184427:field0|7Q=0 d=/($'2*:,1Gk$H#(48=Uw;Dw!*l*+>%628=r<T+ &>>-x364:Sm;>v2*$);*8Te>/`.F=(Ea1B7<,:$66=O#7#l>_!9B30
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user7477708838590689821:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|;?4%=29Qk:#r7<d3+83-h&O#+I!(<|49(4%x)[}"?"0T}' .-O}7I91Je'+8;Es>Tm"+:$+:12f:^1=Z1)R!1(& 4.4K-):f Q}*
+UPDATE|usertable:user287218205792339863:field0|:=d*?2460$<r%<,%<00@#<1*8)l?T7 (6(Go#%&$S?2$*4W5"Oe64~!Q#%]q*F35\(+h?Wy/Tu&Vg+<0(?8;74<7d")<=<d>! 5
+GET|usertable:user3468905918937077380:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user2509545463753448920:field0
+UPDATE|usertable:user4407331210149597568:field0|"B/(Dy>7.(Ki0E/<Qm$5<8?r8Dm6J!?H%59. 0<8/<(O{/Dk,Ko#_a*%x>7090j*\c;[1)S/<?"1.j2P#9&p5+h?50 :z/F) M#$
+UPDATE|usertable:user1045185482354761428:field0|6 r*8,)\9%Q77P}"Ge>1j'>t'We2Y{1<f?Os:\g&.x)Ag35x?2"-:&8;(8#*"Z7034"F=4Ls,Wi6E),:f36(8> <F}9<`;.88Oi:
+GET|usertable:user7339622896467384374:field0
+GET|usertable:user223245841702976730:field0
+GET|usertable:user1890670073486252889:field0
+GET|usertable:user3880616745006536371:field0
+UPDATE|usertable:user2022852535952865284:field0|&I=-No,P'5*d*;<1Cu8V70$|:]c7%.>O%1W#)=f>;$!Ci#Q/*?f'1:'80,Hg(>*5A-%I/-76&Va.Ys5A{29r/@3-F'++8-\{7">,
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1322655549913066730:field0|:#t>N-$Uu#S3<W{7P)8[e/<d2389>:.@g?/h(Qk#$z$!.)]s"R7%Y%0#",Lu$=.4=l8!*0L96I#<I3?\;,]u4I3<,f&-:=_?%"88
+UPDATE|usertable:user2629609192604868981:field0|(A=,-l)!j+!,>P!,Q{6F'(Jg57j;'x )()F+:Xa;M51Y{6Q=7Ys/6p.I{"%< Xk2#.+%0!@3(#f6Mk$$<9@%)^%!K%%R'--6/64 
+GET|usertable:user8191417726698760318:field0
+GET|usertable:user2653885884051841857:field0
+UPDATE|usertable:user1322655549913066730:field0|?Cg#@3;!x6L742l.,$;<l/3p!,4(?d?4h+Y1;<z28|&*2=X{1;& .t47887$#L%8Ig*2n#?d71n#R';V;,=z"Oq?K';p6Rm?5h"
+UPDATE|usertable:user5865495472751817687:field0|#B#()0:0n&T{%",)>d).00<")(d/":"G+(H;;'(994)=4$+b*V75E%9."<\5<3v+Eg#1.-Ta;D?53h46j+L36R}.Ws?Fq&Ew >d.
+GET|usertable:user1778583212279536856:field0
+GET|usertable:user3729018900814958981:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7204094879695386351:field0
+GET|usertable:user6201689370396318719:field0
+GET|usertable:user287218205792339863:field0
+UPDATE|usertable:user455066467631661857:field0|%8"0'l(Vg32|;,,!)d'2j3Yu"R;$4v4E%%Q}'0t&_=&%r: $?0d7Gu 10)T;4J-)Pe7^a>#638" Us=Oe&%h9@=1  &>8<<z)C%$
+GET|usertable:user2509545463753448920:field0
+UPDATE|usertable:user9139447905935114811:field0|8/ !J##>j?=<>\a+&: E1)44 #`/O#=&f'W9"?(8A%9Ws*S36Z}6_+ ,r*E7-_a3G}*Jo; (#?.<_},""),p-+<(,*():8P/$> !
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user5386677189508267507:field0|($b7?2"*  )b1,b3E+ .6,.|2J9%L{<+n#I}&7v'Vy,?21L;(%0(Lw5^q;-t'^q24t(Yo*[?4(z? n5Ro?E+$(<,78;( 1/*<)"<
+GET|usertable:user1978667060994420945:field0
+GET|usertable:user2988363746996999100:field0
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user3251830137177450640:field0| Z!(Le#>(5Jo0Go"]w:^-5Oe:K1=^m=<~+:4!7n7K7:>h74&5!,5?:!8&56~$7v"K}%J948"1Gw3L5,'n"%h3)|+J+#<~?U! R/4
+GET|usertable:user455066467631661857:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user455066467631661857:field0|9Kw.-*8.j"7n4Bs:I%6%p.8p>Ze6A->L-)O34"-%*!X9,4('Fs2$*)\}><h'Hc.7~*F{68.3N-)Ju G5!Qk* p'"v8Sm+%v0L?
+UPDATE|usertable:user5003315979539713545:field0|,Fk:/<0O14C5? z2Pw.%p+*h Vw?Y)?@}'F#&l>Eu>Ym2Ao._?8Nw7E'9>>!V3(S%52d"I# O/!8r;"b6Gg)=r&Y+>"&,V{".t/
+GET|usertable:user1456628587051854292:field0
+GET|usertable:user5594221123989979758:field0
+UPDATE|usertable:user280179097116997293:field0|/7"1Ye*;t;B=6($5I=*G?5^y(^u#":,Sk.B{>/b3-$<C#8O)7T7$5$55&-A78<"5M7?M+-R?*]-$Fc%3r6,z01&)Hq,Q5 (.;Hs"
+UPDATE|usertable:user455066467631661857:field0|>Z#)("++h3[)3[=(@u3.(<R%?1"-4b?9p&X!&&*=5f23.8!$$Jq.K/*Fm*7`('|*\w1@3%Ie#Oa#:*!#p"909;0!@7%@)=<l(+f;
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user5594221123989979758:field0
+UPDATE|usertable:user4039061281468756207:field0|2Ci:G3.>`7.,5) $-r?8b/).(8n*'$:Aa'1"#9.502>7:%X! "*4<l%Vi/'|5+<9+  V/!G)1;v"?t*_74Ss$Po./:'8,$C5&Vm/
+GET|usertable:user3251830137177450640:field0
+UPDATE|usertable:user4883022254305604003:field0| @{6[;!@m+%h9".!+$-,n"[a94h#E'8Zk7^;1[71Q933n?S-$<|#?<;]w;2|<%p+M-,!f;X?3_k7H%")f;Fw';$1Aw63.8Rm?& 4
+UPDATE|usertable:user8619605139630990107:field0|8Ui;*<3 $%K%4;6,Tm,V%1480T=(N';\k'-x7I%<Oa.O'!>z/9n;Fc0=8=Hy&M{2Te;"l;1n?D1)Q##@- *`<L+4R7(Sm?<h>]u'
+UPDATE|usertable:user1322655549913066730:field0|?9480$5*(5<n< > 48-&|6D+&(p3) 1;$5Sg8Ae:Ms6>|>2f8Qk7"$(Em'Gq4Y))%|7U=$D3/V14Q3>70=S7#H?8!&*&4,+|(?x'
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user4276882818317449309:field0
+GET|usertable:user1259306761257825349:field0
+GET|usertable:user6404708041794046429:field0
+GET|usertable:user8587902115227515139:field0
+GET|usertable:user2857460688794046728:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5227423015977498544:field0|3&*=Cm?L'0^#/U+0$"5N6S?+4$=-b,W;!Z;.<"8&`?5j2F)73:1Re: :-74$Sq>L#Dy"#l;L}#$b00 !#.99~3-08D-0.,01z6
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user223245841702976730:field0
+UPDATE|usertable:user5865495472751817687:field0|,P{79 2Z-%P)6n'L1:<b/Py<1p7O%7<l*,d!Ao"Ia8Y#)?h+,&4Ag&Q54Bm5N3(E}>4*(<t0Ti7,h4K)-2v09l>+v.Ci>7,*H5 
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user6745030552417433968:field0|2Ny*283:4 +x9*t/.46<"51`$B{3(h(B)(S38?t6Ze4^}+[3/9*,7:'+8,B-$9h&]o??$9>r;'t"4l8Ue&!|.X+ 6x67`2;46Lq3
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user5513780027035030138:field0
+UPDATE|usertable:user1322655549913066730:field0|5Yk?061?z/&r,0|++b!M'86z4;~;1r![a+Ks.?h:['<Z99)&(R+8"d/#"5N5.#d?Ys$Tk?N{1B/5J16#v.)$"F)14 "Dc? *-M+5
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user3499596644398359512:field0
+UPDATE|usertable:user5594221123989979758:field0|>[!)5<=Am6Bs,#>4#~,Z94B{?Ks>No;)>(A#2=*8H-3O%!Q=7\''v:B}?Y=5(r6-n*&f&$j,P?4P'-Cm77~2S)8Ho0H;9#r4#b7
+GET|usertable:user7515664841942340717:field0
+UPDATE|usertable:user2239039964897654810:field0|.K5%Tm+]+)Uw2Aq"2`><212t)W?1-b(60$G#<C#9F/6Vm?@c*#d3;t<9().(?@)(2z9@{300->>-"6(Ts']{.,h/K38&j;(p&"n'
+GET|usertable:user2254055941217701408:field0
+GET|usertable:user6972331513918409779:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user287218205792339863:field0|&6|/Uo%F!4^m;R}+52>]m6K-6"28/2>!z/[m&. -$`.Ua.F=%S?<Vg2(>87n'^+5(j=_!0Po*\9-U{:-*(?h!\a/#"5&:-;64Ua+
+GET|usertable:user3251830137177450640:field0
+GET|usertable:user2895750483442811878:field0
+GET|usertable:user4987464467337976061:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user1386627914002429863:field0|<4f&$"&E}/Xy!8r6Eo3Y#O/(G!,^=35")#470v79 2Z11G19Cw";*,Ga?_k!+n#%:3Mi*Hm5$$8We3Yg&.4.Oy.>f:#642v<_k2
+GET|usertable:user4000293249576796910:field0
+GET|usertable:user4613084569959134652:field0
+GET|usertable:user2264684818229413248:field0
+UPDATE|usertable:user625139819301032282:field0|>&* F{:C{:?0=H#!J);(>(,2=2& "z;,,4)~%7v*,x0>(1\g8^=<B}0Vk7[u"2`>0< K?0-*#+d;@74$f?6t!G'5Zy63<95z0@m'
+UPDATE|usertable:user6222620507537905967:field0|8<r:We5_+,4~(C%5Ag$]c3#4#6,0Qa$1`&3( 0(9@1%]5=T!.:l;8>91:!%t8H1)0"$1(,P3*]-0;6!9&9Qo:\o.>v)[?,Ja2Ho'
+GET|usertable:user455066467631661857:field0
+GET|usertable:user2280123207336849451:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user3888054759127886061:field0
+UPDATE|usertable:user2527454655948828758:field0|&T/!<v:M)=:,6>d+Ns%E7%N%'Oe>>x8Ha7?(;I)(&r<O783>8A)(/f65z&$8-/(<#h*Jy:&&'-<1;n=\+%)r>;~*),$W7$>h5^m#
+UPDATE|usertable:user455066467631661857:field0|-4b3C?$C{>.v8K79Mq=:`#O7.C% #4;Z-%_w1"t']u'B+0R'"C%!&"4T75%~45j3N{!9l:2,1$j:;&?\9<Y-))&1S1,96%6b++`?
+UPDATE|usertable:user3729018900814958981:field0|9)h*#2%F/$+>&\y;S!8%b7Eq*Tk* v+J!-?t24.-C)!Qu6%j#Oq" :1Tk:?$1-d&Fe9"b++:)7>,>&<Fa;3&4[a"X7(/v.7>#&4 
+GET|usertable:user455066467631661857:field0
+GET|usertable:user7973950893490310769:field0
+UPDATE|usertable:user4734769964419412241:field0|)Z10<:.Bg+@5%X+(/851>-3l,<f.X%00x7Z#*">89,?6`"(6"L?9'b88h&V'0!<4,x&M'4I9;Dq&K?&-04T?:% 98~<;x')|<)00
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user3177473110107359309:field0
+GET|usertable:user63111169354554864:field0
+UPDATE|usertable:user1322655549913066730:field0|18"0_7>"f?0d!H)<N3)=x;W}%L{+)>:_o? 03G*I1.'`7I-21")P/>A?<6|&E)1_e2#& D'<@;$.|"2`;/l!T#=- ,Yw&-`'=z"
+UPDATE|usertable:user4000293249576796910:field0|%)*!/b5Am?R3?C#9Vi/*$5!>8Gq+*:*+(0Ik?Wa+D#.4n.Us-U?1Q10Ic;*,5-p#$f1G#1Es/960N.$01^o/Co:A)//68Yi'4v*
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user3608955171963538920:field0|%Wk+E!!8.=:h ^a.:41Vo/Bu?2.=+`!@+1F??E/9=v)@c6Zm/$n3H?![u'3v'Y#$]=7 2);6(0><&84>$(:"5P+-&h4.<9[;9Yg>
+GET|usertable:user5330754733809528218:field0
+UPDATE|usertable:user8782322871149026531:field0|&Ok#+v3V79).*+053h!Ls.J=>(z#R><|+3d0&81A34*:8#418p6-l(Q+0,f!#x#Fm'Es.Ec<-d/Y3(Y? 4(#= 5[3)=f.R+;0x:
+UPDATE|usertable:user3411964809525872506:field0|)M35",':*8Es0%n2A%/Su+]-*1h6]!+F%(V;)V-8^{,I!5F!4Fa/]k(]*4*2'b.\g7Zk"=t![m&<r5Jy'186Fk?%p-06)K/+^;,
+GET|usertable:user434910535166391177:field0
+UPDATE|usertable:user4412823958183748613:field0|?Wi/As%:.,#"/0>,98*0, Ta;Pa/Y{:A}7A5'#n: h#=x/I77@y&Tw%P705(9K+5%~6$v:8`,P'(Y)#C%-M-/E+1Aw(V;4Cs'?<9
+GET|usertable:user1386627914002429863:field0
+GET|usertable:user7665320482219548124:field0
+GET|usertable:user3985058958038908429:field0
+UPDATE|usertable:user1322655549913066730:field0|1+|.Mk&%l&)l8':,X)*)t3?d8B#5!<-G=,2t2Em7Aw+@-!%f*Z-<447#,1(*. `?Jk3;r:[c*:68Z)6@;1):/.x2((3Ru.@m;#p2
+UPDATE|usertable:user1139630256687564810:field0|?7$ Im2V11L)?Ds>R+=->,.2$$p6Fm&Da?@6+n+-0/[w':j5Ne#Gs$!~+2j0?:=Aq-K{7<.9$(=%n5=v/M9 -~;7$+V-(Yo%_u6
+UPDATE|usertable:user7529574150229708218:field0|6H.U59<%Zu.9$ M16:h6 >+((=Kw E3-<d"Lo6A=#'& $2<*p3_30\w6!>6Ck3!40*b&G5'?x6)>9( -86;$r'%n$8b7&*']=0
+UPDATE|usertable:user3984441737375059426:field0|=6v*2x72l&F'4,p:/.9;65M=<9:1$ <?8-O)=9r+<84Qm6D#'^e7"<0V!-\a-K-!_'#"t:K=(0:1^%Rs7:84[e&Z)+>&$:8*<p'
+GET|usertable:user7204094879695386351:field0
+UPDATE|usertable:user7442093944599416028:field0|3I-,5<8N51Jw35r.4(/%242d'<84F=)L#08:!2j/$>4Ki.Mk?0p**p8=>(Yi%]-1U?&Uu2Sm5_#85`*Ok/V%?Yg35h#Q+,:.3-d/
+UPDATE|usertable:user455066467631661857:field0|"#2%6$2Wq/\%'Tw?Me:\w+Q%:%x&Yk/+~3Zs%Qq6'x&*r')~3;r"Vw;M{2001^'L1%5r/><95.(A=,[{><6?Wg7'v2Uq.7r2S;$
+GET|usertable:user3164349931547158450:field0
+GET|usertable:user3251830137177450640:field0
+UPDATE|usertable:user8628983858439798218:field0|?4r*_}07`".~-?r+2t.!v2]++R'%\i1+.8&b*A#9Uc<-p&A5;$($Rm>A1(_!#3.-6"$=b+Mi*$ ,_?!/2):>&Wc.Wy;Z=,^y#-4%
+UPDATE|usertable:user115688070747908525:field0|'7b6,0(9,%\g#Bg3%v*<p&A%$Ec.=r%304J/='z#;~#7n>"$5-p>Li>(z'C;&'`+Z9?8j3L}+64)0d9[{+;|,1,,(8,Lo7Hy<G'-
+UPDATE|usertable:user4407331210149597568:field0|9_a?"8040(.4+P#W{<=&8=h-:j'K?74b2A='"29S'>Jm+:$>Fa#Ei4K+$9f0Hu#@s6X;5@y'4*)^%,Te2T'#$&9=:6 x;Sc,7d+
+GET|usertable:user3006556368559113687:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user2629609192604868981:field0|/Jm6Xy-D/(*h&D79 |(0~?]o72$$Y14%. P' #d6X3'6p6/r1K#9&.?]!%G?7,0()"%,4 . 'K%)Ny0/ ,Gq'8n;*|;Z;9%,/2b:
+UPDATE|usertable:user6055923528061431665:field0|"@u/^%8?b2=<90> 54:Y}&J=43|"J/+.40Gg>M#-@c$We2A#<J;9_+;D/8L+6&4-3&#=b:5z<%j2!8#:&(',.Vk#%p%9z+9p,I+8
+GET|usertable:user8535325213834161478:field0
+UPDATE|usertable:user4340855182406812442:field0|9T55Bu"4015t.[1$?x8Dm;M3.7,874$Y)52b=Bq7Wa49r.,:7F}/!l ,<5>~$I)(T/(5z>$07+h.M%#2r#:$9A}/! +[i?<r5L!9
+GET|usertable:user1123161523821978323:field0
+UPDATE|usertable:user4407331210149597568:field0|*#*<S##4p#]m5"`#"471 $?r4M?1?,$Go'Wy<66$80.Vs/B9(Bw2Ku&=n:5l03~*Pq9V+9D#"$f3<<,@m*9f4#v3",3Q3-Rq:Y%0
+UPDATE|usertable:user1083451769662144093:field0|"Q1=$v(;p.>&%Ro6Rs+Sc6Po \u* .),$-.~? h;@o-Y/ N)5I5<4`3V= G+(Qa:205/d/ 232.5Xw,Wu?@m)8l;Uq!Yy:5x Wc:
+UPDATE|usertable:user2367363990760513648:field0|!C=5Ts(U;1E}.Sa;V%8G5):( A?%Z}0( ,46*W34<x2Dk'T;%Km&Ra+Ug&,d0":=;.3T*V+,@30A#9%*88b-:>,!p+@-5+h>.48
+GET|usertable:user405774789338319506:field0
+GET|usertable:user5471382055695095203:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user3420622512756406841:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user4407331210149597568:field0|6X+%Z;69j;8f=C?%S37G}/Aw>F7 F5*F+05<5C!4$x0?l6?"?0*!Au5,f/Z/!1l6M5[y*Wm;; 8.n&4f/%p;Cs.Na6Hq&9x#=*!
+GET|usertable:user3251830137177450640:field0
+GET|usertable:user4000293249576796910:field0
+GET|usertable:user1926066652259684799:field0
+GET|usertable:user8317396616371721029:field0
+GET|usertable:user5091894999205500521:field0
+UPDATE|usertable:user4718918452217674757:field0|.Gi/Ew9)<0#~=>v#"`4Aw25:8I7,.2:8x>Ss61n/I}3Pg+Qk*W%82x.Es?L5##h7De>:z7E!?;09Bc)-:$#.#?~"O-1_#=;8-P==
+GET|usertable:user499436504997622009:field0
+UPDATE|usertable:user3491788685816973123:field0|(<|" j'5,9\-$Pc.18;%*,*$7#2)Lq'W%-)>0Ta"_a4Cm.9b#Z#<A?';:<G)/_i7U{<%:$Xy67:1U7.0|"Ba;3(8H!,0b>;$*Ws#
+UPDATE|usertable:user1322655549913066730:field0|%::1U9>.n.!n-[k>;d8E3) h+^{+<42+" 6v*8r;,4([{"N+!Q;9!8#P#95(#,80B##-0$*0/8&<+z,L1,]i?!|7^a 9$-I5!$z;
+GET|usertable:user8056506930590611298:field0
+GET|usertable:user1410135755543358920:field0
+GET|usertable:user2041111843490626938:field0
+UPDATE|usertable:user6702224920508622789:field0|:M;$8j1, )948.`6<0?@o*G+#Z7=N-/>t'$"0Ag?7.5]%11$-X),M;2L!%Tg"D+0S}+Gw.$8.O=-Xw0Fe+Ws"8h/>f4]?8W54"j?
+UPDATE|usertable:user8243217924188885849:field0|8A189>/0")"z1E1=!"(5r?;j;Ps*D?44 8(x7N1$X/,8($Yk;68,I95,( S/-Yc2Zq-Qu3Z?,Nq>0`.2"-Om052!+r>Qm65>6&",
+GET|usertable:user5123210799327815967:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user223245841702976730:field0| 1*!4>;Su;O7=/x*Pc("f#X+;\u7L5>%d#Ru>Xw*!|*L=< |#8~6><;Q5(4<7_k3V+5$69G)-74,<44!&<+v)I11Bg'0, S!4T%,
+GET|usertable:user7204094879695386351:field0
+GET|usertable:user186767058014103469:field0
+GET|usertable:user6679277039479834180:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user455066467631661857:field0|(Y5-Q=1/ =R%:(`':t=<x" 4"( !,($Fi#Xu!#h>/$..&8=t.3d*No0X=<]#)Z}?42!Hs:M1)_y:J9"? $7|?32%1*-[5(I/^'!
+GET|usertable:user2523441519049214622:field0
+GET|usertable:user7547927826857956133:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user6430164442019618218:field0
+GET|usertable:user2246079073572997380:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1322655549913066730:field0|)Ri.Rc91<14n"^383`*3~2+..R%%Ti+%t/?j<&j3\59#t.;j&"n3:b&Z=1'p<M#/8?#*5>l<)v#D;9/r77$4[74.f(>|7%x"8l6
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user3164349931547158450:field0|5S%4(,*O#,%:+8x*"$1-*1Rg$J?$N'=Hc2K#$.4)M}*Nc7:>$1h+Yg)1t36"'Dm3>f8!b")n8Ci>Y;-*2<+8,\s&:~2+4$28(-h>
+GET|usertable:user6801077910019384140:field0
+UPDATE|usertable:user1660091742882450079:field0|! "%1:0Pk&=p.X{:3d5Au.H{7P=,Ve..&(2&.Q;%M":>);2(]k#\+67n#9`>Mc"[a+Fi7Ra0#,8042B7.h?Rm6H-'[5!Gs8C/9
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5187183163417179100:field0|:Us:Wq$Bg>,r0K?<[e9$>!>$0B=8_k06p#]15]g'&,4V')V+6j7W-6G}68j>M{*_1>5b"8n(3"<O=I}?8$-+z/8~(%f#.61$p/
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2988363746996999100:field0|>;.0Q}?U;84$$Q/-]9<4h"#*5M)%/(#"4<.(6Tm.Ji99: $./>~:9(&)|&Oq*:.)B; B?<'p9C)5$z5V-<[c(E?8Z9.@o;P{0"08
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5123210799327815967:field0|$'b+Uc'?z&&l%S5!>p"/~*%$7Qa; f9\a?3:/X5<Rm,%898 =*h?\e:3v2*b%A}*04%[5,6t.T'N3;Q% ^u2Cc7*h=!d&<(+9<5
+GET|usertable:user455066467631661857:field0
+GET|usertable:user3992485290995410521:field0
+UPDATE|usertable:user6222620507537905967:field0|<X}3R51^s#B=+9l.7f'0~3F-=Ca&V-<;<8W%@/4[5>0 5.$:-<1.n-R*!p/Gu.F59H5<+d-M-%X).Q7)%l=L=$3n)& 43~8(>1
+GET|usertable:user4112161795565671060:field0
+GET|usertable:user795722769552163650:field0
+UPDATE|usertable:user1322655549913066730:field0|8,t"=b&A=(F=<,r;Sm&5<8Jc6Dg#_+0[c>K=9#"1, ". 5,r>K?,-('4,=Es7;l'R91Uc"M?97d*]='&*%Im<Ki/Oe +0$48&/6(
+UPDATE|usertable:user1322655549913066730:field0|;A}?0|=&4$Ge:9<-?h.%h.S;3>`"%n!Kq>>d>-b:0 .!d7-h: (!>r!9l+1l4?r61b/5$<[q;Nw;Uc?Y')@-994)0$428,Ae$Hs+
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user4351239845387540640:field0
+UPDATE|usertable:user1478951393419609587:field0|1Xq?U#3]%,<0.'`/]9 L#1 :+_?=!d6%d>N1<;p:.f&9$0>8;0x#&h;6&=S};Zo?U% =$ 6t=Uo:-j,1z""n3H?942(Ne*&v=0$=
+GET|usertable:user5187183163417179100:field0
+UPDATE|usertable:user2629609192604868981:field0|'-$$Xe,J'4P=8^}+S%#6t3Z}.Ly2^i/Q{"G}1+f2^75_?*:4'84%~.]'$?n3$,=5x. ~#2,,?d'Da>K5)@! T-)Me(..$32,.n#
+GET|usertable:user6079217846208874488:field0
+GET|usertable:user5865495472751817687:field0
+UPDATE|usertable:user7098479312654688129:field0|*+b>No>)(-@!+]y/;:2Z/U;%?h24t$8()6n'2`*D)&Qs&Ym'1j*2b%H}+I}<N+50`.[u21*"Jw"%24L#=.2!S'<.v.G!$\=;%"$
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|"@{;Tm;So6Vk/Oe.Iq>M/4;8 Uo7D+/W!='d-0r/=~-,>8@y3$d6A'##j3#j,2|"Pg4<l+M;71>!I!#E;0H/01"(,t7N7!<4Zk6
+GET|usertable:user2893692803449169524:field0
+GET|usertable:user5824972190824763494:field0
+GET|usertable:user6228474581040074775:field0
+GET|usertable:user4247196537801175702:field0
+GET|usertable:user9139447905935114811:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user9006878219187342894:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4883022254305604003:field0
+GET|usertable:user2246079073572997380:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user8548542761484848598:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user5691233176898186437:field0|#*61,>#Ce3J; K!%C'"/,5*6+!0$"b7/: $t;I+%R{?Z+=Q5$1d:Ri*M/8%f Te3$d=]7<G-3&,0I7'^?$(x1V{;@+,)t/Ye-Xq?
+UPDATE|usertable:user1306092447956993982:field0|'>t*@q;Bw&N! *>-Mk4S-<H);%:1[&+()Rg()&,Mm<Ra?=n ])8:d7G)(T?49z7G}#.h>B,C/1'*2\u+Z1&F5!>|30r.>$<Z;0
+UPDATE|usertable:user1793665874575230521:field0| _k;+t&9",Bm0 ~&/v<?85^'"L7-O-)/`7^)!Po#J}60<!V?+Be&2n1+ %Uy'+x"Gs?^{*X13<&1 >5H{:.b$#j2V9!Y#4H}*U1$
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user8655220033622263900:field0|+Pm"Wm8/~6@y<My+9|?+z3]3;$(8_-+U5(G9*?~:Y++8<,Zm1;h7!25[{:?:%@:$h,:r:-4(@)=N=3Fm26h;>l&1h!-$$E=("(-
+UPDATE|usertable:user455066467631661857:field0|9:*486.+z?V5=H; .$,((5=>;9>82:6*v*O)5F))Gy,Oi2E'"F}&+l(*|*To"H;03x9:l"Fo&,`*((;K74Lo9Ho6A+>Li:Ws7;p:
+GET|usertable:user2509545463753448920:field0
+GET|usertable:user5909865510117777839:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2765972745258557890:field0|&!<!2t6&~+E%( p7F3#1,5L}>(z*H?.7b:_i,-88,$*I?(I9,'.%N!!]5<!">4d+Eo?D!<!d,K!5Ds,Q?!C31-|"\5:\#=]a>5*5
+UPDATE|usertable:user4407331210149597568:field0| F!0Y=-1p*?"68r>]{25.<%b5Aq>\?E19Xu4,4)Nw-^u*$t%Le7:"!D?4(8&<p2- %0r*U'&D{+4r3G/0Q1:L;5't A/4G+8T=,
+GET|usertable:user455066467631661857:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user2145381320292018070:field0
+UPDATE|usertable:user5123210799327815967:field0|-E+(4z6X9%Yc#"h.A+?((9Z1="~+-d-Ye2^?<Z;!\'>$h"Xe. ,!_#=*b"]},Js?M-8L}>K'8)x&Q=>$j3*b=W55]/;)|&-<#Xa'
+GET|usertable:user4247196537801175702:field0
+GET|usertable:user9139447905935114811:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8628983858439798218:field0
+UPDATE|usertable:user4407331210149597568:field0|4^5(3x)Nm'Y9,_y/#d4Q-<"v7D=-Ky.M71.r#/:,*t'1d>@<085M!!<|:$l>\g:$*6#x?'t<K'$H'=~7S))Oc/-$45$,=z=6f3
+UPDATE|usertable:user4403816746780894301:field0|2=`"'6$>4$E9#/x>8<5P34:63]=8Be+Fa'Eo&Vs?'p?Xw"R- 1>,"f5E}"(n66~'Fu&8v;@!%=~/..<;~>'. Se6X!0+l+Sy>Tw:
+GET|usertable:user8764396399132523870:field0
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user1322655549913066730:field0|+?&80~,).$K;9B-1',"4t:(t!U?1.`,!n#]i67|+'.&]#%A+3Qo"\3*3x.L{!\u>\5+E31\c 8b>)d2\y#-"(N/,*t5G1 ""=6n.
+GET|usertable:user8565011494350435085:field0
+UPDATE|usertable:user5865495472751817687:field0|6^q.(&>Tw;A%,(j?8l5<t']-.981Qs=:t:+n.\m3E!<&v6?( &( /"8; (& %=f.D-;Z99>8&]% :&7>, .z:Bi#R{._s>W3"Bw7
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user455066467631661857:field0|%H=430)T!-)~7=.%H{1Sy?2(>S}:U}=6&("~-3j:R3.3`/+`/]u3Mm="$5Z??8(-@g5T= \7?<j:'>9D-5=b090!X#$W5-)&.>*9
+UPDATE|usertable:user3251830137177450640:field0|./~6Z7;,*$B+*8r>0$3My+X}6Bo6Y'!Wm?;l8,:($b9@w'Ms:-0,#t$P;-#.+(f2 |&=x&'""M'='d>>",Me5)0)3x;Ig7'>%E}+
+GET|usertable:user1530199484394778981:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2653885884051841857:field0
+GET|usertable:user2629609192604868981:field0
+UPDATE|usertable:user8841543802939378929:field0|7Kc"^c;V70)r"Q59 x$(<4K92C-95 7>f:U?1Am'%v.U'!F9+\o#E)0-`:A1#6d72b%O347"?Vo'T3'Si#O+>]=9De/.4)Lc6/d'
+GET|usertable:user8644835370641535702:field0
+UPDATE|usertable:user4000293249576796910:field0|+I=-My?\u;_=6$$%Ow:'b&K/-M{/]{%,<(&"4R95;"2480;$,$0,@i?'&8=x2 `>M{0(,%[{6-(5N9=Gs3Bi.R7<Sq0Rs&%&3,2 
+UPDATE|usertable:user3371893866028870701:field0|:+69Zc6^s2T+)E' O+>@q/5~"Tq/,x0Am;12'10<8z)'~?L+#Cm/( ?&6$-t?+l:)r-2:-D1'<d3X1O35D?(%b6^o-N;(/> R1<
+UPDATE|usertable:user3608955171963538920:field0|.:t>$&2Bg6R/6&h;Nw'*p&D}),6!5l(Qa:[5(((1(298d#V9&9$(2n.J),=b=Dy:2|,Wg*?h50v2E!+I?0V}9Ce/W;=Pa*1h&I%%
+UPDATE|usertable:user5187183163417179100:field0|1:|;)d7<,(O)$0$8!, R51[i*>~*24;Oi'I!'L'8[7'Uc'56-Z+9J3$@78D3-Za&! *1v"P%:B54I3.Uq?;&<9r;&v!H=%)&1J)<
+UPDATE|usertable:user8782322871149026531:field0|)?$40r"!0$&6;Xu;<:1Iu:\s/!t'C#*Ps&=p6R58S+1[?7n I/$"2&\e:(:1@! R-"^g+R1&_?5Yk62$8S-.0z"S%.5x22*.-25
+GET|usertable:user6342684236389326028:field0
+GET|usertable:user9104837456888849543:field0
+UPDATE|usertable:user7442093944599416028:field0|(6p7*&<To'Gg-Xa;*(;U)!U?#S!!%4>H/=P}(&8-.|)/ 44$=$(9M5 Mw>@}(Hm+'v06`:O+ $6)H/(_?-?6<3r;+(:3r:%h"!4,
+GET|usertable:user8646785428553089996:field0
+UPDATE|usertable:user6274255822794234883:field0|=> )&l'4,$Rq)Oq3>z8C38Ew2Zc+?:;X=%Rc&B1=02>/*=@;=R)$62< $ Fk,D;(/t2)|?9h0=6%$$"Z=-D5:Rg;Vu;O)=<&"H{&
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user6222620507537905967:field0|"G3-As:K#9=*+K3/h-F-=Yk7R;5-45Ho;1,:I-<1('Lq7P1;_w;1~;=4(4 -F3)&"<*z+Y95U{?:b);z3X)4F-<#j-@k''v9B-$
+GET|usertable:user5389469138071785436:field0
+UPDATE|usertable:user4407331210149597568:field0|3K?%Za+F- _c>S#(!p7Ra"N1<^e'K/)Y'9.t>O9$*d5Zs'6>);21=p9@9%B+#P'%Q=91j6#2&:.<28 R9-O##\k;8*$8n*>`5X-,
+UPDATE|usertable:user5266782369720165085:field0|& .1:60I%5Y-9&~.!f>8r*Ew5E7$E+&704E!$U;9@=:V95>6??2<B5;[+,@!;$j2Co05p;Qc3Cy>4(7-(,Ja#M{')v?S}+T+6$&-
+GET|usertable:user8176401750378713720:field0
+UPDATE|usertable:user1322655549913066730:field0|#Bw/7p %`63h$(d?$d1(p#Eg? f#:b0S}/Zy=L:F;5)`.^'7+n7?b2=.,+(1\e'X7<(l",:?)h2,~%Rq&Hg5985:~9@'<W/*0p+
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user7442093944599416028:field0|;F/=$n0Pc'O+;4(!Iu5Ee30j = 8Wk.Tk*5t51`6^5>)29Kg>Y-,;>?*|6-,/+j>^)%S%4?0324(Sm(Q-(#0!T= D+66|?C3:5r>
+GET|usertable:user5506740918359687568:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user1322655549913066730:field0|63p35>8%`6Ou!T{.J-2>*%(`;)d3N9)>h?A+2C+57"$!z#C#?T71Mg:5~?6<+Y5<X+%_%!@k95:-\#:#j7Am-E)4Rm7P=1'v-044
+UPDATE|usertable:user4619329694910126269:field0|*U{34z49.=Kg2Ym#T;8R/5:07Pc+$v;Ss>Dy&L!%Z?2^w*Ua&?>)K+=Ru6=j71v79r)+v7,:+Fk2"t)M-$Lm;"00@{)8b33,#?r+
+UPDATE|usertable:user6948436448096321200:field0|<V/=Vg-N#=.d!?0!6>/@',($(!l.Ro!60(8p#V?8:>7[c6-04:p>%<;Z?9;b)(d?Ec;T+!723%z?&:$6(9,6)Q7<#x7Z/5>&1K?%
+GET|usertable:user8032999089049682241:field0
+GET|usertable:user5070181559504409918:field0
+UPDATE|usertable:user2509545463753448920:field0|>@}&Z%>P)=7$8$|3Q7+9j".,,Xw>Ta;F;8Pw*1"41 1+l?W% Tk6=v.X-(]/-Fo#R}3Q=-[=%G;0J79;n2D%?$$4S3%Wc'4  W1!
+GET|usertable:user3754307891204124693:field0
+GET|usertable:user1410135755543358920:field0
+GET|usertable:user5594221123989979758:field0
+GET|usertable:user3521474966333246730:field0
+UPDATE|usertable:user1219424270867010193:field0|&\k7/b+Eg3Ok-(v.^g1Co*/b%$h>\%%3n2?,"#|?[m(:2<!4?/*! $, :<>& 5z/<27&n;_-0Ys#+:>3|/*~%*n6Eu9#"=Ec"/<-
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1634242791981143919:field0|#4h/_+',p&L%6Re6!>62&=;h<Mk6*~?Q}#%p<@+0=d")"!",5*6-Qc .<%>z;)n?$j5:t+& #$f'_y0Za.J-*>09$r"Y!)9n%7d"
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user287218205792339863:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1793665874575230521:field0
+UPDATE|usertable:user7202135395959893545:field0|%_;8_y-161U5&[7 ::,Ni"!l30"%%::K#03.-Mc&R%5K/%=`4Pa/\g59"=1,%\)(1$6!8)T{9[#1!d7(,=_'9"t/\k%Z) 6r3?z6
+UPDATE|usertable:user6606150626569777568:field0|,=~:K+8^q+Hs$Xi*4< 8:9<"!O1(E}9>4 &*'Os7$8&&0 V-*9h>Ei?E+,Fw>-n;):'98 P#0Q?9&";D+8'|8%4 7v:C{;U5Ts/
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2629609192604868981:field0|?Ig."p# 4)Y'"!(99t&9 9#2;..<8"+H!=]{*9> _w+':(+$*O) H'?F7((l00*%A{>;0(%r<->1V)9Cm/N#2-6=(>"2(!Hk#-$ 
+GET|usertable:user876163866507113270:field0
+UPDATE|usertable:user3887437538464037058:field0|+_/4Iw9@/4N/4v>0&554 8|! (540*+:=*f0R103 51l*V9';h?Nm _w60*1T;%..=(x&<`24b".h>>z>Q3$Ei.1f!-<%C94&t+
+UPDATE|usertable:user4407331210149597568:field0|=;&!+$;& 0W+<B9-$65D! 76*-j'Im48t*E7<&28G/,"r&:614p>&b5#x#A#;I71%"#.v/>>*So23x8+0$9..9:=O-*N}2/x57d6
+UPDATE|usertable:user6222620507537905967:field0|'V}>Lo'?$ A33[q.Hy-X- 2&&!($H79.<!4z6Xw>;(-%x:-8=Q95N552v>&j4Xg/Wu"He6$t18f*@?)[e*Ry%Z3,Fc<4"0+055<(
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user9171768151002438782:field0|1Vy23")X{:?(&I9=Gu>#b+]+-G=4C9.X=,;*7K7$9f&56=S9,*,%;d&!b>4z8+"4I'8To"?$6K'=H;)J) -~2Vg/He:Oo'_)$D)%
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user3848913720603061403:field0
+GET|usertable:user2509545463753448920:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user2765355524594708887:field0
+GET|usertable:user2509545463753448920:field0
+UPDATE|usertable:user1062767238023299761:field0|6X-0%(*Gi:Pe#8|":2-8 8Q}8P;)&r;6*!%x!(f*.v$M1<L'#[99.j!D+!]+"Qi;& (-z79n?& ==d2P{2Ou 6>5Yu8'|?Uk. |>
+GET|usertable:user6195218076230300908:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user9011509532526661294:field0|0%x3P# X7-6:&#j?Sy*Xc*(:;_s3%|!-0,&p0,t3Li Os6-8%U',Ko%5p/B-,L7Tc;0$9  !3v&]w?+*106;Y"74+1f?3 %) (
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user7098479312654688129:field0
+GET|usertable:user6957097222380521298:field0
+UPDATE|usertable:user2900883541366706910:field0|#Re*V%59z3?8%Y#9& %F% :03H')F%.L%%\o0Q--I#._#9Hc5<4!H;6>(=%88Uw*Ze5'&-_u0)<)! :'`'U35Dm?R/2]/1#b&C#8
+UPDATE|usertable:user3251830137177450640:field0|3%t?"b &.(^=-Hg"5&)Sm&A)?+`'=:%Y99..?N'9Lg0K=$Zq Ks.Z%:Z=,_k2Jk*>>$Rm'=t>A*@o0Rs;/2<^i2S9.9x'1*.3j"
+UPDATE|usertable:user455066467631661857:field0|(,>1)l,,8 ?r-'$(7:)?f&*$"/&==`5K5=$n>\592*#/2 O3?2&,V;#T%$"&2=*0+>44r:[u!T7=3|'3: 0r:Bg*"0-;>5S9(;*5
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4859744409147364427:field0|+8f?]*/~#Bm*D%%A+9M}''d$>,=Jw#4~6?f'0<$Fw"(|*Nu!H%!U!79t2>f0^1,L}*,<99r!F/!;~(9~#Dg$."-:, Li:J7. 0-
+GET|usertable:user4471303574238960701:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user1027769564695874971:field0|(U=4\%.'`>$,0I/8C#'T)9D)1,r62,2He3X=3:b2 r( 8)9b1$>!(,/$j3Pc-H? R2%l.\)9@e.F#$!r:!:?/.4/`:Nc&Ws?No6
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user6342684236389326028:field0
+GET|usertable:user6176239324941019679:field0
+GET|usertable:user3656291393350909489:field0
+GET|usertable:user4087773455207089100:field0
+UPDATE|usertable:user5865495472751817687:field0|-$h+N-8%v."4?Cy2K}1Bi.B=1Fw3&~/T= (d,(l/-r?=$5'v)[)9V{=X) 5~!&.=C?%!(0-|.N+5Pg.8 )0  Ve3=x9:z>Z#$Ta:
+GET|usertable:user1078392581010011051:field0
+UPDATE|usertable:user880464459602983179:field0|(Fe"V9?Sc?)l*W18[{/S1=A7-* 9)<'U+,@'Y/$%p. 09,*)3* 24,5r> l(Cw+9":;<<Tk;64-Vo0Ew6"b-F;,Ee/[!9V!>!.4
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user7442093944599416028:field0|;M')^3>T;1]g8R!,\=(Ho?Yu5?l*D'4 (= >&E/<Dq"> <Sc8#<%, 4\q""v6B'<Dc4Wk6Ks6.x&\/=Ko+T?/G)1"2$C;);",.z.
+GET|usertable:user4351239845387540640:field0
+GET|usertable:user5386677189508267507:field0
+GET|usertable:user5158381208886221683:field0
+UPDATE|usertable:user6342684236389326028:field0|-#&0#(6F2Qw(;"4F+>9*5Bs=78%90216 *:1F19"d!W}7A!%!|*V-)H9)+r;60 G2,:05n6,v*_!*\#0L%1=n"5:;5"1^i;1r>
+UPDATE|usertable:user4407331210149597568:field0|99 (L#3@q3&:(O}2,$ 7*=_-;Ye:+">2r&':(@%!P7)Mw67b1/6%&21[!1Uc*Jk&3t;.d6\75Y+,$h.\)=!t=)`+Q{+>f>]'/Q+=
+UPDATE|usertable:user1322655549913066730:field0|$6<= :-645P-)#n#Fi)B= Ec89$5@{?R::")Xe'6j'-p7?n6F--G!+C%<Sw1>h2^+-_7<F=4/b7 8/]'0\o96f*,$->`>Re2"00
+UPDATE|usertable:user878666030933623701:field0|(?p*1*=2p*)(.# ,S#.,v>4`;3< ;r-^1(G?2K}'.46.8,$,?Y'1^?(To.Tk/=n"I=(<p&D1%-~6Qu-Oq'% -"`6Ow3Gg6=t)+h&
+UPDATE|usertable:user1322655549913066730:field0|:C#=[5/C{&$n<*$)Gq-6$(Yi()& K?'Fa>,44-t7I; 2 !%>'-2<8l9Dq#9*(L%11d6_)(^1/W5(9z/3b;J916r3A!?#h:T',+v?
+GET|usertable:user4614706235567992180:field0
+GET|usertable:user7769532698869230701:field0
+GET|usertable:user4761954080509175417:field0
+GET|usertable:user319538450859663834:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5865495472751817687:field0
+UPDATE|usertable:user3348777075936764453:field0|!'t7Yg/<:8$`?@7-7&8:2=Ya>_{&[y:]c&P'88>-(.(V)0\%%N9(L1-/"4&0"C;9&6#H/(@e(J5,"h?Fw?U54[=1't(7,1@q8Mm7
+UPDATE|usertable:user5266782369720165085:field0|-7|6"f>T-0;z2:8!<60Rq3Y'(%:<Zc6Yo+I/-6,,*r4^'-76!@'!Ns!Ic6_k)J'(/b 5d2<,$%~/H'%F#0Ka5Vs',<*)n?^c1)|>
+GET|usertable:user8457062671946544071:field0
+GET|usertable:user1215316094175840408:field0
+UPDATE|usertable:user8587902115227515139:field0|9-l"Rc>>(9$d?=`>&07+t#To;Pg>Y7*@%(=8!(f;L=-Pc*<:>4>=20;.z7W}2":8/`<(f"#n.((9#p1@1-R}&S%-^e"E1)<p;88-
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user1522374245992269769:field0|3I+8&|' h&.d7=85=t;6<8"$/*~&(d7Qo#62>Yg2T/5^c7R?5D'$)l,:x"M'?G?4,,!<>04>9Ka/D'<L'5*8!?0,M.M)8,$*Ug'
+GET|usertable:user8565011494350435085:field0
+GET|usertable:user5211789818993602943:field0
+UPDATE|usertable:user9011509532526661294:field0|5-*9?~"/(5T73I)1X)=$()9l9?$!A}+Ly2>$>*,=6$>Qk2W)#Qm&-6!Tk/X9&Oa/6$0M}#Qo!1l>Q5-$6,U%<# 9M+)U+%V-<Y14
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user8548542761484848598:field0|(^#0Oc.(85/j*;t.Yy-2>)W!  ,- "5F?,>>8;  B-#;j+'|1Zm&W!7&&8?>&^a/Cq%R7<Qo<U!!(4='r'?<#J78Jm<Jg?Ou&\1)
+GET|usertable:user3414703325105345167:field0
+GET|usertable:user6079217846208874488:field0
+UPDATE|usertable:user8603136406765403620:field0|7=r.N="Xy7Z=-?*1(*-4n>!05008,z)$j;Y}-M{6Fu,@=1:>0?r?:.2.f/Qo*P+8=f3+d2^{<K/(Yk'3p+(d8?z.Y3)%(0105$p'
+UPDATE|usertable:user5865495472751817687:field0|%$`6V+,&v"Z+>Ow.(`?52(14, :<Q11Du?5.:\w*&n?S!$=61/b6?*$9:48t%6* @/(*~6',$;&57 "*(0^15.p:Ym8Rw>6n#P3%
+UPDATE|usertable:user9145367093586176485:field0|:9p.*,9<4%:,$;01/t1)l&3b*P)=(.<Hc/N-+66-?v0Yq/'~*/"8#f$B59Ri%06=6:.6x?/t Je';,?L'1N'.%d;#z>7(4&<"*x>
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user7753681186667493217:field0|,^o"Q9?9b*? ?0`3J#=_{::p-E55J7#Ug.'b<*t>F+85h>Qs3#*1Zu,10,(n>.48Wq5H9-,z")j7Pk ;l3Ik5:f"$h-Tk6U=>Gu3
+GET|usertable:user5091894999205500521:field0
+UPDATE|usertable:user1322655549913066730:field0|6-`&I#'@/%\w<#6=2l"]m3@54:r?$,>@;-Q->,b;8t+_q"X#$@g&X18[3 <b-%x3Y7 )*536!>z2Fe48p2=>;^)!L1<Bo6+d8No>
+UPDATE|usertable:user7332583787792041804:field0|,Jc6Wo&9t*@=',d;Y.G{3<r=5l'!`#;"(L'<7v.<l5He*L)-E+>*%!`2S='_%,P/=Ma#Ya!4(=A+-V78)6-2z6Am1*"1Y%4_%9
+UPDATE|usertable:user3608955171963538920:field0|%-b*V-"Hc:2&*2f6E5<1 44j;Z=4)v'&25U'-Gy:Bi!@w/9j#[+4>z-D?)6~":0=1`?T9==p$;&1Ke5G5 [u43j>>v'D.?p,-$<
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1139630256687564810:field0|*D5<F-:20$5f;]!=8z><h/-h"R;!2|2Qq;0r(B#,E!9Ue?Z%;*(-Y))0"--(?@w/A9+T'9:r,Cc?7$*>`3Q{$Q=-Y="X?9?v:V%0
+GET|usertable:user7561285028630367497:field0
+GET|usertable:user4537221969410357104:field0
+GET|usertable:user8892450248620249758:field0
+UPDATE|usertable:user323383634471815592:field0|%Ws2-v?;.<Vc1/8$$40Pi>B3=>.-P-#@; D+*V!<1&8),88t9_% %f/%"<!|<2b6;,9,z#5 )Lm6[s7%r*3: Ru:Eu0W%!Rq?'|3
+UPDATE|usertable:user8565011494350435085:field0|%U5<6x#)l?Z7$Vi3Q-,5&0<t%.f:R+* l'S}3($%+>;"x'Ng'L5)42*$0(6(#;z:G'6T%-H-'<$9(r!Fs&Ag*7x#\+";z'/8/Y18
+UPDATE|usertable:user6222620507537905967:field0|4(|:'*:?>$46/,$<)t0$|/S+'[a&<n#]u"Uk%^{2!<0=6<-8 1~?*p8=x3J7&Pc#=h#J1%; /6t:Tg#*v2A};L=)Qi/%,%Dw Xi?
+UPDATE|usertable:user8428647941696746176:field0|>(j6H;*9b3-l9Wa'#("%d?3,/[=8!b3E}:1v-7v3G?>"0$Ti2#`/B+5$$0Y!'[c/Aw'Qc"R=.%<5J{*Lg7-<*Y}#Gm*)49V/<]{>
+UPDATE|usertable:user1322655549913066730:field0|34p7#,$20%Ry0C3(Yi0U75X.P39Q;' 641&%As&&48Vk'9:<Jw/\m:00 Fq%Yk3H%6D9(2>([#9#,*\g2Sa  `;H7.Si.<81Fi:
+UPDATE|usertable:user7813798941320766080:field0|3?`/%h3U=(E%(Sc>Hg'7d;&h)20=G})&h/4<>R-8Q57#((0v1  88p'Y#0# 9>f73h?&<%H}"U3 I9"Gm*Z5Gm3, +I+#<0R%8
+UPDATE|usertable:user1322655549913066730:field0|"I+-$b.P{>Qa3Q3 r/?,%T/.Ne6Iq8-$$Ky-D#0[}=9f;;:,3j#;r3S)8?$(Hu:M=(=j.B//. (V#:1(4,j"4d:)f6-4=>r/$&1
+GET|usertable:user154817428107885585:field0
+GET|usertable:user3955372677522634822:field0
+UPDATE|usertable:user61538909900221580:field0|4&*)\q7\}*A{?!2!U/;9j'Je7,< [k?S}7N!'L+1M/0*d:($3;r6E{!+r?Z7;8,8O9=/n'Fg2$>-@1?F/5X;&]?0n">x"Aw!"v:
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user1208058670282655955:field0|%? 9!:&La;,|7V%<X' J7!\%5(l3^-2J/<K%1#>-%f'L}'.v<Hi&U%'<n:( ,7x+Vc):.0M!;05Z1?O'-G=#Zi*Kg&R/-2.?X!$
+GET|usertable:user455066467631661857:field0
+GET|usertable:user1658128431979293986:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8207886459564346805:field0
+GET|usertable:user3465552510634507441:field0
+GET|usertable:user8467390074775563714:field0
+GET|usertable:user2629609192604868981:field0
+UPDATE|usertable:user3371893866028870701:field0|9'20 `<Kw?]w&Iu6Qw'Sm".x=Lc*#00;r"#($?d>Qq=S%</r+V?478 Ci&_)(Gy"?63Xu/0:3Gm?Ma9!"0P1:68(Jo4>28[e? x;
+GET|usertable:user780657387077592808:field0
+UPDATE|usertable:user1776073193855842114:field0|:I3]+9Bc+Rs$Q#5%&6[c;F5&V- Ry&_s7&t3#j'X9.Vc3Vk8D9,Ac7Ni?! .>j&Ue7805!t7Io.Tm(U1=Uo4E5($l9H-5A7><" 
+UPDATE|usertable:user8666606070494334860:field0|+]+=*&8*<(2h8>,<Rs17$=Qa%H;$;v8@75-(1[i"^i)0|3^3.O:>( Ki#2(1<b"[3=X?Ac5'6,^q1>f#*l;5 1(|'V?-.|,6l6
+GET|usertable:user4471303574238960701:field0
+GET|usertable:user7570040172005053856:field0
+UPDATE|usertable:user4471303574238960701:field0|8"j*#89]{2Q)( n:[} Y-=_k)1,)B)%[99T?#^-<((?;t*^u7^7=]'3U7=Iw>N2Uy2=4%0:9=l;_)&V'!?v-$l>/6.G' 3n1X?!
+GET|usertable:user3465552510634507441:field0
+GET|usertable:user8628983858439798218:field0
+GET|usertable:user3345488781783087380:field0
+GET|usertable:user1425987267745096404:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user1941132034734255641:field0
+GET|usertable:user6326832724187588544:field0
+UPDATE|usertable:user3608955171963538920:field0|&[-)Y3+2`*F#%8h:<87+0%T7"<&)&r-$&(%x>Y55Gw0Sm+@q#($8,p<4$,]k2 n?>z!D5<.$,)r*<8>6r+Ys7" $\m7*p#C38Q34
+GET|usertable:user7804922922872389862:field0
+UPDATE|usertable:user1322655549913066730:field0|%7$,,$5$,<\7>341Y)=Ou*P/:;n:;&8/090|!1.4=:=+f>\/41r7O#,,$<Yi&T?-f6.`"E?:Os/2n2.x.'n.C?<S9-!j&+0.U?(
+UPDATE|usertable:user1322655549913066730:field0|6+z2X3+Q15X=!R15J+-*b:*l$?t*Ys<?`;%,/E-0/p#Py#8.>L1$<"%I}3Yy1G{+$2"O{7! 3Bg?F#;Kk2$d+K7!G-(O!=M#*=b.
+GET|usertable:user6977411138858259543:field0
+GET|usertable:user5266165149056316082:field0
+UPDATE|usertable:user4023801091117725967:field0|'  =2|;0r>Py182%8z(0r:I{%$"$3j5[?-Ai1?h.(:+N)<Sc17z'\#..2%B#79t.Xs5As2K+&*&!C!23p6;*%O}.>j9<`*!&87r&
+GET|usertable:user455066467631661857:field0
+GET|usertable:user1259306761257825349:field0
+UPDATE|usertable:user1322655549913066730:field0|(\g.@54+b&(&%'4!Zs<O}37d;Pa#Ou+381"")Wy#**$Sm'0 958-7<9_)4_g+%"8M{>^e'Km,.l3/t3/$9&>=9v'9: K/(Pi!-"4
+UPDATE|usertable:user6443834328100357726:field0|,<492j)Ng6G?/4&!4n$O59]-,Ce"(x$5(-Lo _}:!:!Fm/'n#R;)J15)69*0<Bw'Nk(Q90]>>f;4"'5x7Cq>Tq&Zy"'h:@m11<1
+GET|usertable:user455066467631661857:field0
+GET|usertable:user5450649553597630640:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user7554748620315456820:field0|'R#$Oa2Sq>:h.(<8M#09.!J9?-h/W!>Q}*K)93`:?..I34$`0Tq?Cc"J)9X%,De21,/M/5_7 = (Cc%_5)Le?(b>#.7:f7.6,,d'
+GET|usertable:user3371893866028870701:field0
+UPDATE|usertable:user5228566444343161925:field0|<V7,'<"@59X#26n+9"7/00Qe3S914,=Ds"Ua%0z'&4.Y;<:">< !2h;Wy"-j*Va3K3#@1-Tg5H7=(|%!:!C3>U/9Lm,<*!_o Cq>
+GET|usertable:user5434464250098778902:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6286592871627269100:field0
+GET|usertable:user2786286661736296135:field0
+GET|usertable:user5594221123989979758:field0
+GET|usertable:user796339990216012653:field0
+GET|usertable:user108648962072565955:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user8513932312438583330:field0|7Dm:6b,\1%Zw+Di6?&':&$Wo+%,5Uq,"t>Rg)488Q=?:j3^-+/: '4?C34U{3Fk60$&4l"Eq18f.*z%2f3B5!K)1)h7T1%+~:>|?
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user5977582333958533720:field0
+UPDATE|usertable:user1322655549913066730:field0|)I7$5f2?.-0"7Yu3+b1Je7Me T=8:d2420::=Py2+r5?d&16#5*=1x+Pi#Wi,Z!!,48Ge?%x1Sy3Vy5)p&*( Aw?9 *#~7W)&Qm6
+UPDATE|usertable:user1322655549913066730:field0|5Z98Dk7@y>Xk0/$!]/)E'01r(<<4H#/\;%Gi?3($6.,[+)5z&[s7Hw(_k3Pu6,d?.j,,`6J3*=d+Ug:Fo68,0K),/&;Zm*Nc!>8!
+UPDATE|usertable:user8303504587905476351:field0|7Ti+U+  j:;$+Qc/#z.@g**>(R1,!4.4h'Nc6$ !+z,F3)A%=4&8#"'368R36;88\}"Wm?@;74<%8,0E;0Fs*Ki#/`4I3 By.I/!
+GET|usertable:user2546497022160091291:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user4407331210149597568:field0|.2|/;4+32(E+3/ 5;x!Mc/[i$P{&#~.9z?K!>R7!Nm?T+-582Q#4(((? ->p5X%96h:&<8Ho7.h;Aq3(|6!h*:j:P?$Ve;H;9,f>
+GET|usertable:user5594221123989979758:field0
+GET|usertable:user4604321572587263982:field0
+GET|usertable:user287218205792339863:field0
+UPDATE|usertable:user8782322871149026531:field0|* ~".|*Ea?D;)Za?P!;P!0Ww"+p?*b!>.!3x=Y!$Qu&;"5Im0*<(-r /`' *,^;0^s?(2)+t;.(<Ue?5.$M9?^w'^o2&2-U%.)0)
+GET|usertable:user1410135755543358920:field0
+UPDATE|usertable:user1322655549913066730:field0|/7l+9t05p67p?Iq*Gc,/(%\26n39675<8&29^1=M#:5r&Y-.3 5G9?Ok76z=P{?Ec6R};Bi17>-Ey0E+,H=3(:86l..t&Os0Io&
+GET|usertable:user3251830137177450640:field0
+UPDATE|usertable:user7808892052611897242:field0|-['<_o4L1)^9$;h*\-=V30;x6.j&$&%Z>R)4Je;=<?I?)Ha!.x;($)F#%Q-'U%,T9'+&-66 Ia?%00Ai"<27(& Bo"B1)D{;^#0
+UPDATE|usertable:user2803085358731333589:field0|4%d"Oa6Me/4098b>0:%_# D?*Ic"P1!!~2G%?-t/[}",z/I+$"~&3.$C5(6n:We&42?Ss;As%[m.J!3'|* :,%r;>j5C{/S=%. 8
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user1793665874575230521:field0
+UPDATE|usertable:user1322655549913066730:field0|-A{6Li14b2@k4!2!Gu5F1,7l5Du6<$=G3%A+%:|'C}* j#>p/2~6E,#`6?8.,l*Y5<,4=-r )f">0#&&4G?('8<=z)X{.6z>>:<
+UPDATE|usertable:user264327584915259809:field0|"C% .p:808\w&Tq'I9(Yi;$~9(t3Qk2<~6V-4? 9Z)18l#>&;A/=Cc*I3$)4:_#(<:0$n7^y=#,%C)82`'#48Hk?P536,=L/$7`'
+UPDATE|usertable:user1322655549913066730:field0|)Tk34n&!2=8|3^3 G#>@o61(#'85#:=U= 369L94W-!U}*#,,$*-U'6.:<Uk9Y78(h=Lw#^9;\=5^#9R=0Yu/Lm7064;j;*8(9,1
+UPDATE|usertable:user2629609192604868981:field0|#1b'=|>' 5P;<Fu&S1(H/,X-5Sc2T%4Rm:^a4%*0= ?H#0L{:Ke7)z=]=-E579<(Si$7p+.<"U+=00:O/!#v85h7Yc+7x'I{'7b/
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user4471303574238960701:field0|-A%<'j+>`*#0"""9\'#Yk'0("I15"x=Io?A;"U))U}<#r>8:/I9<(b,Bc2\;:N9!C-<\#Qy*5b"Fu#?n3+87M-0):#W! Pk.,(<
+UPDATE|usertable:user2653885884051841857:field0|<8j7I7&E-5\e=& (5b78:5<h#8"=/j"/>9[s(A?!.j5D5(0`??~#0025"-B5,D9 O= /r.U{7+642*0Dy#%x=B?0+*5\u/+b1.~?
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user8565011494350435085:field0|1E"S{+42,Q?(\q3":6Z'$6v5O'56f9%b#Qa!*,5:&7($(;x4Uk*[5;#b6F.E{:@))Q79Q;)#f"V=&U+<B+78*,H32T-13,:,h7
+UPDATE|usertable:user8782322871149026531:field0|,Y)<8&"O/-$d;Po7/f'B1%?t?Y14;$&6d*P/2(p#Ps$Mm;#6.]e"@a79<=>n#7n:Z)>Li'N)&j>-:!..<K1%*l/ **$4%($;Ei*
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4407331210149597568:field0|?+&1\m=)44Mi?*"!^s&$l2G=)" %@y(C5 :(0/6) l;Gw#Uy C%!V;2Hy?<| !29_36R;,7x3Kw6J":l3_}!G)0(b"O!,3l!T',
+UPDATE|usertable:user7332583787792041804:field0|!4&84&=&z;!x:Ly'Vg,\y+P78>2-Oi$Bq/"h @&H5-*4=Pc3Bw'3f=Rc>So6(x7O'#As"0|,,  O!$C31;4*6>4=b!Xe;-(<%:(
+GET|usertable:user8628983858439798218:field0
+UPDATE|usertable:user1611352171104063865:field0|#G- Ma#0p7@#..l.+(:<f6<"?Y%0&:&U'+z:?j*K#$V-,3>-04()`<<h:388#&-48 ]9!.n:#z'Bq)>60K?8B? D{3=|?;n%D70
+UPDATE|usertable:user6125217403180876479:field0|..d/;`8S9$(()_91Li;2(<(`$Wg7,b$36%5z5Q>T)>Ro*"x1!>!\!?*4112'#r?V'2$84%*(*0!:.<Ok?Qu7 z::,>7p&Ri0K/1
+GET|usertable:user2660924992727184427:field0
+UPDATE|usertable:user4727343631462910149:field0|==88M;1:z2_9%7> ;63L14U7(,n'<"#?$=R}?.l*K9!M7<Ys$#t3]=9/b&<v2^'$?.& r'^m&Hq+I+9L}3_15$.,7x#U3 Mi)E!(
+UPDATE|usertable:user4407331210149597568:field0|+\i'1h+E3 #r)F#8+*%M?=Je=Cc32|;H-02j(T)9$`*&"()*<Qc2<f#E+!&x372$W} Su?#<0^m:167F{'/n3@!9>8<5"5I!0"j6
+UPDATE|usertable:user1322655549913066730:field0|=!j2!|4!x/Hm56( Wm'.>%."22b>.x2Ds6:$&Zk25$0_c#^{2Bi.^!Wi"K='Me#(~,264S)) 69S#:/8)4&9(v2Y6>~/!8;9l;
+UPDATE|usertable:user5594221123989979758:field0|*/|6?$;Vm"<`&>j&>2?!"5^%4S!(=d,/"%M{"?.%I; Z% P' ;.-="?@1<Qw0G}6@#6/b;Jo-Q%<Z/!U%5U{-Km&">:Mw7'82\i#
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2397676917764574770:field0|.-((Y++;x"\o':p*O?47|;\?#/n;#h4<(<<f>+z?0v5/6 G=/!45?j?[s"Hk*%,)%r)E1=Z1';"5'"(-v.Qq-U;%O5/I}#A/!"(,
+GET|usertable:user1798745499515080285:field0
+GET|usertable:user3176855889443510306:field0
+GET|usertable:user3371893866028870701:field0
+UPDATE|usertable:user7208832859340937550:field0| *f"Ou3S%%U-(Xc77f3So2$.(N#-. 2He;8~%Ju>+(!6t/0l?;x'T966:4]=,L/="n71&(> 2Hq31`=Zg*@;:Y-8>j,0<!4('_;)
+GET|usertable:user6657617032762788845:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user7635793684942653644:field0|-Gs: t:Gs/,<(A}&0l</(!-z:B%$=b<'z3Q1*R+ ?v6."8,b=]%5?v+[u#8v&0n+P30$f7Zm .$-(z31d&^{5%j+O'*Fm+(j:;*)
+GET|usertable:user8616477900543446362:field0
+UPDATE|usertable:user1322655549913066730:field0|-I/%Aq.5j2B%Z'1Io!I'<Cs(.p.^y=7d&$*:Ys2J;1;d."|9O?!_s0Y/,I! ^k6#d1]s"?0*[q?165,h/Tg*B!=;x94&!4.:N58
+GET|usertable:user1969489504832344981:field0
+UPDATE|usertable:user455066467631661857:field0|6&z+7l;*"9!03So?-,!F+!Rc0Ie;D76U=5U'#Zi*]+:Ie+,v&"4)Dw+;4-9d )>($v*Z-!O!.Z}*Qi>Xg:"d>Si?,<'+`"Q53Gq:
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user5187183163417179100:field0
+GET|usertable:user160115368265577232:field0
+UPDATE|usertable:user1322655549913066730:field0|&(0- :7X%!<:9^e3<>&6d/C#9M};0:$T3 Tu'D74A%>6$00n7:n/[s=/j'-~.+n2V(Xm"7r7A'3>82.5,x/:.=2v%]w:/:+K?4
+GET|usertable:user4311880491644874099:field0
+GET|usertable:user5121095859182465058:field0
+GET|usertable:user7649468970017810640:field0
+UPDATE|usertable:user4407331210149597568:field0|%1l?Oy8?n*L-51f.&*+(:)Kc'@w;:(96|/K15V75Wc: r'Q/4Z==T';'r3(h)4z&E1)!z;De.5v.<r$Ay+D9>D)8Lc 7<$,,*Rg#
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user6255612362028979470:field0
+GET|usertable:user7089498000064975576:field0
+GET|usertable:user8535325213834161478:field0
+UPDATE|usertable:user4407331210149597568:field0|/,l3>v N}/"h<% -Z?0,v6]7/C+8+v:U%-7p++&)S{?Ci#,`!)t+U#4Lc":r3#,,K><`*@=)%,%L#=Mo*Vk:]c3K%&M94_%1Jc:
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user5187183163417179100:field0|+I1%+v:J'$Vs?E-=S{6Zi>B}0Qi2;<+/h?[++I7$9>(/v+:< ,v?Em- n6Eg3Vm"> .U'(5.=G+$/04P+  ~1,4(H-<\+-O}8!$4
+GET|usertable:user8565011494350435085:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user3608955171963538920:field0|75*8P3=I7(=t-O% Z#0"x2)>-Oo7* #D')4 4D}6Ei? "=361(&!Y)6_:L+#Q3!9"1:n"2` &`&H1:,h6W3 V))K9)/r/@e8*|+
+UPDATE|usertable:user6329103927574717132:field0|3La+.t#N9!Oc-Hm3I14 z"%< N7)&&?#$8&z=@=<3h)G#,7<4]'<"`*Gq*? 5Lu3Q73>640j:Yo.Q}% t??t::~>%l#.|&M7?[e6
+UPDATE|usertable:user455066467631661857:field0|7)j2_e5L98)&8$>):*-&.<+z*229V=2#<1I)1Rq6$j2/2 A}#<l#Au/Tq+_i2=,8B1?V7!%$9M/8!x.T{"]5 Lg/8*'9r*B5&_s>
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user1322655549913066730:field0|'C;8*."T'0@/6Cm:Qw-Ru.+n7/. Wi!\a*8x7"$0>(."z:M"=:!3~* $4+|0_i'"(7?<0"l=%d+!r$.b;.$!%>5Y{#;*=,"28.,
+GET|usertable:user7256363888604767517:field0
+GET|usertable:user432344755817899442:field0
+UPDATE|usertable:user6342684236389326028:field0|8.,9Em<O)-742W1 Ya6Rk+781%04\%6^{3*t5D)-Bm5J5-D} E3<<f=9p6'"-Hg:T'%P5$&<7C-0[,+z"Cy2R; '4:?&,E-&^7=
+GET|usertable:user455066467631661857:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user1778583212279536856:field0|5Mk71r?^}23b2+*,W#*1`7,4?>8%^!%=b+Ea:K'!Ek#*j/U/ %~** ?\w?*|?_;)O;*'44X;+@?4P34'n+[-J1=8*.\k2T)::x3
+GET|usertable:user6790017810447243123:field0
+UPDATE|usertable:user2302170438335054308:field0|3O=,)&'(r6]y06x:483J58Fe'Uu>Rm/+b" r=P? L;81n;@#5A%!Eu>]"C??Ok&?,([)=Q',1",_}.Jw*#6;(8 Q/'J)-#j/,$!
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user4407331210149597568:field0|&)n#_'9D+(Bi:02=Sk :p'G-0Rs+Su:B%%Mq0Lu>'n8Wg*30"^e3Su!,<),$*"n#.(<-40H55/:($<>E70Ve#$:)9f2<8%K{1A/,
+UPDATE|usertable:user455066467631661857:field0|=1,< ~%/"8H73Y#@e7Ya&Vs%'j*9f9,&%#t1Na'K5;>t/1f3*r;S' 7.1R!$=(8J;)Mm?M7>=~62$0-|/Bq%Ik;Io)_m&\q:(`/
+UPDATE|usertable:user795722769552163650:field0|=Xg?906.v*5j'\y/(&3Sw?<r2'0 Fu"$< 0p%!h*L3*V9=:b"-*0_a*+v7W+!=$1(x'9<5Q'*?z.Jw(F}:Qu O#$54:Y{#])5,"<
+GET|usertable:user3251830137177450640:field0
+UPDATE|usertable:user6702224920508622789:field0|!649Zu"Ek31l?8((1&*Uo##0$I'$%r<Q31244$t#;6(@{"E{<Cw6Li&^11'43Z)%L%%7"4)n32~+K/*Ow;7.;&04Cs57.!>d<($$
+UPDATE|usertable:user1322655549913066730:field0|)\/=-p:Z2F'1?l&C521~"_)(' -Gu(]i;Z1=[w:F;-I;+*+?(-2`(L%5($7>>0Ok,Gg36t*Z+)<n-Bo7;z6_!(F?6Tm;$t I-<
+UPDATE|usertable:user1767486959544473394:field0|;Z%-N{&Fc3\g1)&1;f.Zw:Wi+9l>:l<]}6=t,Uc:A}-@}.\q?%j?[y&)~3.69"x>S+5\o*I/)5b6 <5(85\{#M'!2p=Q%($f:42,
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user7266270314342301568:field0|87b?:"/7z'#>(!`?Q+3W7-M3;Qm&C!3Mg#K+>4~&Xa6&j&Q1:!4%@'$"<8C#4>f21~:,>)>& _!-H/4G94 `0!v.Ne94.<<~5=x*
+GET|usertable:user5330754733809528218:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2900883541366706910:field0
+UPDATE|usertable:user3401580146545144308:field0|8:$=?n<?0)(t2"r6' 2[a&Cm>J7=%|*M;<Rg8Hu6[{%N7 Ly>&(9 $<7,=-j:9(!I!(Oa32`(@? Ge=#2%:2"X;0&&*I-=Ei)Iu"
+GET|usertable:user455066467631661857:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user7204094879695386351:field0
+UPDATE|usertable:user9060628474589022719:field0|:Nw;B=,)t?Ag)]7M7 E78+d%#z&G/9&85::1Eo/)~!=t*9t=?&5Vu=F}.,(-6`&-b4*b6+47*<("j'Ze*I!/Eg;4.(I}&*l"A-!
+UPDATE|usertable:user4407331210149597568:field0| Z'$\w("01$(14,%16<Gy;Ji",z6Oq*\o;W)9Xu7::<Te'*41Q=5]=)Ug:->:)p:Bm)%6)Vy'1"4C';>t2*b8G509<:>n.=>!6j3
+UPDATE|usertable:user3608955171963538920:field0|>S=$Rq;764Gk!Aw:%`.Qg+:.7Im66h)3,96j8&08Oo,J31W'21~"-4!_s"/r$Xu>U)/A% C53,:,)x9^m*+h$Lu3/:,?8,Pk85&8
+GET|usertable:user5865495472751817687:field0
+GET|usertable:user2434571216019508586:field0
+GET|usertable:user7465601786140345085:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|>7:1@w7F{+:$%3"4N9-[}?Ug2^k"J}5"01F57)h3\!<5r":~(54 >p"Qu>E;Yi/F5=6p7P)9:~'249S30Eu>' <3l'P91_1;(:8
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user8060969334866612059:field0
+GET|usertable:user8836521438151237720:field0
+GET|usertable:user4471303574238960701:field0
+GET|usertable:user6977411138858259543:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user2621565638984517886:field0
+UPDATE|usertable:user6342684236389326028:field0|71p/0|'C5<[;!!|+">'3x*9z'M-1H-+_g#6h! |+Qo6/r'0|&<(=Pe5W/8X/6!v?^{!2z>Om0Dg;Zw!_e2Gq/Iy:7&%?v&W'.;l#
+GET|usertable:user455066467631661857:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user5759111055805075646:field0
+GET|usertable:user6693630832200069758:field0
+UPDATE|usertable:user6195609127679123717:field0|%C;1\}5X3%Qg)L%)@''=f+'<1>$-D!2'b2O7#'f7).'\+-8l:5z2A36'`*.t"D5-^)<-v2^!<(z.I%6-4)+&9I1<A/)#f" j"?j3
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user9033555807749010890:field0|#\9$G=;)*9/(;Ry6+(8V50.2>Ne'Vg(H:X4J/<#j:%8$I%33*(G%23h>\/.50=^/ .0!Iu8$>!:l.3v"Xi?Yg>'2%!4%Tu $t*
+UPDATE|usertable:user2078281717115111192:field0|#Z-(Ng Zu&)r=C#4Wy8.*-<r>&4(;0?$`;K-)\g#.(>C=4Tc(5(=0:$@5%Ek8R;47x1/:9D5(Ik+4,+4t&Q#8Ic?Kq-Se7(>-H94
+UPDATE|usertable:user6933589380839592241:field0|4[;)(0(?p>M9*)65Fc0F;=Mk7?d.Ac0;6,04)'f+Uo,Yw>.<)(d.Ea66t;Vy/F/1 :';t6'l G1,?`%]/<Ta.#~>Oo9Nu+%l%P.
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8565011494350435085:field0
+GET|usertable:user2893075582785320521:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5266782369720165085:field0|2[a/?j6Sy'?z!S;=Kc&,~6/>%Es/[52#v.$*<8h?#*,&84=x5:~;9*$9(1><,129Ey!Aw7Ji,[i2%4*!>07,*<8$R%)Pq.V;0Wy&
+UPDATE|usertable:user4739849589359262005:field0|=E)8=h Z#)[w>G'8"r0<f;^y;D;!<2!-$<#8#&>! 42'l/_!5Va7@;<#8)G=98*!3,?Fc?_o)Ve;/f<]?)C}*(h::j4S70_w9]+8
+GET|usertable:user2376527465405145639:field0
+UPDATE|usertable:user8764730190429638124:field0|0A/4Bo<=(9]e>\-0Fg&O};Lm;16(]#/Ow'I7":f& ,&T39?b'L%1Oy5V! Wu$M7(Y'2,,1_!'*84L?#G+ Jq):"5J)9\34)(9 f+
+UPDATE|usertable:user2486037622212519863:field0|-^s6,$*]}:?z;04,6n(02-7h>36(Di$N5!7d?040$2(Oy;I9+?h:C3(I1(G%6"r2;b%,f.Iw8A'-**5Q;5?~90b>@o+3*9Dy1!>5
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7797782546885231981:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user7944420069383895265:field0|:V?17,8]9=R'=0<9.l0Ek3?2#%p/;d?#,4&*'/x2[c(O};-r2E75]-:@i+7$,^5<'.']-!)<3L-)#*/2t/T9=9f?Do,<*)/>#Y}/
+UPDATE|usertable:user2629609192604868981:field0|3N509*=(|34n:Eo#Ge1Yw#J7!R{/F! :: 3,9#h.<2*&*0:8.P}61,*;.-,r+;r;\{<^w'6v(W;,W5,_{:0v7!*0M;9V-=/&:10$
+GET|usertable:user5005156916142268217:field0
+GET|usertable:user1911601210627840137:field0
+GET|usertable:user3829936468540691736:field0
+GET|usertable:user2742464903717628833:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user3371893866028870701:field0|>P%(Vs"Ke2Ko:O!$Y9F1!_!Xg+).<Bk#Dc61t3H#.Zg&J}';d;+|<-0-]{2&x;Me!+(5Xm83b64<<>j/U#37t.G+)/& #n9Ko6
+UPDATE|usertable:user7524818890763034196:field0|/U}3_--@5 'j-U#!$d+9<=4('C!(R#=M#<6z&Q+5=>)]a&1h"?45-p>Bk#Gm/20,540Ka+_! 8b6=z$Vu*+<6?$0::/"&53`.Y#5
+UPDATE|usertable:user1322655549913066730:field0|7*r&$067:!@91 $5C1,K!0844B),"n$\10'f122 ^9"/$,\7 %l3%|<\c;Za!Xw;Qw W'1Sw: :(@55?h?3b(: 9\c Ws&Gw.,$=
+GET|usertable:user5123210799327815967:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2085515633666913160:field0
+UPDATE|usertable:user4407331210149597568:field0|.J+9Us'1z>^q3@q+$,1"d2J)*Z#91$5*8<Vo7H=$4(&Ty&(x-\)-T3#?>8Os71,5T=.@#(G}6_m:Eq:6h>/6"O=$Xy/* (Lq":~*
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user702064124946526910:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user5135317851778160703:field0|75d75h8^c2Om=Q+52n6I#,Ag3Q#(F%?0`#8r:G9)9">;~*>("7z*6(=2x#Fw.Eq;<4%7>(,b-)>%=r)<l*N'*D1$Ig6_q2Y)4C'9
+UPDATE|usertable:user4000293249576796910:field0|8Fe>D-$$z;C)12,)-`-9*%^-(,4(,</H)8W)>,0%4j"N}3Co0P%900*2<$_!-I50[w1Ha&Pq"Pe;R}+Ec7:|99,1K!*'~+9b:7|:
+UPDATE|usertable:user4734769964419412241:field0|2884+x6 28N9$Wu/Kq3845?(!Me7Ai#2",6`!4`#]))-.)*|%Ie2D7$Zq&,*!\71*l*.r#2 >!|7B}0F)1[ U-)O% +b&)" [u.
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user2302001529271736669:field0| $x?G7>8,91|2Ou;:`'(00V;6J!9$v1&t7]m>"n;\o:X/1A7('f/!v";$0;h+Eq3Cs%H5 (*7]386n<-4-+*+<|7%x9 40&v:<|2
+GET|usertable:user6081625641544898658:field0
+UPDATE|usertable:user1322655549913066730:field0|&9b2<h%]s/Iu/V50O/6;j.\s= .0Uw/+j::,#La>Sg- *4X73Sa3.r,*`.J}#Q?=1.&+t+Re&K#$Bm9. ("(6'p?\;>Z18)<?Wo:
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user6222620507537905967:field0|)2.,&~?\e6((80|3O='Uw#Sm0,|2=.#Cu/Zc?I1 .n#<f?X$1<8:262x.Uy2I99,2;R=<*61:h'@=!9. 3t5;.=Zy$7h?M1>>d?
+UPDATE|usertable:user6222620507537905967:field0|4Ag>Xi/(*,],(>9H/>Sk?(406,594$9* 9|8+*4X{>7j')&)2>$Z}-Z'!-*5Sk6Bw612<B}:V3 <l"/z&#*=_3=^%)D3!_s44v3
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user3491788685816973123:field0|*:<,^)>Oe?Kw'Zu/<0+ . ]#>1l7Rw&8p.Z##;j&@o<Hc>K'+Ja#,2$]7?07#28[%<Iw&N#:%`&:`:.r*Vw%O6B12:~#>b02~?
+GET|usertable:user6606150626569777568:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1155481768889302294:field0
+GET|usertable:user1363737293125349809:field0
+UPDATE|usertable:user5858399103924766562:field0|74& 9<*Fs7+b;C7=A+5=`>S1*B?1O14]k2;t%%b7Lu5N66f2 490l$#2<P'.%v*Ju"2l?]a/Is&X53H1%8~9?`;184)~&U%1+2-
+UPDATE|usertable:user796339990216012653:field0|8O#$ b$4z/K7,?61D}%<v:;t<K'(0*3\g#Ww1Tq?A3Kc+.$")|>(r1H))20!C}?5",X%%*f)Gq+4<(,8!Xo)_s?- )\;<"v:_)$
+UPDATE|usertable:user6430164442019618218:field0|#*40Ru;/t//f4&z7+<(N*@9-,l.T3 K+,8:8I{&%&3/l7F+"Bu6*p1Gi?:$&F;<Ik,9"(,x0?,42.%Tm._}/U'5.z2Lq:+66,.-
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user9132807702705779361:field0
+GET|usertable:user6389082698807335139:field0
+UPDATE|usertable:user7449133053274758598:field0|$+r?E}?[q#Q#&@34(2/8$,Y-<8d2E="-2 6p+P?0!r5%t?R)1`/Go(Bk3(`#0011<,H/)V-+-v;<*&Ry2<`4&.5<>4[m?-&._%0
+UPDATE|usertable:user2022852535952865284:field0|'R7%'8#0,4E359n3Hc=4> Fm$.t>Mg(F&Gg+O.S{)@u3_y$H}?D{:Fc;N7'$z:Cs2]-(Vo'J2B*K7,<z8=b2:<>).!]-1S/)
+GET|usertable:user6428761091628602573:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1208058670282655955:field0
+UPDATE|usertable:user6109764796425146115:field0|,[=4=r=Z99Tw=:>55p1G-=:b49b&7p(Y%09b,5&!6`;>,91`.;0=.(,K+1Yq [%9Z;5-$=-j'6x6#r25$(C/%B=%Za((n/Y1=]c?
+GET|usertable:user223245841702976730:field0
+UPDATE|usertable:user7529574150229708218:field0|)To7%p<Ay:.:%"`?*t91z"!0-"* "|-Di*+01N&.j0J{2De#$~?;$93,)4..Z}/3x.K7<,t6Ho/[?$I% @;7[e;B7""x"4*#L99
+UPDATE|usertable:user5615061248169532381:field0|?/n"U%/E=!(:>'x>Gs8F}?T?#+h#G-6- 5V!2D/-Aw"/z63"(Z--!&,9`"!n! |>4l3\u.H#;3h>4 9)<9G{(W{7=~4?l*> =@#,
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user287218205792339863:field0|'%4$Bu%Co?N3=+`#<24*~#1.(5.1Bc.H%%2d%*|39$$I=)Gu4L90Bi<Mk7M=9R/) p)K{7W-8O50+09]?)2>6Zo*Cm+#~6S#$("8
+GET|usertable:user455066467631661857:field0
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user3251830137177450640:field0
+UPDATE|usertable:user6222620507537905967:field0| 701.b"C38$>1B#5A1)=f+Dk&"<,&6&2|"H{7O3%5 "'j&;>7*$(/d$Q;4Mu/04-&*=I)<U{4;h/.2)/f&I{,I+E;) h'Ns3B! 
+GET|usertable:user455066467631661857:field0
+GET|usertable:user3117799839886954523:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user5714115943778082180:field0
+UPDATE|usertable:user5594221123989979758:field0|=$25X/1Yq&!~< <!O)/Oe?=:&980I=+1j37`72d66r0Dy2(&0Lc3O1$.v?<8,2v?#:(6*$5"0>. :*5-*-'f?G; "&'Yi/*r/_}3
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5594221123989979758:field0|:Am'Iq)\q:#v(-f'"h>;>0<v0"(-C%'Jm2+v!Y!%660&z3\!9]i3):<:x?X3?U=0H1=_k.D3,Bc+0n+229Ng%Io*9"$Uy6Pq %n+
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4000293249576796910:field0
+UPDATE|usertable:user1322655549913066730:field0|"Sc2@k!@3$Oe".j;Q#4Eo*P!:.l>R{<*|+(.?Fi6Aw'[/%5r#Y!4P9&&6%?~,I31\}/Sm*V9*1z#O=%Zk'J1-9p'Ye+Ne2W/6^'(
+GET|usertable:user3171722831519615274:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user7851754944672416976:field0|. .5(2)%f&S-(,p7Eo&/. $v-^s/7l:E9<.v"Rw2&2"[11Ms9,h+2,,I%-0n)Yk2A3,2>!Sm#2b#2"'5d',"4B=0Vm<]3%I-$Mc/
+GET|usertable:user5187183163417179100:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user287218205792339863:field0|#_k3Uc+8t:6j4_7-;:8=h>$2,D+ V#?2-M9$&d'-~2W/,Se2Q%!M'4< 4Ve Ks7Bw5O1!Dc''*4R#12v:Fo#!0%J#$W-% .404<
+GET|usertable:user6940628489514934811:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user6829377164189909664:field0|4%b&R)7($<V31?f.)t*.*(.l+/|&(" V3 Uq>U=-.f6.4)0f3E3<6._i:Y;(3:,T{+T%5@?22j2P1' <(;t4Gy* f12p"^g6Eu#
+GET|usertable:user7204094879695386351:field0
+UPDATE|usertable:user7718909682555094621:field0|/)d..6"&$=X19-01.z04:(3 "Bc&@+++((L7,!j&!$70p30$>Ic:1,2Z+((x+?`36n _38Hi%@;4\-6]}>[g%4n/N38 &<&,8U= 
+GET|usertable:user3601916063288196350:field0
+GET|usertable:user6351345010673526126:field0
+UPDATE|usertable:user5084468666248998429:field0|<!>0^/*2t.'b=Q1!Mi$#48[a1Pa*4z1Ek#K7Eu:<j-[c+1<"(n&9.3Os7R:!,1'~2!x:P5?X+(5j2Gs#-f96(=3"$4t&:82K&
+GET|usertable:user8093676804215095552:field0
+GET|usertable:user3041718924120335092:field0
+UPDATE|usertable:user8782322871149026531:field0|86<9A7+>x>.d1(:<566Wg+Ts*7>,Dq>/v.*~0$"=S#-=h3.h)3v:Cy1^)(Tq-/ ,Uc.M15"|<N{'2>86(5-(08l?#x*H! S?+H?4
+GET|usertable:user455066467631661857:field0
+GET|usertable:user6035794993636214306:field0
+UPDATE|usertable:user1322655549913066730:field0|2"4 )t..f6E;8\+0A3!0.)24$Cu.K=,;,)"d<6p2'81D/5T%$@7,Sy ;24_;L9![w:R'538'"$50r6[%9R{!$><Z}<P}?*j.^))
+GET|usertable:user5594221123989979758:field0
+UPDATE|usertable:user8048850601251419725:field0|4+z>@!2!|*F%,?:(X;.1d7S3?\o&Y?%&<)^9-X/%2r7Ou+E17O#-) ;*~:Zy? ~7C;0,`7743;29#&:4.-[o=G*;"&Zi3Mq7T;%
+GET|usertable:user7620551539407580852:field0
+UPDATE|usertable:user1385841784275263221:field0|1:x2^9*Q;=<l6(:-)~/?*-Aw+[{.?>/)b>Pw!'6$!x6+t:V'!_)1[=4E50]q ?t+1x!K5(Pi1> 0_;(O'-)` <`+Z#+'~#@?9.*!
+GET|usertable:user8679608373980845860:field0
+GET|usertable:user2629609192604868981:field0
+UPDATE|usertable:user455066467631661857:field0|* "(,"3.0188(<`?*4> ,,7v3"p>Hu4Ge.Hs?X),Gi7X1,@5!Q+$]=+]!$Tg+_w:D}%E-4'n5,d+Qy$4n>Pe-L7-;`2Q!,:47Qi&
+UPDATE|usertable:user1998464195594283324:field0|2\s'3~?!:!/v(9x:*6:/6!!"(H==[a?N/ =x?K/<989[i;Ws?<j".j B=-Ye=Js?Gq'6d#Ai.P')Dy>K!8=$1:"83>/6`.@u;T>
+UPDATE|usertable:user8931903971453402560:field0|)L+$9d<4t7M)=6h.R78N}.M;?'x>+((!x3Gc+/`#$n!+&1Cm2Su3.f;5n#N>W5$=2 &j*V}(<<)Vo>/.-Qy&%d>%25P/=1f,.v+
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user2900883541366706910:field0|"#,)Bi%Ku.K%3(p2%|0A9)&t$"r6?`#Au+M76Cy'(2 [e#8::)`7Vq#^9)\':Ru;/|''x&9:0[i29d%)j#6,$1n30r3Kg73b:7z&
+UPDATE|usertable:user455066467631661857:field0|;_30-:!Le?5 1_?9J%.6b7Dk' |+."%_1-#&8Zm;)21?l&5 "W=0^%+7: S=-W)1=j$9r;N'K/@w!&p?P-0*40V5!Z%0U{76t.
+UPDATE|usertable:user455066467631661857:field0|,V;(Pm+K1,[7<)( J}=0x.^!6x#&4,Yc24"47x7A71&4-?r+G#!$.";.!7j:Ow.7,$2 0Cu*<, .b*X!!<d?6|*Jc,M'%R)$N3%
+GET|usertable:user3496868310756822887:field0
+UPDATE|usertable:user1793665874575230521:field0|'=~.Vc)Po+#<5\78&27Ho7De)78$\/14*<M7&Mk+]!$Kq. |%3j/N)3_=0W=>5f'Z5,*6478)_y+_5!E=0/z2U/(8*:7. Em"&j>
+UPDATE|usertable:user1322655549913066730:field0|4#&%Iy)B7):j7Qq*+ ,/p?6|(4x+W}?:8<$,4I7=!h%Aq.M%7Kc&^/?$d&#z/,t/&>!M51[/#:01#j36z6Iw'3z*Ac7M=%F)<*8
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user3133651352088692007:field0
+GET|usertable:user4779564806044521272:field0
+GET|usertable:user5123210799327815967:field0
+UPDATE|usertable:user3251830137177450640:field0| ?x?W/$*.!Hs$7v:Xa'&f;H7%6|"',(-f3P''?:9D3$W=9Q!0/81J->*,1:p#%"0Xu4Ea;X;#P#8%*(?09-n7[)<*| A!=C1)T;-
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user8782322871149026531:field0|6[u?/4:\g;?t86 !"$>Y7)Nq#=h&'d%U9 9j+Y)00805~6Ny;Hs>.r,4z.Gu?.*)*|,*0-N?1.l*Ww!'>5(( A7$I/5>>8/`>Cg'
+UPDATE|usertable:user7529574150229708218:field0|6Wk2(42!t3*.+U5(>`?Ze'620I#,"81+6!Xc+:`'Ja"Oe7-t1[{+=<#Ig&66#Zy"#d(Jm7Wm7Ii?Q%1Hq";~8#,,-h6&h?6l8D30
+UPDATE|usertable:user4407331210149597568:field0|42l>+l/9f7]94To:Vk%Vq+&, ]{66l4Mc:Q;>U'$p?Rs/C3(.v?2($08$_=;=$%'.! 4$^-/,$%4")%d&4l-Y#45`8S1 ',;Hc'
+UPDATE|usertable:user1573453427904121524:field0|(+"9B{.'|/;~&/d#V+*920_m'2f;Cu/R=4U5.?h6)00\1$C54;, 6,:.289r:?r6E%&,<-(.%M18+81K9(Zi;:"< *2D{#N718 
+GET|usertable:user287218205792339863:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1322655549913066730:field0|<2,8;&9V}&;:7H1(<.9J91Vk3Fi#$x1'b/;":80)>l%X;)To<=p&!*4Y{/J9#O))06&<t?/.0%:)G1+Hg:<"<0&%6>$/<=::17 4
+UPDATE|usertable:user5236083790261698642:field0|2>h?=j+$f/Va?V-= *?=p',63#<<Ly!He7'((V!%5,26*0/20:|&0|#-n6A-'L=-2j5.$,%p;G7,Rw/08<80/,|2Ug3R3 (x'P=9
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8140503427020705178:field0
+GET|usertable:user3371893866028870701:field0
+GET|usertable:user310726047333268920:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user5865495472751817687:field0|8Mw;Z;),z29v#Ty;7r$8|6[k(:~+]3!Q+=[o28,8-4$N=$2z1];0.~<?d*R!;O)55|/Ys?[#*\{>)~70z;9~&_14;(60 ) t*5,<
+GET|usertable:user1554476175841751857:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user8782322871149026531:field0|1Q;-#<1"z.]+1Ja3)>!L'(V+?9 %96,3h"O559x6T5*Rm&%f,7|*Ic0!"8> 1Jo>G#;(f/Qq4W{&582?t7\);5x:#$%O1$"l'.|?
+UPDATE|usertable:user3465552510634507441:field0|;?<![w+"z28~,7"0Vo77v'Ga"<:%J' 8x/X%' 61]m=4|?7r9'.%Qa5_3!.z:[;("h6'8-%r(Yk/Ta>*&968*'l;Hk?:f7\y/Uo*
+UPDATE|usertable:user6222620507537905967:field0|$#&9 0#Vu3H!97~;^e5@#80l.9j31:)^)8Pq-V'--:!%|/$b47 0"n+;>$68&Ny;.p.]3-Ya:Y-1"(8?0$V#9Du+ v> 0=Ng&_s?
+UPDATE|usertable:user6403304691403030784:field0| Y?$=|7G7-"|"])1),"T11!h%Lw";"35<8Q};"v"3<57.0Ow"W74"h1H{# n0*<<-:8)v2Xa'Ak.%4" <9'6'[s/F7.Mq:'x?4$%
+GET|usertable:user455066467631661857:field0
+GET|usertable:user4471303574238960701:field0
+GET|usertable:user423363443228186889:field0
+UPDATE|usertable:user455066467631661857:field0|/P=(/t.?x/D;44z&X)+B958~;?x6*.!?r/: 3$$%Nw"=2-Fe44|6#t3.:1R3):p27|%G+99d+@o.(l"4l3?$990=M10$b.@w'^i7
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user7506852438415945803:field0| ."!-v?&p>589,$=A-6':5 `*% 5L',Ui3:l#+|?/.2Q=-Jg5&z.D3,T-8]78(0 U-1(l>P+Dk2G%#':1T-:B!9*|&U+='>7Lk:
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user3608955171963538920:field0
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user5594221123989979758:field0|'U#64!Y#8(x3(*8$h7Sy&]#.P%0%"?@k'Q#(#>!H34789Qg&2~+5~*Km2(40%*5=.(::-;h='40B=/@#(U+6[1=Do3&>(Nc2A}?
+UPDATE|usertable:user549112336518458119:field0|6%*8;~=Ls'<<2,|"Ua1 f2Nk,G3,N%+V38#v&? 1?j<(6=-<0&80<>47`:-`8H/ \#?1~*Z}2:~;U}3*l;4*4?*(G/>>r3 |6,|:
+UPDATE|usertable:user6222620507537905967:field0|=", Ss1!p6*f3 0<&(+#2-Z!;[q:'((>j7<v1Yy+Ui7F%(;2?!|"O="#*)6t&&*5?|.M))Ne2Tc+P!0^'%848(j:Du*_%(1x?Gi3
+GET|usertable:user7081623355507942120:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4407331210149597568:field0|08|#&$6:,(&:  4 'v+\e" *0>2-]w=1t7'('G#, 0,= ,(:+8r#W!"9`##b0?h.+v5=,5[s%T188b<G'!9r>Ww"C7'2f27h%_g7
+GET|usertable:user3552555978248517046:field0
+UPDATE|usertable:user1322655549913066730:field0|*&*,Fu3T%8G-!>*9Iw8: 5I+@%$Lm#J-18<=O=!E5.J{?Y(*4,?899r*Y+;V6U+ ,8%Tq3G-!2l<Wy#_s%<&)E/63:=4n(#.1
+UPDATE|usertable:user8454884116879211858:field0|?/$!D5 4$5R59"68@#6;f*"z: n2W?;^k:":1]u3Oi.A1!No3 8)Gs=!:,0|'Gg?Lg2L-,!"1F+,V+=$~&I!.~;*.?-2<687&l/
+UPDATE|usertable:user4407331210149597568:field0|&!v&:" /b+-~?Ua?O! X+ )b Ts6M"=n>Da Ty*>8*=:0Po-T)0(n/P-99.5<$4+b:%"%6|>@s&V79<~&Mu"[a&T)J54Bg*1*,
+GET|usertable:user6613189735245120138:field0
+GET|usertable:user2960717866653245024:field0
+UPDATE|usertable:user4407331210149597568:field0|"A#5Va&=4!A++Mi+:~3Mo/Zs5H-5!d(Sy6&4.M-$\)%*t"8(<Tg.[#&4b&N5*\a6[#<U!5=<#,z*7p1Y= Fk(+"1@!"Zq/@g/<.!
+GET|usertable:user5480730912392248080:field0
+UPDATE|usertable:user455066467631661857:field0|>Au6'>6;t6L}%Gu"!b3(8%Xm7/j&E{)<.92n=B;5Bs0T;468->v;!,8$r?2z";40A-!4|'Fe.,~&:r8?b3(t$B1%Gi / (<"+(28
+GET|usertable:user3371893866028870701:field0
+UPDATE|usertable:user8655220033622263900:field0|>Ni6766_q>S-6Y'$R9(Q+44t2#$96 4T95Y=94p*Ss6Uc3Kk;=h?24?-h?9d$4:)Lo 7p&.>+=n&.,(Y34Nq:%2,-:7!d/!>8Y+!
+GET|usertable:user8137042396636047179:field0
+UPDATE|usertable:user1322655549913066730:field0|<#b3X)%@m>8&<O}#_m7V}:Yw.?.=Bc(\=)]  b>^>*b/!8#:8$(p3W?)^34Nu"1p2W=)O!.L1!R+(n:(r'Pk73:)Fu*U!*'0<
+GET|usertable:user4794298788693737134:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user8235231630720243309:field0|:Aa.0v$-n'Eq!Pi#7(-Co:3h2Qg3 h1W!0?(+M?-+b2^?$V}9_3%\1#%v#G79/b? z-L-<.l _90Fs;B# Ua,Ng"Bk.&p3!2 \m.
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user2451039948885095073:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user347052531078877977:field0
+UPDATE|usertable:user455066467631661857:field0|3!j:"n"Na.@k<P}3Tu9-.4^/#2>%La5Q'8*(==f;,837(!;66'>8'69D5-2z1D}:2h8Ba'E%;"*1*|,!r&Eg%)*17$)+~:2f"[q+
+GET|usertable:user2038704048154602768:field0
+UPDATE|usertable:user2988363746996999100:field0|,C)=X54<r:58! f'8&5<,(#>>Ra2Fe".80\e"H!!+<:Eo7N1,<:,Ve2Y3<Cu,Bg'\s8V&Bo>($$I'3\153,0Y!$%|#6p/H12%*4
+GET|usertable:user310726047333268920:field0
+UPDATE|usertable:user2988363746996999100:field0|(@!$L7.=z;0t)V?<Ve#?<,A15M')<4,Y'48`%L!-Ha8#.5Ns7Sm3.,=N?-.t52j'$8;Bi&F!6"6)F1(9",Ms1+<!D{692!_#6J75
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user5618827779566403601:field0|&2p"<r'Q'1]#1!x;#23>~>5n8.l?H-0Mg3_+!P}#;,3R?=W{ . !F/'%2%_#.+l7;,4]k3]'. b7R-:Da*L-19d+&p%Pa>9~$Nq/
+GET|usertable:user6366192077930255085:field0
+GET|usertable:user1379588805327087293:field0
+UPDATE|usertable:user6097258838528794259:field0|"F;9 :']q;:(:(h+3<*. =.p$0"1Cw5F91*> Bg&Ny)X)$Ko4.p/Ae *n2=x6A{>'4>J{6Ik+1n3]c2Y+8%:!X/)7`*V3(V;5Rq.
+UPDATE|usertable:user455066467631661857:field0|>V%9^+0Mu7Di*Uc6O%&%f?Ig3>69#l>G;=9$2+(-(j8P}3980.r/Tm!9" !4;7p"^c3_;,^o.*<!Sm//.-.x"Ps'Fw+2<%^%=_q>
+UPDATE|usertable:user555764220912641167:field0|:Gw&H};E#8#":4`6Hi(A}.(~3Rc.420W+)+,8+x?Q1=:(!S/;[k??>022%N)(Te;]+0P1-D'1 f71b1Z?(/v*Bu#">4+>$A#6$ =
+UPDATE|usertable:user4447408508416872122:field0|3]=4Za6?b37,4,j"0|5]{'Y{: ~##",<"-+":Q)83j6O'1I4&b+Hw)(t#Jy:Ny&>h!7t76d?Wk:&.4['-I72 d.[=/Y+98,4K}*
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5123210799327815967:field0|:321U+4Lm/Ew/ `.W-/"*!)~>,l&*&=6d+)p?Iy28 :#`?_=>I3I})]o2)&<)"4:~5V+8V;:W".2(("9_)>-")3t0&8=Ja!1"9
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user1209232024290982119:field0|#K>/*+0:<Eo8Rm&Yq6\=57*<4:-?h-Lc>=&3*t>Yy54p>I%,(< ,t:Zo6K3?#*%;x!\e&Pk1P}#4<7\e>*2.Lc254=_s/(:*Bo&
+GET|usertable:user7069117397611590264:field0
+UPDATE|usertable:user6222620507537905967:field0|=\s.0&"W{6Ok%[)9X10!4%N=6X%)1h*1<,_} 3h3,t40`"^c=Vg#&|&*~/Q5:9:((<37|#]y(#j*Ny*X;<;h(.b7-j$7b.-j.4>)
+UPDATE|usertable:user4000293249576796910:field0|$Tu;Cm/\?(-p97(0?p+;z?%r93& F%'A"As!&b:L%8Uq3-r$Ic*=l0;,)=|0+n6$p6G9(Y/%?.5Ee"V-0;f"Aw/X+*4><#:$[15
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user1059189159732615190:field0
+GET|usertable:user159897053047735349:field0
+UPDATE|usertable:user4000293249576796910:field0|/Lq;%v;Oy'$ !Xe'Mc3Oi#Su-@s:H}%0017&1Jk.64>M19!d%L+5Uu-@q>!`.Jq#[#?9x'[}(($!>$(B3%[7$P/,<(=N3 J{%[}>
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user7202135395959893545:field0|:Xu;>|,Js3>"0Py;"n"Q98:"?@55A?!<l*,`/<.4><=-~:$*1E-=A'12.%$(4&88-d$U98#0&H) >&/889O;)Co//r?6:-&d'Ju&
+UPDATE|usertable:user7442093944599416028:field0|(Y/)|;(((L;:X),?v.[c2_55I/-/~);d"Gg)*.9T#4@}+0b*1n+7*%=b"Ku;,<!]!"]}+Em=-b&Q/.!n&G#5Z/5>r8L9<Ns'Z1-
+GET|usertable:user5266782369720165085:field0
+GET|usertable:user5966580450313956519:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user6086256954884217058:field0|:"`>Q5<Z7)Eg#D-<& )865%f!@+<:t7;011b,M!<F1/8"0<v#T# %$?Ik+2j'Ag7]}1Uk*4z?<&08*?$ 8;&<B31*p:2<,=2!$v?
+UPDATE|usertable:user1373734731824918485:field0|,Gm?\u15t2O}3\s7-| 40 K;:/60^u)V-$)r!;*)(*9;h.U#)^u"X;8+t'^50!n/^{1_#-K{"3(9Fe?)r*Pk0Kk&Jk4"6-@u*W7!
+GET|usertable:user1238375624116238101:field0
+GET|usertable:user8513932312438583330:field0
+UPDATE|usertable:user6222620507537905967:field0|.0j3-2*D{7,$$V7("l-W{+78)!0,<< @7,*:0N/8@=6F/(68>1(,$$+<.%Ag+' -%z$-&0H/9*. K3)+p?-l$Dq:Bi(#69_91D3%
+GET|usertable:user5903086323467787533:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user8782322871149026531:field0|5/2=_w<$|3Ai%B!8F}+?*$E=?+p/X=&I#%\!:5:!F7]w/3n,#n7H=%X!44b?Wi3Yu$6d#5<;Os'Qw5-|6K5+#(9;8$,"(]1/E{2
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7529574150229708218:field0
+UPDATE|usertable:user7742578579162157006:field0|+<01I9-Nc.2f=>f>/&.Yo.-4')f*Jq5Zc/,2.00<$85_?4Qk0"~:L$P;4+4*)x>C'0P!(%f;3z/Fs>)&-K%220)Sk3)t6!(<'6(
+UPDATE|usertable:user1322655549913066730:field0|7K?5>(+7v'I':Zo6Xa*"z/V5!,*%[y7#`/O=8Hi>*62F707`-N{#W;+:0)Kg8O{+@}8Q/ Yk:Jm"'4-(<$;8*8n*Ky?88)94?;x*
+GET|usertable:user4000293249576796910:field0
+GET|usertable:user2653885884051841857:field0
+GET|usertable:user5123210799327815967:field0
+GET|usertable:user5594221123989979758:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2340912571413871846:field0
+UPDATE|usertable:user7442093944599416028:field0|'!f3C,I'9O3!8j?$*?\!8S38)|3[y24v'Py<:><Fk0284Us*+j;%(?T3%Be<Uy.Om&-(4Wk-D7!U#23:,G7?8r#4.0%`:Na$]c:
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user4739849589359262005:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user8213522217848673730:field0
+GET|usertable:user5729967455979819664:field0
+UPDATE|usertable:user3640439881149172005:field0|9D/ I%2 x>Wk4C5(B%-J7(A7=Cg?/t5G;%- ?0*$4d+%05?<=7f&.b!?d/A7(.r+&64K%16v!)j:'v&2p/I=.M#!4.%9:9,h$F/)
+GET|usertable:user8064314889171997687:field0
+UPDATE|usertable:user4407331210149597568:field0|=U',-z ;v?":/Gk>H+.7$4Ce$O3)+8(38  l<R}+&>5N54Wc-G+<C%$Kc+N= /~6Q+>P!%%h3Ho7De'U?0^y!<,5Z'!Na;!f7A/1
+UPDATE|usertable:user455066467631661857:field0|'$|2.6;]y?Hk*;"<&~1I+,$$7Kq.3j%G/)$66D50^)'@+=Y+'8t')f6#&5.*$-v704#?8-/x29~&7:)V59?(#C)-<2#Z5,U#7/6-
+GET|usertable:user6239566041950782588:field0
+UPDATE|usertable:user7529574150229708218:field0|!Oo;9, I{./~:E14Eu=P;-I52)~.Vk=54![w+-`#Ow7O?=)811h.A14X.D3#@{+6,>.0%Og$1x#$ 526<; ?\58]o7Iq#"(0Am6
+GET|usertable:user3044455111759056028:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user2064940223337068450:field0
+GET|usertable:user4000293249576796910:field0
+GET|usertable:user4568307773149983069:field0
+UPDATE|usertable:user4087773455207089100:field0|7V''.,:2).$5Vm;(.*8h7[#,3(<5*?Xo7@=(+f38b+'h*&`6@o>[}/Mk3^o)@q/X!!H?%R%4 |*X1#"<1F=0x>/x#Jw&@3#5($
+GET|usertable:user3931695926918388126:field0
+UPDATE|usertable:user4407331210149597568:field0|=]+1002Qw&K},!>!Z#6*<$3n8F!<Qw$Wq&Z;+6b'_i'V#.4:?6)Tw4%|7'n(1$5A7.\=!*89.j7J;&".-Vo=L=1])>|39(7?z*
+GET|usertable:user2629609192604868981:field0
+UPDATE|usertable:user2509545463753448920:field0|00&4",0[y2E{6Bu*E7>J9,_#6\-=#z?'>!?(% .$\i"G+$62 %n2> 7D7!Ky2Y+9\'0%"<Ry75~*A{$Xc'+.*\}>+z*Oq6Ce(4j/
+GET|usertable:user455066467631661857:field0
+GET|usertable:user3608955171963538920:field0
+UPDATE|usertable:user1322655549913066730:field0|54~",0(Og3 b>=b>:v=#<0^e0:t6J59)(! 89.0=0p"!b+])0J; 68'N%,$f2Tw&Z93,(5:(>(4!Yu4',8Rq?3z?4<%^?<G58+|6
+UPDATE|usertable:user6222620507537905967:field0|0U#->$:2(43f"4n/8r8M# W'6F=,#n8Fk*^{)4`+>`=!r;By(*p>)b2Y3Ia7,v&&d)9"%Di4.*08d9S!=<*3Wy7Yg%Jy>@!<U)!
+GET|usertable:user188472838363666572:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4351239845387540640:field0
+UPDATE|usertable:user1322655549913066730:field0|06$%.t*Hw#J-+N94%t!Tg2Q52V=-T-)N+,;d 7 <B/&C'/|'E?!3d41"!O-!\c'787?<0H-!Ni>7<150%Bm"?n:M=(,`#,h1H{3
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user7200020455814542636:field0|6I;0Hi"G%$=08D-0Xq/+n&(x(.j"P7+>j#Eq( &93b%\--20!<|#5v Xa3)t<[u&\c"V{&<l2Fe:G#(H',4h&J=$$`;+&5@78f6
+GET|usertable:user4216431272367062192:field0
+GET|usertable:user7092008018488670318:field0
+GET|usertable:user3371893866028870701:field0
+UPDATE|usertable:user4407331210149597568:field0|-Hu?;r/K9!^}*?b7H/"G58-~/V)$5l>!")!z-_#4V3<^e&Fw?**$Ra,(f.).!\# ?();b?*p*]-(N>24 ]'=Hc'=>"L+8Y--Pa.
+UPDATE|usertable:user1322655549913066730:field0|-M;$]?!Fa*?*,*&0'j9G3=2.)Am7Z?%!f3%~6O'$Sy,\m"(j(S!-0$7L;-Aw#<4<"v=Sq;*,4P;4[5'$r35d93x63r:K}+7t+)l3
+GET|usertable:user9132408797259772241:field0
+UPDATE|usertable:user1322655549913066730:field0|=Ng>E->-j"M'0Wi.Jo 84% j<M?!Qg/>`&#j:@!95x5'>83 #Bu2Bo#G#<Z#9)01.4>!:%R),L)!Z!/6~6_!7*t646-/~/.8/,v6
+GET|usertable:user6947090357857014110:field0
+GET|usertable:user2509545463753448920:field0
+UPDATE|usertable:user455066467631661857:field0|=Du/=l6,|>9v38>)!j?;,=/>(Gk;/z1:85@-#\c&3l8Pe:_a9Aq*,h8=t?S7.M+)J;9J%,.`/\{>7 6&x/By%?6 ^{'<n:]}>5:<
+GET|usertable:user6493513230674859599:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user7912935360198262180:field0
+UPDATE|usertable:user4407331210149597568:field0|6+h&*~/>,%Es;]%(3b95~+48(J1)R; M18C!++>)L58\k">x0<08Lc3^i/V9='f2>j'Wa+4|)*0-4x:5,8H/*_715f8<"(I-7:f?
+UPDATE|usertable:user455066467631661857:field0|5#r;Ci4(&!1.<Zw#Hi&@+4=v86x>.$-Z}&M!>Ls/9p"6z.Uw X{*)r9[+,]93X/0U/2^+$Pg2%<0Vk)&l66~*1,$_?05(-X"U)8
+GET|usertable:user2629609192604868981:field0
+GET|usertable:user7420693859907722957:field0
+GET|usertable:user8207886459564346805:field0
+UPDATE|usertable:user5714115943778082180:field0|0R;0Ke5Nw;Z=4F%$\{<Fs&J%7T{";j3]o'<02M{.U'7P/9*6:%28Zm<2:<8z?!d+*n!(*1Jw-:d*>`:="4F% %r.00<)t"My+7f:
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user7382876839976726917:field0| $|+6j=,t:8"&Yi*Ui*&*)L!*Sq*Qi9$65[s6Sy#1*;(.<Ts7+n7R1;1<(6t>90(R!1As7;,<_u#%2+^s:-615|6W6"4-2 '_u:
+UPDATE|usertable:user4112380110783512943:field0|7:l.R##5d"J1="b'Nm/@9$];/&~3[9'$24Y7$B70Yy=[6Z#+Bg&!>0>6=<x'4* ><=Ws;:v&?"0=$+\w"94&=z+Qq%\;$9t!:b&
+GET|usertable:user7209174504635236115:field0
+UPDATE|usertable:user1322655549913066730:field0|"8b&>$12,43623f"86"6:%Fs6C1)\1#Z%<Xu47v&'|!Fw*H7%C;=(&/D?124+*d6Nq$' <P?&S98E7)\-$4|< >%7(&I}#Bk4Qo2
+GET|usertable:user3028603599557318544:field0
+UPDATE|usertable:user422746222564337886:field0|27p?.d;R)=T#)D/12v66$9A3*!8%>t+Qk+Hq$9((! 4!`+Gs8<l* 62'0,Ym7#&08$9%,0L'1;05;b(Q-5L/Aq#*j=Pe?Ru&.`6
+GET|usertable:user5123210799327815967:field0
+GET|usertable:user4708364880173628920:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user2521427846215679024:field0|#Au#I5&)~/_-0X'1Pi?0~:J!+U)0L1!*v2Jo; v+K{4Hq#*t4'294.+(2%H++<2%I7)=:$!875b6-( Gy&V!=Bm79>"[u+K)7Y31
+UPDATE|usertable:user8758427805326937952:field0|4E!5<&-!x#!:;4(1E97B{3,`7Pa2=f*0t: ,2Zw?=294.<\{<\/):>5[=,@75S#9F{-;~"P+2Sy7 <+>z/G?&[?<By8=45Mq2<j2
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user3465552510634507441:field0|>Y)8;j)F3 ,(*K9%;"0&z+Cm-J)=;* /.(Dm10n':~>F;<F7!Ii682=-*)8:!F'5B14Na6_)0(|>S99P/ -r)?$-?4:2<$4r%B#0
+GET|usertable:user8628983858439798218:field0
+GET|usertable:user8628983858439798218:field0
+GET|usertable:user1554476175841751857:field0
+UPDATE|usertable:user8207886459564346805:field0|?9n'5t24:5Si ]u7Vw!Ew>!&4P#"4;Kc6O5&Jm7"42]#9Hm;Tm3G+-.l&;n?I'57(&Qk22h4Qu7Ps.J;*:.;l3_u'Zg?V8,h:
+UPDATE|usertable:user455066467631661857:field0|%R#%R-0B5-5d-><<625\k&&,5Q5 Cq)+t7(>,Jc;,t2,z*Ia96d/F8.v+Ps(/t*6 (8j.Ma-H-)[=Q5 &0:9v>"x>'0=Xg?=$0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user4986847246674127058:field0|0-h??0+)& 88"(|#7f.Ey3#l67 $8n<7h2B},.:$Y;0Ri;T7<Xm2&(5]g+\y*=d/W9*N=, |*+d2,"2Je&@3<<. W!80*4441Y7%
+GET|usertable:user5177804444608370989:field0
+UPDATE|usertable:user6342684236389326028:field0|-=f6=|-^))Ns+B!%3<-2t'-*(>n?6d [*V/?-r+.>8 81(,%Wc"Ou08d:4">S//>74*!Oa>P}'L}'A99Z{'O39D3>O38Ky<1&-
+GET|usertable:user2804714878337375428:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user5899480847137049641:field0
+UPDATE|usertable:user455066467631661857:field0|*- <! +F#=< *[7([u-1j*7<9A%1'*(!b>2h%8")$x: z>5*%"d+.$?"j;:66\q?)2 /v?621X'( 2,^q.V->"`.4d858-"z(%l7
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user7529574150229708218:field0|/,,0Qa?'61Lk,M+$P1,9v?@i,I14>"%Cu/)l1.h6 j79r:+&#; )=& Je+[}-/f/'p-C;(V?))2$Zc("n+666(j#Q1*989, 6_35
+UPDATE|usertable:user5865495472751817687:field0|.F+ Ke*T#8F}1Yu*$l6Kg&W10%~&Ys"W*#l&8<(Ea&@9=O}=Lu/K6/ %?b7/x7L{4W!!6j"!2%5f*Nk"Bq:)044n:'h78:46h'
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user3371893866028870701:field0|*I{*Ga(-<1M+>L5, z9 `#]!->b7Q-2I+$J=&F!<8$ $l;,20N#,t4*,,.>>R+Ni2%t36$86<)Cw?6d"W7:+,,Pi6+v.4v-Cc&
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1123161523821978323:field0|4Q!,J6Y=)Oi</~3'`8Aq35|"<z;*()Bo'_7:Bc'!67 d7Je?Mg/6t0:h3Qi Je2?n5Oa;:x"!&<)036:)Ai"Hs&1v2:n&W?&&( 
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user6270677744503550312:field0|=9t'>*/*61Uu0@w75|'5l>Z?4T10Wa+:j+7&#Qs3'|*9. 8$#F-%Iu9:<8@71>.5[{>'j3.&:6<,Gy?Vi:X?=*$ M?5Z+%5l372-
+UPDATE|usertable:user8565011494350435085:field0|!#<1_1'E)8Vo,T{'Uk%9h+@{7:~+#l0C19\o4H}.Fm1*.9Io.':-B*=b/O;*Hk/Vy8($$Ea&8>5:v(\5%Bg06h7/n9?8)@a#Jq.
+UPDATE|usertable:user455066467631661857:field0|5E=-]9;64<)6#%n3?$,+`.Os6U?<#f5E=0#b4!(%Ws+Ju"N{/Dq2#(.7f/Uk.4<%2v1!t2Bg3.48H#5I% U32,:);`;). A=<"4-
+GET|usertable:user8628983858439798218:field0
+GET|usertable:user4718918452217674757:field0
+UPDATE|usertable:user7465601786140345085:field0|<Yo?Ms;9 $A-:I/ %v>Ca7)<7.l"=n*A1)*f!.`"]-0(&$5 *[/<'$#Sy.*b!0t2)"3;>!D)?Hk+]y-8v*P):0b6D{.G1!Cm7J%4
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8628983858439798218:field0
+GET|usertable:user3371893866028870701:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user2478998513537177293:field0|-E/8R!.!:0<02^s:4*.P{3-~& >5 &7])(6">_1<V-/S387z&L%,'8/Ua*3,;Iw.Do6_#<Rq< 6,N{!5~;<j"P{3643:r?4n B%-
+GET|usertable:user455066467631661857:field0
+GET|usertable:user5801747778650569186:field0
+UPDATE|usertable:user287218205792339863:field0|,'x._o#I34Co0#056z._5 8 "^q&>* @s2J/6G7 )478,1]71Z5!W+86>5_/15>1">=G%)E+$@q:Xa#5(%Us.\y.[?7Vs;.:3:`#
+GET|usertable:user6505064149780727174:field0
+UPDATE|usertable:user7322030215747995967:field0|9\=42t1Nc&*.7/  .z>-|'$,=)t;.x)1 98~"W2T=."& As51h;F=73p>Co8]s#!x(Du6Q7%",<Wu1H'(Iq5<*=?.;Km:*>3Ni:
+UPDATE|usertable:user23751815611888323:field0|/J=!E#>B}+^w>J)=;"$Xm6*|.1x29~2)4=18 D#),j79x7(&?Y?=I==R9) 41'(,X{8^%8V5=,*0Lg+Vg3/l?;|*K%(664C-<]=)
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user6222620507537905967:field0|.@1(B'3@10 *&!,=Sa:G-8Q5556, &=Y{3*<"2h?0&0&v"W-*Oe#G%9Wk?+:#I{#Us<Q'%.20A)9<l6J/,X)<?" $6-R/0?($9*%
+GET|usertable:user310726047333268920:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user7529574150229708218:field0
+GET|usertable:user1363737293125349809:field0
+GET|usertable:user4130805256330926473:field0
+GET|usertable:user6957097222380521298:field0
+UPDATE|usertable:user8782322871149026531:field0|4^;$?,!@!!Fc-;*,(:4X#!Ge,.*$:f&Pc*_g(Hi3P923(,%z4A11Bo3/|+^16D51H/ U/4.r"6n?=>."85\38W90\k2/r*]k5K)5
+GET|usertable:user8990022262040596885:field0
+GET|usertable:user5414417438942507844:field0
+UPDATE|usertable:user5506740918359687568:field0|1'p>A/=Ry3 v6Ce?Zg3"<$Im7]!=,.8J9%0r4E35V S%5?l<*f&!,1Y/,@m"Zs/9b&#6(*n&H/$Vw-Dg2+,2L.=&+: %Ue.V7
+UPDATE|usertable:user6342684236389326028:field0|$U)-N+#I+,_w#Gs/=8+Y/4Uu*:r76b+Wu#&6(Ck:M-)S'<I%0Go*?&2E}+F'7Vu6<`:E74Ek+Dq/?r$(x7Xg/6x>% 9/2(@5;]?9
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user3605772171951198182:field0|2Gg&Wi,E#< .3\k6<d"=4(S17O:N{ 0t*My:1`.C%,->!9n*)|'U9$Lu7$:$18(287U)03l8Ig"B3+.z.R5!S+ C?&E3)A3#5&4
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user6310981211985851060:field0|3 <9Ag*.p29n8B5,R' 4>$5v0F>$ /T}>Ne6R35\e ?x>.01Q3$@y-+n*Cq*As";~2T10@o3Ps:O3*H5(/f-U+$Aw$$69+b2Yg'
+UPDATE|usertable:user8207886459564346805:field0|;?b:?p%6>4!>1&t+.,.F3%2$*Wa*D;=81,x3Sa:M3?3n7Ma#Ek+*l$Ks;Gk%+.9'x;S%=A?,/.!\1<<2%#b&Ry3. 6280V;!Qw*
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user7204094879695386351:field0|64&,!d5V/9Fe(Lo2B-(\m..* F#9V+,>z:Z/4785$x!$>0&80@'%_}=Dk*"89?,%^3=O/ Ie-\+<=h/'j;Pi22b"^{8L;-M12<,,
+GET|usertable:user5250313636854578598:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1535497424552470628:field0|,\9<[+% f6. ."h3Ju5Q!1Gc&62!0$._#4#z4U=5&z!N/!Ym&020M#73,%I+';*5Hk$X}#He)5j64v0-"4Wq.8p7]s&.z//t)O?%
+UPDATE|usertable:user8782322871149026531:field0|?:r*T;6J/$H/<D75S'0J+5 r'C-$6j9P713*8\= V/=X;$5`3%l"Da>"r?T/%V+%5d.Ls6*~.9& 7,.-&40x.Po&Y'(L-=_!%." 
+UPDATE|usertable:user1627828757966834663:field0|.>h/Vo'Vo&;~!>v6!x>=&$1">Yy#R-$@g6Q?'Yw;Jo>Q/-Ga9Q)<#*3D+<Q'!P? Ec;=",>(&Lg7^97Z#8\)$3x+1(6\:H14Im.
+GET|usertable:user7053883106073701783:field0
+UPDATE|usertable:user5865495472751817687:field0|<3(0_{+C!0@e20|;Gw N.#~'Bw&R5;Pc#%|*8l&D?0[!$021K#1Iu*&x:Q9'Em33$;\;!>.-T%4*~>+b""04K5="l(P'0=l-"h:
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user7944420069383895265:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user6222620507537905967:field0|, <(30;961$p!_q>+(*-89Ms$B'9(6%J)<Ns=J% 1x Po6Ce)%h;!b= t>>*5?n/ <84j#Tu%2<)N-5J5,S1=/`+1h++(%:`7Pq*
+UPDATE|usertable:user3251830137177450640:field0|'1$5To3=8<9`?4h/@;3D;(Cu.+>%5012f/Y;6V',Um,464-("_e&,2'18-6~?8*$9~5V15<r?V#-6:>J79'n. *9^;6R*R-+B{.
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5865495472751817687:field0
+UPDATE|usertable:user6342684236389326028:field0| *.1G!%$&,C+?""<<*7-.$&f"=$58v"3p>0f3Wi+Sw/&,-/>.L/$Qc6Ro>A.Vg"Rc4N11K3=-h*U?8$b?Jg$,x/\++<|""p-0><
+GET|usertable:user6023289035739862450:field0
+GET|usertable:user5865495472751817687:field0
+UPDATE|usertable:user9139447905935114811:field0|5!p>M}.P{#X7-*:1Im<.b+3h1\9(Py!7d"#":Z9-7n/H+,7,5/$=L3&_m?Y#>As#Ti!C)8"`(5,9%44H!0[' Z30Y' W=9L;24n3
+GET|usertable:user3521474966333246730:field0
+GET|usertable:user2422065258123156730:field0
+GET|usertable:user5382154454026892428:field0
+GET|usertable:user2422065258123156730:field0
+UPDATE|usertable:user3633343512322120880:field0|-W}> j61$4K!+'d3)j)Di7-x,R38K{<J!!J#1He#P#/5(8S=9.r'*v)):!0~)1,4^}1]!(I7!F)=(l/]c7;t><2<9 :Ck+0 (.v6
+GET|usertable:user3340959691531439552:field0
+GET|usertable:user795722769552163650:field0
+GET|usertable:user5123210799327815967:field0
+UPDATE|usertable:user1322655549913066730:field0|'_?<;8,Q#=To+5x*Lc0_+%5*)J/-7l1T?9F?87$ G';).9'l4D30% 6/h+K%,_k?C=2Mu/7"3No7U; Uq")&,#n;C#2O#$T1.Yq&
+GET|usertable:user6342684236389326028:field0
+GET|usertable:user2804496563119533545:field0
+UPDATE|usertable:user9139447905935114811:field0|1;r#?v*#t/+>?F!0!,1"25J;<W%8X}!)n;- :Nu++$>9047<*F)9Ie?14 \5%Ze"Qq N#0 $2Ju;)09#6-Pi?^w?Ps&!$4(,1Ko2
+UPDATE|usertable:user4870297981191410264:field0|>,b>#~,3f/M)*Ma'Y=3',,U=3,6 \'; p7%<$0l+Ty,]1%="%W+(<6 [q?@} 3(,.d9"j?]'"96=6t=Ig+L{*)>9,p7 b?686H5<
+UPDATE|usertable:user4859744409147364427:field0|"1x7':=804Z92So/@32Z{:'(1;t&1<?!`&6:'@}?Kq-6*4;<8>64-r$Ss+My.]s.<f9W) =2>%*8?h%.h.'d#;$,@}*D{#Ly)->=
+UPDATE|usertable:user2509545463753448920:field0|9<&9L:D/82b$Rk.!n#/~"C}0#b&:`2Rc+Fs>L?=,8546=<$")4=">=Hm3 z#784Uk7;t:<<;U+(*,&H;$[c>.|'D.O! Yy7<h#
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user543645487297448833:field0
+GET|usertable:user7204094879695386351:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user5187183163417179100:field0
+GET|usertable:user6222620507537905967:field0
+UPDATE|usertable:user7529574150229708218:field0|0@?$;:1*n7U;%0f>>h7T?%Ko"& <#f&S%)Jc60d:0t?2b3N9*/2<?f*=f6]!Iw2_g,#v+6j-"x?[5,Y-<Z92C{6 v)I/=C#<_c2
+UPDATE|usertable:user455066467631661857:field0|2Bw:&p%?:-#<=L}3,.3Z7$X)))~24d<)p+No;[k?M5%$n6^i!.0$"|<Z-=&84R'%@9=<x&,|>+,%N='0l'=:;(x?,>:)$!=p&@;1
+GET|usertable:user8439032604677474374:field0
+GET|usertable:user65226109499905773:field0
+UPDATE|usertable:user1322655549913066730:field0|3K#)Zi,6~.,,;/*8?*03p+;&"$8)L';^94Co.\q*;b/"45?04T'-),9H?,-~&So;B'#_m3T120~7+t=Q}65,25,5Aq?S=4*x3!z+
+UPDATE|usertable:user7204094879695386351:field0|=O{?-z#Iu&?r!Oa&":=;.%Ce9^{*Yu$8:=:6*;"=Y{3X')Q= Ng65,-2,!L+3N+=4f%.r;I!3G9 &j!/(,Km2Si.*f/F35:.?W{6
+GET|usertable:user812191502417750137:field0
+UPDATE|usertable:user1322655549913066730:field0|$[m#Wc4"*=#8%-"(S)9*t&\} ="(Gm=U{3Uk+Le3$`#Pi2W5&A9 ,,$+b*7,0(n3He*2h7Fg$'89J9>8b>"n8+~;0625t7-t?#,0
+UPDATE|usertable:user2924391382907635967:field0|5)0!\5'2n25>.(8=/|-Du.X#/+z:*4"Ew+^-6.`?B#7Y58Mw:-b?'.52j.R%$7 18,5I!9 `2!x"-f+J7,28 H?!Z}25l#Fc!I#=
+GET|usertable:user742837975674837494:field0
+GET|usertable:user6813307336770330297:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1123161523821978323:field0
+UPDATE|usertable:user455066467631661857:field0|?Rm#'<0Qg>C;(Uy>K}%Ou&%<(\= S*Ns"Ui)2n3-n5W793x#Y18]/#]9,L9#Tu7F+:7~'Zi &$1C{7<,5:d-I3)W};8j.30<_9!
+UPDATE|usertable:user3129519668056139737:field0|"4(90.:P9=S72Ae"Hw7),5#r$=(8Pg>8v"! =^%14n?D#<L59[3(]-2&t?209S5!Zs":00%.0Ci6Zk0,$-H76#r2L=+::)E?)>")
+UPDATE|usertable:user2077446181233420306:field0|7-68Y1'=v?-v0!n3Vm=Pi*"v!>:1"|>78$8,*T5-#.*O?1;445.4?"$4>4U-!H35Io=L{7Fa%%"1Ma9Z!(.d!:&1Dy,R}']#6$t6
+UPDATE|usertable:user663460975288364228:field0|4360$ 5E+1"t?@m+F9/;>$7`*F'%089<r&:"4*81+z$=((T;6Pq>06$(f'Na=Ts7: >$z"0<30<(!p:S?5B:Kk"Rm?Hu.L}.:<1
+GET|usertable:user3259638095758837029:field0
+GET|usertable:user5787393985930333608:field0
+UPDATE|usertable:user455066467631661857:field0|)@;=;r=@%=I3%[=!2:"C&*d6:.4 j3 2,(09*8-Zq68v?+j; x;$x0U/!=(#:d6/(7Vo;H1?8d:1:/I#$4b'M*:,1_)$)>-\!-
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user1322655549913066730:field0|>6&$V#1F.+|/Dk:Zo-Fw&Y"3n&Q{;_y?9h*$r?&:/!<<V;,Go35j6Yu2V!1;d3 j&>&9K;;J7(-,%( -Ty$Q1%54;@&0"2=t"
+GET|usertable:user8782322871149026531:field0
+GET|usertable:user5266782369720165085:field0
+GET|usertable:user6790017810447243123:field0
+GET|usertable:user3453219288969136511:field0
+GET|usertable:user7433281541073021114:field0
+UPDATE|usertable:user6222620507537905967:field0|4.:-=l:;:57 3Le#2:=($-H+,\95Go.E90A%;Xg.*~,]/,T%. b/'",3r.8`%,(93v/7j3?f$\;$V; -.9[?2/z>E)49:!/>#1p2
+UPDATE|usertable:user455066467631661857:field0|#Mw3J9(F14Y#:T=1Aa0.0 V9-X)-Pg&O%8Ok3U!)@q5Q# v>.89We>U1,Ho$B19(x$O10H53P*C+;3n/P91!* ^'9Q-) l>Qa:
+UPDATE|usertable:user8782322871149026531:field0|7=<,^3;Zm&5&(9,)Dq.K#% j2Fg>P?$By+@9!N54$|6;t30h'W{&G?<"2,['4Jw./x!. 4V!0"b.?n>7 )5<0]c7I%<Hq*! "P;(
+UPDATE|usertable:user6222620507537905967:field0|!K94L9:L)0Wa44 =(f.N;-^#222$Z1(;t>W'+Aq2R;+I=%H52K+<J%)W54Kg%J}6<|>\c>@c*O%4Ac300=5b*-p+8r(B?>n!I'$
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user455066467631661857:field0|8+x&Mq/-65#*1%|?E+?(<%Ie,4r#H=1:89'p3My>*n3Zy*"|"S%14v"Ts+M3$8p+6l=<4-O/8Go7Fm(T;-O39?h*Hu7.|"O=#N/-
+UPDATE|usertable:user7481453298342082569:field0|;<x"O34'h&8(&9,8J#.6<=La>&:$$z8O9(823Vo'Q/9H75\-%*~&+>.\)-?>&D95(h5Js/L1%.$!1z;R?^98A=-6x1* 5Lk+!`:
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user5687879768595616498:field0
+GET|usertable:user9102486921704533928:field0
+GET|usertable:user8431993496002131804:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user6317460360149053182:field0|(J)-=&5_#-M#<(f?5`45|2Kk=Hs2_o-&6=/h3E=0)n2+~76>9Ig6= 2-j/'j1@i>A=4O)9J!44$0C!%0>)K?5Ia#,b 2~?<*#D#-
+GET|usertable:user812191502417750137:field0
+UPDATE|usertable:user7806928741708741149:field0|'P/1?j30:=?(+>x6$~5P=$^?$]'<<p6?`35x=9"!>46/"9X+:+x79t,P357t(9j*Y%/Ee& f/B19;2*/*%1v%Iw7!&5D11@y1Q;$
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user4607667126892649610:field0|&W),<,+Nq+Mk'5x. "1@=,>`:\'5:v%Ay*C!-D31*<>?`3Q1=\)<Pk!3x"'b/G' 8(.=n;V{.56%?<3(6 **0'$4Rk;Y)96x-500
+GET|usertable:user2518113653248860192:field0
+UPDATE|usertable:user7649468970017810640:field0|)[91+j!Dg:Yq82t>A}4^95(6:O!(:z7J?%Te6/t?&88@!$#j82n/V-.44_m9>81Dw9*:4:d [e7(l:%h3,x.E'5B+8V?)%:202$
+UPDATE|usertable:user2629609192604868981:field0|+F+9I;9Gm33($C{.>. #:)-x?#6 7j4>r:Fw>5&02$8Jy'M;8/($V?>_%(2|#Bm+)z2!z2>z#2:)D76Ai>E-7[?16l6I%)Y638,
+GET|usertable:user2038704048154602768:field0
+GET|usertable:user2647801814166983568:field0
+GET|usertable:user5865495472751817687:field0
+UPDATE|usertable:user1322655549913066730:field0|%Hw#:z3W#4&v$Mg&?n!J;$U;2_%!Dq>.6!6`2..8T;.Y!%O#4/z?*`>[? 2d</:(Ds5Lm/,,$# %!8(069Gw&P=$So>2r&:21>,8
+GET|usertable:user6061868614525635098:field0
+GET|usertable:user3888054759127886061:field0
+GET|usertable:user2733652500191233919:field0
+UPDATE|usertable:user455066467631661857:field0|(N/%Du$-.%K)?E?(Bc(T)9Hi50r3W+7Gi#Dk4\m?&6<3p.T-8;d;*&.!d.0l#8:,Ae+P3-!n=S%55`'Jw'^y,U;,]w9,b.#x4:8)
+GET|usertable:user7672025799597776440:field0
+UPDATE|usertable:user7529574150229708218:field0| ^o2Eq6Y;$C-*Xi.1<:L=0<t;>"=0((.j+5l+_#1Y>K#T=<4b3W?:Fu&X!)%n"=>/\w.Y-6O9=&8;0n72~&;&1" 3E35U{(%84
+GET|usertable:user6124212958235867954:field0
+UPDATE|usertable:user108648962072565955:field0|*5:<Nk=Ms+Hs,)b;>>)$l#E%-)<0A%$2b3Py7@/5<>& ~?I958z*Vg';"!.( "f6#`$7:,Yg478%=|=Pa'9d7Ac6B%#_=!\96"< 
+GET|usertable:user5594221123989979758:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1793665874575230521:field0|%Ho7:6!.f64j?Yw7K1$Xu'Ky(J',Ja ?(()$;S15$$'# 1Mm99p*Uu"9d:=`?D#85f39,(-b,Nm>;l*+t+?n!3d;Km!I59Di($v'
+GET|usertable:user7273140513954326499:field0
+GET|usertable:user2486037622212519863:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5123210799327815967:field0|1;6<06/Xi.Ky##h"@#(2n:F#3U?-Im=Yg/Go1 f/,t2U"$b4@o62l;>. -h)M--;< /4)U'")f76*)801W?+7.%X} 9v.#|.?l:
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8628983858439798218:field0
+UPDATE|usertable:user1322655549913066730:field0|0>v;2:*<4,00(Xo>-.,Ik>F17X3,9|0P9!10:5`*K5)&f/Ei>*,)'f,H!$Oc3@s3^9Mw:)l2Tk#(`*!d'-r1'.)Y} R+-Qo?'r'
+GET|usertable:user1123161523821978323:field0
+UPDATE|usertable:user455066467631661857:field0|/No#Zg<^/ N}!-b/#6(I3(P3. ~7<2-7:%E3=-,8Cs4&v/Ws0;*0@c.Ag;!h*6b7Yq-V%$7".A'(F9/#`26b79|;Lc"&t"Nw5Jm.
+GET|usertable:user3465552510634507441:field0
+GET|usertable:user4471303574238960701:field0
+UPDATE|usertable:user4367091357589278124:field0|3P)-?8+T7514,U/$Uc6_e'Zy8.b> f19p7Uq*V14,>"I'<5<1Je6+:$Ig>_#$5`+%2/S38R).U1<Em?0v';,<$:41j+9n7$64S59
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user4407331210149597568:field0|*@m'3 ,9$0D;)1p6Wo2O{'@=,98-Ny+Z#$=8-Ne7* ,2x"Yk#-48!n))n;^1"3v'_w.<" /x;6&4+&9Zg+U'.(b',6?*(8<4;"4<
+UPDATE|usertable:user1322655549913066730:field0|;X70/*%(( 2 /Mq7:h<Nm3!&&/b;^):\{&7j6:r*T1"$z3E)&(b7R;4Em2U{/I-5:f4L{>= %:n'8""D71+|1Li&R9,R{;Hg2"~:
+GET|usertable:user4734769964419412241:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1239552805292227552:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|<S"/>$2$!%:8Eo#[o8:2!X#=..=L;*.( ?*:7,5F%"1r2Bu.9~*@3,5> <$+E;!0n%\g&Uw9W5<%x+U14F-7 n6X1);v&Ec*Y1-
+GET|usertable:user455066467631661857:field0
+GET|usertable:user8467390074775563714:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user4366873042371436241:field0|;*89^a7Nc/<66Ce71b.(r2M71Pk:[%3)b+Jy7*v&@/6K/86>"x?)d!5p:90'Jm7[;0664)b $p.2j*W!%Qq0@a;Sk<7*!)l,R?1
+GET|usertable:user4830209757873285636:field0
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user1322655549913066730:field0|4Rs*]u<Y1%#(9!6)=,%Z;5603p.Y-Z#0Bg9Se&@?%4r300$&|7H58Tu"" 6D'<$b",2 (40Ok.Y/ @o*+t-Ii/N=0I5%\%0-84
+GET|usertable:user7240486477589888274:field0
+GET|usertable:user7204094879695386351:field0
+GET|usertable:user8565011494350435085:field0
+GET|usertable:user1386627914002429863:field0
+UPDATE|usertable:user7712599443455210138:field0| Ym/Ae&&`.4.+)d'Mu3O%$%f5>f::x'7:1*,+R7)Me-&p&'b:=4!R{1E#0_q!\/!)f$2&)To$U};S94Ha30::A;(P#186$W#'>~;
+GET|usertable:user6693630832200069758:field0
+GET|usertable:user5865495472751817687:field0
+GET|usertable:user4407331210149597568:field0
+UPDATE|usertable:user6464768536295610737:field0|.!v758=Qs+R{:\e.<v:Ne6=.--d"$:$8v:*.*.h#Vy!Dc/2t)>h.6f=]))!t-0`2) 45>)7b;&`+*8*^34."'Gc/&h1>l62(!U/!
+GET|usertable:user287609257241162672:field0
+UPDATE|usertable:user4575964102489174642:field0|$#r+C';\e:"t6'(0Kq:R)$:*$;&(Kc:*r.Xw:&>,Ko>+((^i2?|>D+(Bi;\g(Z+-Je![u*Z{04>9&z'Nw"_c# 68$b!X)1Y52*08
+UPDATE|usertable:user5187183163417179100:field0|2""<J{.Am6"&/Wk6024C{29$5P)(#43[/ /$4. !,,=6.5#88_2[#)Qm#9t*J-$7&:)>8[m Ze.Nw:Ug?*r>F7%La'&f2/p%N;1
+UPDATE|usertable:user8782322871149026531:field0|9<00Q! ( ,B'3^?$Ns=X=0K},*$(Pk;Gs+Ee W9,Pc;C#0Ja,Ni:32(F#,/r4&h#Ty=12 >2 $"-4b,1:-];%G!%/,2%b'#($:$0
+GET|usertable:user812191502417750137:field0
+UPDATE|usertable:user1322655549913066730:field0|3H-8C{6Q91]%-Xq*M;'*|;5r#O{:*r?;b2.p:.x"!4!,h2><?_9,'(?/p:+r>H-)E)&?<0C)+5|.5.-G5=E'7/b'K=24d*Q-4W=5
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user290563760097725491:field0
+UPDATE|usertable:user2629609192604868981:field0|6)(9O}.64<!f$,&0Ac!_g&R1/+t+H+)9t>(r"D!1X-=\s2$`-%h6227S%)Dq"'$%/f"=`/[w?7|"?~2&*-W-*: =@c?=&!@s%Q+,
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user7801795683784846117:field0|.S;<Vk1\1-3h<::1Vg9+ $C7*]5(>>'Qs:6h&Oe/7l%# $\/)Gm+"b5P1%0~.U#$Z7+E%9.h2Ue:9f0Ne21*:?<4He1N39'`=64%
+UPDATE|usertable:user9139447905935114811:field0|,9n+V=2#>,4j;'~.Wu+R/<C;5^k2%|:<"<E9+&<-r>$8(Je B-!T9,509Aa&S3 7.=Mu/]%2Wq#H'4>r&?v"\3(T?7% )*<)-l3
+UPDATE|usertable:user455066467631661857:field0|+V-9G#";z#Sk.:: =d(Ti:H}*$v2A->\!%Ai/Ti'B97:`3"b+-t+:|%4"0Ke8Z!!,2<Qk6%d19p'!(1$"9Q/4X; Uw7>j*/`&4b.
+UPDATE|usertable:user455066467631661857:field0|*^&Wy >`&Ng%Q3=#b*Q{#]=2Uk*O?+0d75$6Bo7L'-Cw.#>%341Yc&+20+p2F555"58z?'>3Ps+Ro.(x2,|65|;H!4- =E/4!$=
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1322655549913066730:field0|*G#5[9%$8-]4L+=7>6(695,45j21p.C-<Zy("<!;:?!j2Xy$U+ 2*+R94 $ A#0O#X}:L90Q51\u/+01Ek!;n+H-8!2 96<="$
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user9027978265392247781:field0
+UPDATE|usertable:user1322655549913066730:field0|-,|3Fc)26$8l5#4(Nq#Mg>Sa$Kg"!(8F5 \s![c'Ne&R/8Xm)S%5'$=."1 <1R11Z16H%<K3?4~2/h9/>,-`)8*0'$-8:03v$Z-1
+GET|usertable:user1265946964487160799:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user455066467631661857:field0|)]y>Tw']s&7$9,n>S/;^q/26<R1=4.==b7Mu'Dc7Z==M)4<h<"h>2l*C+<6 <%f#/(,Im.Fc>I?$>* ?v/Rw>F{"D{36`*[m'#z*
+GET|usertable:user1793665874575230521:field0
+GET|usertable:user715382111383187167:field0
+GET|usertable:user968495199921477305:field0
+UPDATE|usertable:user3760334700937274427:field0|><0=785885Tc4Sw'C).I-%Z5"Is"="3Qm+(z%N}/7,,Ik&=(-Fw>T%+,6<A-9/00/`"1j>54)[3<14;<d7:89H? :$/)d&V#;H#%
+UPDATE|usertable:user5729749140761977781:field0|6]q+B!.Je'2|:;>)Ve4O;57$4.z"\39Q#Ni#Ys*8$?'<!Gm&V}3D)=Ru"F+-H;-5f%#d3V!2Ta:Ha'Y3)9""4d33b;Tq+!x6 p3
+GET|usertable:user6693630832200069758:field0
+UPDATE|usertable:user1322655549913066730:field0|'7v*2$&_g/%$&Fw?5,/60 \;6Wo37d8Y%110$^%1"h>Jw7O}'=08Y{6^w'Ry5I}>64+%*4E-?&j*8n>5r*[7 1b: 8&-.89.=?t7
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user1322655549913066730:field0|)2v3+*$D{;Q/6U;$=j#(f2F/)$" L=>(r>&$6'n.$,<Fo.Ss)/f39r2A!$Z'=>l#Dy,'4--f))b"D5$Kc3^o5I7='8!U+)H{%Gi*
+GET|usertable:user6222620507537905967:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2870411131123266661:field0
+GET|usertable:user6263237330029604247:field0
+UPDATE|usertable:user6845010361173805265:field0|7 *)@m5)h7Py-6 =Ma5-6(5..No/Fm<68%[y(4z:5$; |"0(+Ju")65;x"K7#[/8E+$+d2Xk#V9<?. \m"N/:4r":&?U'9&*+'2,
+UPDATE|usertable:user6222620507537905967:field0|*.$ !2)W15:x$B78=d;!v3Z-#V1$+p=Au7@%%&>$^}(F= (</>&(%~#?x&.006> ?00>&</p<!`280&:>(%d8Xy'2|6/f?@+.J-0
+GET|usertable:user1141127976169066716:field0
+GET|usertable:user3746273763407712110:field0
+GET|usertable:user287218205792339863:field0
+UPDATE|usertable:user3919757783531361029:field0|)O-)82+8$ 7<('0=Wo?,80Q=9=l>8,<<0(?h)M+)Eg.Oy304*Au>_o)4"):*;%,5Z;5#: \m.#2<723*b/@k;@-$!6;A1-:d'4x3
+GET|usertable:user2733652500191233919:field0
+GET|usertable:user5346606246011265702:field0
+UPDATE|usertable:user1500886975506205360:field0|/.b#0<1<j&_k<+j3E?$Jk+Q-8Sm; x?3"<Cw?/><Um0Na6""#1f*M) Ec?E=7)d#X7.&z:E!9Ti6#`-L7<S1$;|+N{"1p6Y91!0,
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user455066467631661857:field0|6':,Oq ['=Tq:G;)?r*8><A985&!Om L;8K-/Q--N}<Gs:Dw0Y=0I-.;l:)2;\?!+p'78)^))"j2Dk'Xs'[7=)x.S1;+"5&j+%b?
+GET|usertable:user6430164442019618218:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user1322655549913066730:field0|#?.9&44Ia?+&=Ag>-|+@s&;h=?.)!l"B!<-v:1f2*"!Rw3U+/&",;,>1 )%`3U5$)(7&l&(2<\?!>:4K9-R%'4|3Bc+R)<Ie'L7(
+UPDATE|usertable:user1314904851483388896:field0|&O54W+(@/=Js1Zi'1`!Sk'?z ^%92(/;v7Na(&v+Rc=(&4]y-:489 092<F?(1x?Xu/M%8#"3%:(0&;2><F)&J3%B7#@'!R%.5r#
+GET|usertable:user2509545463753448920:field0
+GET|usertable:user3437195040536418101:field0
+UPDATE|usertable:user6222620507537905967:field0|5Lm;:z,&~+]=+:t*X{;Mw3Sk?/h3#0"E'(608[e'$ !1><@a;*~>R#Zi7O7+G-45d79><X;:=",Es(D3,"&3Ka7Fe.-&,G'$B{&
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5810844567319554110:field0
+UPDATE|usertable:user1322655549913066730:field0|$2&0)h/<b'Vy45> Jo+Lc':"0Bq35<4V'46f( |#F!7Qm+%0,Zu3Gm/82)&|/Ik&:,+T5(K;=Da:Wi6O;5,|%E/,8x:&:)=j>,>9
+UPDATE|usertable:user4407331210149597568:field0|-?p#*`$0f+_s)#z3$,-,r:5:#=(4]-(4~;Kk86((44*_i:Oc,C9<-:>@c"V?/J+1$:$2(5Pq Ts*$,;#z"T;$/`+=  *.)&41H}2
+GET|usertable:user23751815611888323:field0
+GET|usertable:user455066467631661857:field0
+UPDATE|usertable:user2509545463753448920:field0|4Yc7!|'>p2!r;6n:\!4=j?Ma%!n/4&#D)=_-'V-$?r:#~2*| 6 -;6,H# "x&[#5L?47`2H3%Zk"9t$3z:N1/K506:%469@c&Kq2
+GET|usertable:user4407331210149597568:field0
+GET|usertable:user6956480001716672295:field0
+UPDATE|usertable:user2629609192604868981:field0|340,G5)=`>="4Nw*'0;_w;@%8*-%&;V9 Pw&Ea7;09Q;(Qe1L-98,554(Hy+Ci2_!-<:(We6.p7B)<.6(9v!T7 K+#Gc?Ce?U?
+GET|usertable:user7442093944599416028:field0
+UPDATE|usertable:user1911601210627840137:field0|7W7=&b5Zu/Em4Io.K!'92=D+'"h/(d,3 ,/d4Ce6\q1L{7>*)? )&.9Sa:C}8He3? -=`&Hm +")$.74~'=|"=>$N!&R! H)"2&(
+UPDATE|usertable:user4407331210149597568:field0|>8"$Xc4.489>,Ww3J=!7x?S'7 8 R/;9n>B--Re"\{%4h6W)!8x:Qy41z*"v0:,%8b96n'4j5L=0H!')2,P;!I/ Ak?Uk.<`5V}6
+UPDATE|usertable:user8176401750378713720:field0|36<46v7^21 8Xg.Hk6Vw+Z{>T+=/86&n+= )0$8Mw&)n?Ha%544* >D1$)r:)(!]k1V%$Rs8^?4)2;%l7E93Bq.3&2Oa?=d6Qy2
+UPDATE|usertable:user5091894999205500521:field0|"J+%])(B'%2&(Gi2.`-Yy2F;6;p#[u<'4 =d:U5=D36 (%6 1^;9Is6%89*f&& (_u3?6-Ja?1j7]7)/r7\?*Ly2>j;C{';*!X*
+GET|usertable:user8782322871149026531:field0
+UPDATE|usertable:user1322655549913066730:field0|'[;0<1^9$Fm5Oq/*z-L5<($?N=1H#;!2= z+Z;)T#&!$(:n57l'C{?)p>6z-8x*;d(#~.Ky$F311f<_)8Gi9Hm&I7"D!5B70Aw+
+UPDATE|usertable:user1322655549913066730:field0|<5z"-f19&=-".5"(Oc6%0-D;+Ts3Yc##r:8b/]e#]'7 "0E=)Qc"Ho;Ho>Ne$*`#R?0Q;=N/6%,-M914x>?&'4p2^y2*6=U38+8%
+UPDATE|usertable:user3138113756364692768:field0|<7f;**+Hw:G/+%p3Tk#5(1Hq;_%-U=#_!0* 07p3Qy7"~&Se4!p6$j/X%<R @9(,.670(^-*+p+Pi<A/,&(>!f"Fu>#89[w("b#
+UPDATE|usertable:user4560898720014603800:field0|)De3'&+/z?7l6\)%% 7;0%::1$f64 '&~;9<*P=4!<:]90>$>8b;\w)U58\/!Ng'2>/H=,-8446$4j2>~?E5<L),E;3Os&(~"Y1-
+GET|usertable:user7736268340062272523:field0
+UPDATE|usertable:user5123210799327815967:field0|'9~+]}#**1J3,Oq27l'3b>+4+T6?*7%*<*>3H7$!(1#"18*'Q!55(/.,)X=3P:;0<2*$ ~61t6H1+Z1$  ,6`">v/G%8?$,^w6
+GET|usertable:user1387245134666278866:field0
+GET|usertable:user6079217846208874488:field0
+GET|usertable:user287835426456188866:field0
+UPDATE|usertable:user8168527105821680264:field0|<.t2'l+1b358._g>1r57~'=|7$0%&$/Ow#]i'$l#4,!Y7)$2.&~7Ha=P!%;r$1t*G-(U}2Ka=7t/Ta*%f.?(-N1(Se?\1 92,K3<
+GET|usertable:user3213088004098633102:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user455066467631661857:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user5123210799327815967:field0
+UPDATE|usertable:user1322655549913066730:field0|87(98f*$( @k1O'1Ik3%f"Ea:]e*1:7D1(=d:Uq+C;:L'$b;C# 1,,?p>&>=/z*/8)Ju/L{/Qs72& Ji>J1)7`;Z)*Qm>Q'2&8=
+UPDATE|usertable:user8064314889171997687:field0|%> (Li1Lo3R->Nq3$x:W{+Ea/2,,(`$V#)F/5_;<0b-: 1.r,9r/D;'T'8,`$(,9#4#?r")d,Oy?&*5Rk&*x.Dy/7<!^e>B%(: 
+UPDATE|usertable:user23751815611888323:field0|)-t2A;=Nm'J1.#8)Si4 t"C)!>(<\3<Kk7:b,-v:78?-,=.n6<d78b83v?Su'=p"-b=Ou>"l*Y'9@%$^o28v1+> ?d*2|"B38Wu7
+UPDATE|usertable:user1322655549913066730:field0|<Qm*4r Pw7Eq%@--.p,B#=#8'#j3\i3Ia3S12Ya/_+5B}>]i?Uc7%()784#2'Bi:=~))$(!,.V?,[c4.x/$z)Ly3?0,B7(!8-)t7
+UPDATE|usertable:user2509545463753448920:field0|);083r+2:)U%;Xi+(f1(09,,91$0&p0< 47 ,@?5Ae->6%Ye<S{614404(*~:$t'Ks5Z?<949&n+He5H{+.*'Gs.5n%Ky"=(7<b.
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user4929120007535755542:field0
+GET|usertable:user1322655549913066730:field0
+UPDATE|usertable:user5744814523236548623:field0|"$.0$j4Su3\m#:6<+z""f'D;;5.9O''[19Wu*K75+:,W31!|4Tg?<p;Bq:*0"7"8$r--&(Jk-Mq;\1.]?<R16De"Mo/Cq;Z1%768
+GET|usertable:user7332583787792041804:field0
+UPDATE|usertable:user4344200736712198070:field0|;@q684/Xc/>~%K5%+`*Sy?>f3Hm>U),_3(D7;#$<Qm.C}#_'/5d&!x9H75)x"De+>:5^a:Es?+012|$98$Ig)\i?^w$!&%_3*T;,
+UPDATE|usertable:user3608955171963538920:field0|48b?6t':.= $9L;<C7?&z;X15.848d:2n'Fe3(<=(|4P+9R!0No7 >$;n+1r6I+)R!%)z&?p 2*4?t-9&8Y7<@/ ^}- 8=Tm,$f;
+UPDATE|usertable:user4407331210149597568:field0|+\5$!4+G;-;(?-d'Es!". Ag+> 5Gk(N&(&0&6)8p!4p**r&=n'Du3;f3'n>%85Hc?T31W?"N}'Q9#Z)-9n26h#%v38t:]1#O{>
+GET|usertable:user4591198394027063123:field0
+UPDATE|usertable:user42335488622825719:field0|>"~+, ,F! #8*;$<Z;+]-0.b#8j#?n0A'9040Hw:*$*7~"<~7Tc&C1+I+=Mw'V#8?8:?6-Z''T3$-t0[7-+4-@u776/+: 7t09`*
+GET|usertable:user1500668660288363477:field0
+GET|usertable:user812191502417750137:field0
+UPDATE|usertable:user1322655549913066730:field0|>+l.7~(X14Z75@1 4f3Y#!1r$,v36<7V+0U#4We?N!2;:$Q/11f3<r--`;2./Oc;T7>K70* 62p#As%X+<*b0365[{. h#*`?[w.
+GET|usertable:user1425987267745096404:field0
+UPDATE|usertable:user3251830137177450640:field0|$Pg?%($Pi64|5[m+9,!@i*T{;3"8?`5 ~/?>.3"-?4"=|&Dc<_9(#n"Ga2T;4>l/Ok1"h.=x?Hu:.<6C51Sa"3z"446]a;_)5 b2
+GET|usertable:user4471303574238960701:field0
+UPDATE|usertable:user4710088768870157020:field0|1X1)#6( 8$30)R1$@c(8.(V*288A?!)(<-~358$&v6_;!_q.<.!Jc;;`.K'-$&$P7<P}#;f)Ls2Eu*.d.I76(x3%v3Wo:!83Si'
+GET|usertable:user9027921005240539226:field0
+GET|usertable:user3371893866028870701:field0
+UPDATE|usertable:user1141745196832915719:field0|<W/0Jq*6457:*H#5->'%2,2>.#r3Eu)I#=@5//>,X/%6"5"0-Xs&Vu"=d2!06M51$v$7`7=>3.$1S%%L#)7l >$-<><Wi3.j#Fc?
+GET|usertable:user5330754733809528218:field0
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user9178807259677781352:field0
+UPDATE|usertable:user455066467631661857:field0|*Qs*+v$N?=A{9=$ Co$Y>G)>^w#=t%, 0'f>Kw+$f,T1$P96<l:&|+^;8>6<T!-)t We>R%7I%1=8/F#!O7-Nc"Dy)E3-J?0!.$
+GET|usertable:user1322655549913066730:field0
+GET|usertable:user2175796470383749764:field0
+GET|usertable:user8879108754842207016:field0
+UPDATE|usertable:user8369818061355216587:field0|(;r:$x+0f+@-"Kc**26884Tu>Z{> v%-n&(&&A)5*:;D+42r;809Eq7Dk?62>.p>>r<T{+I}2 x'Xk?Pm/V5,)j+(l!R1,D+=("1
+GET|usertable:user7442093944599416028:field0
+GET|usertable:user5129858856554335728:field0
+GET|usertable:user174962435522306191:field0
+UPDATE|usertable:user2792708549747789702:field0|"Jo;Ni0\5)W!-P55^{,@70&(:Mw>G5*>$4N):;f#7v#!d#G?!J}&?"+5h;Nu9^3(L76\a:Mm Gy:\;++&$@='1l*%h&129.x<(h6
+UPDATE|usertable:user455066467631661857:field0|!Qk:];'2`'12)<j>-b-Z;)Ci;$v+1:15t#(j7+~3Ru(Q5,%f!!<!F=-(j#Ha)*$=)r:C!<Zc$"<))06E;,^e8(n22>!(>4:f(;$,
+GET|usertable:user455066467631661857:field0
+GET|usertable:user7912935360198262180:field0

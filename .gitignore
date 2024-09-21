@@ -4,7 +4,6 @@
 .idea
 __pycache__
 
-workload
 workloads
 storage
 records
@@ -22,5 +21,4 @@ results_plot
 *.log
 *.rar
 *.zip
-*.txt
 *.tar.gz
