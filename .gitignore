@@ -14,6 +14,7 @@ logs
 result
 doc
 results_plot
+data
 
 *.o
 *.exe
