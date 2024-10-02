@@ -18,6 +18,31 @@ CacheSim is a tool to evaluate the performance of various classical caching algo
 - Python 3.7 or later
 - Storage: Any two flash devices with performance differences
 
+# Quick Start with sample for Code Debugging on PC(Optional)
+
+> Refer to this section if you want to debug your code on a PC and not for actual edge device cache testing. If you don't need it, then skip this section.
+
+1. Check trace
+
+Ensure that the trace data is located in the directory `CacheSim/trace` and that trace is at the same level as `src`. Create the directory `trace` if it does not exist.
+
+2. Compile
+
+Make sure you're in a linux environment. Then compile.
+
+```shell
+cd CacheSim/src
+sudo g++ -g -std=c++17 -o main main.cpp
+```
+
+2. Run
+
+```shell
+sudo ./main <run_mode>
+```
+
+> Note: `run_mode` includes `device`, `ycsb` and `real`.
+
 # Preparation
 
 ## Partitioning and Formatting eMMC
@@ -122,6 +147,11 @@ sudo ./main <run_mode>
 ```
 
 > Note: `run_mode` includes `device`, `ycsb` and `real`.
+
+> If you want to debug a memory leak, replace the normal run command with the following: 
+> ```shell
+> sudo valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes ./main <run_mode>
+> ```
 
 # Details
 
