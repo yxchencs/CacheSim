@@ -5,20 +5,12 @@
 __pycache__
 
 workloads
-storage
 records
-trace
-trace_backup
-data_analysis
-logs
-result
 doc
-results_plot
-data
+CacheSim/storage
 
 *.o
 *.exe
-*.bin
 *.log
 *.rar
 *.zip
