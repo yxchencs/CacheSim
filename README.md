@@ -12,6 +12,8 @@ CacheSim is a tool to evaluate the performance of various classical caching algo
 - Memory: 3.6 GiB
 - Storage: SD, eMMC
 
+> Note: VMware are not recommended, code may report errors.
+
 ## Requirements
 
 - C++: 17 or later

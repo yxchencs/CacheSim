@@ -4,11 +4,12 @@
 .idea
 __pycache__
 
-workloads
-records
-doc
+workloads/
+records/
+doc/
 CacheSim/storage
-trace
+trace/
+..bfg-report/
 
 *.o
 *.exe
