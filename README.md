@@ -26,6 +26,24 @@ CacheSim is a tool to evaluate the performance of various classical caching algo
 
 Ensure that the trace data is located in the directory `CacheSim/trace` and that trace is at the same level as `src`. Create the directory `trace` if it does not exist.
 
+```shell
+cd CacheSim
+sudo rm -rf trace
+mkdir trace
+```
+
+Copy the `CacheSim/sample/125MB` folder to the `CacheSim/trace` directory if you want to test the `device` and `ycsb` modes, or copy the `CacheSim/sample/real_trace_3` folder to the trace directory if you want to test the `real` mode.
+
+```shell
+sudo cp -r sample/125MB trace
+```
+
+or
+
+```shell
+sudo cp -r sample/real_trace_3 trace
+```
+
 2. Compile
 
 Make sure you're in a linux environment. Then compile.
@@ -111,7 +129,9 @@ lsblk
 
 ### Place trace
 
-Place the `trace` file in the `CacheSim\trace` directory.
+Place the `trace` file in the `CacheSim\trace` directory. Create the directory `trace` if it does not exist.
+
+> Note: Only one set of Trace can be placed at a time。
 
 ### Run
 

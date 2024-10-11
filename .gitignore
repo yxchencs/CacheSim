@@ -8,6 +8,7 @@ workloads
 records
 doc
 CacheSim/storage
+trace
 
 *.o
 *.exe
