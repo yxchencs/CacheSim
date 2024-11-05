@@ -1,10 +1,10 @@
-# Presentation
+# 1 Presentation
 
 CacheSim is a tool to evaluate the performance of various classical caching algorithms on small edge devices. The tool implements nine caching algorithms including FIFO, LRU, LFU, 2Q, ARC, LIRS, CLOCK-Pro and TinyLFU.
 
-# Configuration
+# 2 Configuration
 
-## Environment
+## 2.1 Environment
 
 - Device: Odroid-c4
 - OS: Ubuntu 20.04.4 LTS
@@ -14,13 +14,13 @@ CacheSim is a tool to evaluate the performance of various classical caching algo
 
 > Note: VMware are not recommended, code may report errors.
 
-## Requirements
+## 2.2 Requirements
 
 - C++: 17 or later
 - Python 3.7 or later
 - Storage: Any two flash devices with performance differences
 
-# Quick Start with sample for Code Debugging on PC(Optional)
+# 3 Quick Start with sample for Code Debugging on PC(Optional)
 
 > Refer to this section if you want to debug your code on a PC and not for actual edge device cache testing. If you don't need it, then skip this section.
 
@@ -63,9 +63,9 @@ sudo ./main <run_mode>
 
 > Note: `run_mode` includes `device`, `ycsb` and `real`.
 
-# Preparation
+# 4 Preparation
 
-## Partitioning and Formatting eMMC
+## 4.1 Partitioning and Formatting eMMC
 
 > Note: eMMC here can be the better performing of the two types of flash memory.
 
@@ -97,17 +97,17 @@ w
 mkfs -t ext4 /dev/mmcblk0p1
 ```
 
-# Getting started
+# 5 Getting started
 
-## Configure per boot
+## 5.1 Configure per boot
 
-### Setting the real system time if not networked
+### 5.1.1 Setting the real system time if not networked
 
 ```shell
 sudo date -s "YYYY-YY-DD HH:mm:ss"
 ```
 
-### Mount eMMC
+### 5.1.2 Mount eMMC
 
 1. View all disks recognized by the system
 
@@ -127,15 +127,15 @@ sudo mount /dev/mmcblk0p1 /mnt/eMMC
 lsblk
 ```
 
-## Do each test
+## 5.2 Do each test
 
-### Place trace
+### 5.2.1 Place trace
 
 Place the `trace` file in the `CacheSim\trace` directory. Create the directory `trace` if it does not exist.
 
 > Note: Only one set of Trace can be placed at a time。
 
-### Run
+### 5.2.2 Run
 
 #### Terminal 1
 
@@ -170,14 +170,26 @@ sudo ./main <run_mode>
 
 > Note: `run_mode` includes `device`, `ycsb` and `real`.
 
-> If you want to debug a memory leak, replace the normal run command with the following: 
+> If you want to debug a memory leak, replace the normal run command with the following:
+>
 > ```shell
 > sudo valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes ./main <run_mode>
 > ```
+>
 
-# Details
+### 5.3 (Optional) Extending CacheSim
 
-## Caching algorithms
+In addition, CacheSim has good scalability and supports extending new caching algorithms and designing new test flows. To add a new cache algorithm implementation, follow these steps.
+
+1. Implement the new caching algorithm in the `src/cache/` folder.
+2. Inherit the base `class Sl` in the `src/simulator/` folder, call the new caching algorithm, implement the interfaces of the base `class Sl` (`isCached()`, `accessKey()` and `getVictim()`).
+3. Add the new caching algorithm to `src/utils/policy.h`.
+4. Add the new caching algorithm to the `runYcsbOnce()` and `runRealOnce()` functions in `src/utils/run.h`.
+5. (Optional) Write new own test run function in `src/utils/run.h` and call it in `src/main.cpp`.
+
+# 6 Details
+
+## 6.1 Caching algorithms
 
 The following is a list of code repositories and blogs referenced for caching algorithm implementations.
 
@@ -189,13 +201,13 @@ The following is a list of code repositories and blogs referenced for caching al
 - Clock-Pro: https://github.com/maximecaron/ClockProCPP
 - TinyLFU: https://github.com/vimpunk/tinylfu
 
-## Traces
+## 6.2 Traces
 
-### YCSB-KVTracer Traces
+### 6.2.1 YCSB-KVTracer Traces
 
 For further details, refer to: https://github.com/yxchencs/YCSB-KVTracer
 
-### Real Traces
+### 6.2.2 Real Traces
 
 1. [Nexus5_Kernel_BIOTracer_traces - Nexus 5 Smartphone Traces](http://iotta.snia.org/traces/block-io)
 
@@ -211,7 +223,7 @@ For further details, refer to: https://github.com/yxchencs/YCSB-KVTracer
    - Trace sample: baidutieba-4h.txt
    - Cite: Bo Mao, Suzhen Wu, Hong Jiang, Xiao Chen, and Weijian Yang. Content-aware Trace Collection and I/O Deduplication for Smartphones. In Proceedings of the 33rd International Conference on Massive Storage Systems and Technology (MSST'17), Santa Clara, CA, USA, May 15-19, 2017.
 
-## Statistics
+## 6.3 Statistics
 
 The main data tested in this project are as follows:
 

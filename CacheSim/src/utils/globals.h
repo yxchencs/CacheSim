@@ -6,7 +6,7 @@ typedef long long ll;
 size_t block_num;
 ll disk_size; // Unit: block_size
 ll disk_size_KB; // Unit: KB
-bool io_on; // 控制是否开启读写IO
+bool io_on; // Controls whether read/write IO is enabled
 int cache_size_index;
 int caching_policy_index;
 double cache_size_factor; // eg: 0.02
@@ -21,14 +21,14 @@ std::string storage_dir;
 std::string save_root;
 bool isAccessSingleBlock;
 
-const bool RANDOM_ON = false; // 控制是否随机写入cache，即在所有Caching-Policy外面再加上一层cache写入过滤器，注意与RANDOM算法无关
-const int RANDOM_THRESHOLD = 0;  // 随机写入cache的概率[0-1]
-/* O_DIRECT 绕过缓冲区高速缓存，直接IO，以下为使用限制：
-    0.块大小(block size)指设备的物理块大小，通常为512字节
-    1.用于传递数据的缓冲区，其内存边界必须对齐为块大小的整数倍
-    2.数据传输的开始点，即文件和设备的偏移量，必须是块大小的整数倍
-    3.待传递数据的长度必须是块大小的整数倍。
-    不遵守上述任一限制均将导致EINVAL错误
+const bool RANDOM_ON = false; // Controls whether or not randomized writes are written to cache, i.e., adds a layer of cache write filters on top of all Caching-Policy, noting that it has nothing to do with the RANDOM algorithm
+const int RANDOM_THRESHOLD = 0;  // Probability of random write to cache [0-1]
+/*  O_DIRECT bypasses the buffer cache and directs IO. The following are the usage restrictions:
+        0. block size (block size) refers to the physical block size of the device, usually 512 bytes
+        1. The buffer used to transfer data, its memory boundaries must be aligned to an integer multiple of the block size
+        2. The start point of data transfer, i.e., the offset between the file and the device, must be an integer multiple of the block size.
+        3. The length of the data to be transferred must be an integer multiple of the block size.
+    Failure to comply with any of the above restrictions will result in an EINVAL error.
 */
-const bool O_DIRECT_ON = true; // 控制是否开启O_DIRECT
+const bool O_DIRECT_ON = true; // Controls whether O_DIRECT is turned on
 #endif /*_GLOBALS_INCLUDED_*/
