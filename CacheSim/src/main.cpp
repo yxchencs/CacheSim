@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
 
     string runMode = argv[1];
 
-    if (runMode == "device" ) {
+    if (runMode == "nocache" ) {
         runNoCache();
     } else if (runMode == "ycsb") {
         runYcsb();

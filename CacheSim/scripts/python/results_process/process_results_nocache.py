@@ -39,7 +39,7 @@ def get_folder_list():
     print('done get folders')
 
 
-def process_results_for_device_test():
+def process_results_for_nocache():
     global disk_size_list
     global device_id_list
 
@@ -169,10 +169,10 @@ def process_results_for_device_test():
     print(f"data save in {excel_file}")
 
 
-def process_device_test():
+def process_nocache():
     util2.reset_path()
     get_folder_list()
-    process_results_for_device_test()
+    process_results_for_nocache()
 
 
 disk_size_list = []
@@ -180,4 +180,4 @@ device_id_list = []
 
 if __name__ == '__main__':
     util2.path_head = 'D:/projects/Caching-Policy/records/2024-07-11_00-15-30_device_2GB_ycsb_all'
-    process_device_test()
+    process_nocache()

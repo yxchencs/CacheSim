@@ -61,7 +61,7 @@ sudo g++ -g -std=c++17 -o main main.cpp
 sudo ./main <run_mode>
 ```
 
-> Note: `run_mode` includes `device`, `ycsb` and `real`.
+> Note: `run_mode` includes `nocache`, `ycsb` and `real`.
 
 # 4 Preparation
 
@@ -168,14 +168,13 @@ sudo g++ -std=c++17 -o main main.cpp
 sudo ./main <run_mode>
 ```
 
-> Note: `run_mode` includes `device`, `ycsb` and `real`.
+> Note: `run_mode` includes `nocache`, `ycsb` and `real`.
 
 > If you want to debug a memory leak, replace the normal run command with the following:
 >
 > ```shell
 > sudo valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes ./main <run_mode>
 > ```
->
 
 ### 5.3 (Optional) Extending CacheSim
 

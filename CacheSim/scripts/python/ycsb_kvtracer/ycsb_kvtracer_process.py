@@ -226,7 +226,7 @@ check_storage_exist = False
 
 save_root = "D:/Projects/Caching-Policy/Caching-Policy/trace"
 
-# device test
+# no cache test / device test
 # ycsb_root = 'D:/Projects/Caching-Policy/Caching-Policy/workloads'
 ycsb_root = 'D:/Users/Ram/Desktop'
 disk_size_list = ["2GB"]
