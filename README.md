@@ -37,13 +37,13 @@ mkdir trace
 Copy the `CacheSim/sample/125MB` folder to the `CacheSim/trace` directory if you want to test the `device` and `ycsb` modes, or copy the `CacheSim/sample/real_trace_3` folder to the trace directory if you want to test the `real` mode.
 
 ```shell
-sudo cp -r sample/125MB trace
+cp -r sample/125MB trace
 ```
 
 or
 
 ```shell
-sudo cp -r sample/real_trace_3 trace
+cp -r sample/real_trace_3 trace
 ```
 
 2. Compile
