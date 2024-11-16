@@ -641,4 +641,35 @@ void runNoCache(){
     }
 }
 
+// config: real trace, io_on, 0.1, LRU
+void runMonteCarloSimulation() {
+    makeSaveRoot();
+    // cache dir
+    cache_dir = "/mnt/eMMC/";
+    mkdir(cache_dir);
+    cout<<"cache_dir: "<<cache_dir<<endl;
+    // trace dir
+    auto trace_root_dir = "../trace/";
+    // auto trace_root_dir = "../../trace_wait/";
+    auto trace_dirs = findTracePathsReal(trace_root_dir);
+
+    for (const auto& dir : trace_dirs) {
+        trace_dir = dir;
+        trace_path = trace_dir+"/trace.txt";
+        std::cout<<"trace_path: "<<trace_path<<std::endl;
+        // storage dir
+        storage_dir = trace_dir + "/storage/";
+        copyFilesContainingCache(storage_dir, cache_dir);
+
+        io_on = 1; // io
+        cache_size_index = cache_size_types_size-1; // cache_size = 0.1
+        caching_policy_index = 3; // cache_policy = LRU
+
+        for (int i = 0; i < N; i++){
+            std::cout << i+1 << "/" << N << " epoch" << std::endl;
+            runRealOnce();
+        }
+    }
+}
+
 #endif /*_RUN_HPP_INCLUDED_*/

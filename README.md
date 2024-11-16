@@ -34,7 +34,7 @@ sudo rm -rf trace
 mkdir trace
 ```
 
-Copy the `CacheSim/sample/125MB` folder to the `CacheSim/trace` directory if you want to test the `device` and `ycsb` modes, or copy the `CacheSim/sample/real_trace_3` folder to the trace directory if you want to test the `real` mode.
+Copy the `CacheSim/sample/125MB` folder to the `CacheSim/trace` directory if you want to test the `nocache` and `ycsb` modes, or copy the `CacheSim/sample/real_trace_3` folder to the trace directory if you want to test the `real` and `montecarlo` mode.
 
 ```shell
 cp -r sample/125MB trace
@@ -61,7 +61,7 @@ sudo g++ -g -std=c++17 -o main main.cpp
 sudo ./main <run_mode>
 ```
 
-> Note: `run_mode` includes `nocache`, `ycsb` and `real`.
+> Note: `run_mode` includes `nocache`, `ycsb`, `real` and `montecarlo`.
 
 # 4 Preparation
 
@@ -168,7 +168,7 @@ sudo g++ -std=c++17 -o main main.cpp
 sudo ./main <run_mode>
 ```
 
-> Note: `run_mode` includes `nocache`, `ycsb` and `real`.
+> Note: `run_mode` includes `nocache`, `ycsb`, `real` and `montecarlo`.
 
 > If you want to debug a memory leak, replace the normal run command with the following:
 >

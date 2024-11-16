@@ -31,4 +31,5 @@ const int RANDOM_THRESHOLD = 0;  // Probability of random write to cache [0-1]
     Failure to comply with any of the above restrictions will result in an EINVAL error.
 */
 const bool O_DIRECT_ON = true; // Controls whether O_DIRECT is turned on
+const ll N = 100; // run N epochs in runMonteCarloSimulation()
 #endif /*_GLOBALS_INCLUDED_*/

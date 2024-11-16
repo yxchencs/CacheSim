@@ -17,9 +17,9 @@ int main(int argc, char* argv[]) {
     } else if (runMode == "real") {
         runReal();
     }
-    // else if (runMode == "ycsb_test") {
-    //     runYcsbIoOnCacheSize10ppRandom();
-    // }
+    else if (runMode == "montecarlo") {
+        runMonteCarloSimulation();
+    }
     else {
         cerr << "Unknown run mode: " << runMode << endl;
         return 1;
