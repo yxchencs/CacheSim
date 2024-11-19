@@ -18,6 +18,7 @@
 #include <regex>
 #include <chrono>
 #include <thread>
+#include <uuid/uuid.h>
 
 #include "../simulator/randomSl.h"
 #include "../simulator/fifoSl.h"
@@ -163,28 +164,37 @@ void copyFilesContainingCache(const fs::path& source_directory, const fs::path& 
 std::string getSubstringAfter(const std::string& original, const std::string& to_find) {
     size_t pos = original.find(to_find);
     if (pos != std::string::npos) {
-        // 返回 to_find 后面的部分
         return original.substr(pos + to_find.length());
     } else {
-        // 如果 to_find 未找到，可以返回原始字符串或空字符串
-        return original;  // 或者返回 ""
+        return original;
     }
 }
 
-string getCurrentDateTime() {
+
+std::string getCurrentDateTime() {
     auto now = std::chrono::system_clock::now();
     auto in_time_t = std::chrono::system_clock::to_time_t(now);
 
+    auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(
+        now.time_since_epoch()) % 1000;
+
     std::stringstream ss;
     ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d_%H-%M-%S");
+    ss << '.' << std::setw(3) << std::setfill('0') << milliseconds.count(); // 添加毫秒
 
     return ss.str();
 }
 
 
 void makeSaveRoot() {
+    // UUID
+    uuid_t uuid;
+    uuid_generate(uuid);
+    char uuid_str[37];
+    uuid_unparse(uuid, uuid_str);
+
     // save root
-    save_root = "../records/" + getCurrentDateTime() + '/';
+    save_root = "../records/" + getCurrentDateTime() + '_' + uuid_str + '/';
     mkdir(save_root);
     cout<<"save_root: "<<save_root<<endl;
 }
@@ -643,7 +653,6 @@ void runNoCache(){
 
 // config: real trace, io_on, 0.1, LRU
 void runMonteCarloSimulation() {
-    makeSaveRoot();
     // cache dir
     cache_dir = "/mnt/eMMC/";
     mkdir(cache_dir);
@@ -666,6 +675,7 @@ void runMonteCarloSimulation() {
         caching_policy_index = 3; // cache_policy = LRU
 
         for (int i = 0; i < N; i++){
+            makeSaveRoot();
             std::cout << i+1 << "/" << N << " epoch" << std::endl;
             runRealOnce();
         }

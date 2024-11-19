@@ -52,7 +52,7 @@ Make sure you're in a linux environment. Then compile.
 
 ```shell
 cd CacheSim/src
-sudo g++ -g -std=c++17 -o main main.cpp
+sudo g++ -g -std=c++17 -o main main.cpp -luuid
 ```
 
 2. Run
@@ -157,7 +157,7 @@ cd CacheSim/src
 2. Compile `main.cpp`
 
 ```shell
-sudo g++ -std=c++17 -o main main.cpp
+sudo g++ -std=c++17 -o main main.cpp -luuid
 ```
 
 > Note: `-std=c++17` is for CLOCK-Pro
