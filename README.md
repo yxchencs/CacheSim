@@ -19,6 +19,7 @@ CacheSim is a tool to evaluate the performance of various classical caching algo
 - C++: 17 or later
 - Python 3.7 or later
 - Storage: Any two flash devices with performance differences
+- C++ Package: uuid-dev
 
 # 3 Quick Start with sample for Code Debugging on PC(Optional)
 
@@ -137,6 +138,10 @@ Place the `trace` file in the `CacheSim\trace` directory. Create the directory `
 
 ### 5.2.2 Run
 
+#### Power Tester
+
+Start power tester.
+
 #### Terminal 1
 
 ```shell
@@ -204,7 +209,7 @@ The following is a list of code repositories and blogs referenced for caching al
 
 ### 6.2.1 YCSB-KVTracer Traces
 
-For further details, refer to: https://github.com/yxchencs/YCSB-KVTracer
+For further details, refer to: https://github.com/yxchencs/YCSB-KVTracer.
 
 ### 6.2.2 Real Traces
 

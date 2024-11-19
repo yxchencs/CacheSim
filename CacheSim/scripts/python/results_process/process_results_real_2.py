@@ -177,6 +177,7 @@ def process_results():
             'SD Write P99 Latency(ms)': list_sd_write_p99,
             'Time Begin': list_time_begin, 'Time End': list_time_end}
 
+    # print(data)
     df = pd.DataFrame(data)
     excel_file = os.path.join(util2.path_head, 'statistic.xlsx')
     df.to_excel(excel_file, index=False)
@@ -201,6 +202,18 @@ def reset_folder_list():
     cache_size_list = []
     cache_policy_list = []
 
+def reset_lists():
+    global real_trace_type_list
+    global real_trace_name_list
+    global io_list
+    global cache_size_list
+    global cache_policy_list
+
+    real_trace_type_list = []
+    real_trace_name_list = []
+    io_list = []
+    cache_size_list = []
+    cache_policy_list = []
 
 real_trace_type_list = []
 real_trace_name_list = []
@@ -208,10 +221,26 @@ io_list = []
 cache_size_list = []
 cache_policy_list = []
 
+# File tree sample:
+# <path_root>
+##  2024-11-19_16-38-54_75287d2a-9687-4b92-b143-318466949405
+###   real_trace_3
+##  2024-11-19_16-39-49_c4eda934-235b-479c-8038-d85579e69a8c
+###   real_trace_3
+##  log
 if __name__ == '__main__':
-    path_root = 'E:/projects/records'
-    folder_list = ['2024-06-01_18-59-46_real_mobi.trace.0','2024-05-25_18-56-40_real_3']
-    # for folder in folder_list:
-    #     util2.path_head = os.path.join(path_root, folder)
-    #     process_cache_test()
-    util2.merge_excel_files(path_root, folder_list)
+    util2.path_root = 'D:\document\Paper\CP/review\data/2024-11-19_20-08-03'
+    folder_list = []
+    for item in os.listdir(util2.path_root):
+        full_path = os.path.join(util2.path_root, item)
+        if os.path.isdir(full_path) and item.lower() != 'log':
+            folder_list.append(item)
+    print(folder_list)
+
+    folder_cnt = len(folder_list)
+    for index, folder in enumerate(folder_list):
+        print(f'[{index + 1}/{folder_cnt}] processing {folder}')
+        reset_lists()
+        util2.path_head = os.path.join(util2.path_root, folder)
+        process_cache_test()
+    util2.merge_excel_files(util2.path_root, folder_list)

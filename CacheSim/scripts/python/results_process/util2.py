@@ -25,30 +25,29 @@ def convert_cache_policy(x):
     return dict[x]
 
 
-# 合并所有statistic.xlsx，存放到path_head目录下
-# 输入文件头 path_head 和 存放各个statistic.xlsx的文件list folder_list
+# Merges all statistic.xlsx files and saves the result to the path_head directory
+# Input: Path_head and a list of folders containing statistic.xlsx files
 def merge_excel_files(path_dir, folder_list):
-    # 初始化空 DataFrame 用于合并数据
+    # Initialize an empty DataFrame to combine data
     combined_df = pd.DataFrame()
 
     total_cnt = len(folder_list)
     combine_cnt = 0
-    # 遍历文件夹并读取每个文件
+    # Iterate over folders and read each file
     for folder in folder_list:
         file_path = os.path.join(path_dir, folder, file_result_name)
         if os.path.exists(file_path):
             df = pd.read_excel(file_path)
-            combined_df = combined_df.append(df, ignore_index=True)
-            combine_cnt = combine_cnt + 1
-            print(f'Combine {file_path}')
+            combined_df = pd.concat([combined_df, df], ignore_index=True)  # Concatenate the new DataFrame
+            combine_cnt += 1
+            print(f'Combined {file_path}')
         else:
-            print(f'Not exist {file_path}')
+            print(f'Does not exist: {file_path}')
 
-    # 保存合并后的 DataFrame 到新文件
+    # Save the combined DataFrame to a new file
     save_dir = os.path.join(path_dir, file_result_name)
     combined_df.to_excel(save_dir, index=False)
-    print(f"Combine {combine_cnt}/{total_cnt} files successfully into", save_dir)
-
+    print(f"Successfully combined {combine_cnt}/{total_cnt} files into", save_dir)
 
 def str_to_datetime(raw_str, format):
     return datetime.strptime(raw_str, format)
@@ -221,19 +220,41 @@ def calculate_disk_read_wrtn(file_path, time_begin, time_end, delta_time=timedel
 #         return None, None, None, None
 
 
+def convert_to_hh_mm_ss(time_string):
+    if '.' in time_string:
+        time_string = time_string[:time_string.find('.') + 7]
+    dt_object = datetime.fromisoformat(time_string)
+    return dt_object.strftime("%H:%M:%S")
+
 def convert_power_from_txt_to_xlsx():
     global log_dir
     global file_power_path
-    df = pd.read_csv(os.path.join(log_dir, "Umeter.txt"), sep="\s+", header=None,
-                     names=["Time(HH:MM:SS)", "Voltage(V)", "Current(A)", "D+(V)", "D-(V)"], skiprows=1, encoding='GBK')
-    df.drop(columns=["D+(V)", "D-(V)"], inplace=True)
-    df["Power(W)"] = df["Voltage(V)"] * df["Current(A)"]
+    if POWER_FILE_TYPE == 1:
+        df = pd.read_csv(os.path.join(log_dir, "Umeter.txt"), sep="\s+", header=None,
+                         names=["Time(HH:MM:SS)", "Voltage(V)", "Current(A)", "D+(V)", "D-(V)"], skiprows=1, encoding='GBK')
+        df.drop(columns=["D+(V)", "D-(V)"], inplace=True)
+        df["Power(W)"] = df["Voltage(V)"] * df["Current(A)"]
+    elif POWER_FILE_TYPE == 2:
+        df = pd.read_csv(os.path.join(log_dir, "power.csv"))
+        # drop raw data
+        df.drop(columns=["raw voltage data(V)", "raw current data(mA)"], inplace=True)
+        # process time
+        df['time'] = df['time'].apply(convert_to_hh_mm_ss)
+        df = df.rename(columns={'time': 'Time(HH:MM:SS)'})
+        df = df.groupby('Time(HH:MM:SS)').tail(1)
+        # process current
+        df['Current(mA)'] = df['Current(mA)'] / 1000
+        df = df.rename(columns={'Current(mA)': 'Current(A)'})
+        # compute power
+        df["Power(W)"] = df["Voltage(V)"] * df["Current(A)"]
 
     df.to_excel(file_power_path, index=False)
     print(f'done convert {file_power_path}')
 
 
+
 def reset_path():
+    global path_root
     global path_head
     global log_dir
     global file_cpu_usage_path
@@ -241,7 +262,10 @@ def reset_path():
     global file_disk_path
     global file_power_path
 
-    log_dir = os.path.join(path_head, dir_log_name)
+    if not MONTE_CARLO:
+        log_dir = os.path.join(path_head, dir_log_name)
+    else:
+        log_dir = os.path.join(path_root, dir_log_name)
 
     file_cpu_usage_path = os.path.join(log_dir, file_cpu_usage_name)
     os.chmod(file_cpu_usage_path, 0o666)
@@ -254,6 +278,8 @@ def reset_path():
         file_power_path = os.path.join(log_dir, file_power_name)
         convert_power_from_txt_to_xlsx()
         os.chmod(file_power_path, 0o666)
+
+
 
     print('done reset path')
 
@@ -315,13 +341,14 @@ def reset_folder_list():
     operation_read_ratio_list = []
     block_size_list = []
 
-
+path_root = ''
 path_head = ''
 log_dir = ''
 file_cpu_usage_path = ''
 file_mem_used_path = ''
 file_disk_path = ''
 file_power_path = ''
+file_power_path_2 = ''
 
 dir_log_name = 'log'
 file_cpu_usage_name = 'cpu_usage.log'
@@ -338,3 +365,5 @@ block_size_list = []
 
 PRINT_INFO = False
 PROCESS_POWER = True  # TODO::NotCompleted
+POWER_FILE_TYPE = 2 # 1/2
+MONTE_CARLO = True
