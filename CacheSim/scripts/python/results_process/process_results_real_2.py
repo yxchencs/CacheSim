@@ -223,24 +223,28 @@ cache_policy_list = []
 
 # File tree sample:
 # <path_root>
-##  2024-11-19_16-38-54_75287d2a-9687-4b92-b143-318466949405
-###   real_trace_3
-##  2024-11-19_16-39-49_c4eda934-235b-479c-8038-d85579e69a8c
-###   real_trace_3
+##  record
+###   2024-11-19_16-38-54_75287d2a-9687-4b92-b143-318466949405
+###  2024-11-19_16-39-49_c4eda934-235b-479c-8038-d85579e69a8c
 ##  log
 if __name__ == '__main__':
-    util2.path_root = 'D:\document\Paper\CP/review\data/2024-11-19_20-08-03'
-    folder_list = []
-    for item in os.listdir(util2.path_root):
-        full_path = os.path.join(util2.path_root, item)
-        if os.path.isdir(full_path) and item.lower() != 'log':
-            folder_list.append(item)
-    print(folder_list)
+    # util2.path_root = 'D:\document\Paper\CP/review\data/2024-11-19_21-05-15'
+    # folder_list = []
+    # record_root = os.path.join(util2.path_root, "record")
+    # for item in os.listdir(record_root):
+    #     full_path = os.path.join(record_root,item)
+    #     if os.path.isdir(full_path) and item.lower() != 'log':
+    #         folder_list.append(item)
+    # print(folder_list)
+    #
+    # folder_cnt = len(folder_list)
+    # for index, folder in enumerate(folder_list):
+    #     print(f'[{index + 1}/{folder_cnt}] processing {folder}')
+    #     reset_lists()
+    #     util2.path_head = os.path.join(record_root, folder)
+    #     process_cache_test()
+    # util2.merge_excel_files(record_root, folder_list)
 
-    folder_cnt = len(folder_list)
-    for index, folder in enumerate(folder_list):
-        print(f'[{index + 1}/{folder_cnt}] processing {folder}')
-        reset_lists()
-        util2.path_head = os.path.join(util2.path_root, folder)
-        process_cache_test()
+    util2.path_root = 'D:\document\Paper\CP/review\data/'
+    folder_list = ['2024-11-19_19-09-08','2024-11-19_21-05-15/record']
     util2.merge_excel_files(util2.path_root, folder_list)
