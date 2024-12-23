@@ -249,3 +249,12 @@ The main data tested in this project are as follows:
 3. U96P-B power meter
    - Average power
    - Total Energy
+
+# 7 Citation
+If you use CacheSim in your research, please cite our SoftwareX '24 paper.
+```
+Liu, J., Chen, Y., & Ding, H. (2025). CacheSim: A cache simulation framework for evaluating caching algorithms on resource-constrained edge devices. SoftwareX, 29, 102018.
+```
+
+# 8 License
+GNU General Public License v3.0
