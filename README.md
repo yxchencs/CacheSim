@@ -251,7 +251,7 @@ The main data tested in this project are as follows:
    - Total Energy
 
 # 7 Citation
-If you use CacheSim in your research, please cite our SoftwareX '24 paper.
+If you use CacheSim in your research, please cite our SoftwareX '25 paper.
 ```
 Liu, J., Chen, Y., & Ding, H. (2025). CacheSim: A cache simulation framework for evaluating caching algorithms on resource-constrained edge devices. SoftwareX, 29, 102018.
 ```
